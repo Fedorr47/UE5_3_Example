@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <None Include="..\..\UE5_3_Example.uproject" />
+    <Filter Include="Source">
+      <UniqueIdentifier>{F31BBDD1-B3E8-3BCC-9652-680E16935819}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Source\UE5_3_Example.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <None Include="..\..\Source\UE5_3_ExampleEditor.Target.cs">
+      <Filter>Source</Filter>
+    </None>
+    <Filter Include="Config">
+      <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
+    </Filter>
+    <None Include="..\..\Config\DefaultEditor.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEditorPerProjectUserSettings.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultEngine.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultGame.ini">
+      <Filter>Config</Filter>
+    </None>
+    <None Include="..\..\Config\DefaultInput.ini">
+      <Filter>Config</Filter>
+    </None>
+    <Filter Include="Source\UE5_3_Example">
+      <UniqueIdentifier>{4F602253-6CA6-368B-8A14-1A0B947FA6BB}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\TP_PickUpComponent.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\TP_PickUpComponent.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\TP_WeaponComponent.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\TP_WeaponComponent.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+    <None Include="..\..\Source\UE5_3_Example\UE5_3_Example.Build.cs">
+      <Filter>Source\UE5_3_Example</Filter>
+    </None>
+    <ClCompile Include="..\..\Source\UE5_3_Example\UE5_3_Example.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\UE5_3_Example.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\UE5_3_ExampleCharacter.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\UE5_3_ExampleCharacter.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\UE5_3_ExampleGameMode.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\UE5_3_ExampleGameMode.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\UE5_3_ExamplePlayerController.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\UE5_3_ExamplePlayerController.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\UE5_3_ExampleProjectile.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\UE5_3_ExampleProjectile.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
