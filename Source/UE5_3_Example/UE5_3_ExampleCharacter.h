@@ -76,6 +76,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Health)
 	void TakeDamage(float InDamageAmount);
 
+	UFUNCTION(BlueprintCallable, Category = Health)
+	void Heal(float InHealAmount);
+
 protected:
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);

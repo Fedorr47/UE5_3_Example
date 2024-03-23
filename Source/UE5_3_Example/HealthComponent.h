@@ -7,6 +7,8 @@
 #include "HealthComponent.generated.h"
 
 
+class AUE5_3_ExampleGameMode;
+
 UCLASS()
 class UHealthMessage : public UMessageBase
 {
@@ -32,12 +34,22 @@ public:
 	// Sets default values for this actor's properties
 	UHealthComponent();
 
+	void SetWorld(UWorld* InWorld);
+
 	UFUNCTION()
-	void TakeDamage(float InDamageAmount, UWorld* InWorld);
+	void TakeDamage(float InDamageAmount);
+
+	void Heal(float InHealAmount);
 
 private:
 	UPROPERTY()
 	float Health = 0.0f;
+
+	UPROPERTY()
+	UWorld* mWorld = nullptr;
+
+	UPROPERTY()
+	AUE5_3_ExampleGameMode* mGameMode = nullptr;
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)

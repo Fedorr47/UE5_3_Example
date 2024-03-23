@@ -49,6 +49,10 @@ void AUE5_3_ExampleCharacter::BeginPlay()
 	if (mHealthComponent)
 	{
 		mHealthComponentImpl = NewObject<UHealthComponent>(mHealthComponent);
+		if (IsValid(mHealthComponentImpl) && IsValid(GetWorld()))
+		{
+			mHealthComponentImpl->SetWorld(GetWorld());
+		}
 	}
 
 	// Add Input Mapping Context
@@ -125,7 +129,14 @@ void AUE5_3_ExampleCharacter::TakeDamage(float InDamageAmount)
 {
 	if (IsValid(mHealthComponentImpl))
 	{
-		UWorld* world = GetWorld();
-		mHealthComponentImpl->TakeDamage(InDamageAmount, world);
+		mHealthComponentImpl->TakeDamage(InDamageAmount);
+	}
+}
+
+void AUE5_3_ExampleCharacter::Heal(float InHealAmount)
+{
+	if (IsValid(mHealthComponentImpl))
+	{
+		mHealthComponentImpl->Heal(InHealAmount);
 	}
 }

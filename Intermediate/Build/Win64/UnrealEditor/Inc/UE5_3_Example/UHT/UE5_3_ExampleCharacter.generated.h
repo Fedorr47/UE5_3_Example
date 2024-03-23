@@ -19,6 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_24_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_24_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execHeal); \
 	DECLARE_FUNCTION(execTakeDamage); \
 	DECLARE_FUNCTION(execGetHasRifle); \
 	DECLARE_FUNCTION(execSetHasRifle);

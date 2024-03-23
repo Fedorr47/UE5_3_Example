@@ -20,6 +20,14 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UHealthComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
+	DEFINE_FUNCTION(AUE5_3_ExampleCharacter::execHeal)
+	{
+		P_GET_PROPERTY(FFloatProperty,Z_Param_InHealAmount);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->Heal(Z_Param_InHealAmount);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(AUE5_3_ExampleCharacter::execTakeDamage)
 	{
 		P_GET_PROPERTY(FFloatProperty,Z_Param_InDamageAmount);
@@ -48,6 +56,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 		UClass* Class = AUE5_3_ExampleCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetHasRifle", &AUE5_3_ExampleCharacter::execGetHasRifle },
+			{ "Heal", &AUE5_3_ExampleCharacter::execHeal },
 			{ "SetHasRifle", &AUE5_3_ExampleCharacter::execSetHasRifle },
 			{ "TakeDamage", &AUE5_3_ExampleCharacter::execTakeDamage },
 		};
@@ -96,6 +105,41 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AUE5_3_ExampleCharacter_GetHasRifle_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics
+	{
+		struct UE5_3_ExampleCharacter_eventHeal_Parms
+		{
+			float InHealAmount;
+		};
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_InHealAmount;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::NewProp_InHealAmount = { "InHealAmount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UE5_3_ExampleCharacter_eventHeal_Parms, InHealAmount), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::NewProp_InHealAmount,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Health" },
+		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AUE5_3_ExampleCharacter, nullptr, "Heal", nullptr, nullptr, Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::PropPointers), sizeof(Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::UE5_3_ExampleCharacter_eventHeal_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::Function_MetaDataParams), Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::UE5_3_ExampleCharacter_eventHeal_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -240,6 +284,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_GetHasRifle, "GetHasRifle" }, // 1349835562
+		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal, "Heal" }, // 1921504239
 		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_SetHasRifle, "SetHasRifle" }, // 1265913124
 		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage, "TakeDamage" }, // 2402837791
 	};
@@ -415,9 +460,9 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AUE5_3_ExampleCharacter, AUE5_3_ExampleCharacter::StaticClass, TEXT("AUE5_3_ExampleCharacter"), &Z_Registration_Info_UClass_AUE5_3_ExampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleCharacter), 3544638153U) },
+		{ Z_Construct_UClass_AUE5_3_ExampleCharacter, AUE5_3_ExampleCharacter::StaticClass, TEXT("AUE5_3_ExampleCharacter"), &Z_Registration_Info_UClass_AUE5_3_ExampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleCharacter), 1170388897U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_1674038364(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_564665950(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

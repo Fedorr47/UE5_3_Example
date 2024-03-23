@@ -12,19 +12,44 @@ UHealthComponent::UHealthComponent()
     Health = MaxHealth;
 }
 
-void UHealthComponent::TakeDamage(float InDamageAmount, UWorld* InWorld)
+void UHealthComponent::SetWorld(UWorld* InWorld)
+{
+    if (IsValid(InWorld))
+    {
+        mWorld = InWorld;
+        mGameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
+    }
+}
+
+void UHealthComponent::TakeDamage(float InDamageAmount)
 {
     if (!FMath::IsNearlyEqual(Health, 0.0f, 0.001f))
     {
         float NewHealth = Health - InDamageAmount;
         Health = FMath::Clamp(NewHealth, 0.0f, MaxHealth);
-        if (InWorld)
+        if (mWorld)
         {
-            const auto GameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(InWorld));
+            
             UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
             MsgToSend->NewHealthPercent = Health/MaxHealth;
             MsgToSend->Type = UMessageType::HealthType;
-            GameMode->SendMessage(Cast<UMessageBase>(MsgToSend));
+            mGameMode->SendMessage(Cast<UMessageBase>(MsgToSend));
+        }
+    }
+}
+
+void UHealthComponent::Heal(float InHealAmount)
+{
+    if (!FMath::IsNearlyEqual(Health, 0.0f, 0.001f))
+    {
+        float NewHealth = Health + InHealAmount;
+        Health = FMath::Clamp(NewHealth, 0.0f, MaxHealth);
+        if (mWorld)
+        {
+            UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
+            MsgToSend->NewHealthPercent = Health / MaxHealth;
+            MsgToSend->Type = UMessageType::HealthType;
+            mGameMode->SendMessage(Cast<UMessageBase>(MsgToSend));
         }
     }
 }
