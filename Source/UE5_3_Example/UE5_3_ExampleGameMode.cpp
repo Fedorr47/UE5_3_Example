@@ -10,5 +10,15 @@ AUE5_3_ExampleGameMode::AUE5_3_ExampleGameMode()
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter"));
 	DefaultPawnClass = PlayerPawnClassFinder.Class;
+}
 
+void AUE5_3_ExampleGameMode::StartPlay()
+{
+	GeneralMessageQueue = NewObject<UMessageQueue>();
+	Super::StartPlay();	
+}
+
+void AUE5_3_ExampleGameMode::SendMessage(UMessageBase* InMsg)
+{
+	GeneralMessageQueue->Push(InMsg);
 }

@@ -9,6 +9,7 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "HealthComponent.h"
 #include "Engine/LocalPlayer.h"
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
@@ -38,13 +39,17 @@ AUE5_3_ExampleCharacter::AUE5_3_ExampleCharacter()
 	Mesh1P->CastShadow = false;
 	//Mesh1P->SetRelativeRotation(FRotator(0.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
-
 }
 
 void AUE5_3_ExampleCharacter::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
+
+	if (mHealthComponent)
+	{
+		mHealthComponentImpl = NewObject<UHealthComponent>(mHealthComponent);
+	}
 
 	// Add Input Mapping Context
 	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
@@ -111,8 +116,16 @@ void AUE5_3_ExampleCharacter::SetHasRifle(bool bNewHasRifle)
 {
 	bHasRifle = bNewHasRifle;
 }
-
 bool AUE5_3_ExampleCharacter::GetHasRifle()
 {
 	return bHasRifle;
+}
+
+void AUE5_3_ExampleCharacter::TakeDamage(float InDamageAmount)
+{
+	if (IsValid(mHealthComponentImpl))
+	{
+		UWorld* world = GetWorld();
+		mHealthComponentImpl->TakeDamage(InDamageAmount, world);
+	}
 }

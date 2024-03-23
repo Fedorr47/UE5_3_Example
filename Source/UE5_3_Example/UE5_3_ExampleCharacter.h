@@ -12,9 +12,11 @@ class USkeletalMeshComponent;
 class UCameraComponent;
 class UInputAction;
 class UInputMappingContext;
+class UHealthComponent;
 struct FInputActionValue;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
+
 
 UCLASS(config=Game)
 class AUE5_3_ExampleCharacter : public ACharacter
@@ -40,12 +42,18 @@ class AUE5_3_ExampleCharacter : public ACharacter
 	/** Move Input Action */
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category=Input, meta=(AllowPrivateAccess = "true"))
 	UInputAction* MoveAction;
-	
+
+	UPROPERTY()
+	UHealthComponent* mHealthComponentImpl;
+
 public:
 	AUE5_3_ExampleCharacter();
 
 protected:
 	virtual void BeginPlay();
+
+	UPROPERTY(EditDefaultsOnly, Category = Health)
+	TSubclassOf<UHealthComponent> mHealthComponent;
 
 public:
 		
@@ -64,6 +72,9 @@ public:
 	/** Getter for the bool */
 	UFUNCTION(BlueprintCallable, Category = Weapon)
 	bool GetHasRifle();
+
+	UFUNCTION(BlueprintCallable, Category = Health)
+	void TakeDamage(float InDamageAmount);
 
 protected:
 	/** Called for movement input */

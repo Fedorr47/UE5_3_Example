@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/GameModeBase.h"
+#include "MessageQueue.h"
 #include "UE5_3_ExampleGameMode.generated.h"
 
 UCLASS(minimalapi)
@@ -13,6 +14,13 @@ class AUE5_3_ExampleGameMode : public AGameModeBase
 
 public:
 	AUE5_3_ExampleGameMode();
+
+	UPROPERTY()
+	UMessageQueue* GeneralMessageQueue;
+
+	virtual void StartPlay();
+
+	void SendMessage(UMessageBase* InMsg);
 };
 
 
