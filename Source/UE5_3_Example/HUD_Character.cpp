@@ -56,11 +56,11 @@ void UCharacterHUDWidget::NativeOnInitialized()
 	}
 }
 
-void UCharacterHUDWidget::HealthWasChanged(UMessageBase* InMsg)
+void UCharacterHUDWidget::HealthWasChanged(UBaseMessage* InMsg)
 {
-	if (InMsg->Type == UMessageType::HealthType)
+	if (InMsg->Type == UMessageType::HealthPercent)
 	{
-		float NewHealthPercent = static_cast<UHealthMessage*>(InMsg)->NewHealthPercent;
+		float NewHealthPercent = static_cast<UHealthPercentMessage*>(InMsg)->HealthPercent;
 		mHelthBar->SetPercent(NewHealthPercent);
 	}
 }

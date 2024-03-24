@@ -14,6 +14,7 @@
     <None Include="..\..\.gitattributes" />
     <None Include="..\..\.gitignore" />
     <None Include="..\..\.vsconfig" />
+    <None Include="..\..\ToDo.txt" />
     <Filter Include="Config">
       <UniqueIdentifier>{FA535FFB-25E1-3D20-B416-52F9BE21E06E}</UniqueIdentifier>
     </Filter>
@@ -35,6 +36,24 @@
     <Filter Include="Source\UE5_3_Example">
       <UniqueIdentifier>{4F602253-6CA6-368B-8A14-1A0B947FA6BB}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\BaseComponent.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\BaseComponent.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\BaseInteractableActor.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\BaseInteractableActor.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\FloatableHealth.cpp">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\FloatableHealth.h">
+      <Filter>Source\UE5_3_Example</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\HealthComponent.cpp">
       <Filter>Source\UE5_3_Example</Filter>
     </ClCompile>

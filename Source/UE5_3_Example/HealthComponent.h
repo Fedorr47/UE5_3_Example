@@ -4,13 +4,22 @@
 
 #include "CoreMinimal.h"
 #include "MessageQueue.h"
+#include "BaseComponent.h"
 #include "HealthComponent.generated.h"
 
 
 class AUE5_3_ExampleGameMode;
 
+UENUM(BlueprintType)
+enum class UHealthMessageType : uint8
+{
+	Damage,
+	Heal,
+	MAX
+};
+
 UCLASS()
-class UHealthMessage : public UMessageBase
+class UHealthMessage : public UBaseMessage
 {
 	GENERATED_BODY()
 
@@ -18,38 +27,51 @@ public:
 
 	UHealthMessage(const FObjectInitializer& ObjectInitializer);
 
-	UHealthMessage(float InNewHealthPercent) :
-		NewHealthPercent(InNewHealthPercent)
-	{}
+	UPROPERTY()
+	float Amount = 0.0f;
 
-	float NewHealthPercent = 0.0f;
+	UPROPERTY()
+	UHealthMessageType HealthType = UHealthMessageType::MAX;
 };
 
 UCLASS()
-class UE5_3_EXAMPLE_API UHealthComponent : public UObject
+class UHealthPercentMessage : public UBaseMessage
+{
+	GENERATED_BODY()
+
+public:
+
+	UHealthPercentMessage(const FObjectInitializer& ObjectInitializer);
+
+	UPROPERTY()
+	float HealthPercent = 0.0f;
+};
+
+UCLASS()
+class UE5_3_EXAMPLE_API UHealthComponent : public UBaseComponent
 {
 	GENERATED_BODY()
 	
 public:	
-	// Sets default values for this actor's properties
-	UHealthComponent();
+	UHealthComponent(const FObjectInitializer& ObjectInitializer);
 
-	void SetWorld(UWorld* InWorld);
+	virtual void SetWorld(UWorld* InWorld) override;
 
 	UFUNCTION()
 	void TakeDamage(float InDamageAmount);
 
+	UFUNCTION()
 	void Heal(float InHealAmount);
+
+	UFUNCTION()
+	void SnedPercent();
+
+	UFUNCTION()
+	void TakeMsg(UBaseMessage* InMsg);
 
 private:
 	UPROPERTY()
 	float Health = 0.0f;
-
-	UPROPERTY()
-	UWorld* mWorld = nullptr;
-
-	UPROPERTY()
-	AUE5_3_ExampleGameMode* mGameMode = nullptr;
 
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)

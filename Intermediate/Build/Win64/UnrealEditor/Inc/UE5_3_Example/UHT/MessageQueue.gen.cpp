@@ -10,8 +10,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeMessageQueue() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UMessageBase();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UMessageBase_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseMessage();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseMessage_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UMessageQueue();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UMessageQueue_NoRegister();
 	UE5_3_EXAMPLE_API UEnum* Z_Construct_UEnum_UE5_3_Example_UMessageType();
@@ -41,10 +41,12 @@ void EmptyLinkFunctionForGeneratedCodeMessageQueue() {}
 	};
 	const UECodeGen_Private::FEnumeratorParam Z_Construct_UEnum_UE5_3_Example_UMessageType_Statics::Enumerators[] = {
 		{ "UMessageType::HealthType", (int64)UMessageType::HealthType },
+		{ "UMessageType::HealthPercent", (int64)UMessageType::HealthPercent },
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UEnum_UE5_3_Example_UMessageType_Statics::Enum_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
+		{ "HealthPercent.Name", "UMessageType::HealthPercent" },
 		{ "HealthType.Name", "UMessageType::HealthType" },
 		{ "ModuleRelativePath", "MessageQueue.h" },
 	};
@@ -69,15 +71,15 @@ void EmptyLinkFunctionForGeneratedCodeMessageQueue() {}
 		}
 		return Z_Registration_Info_UEnum_UMessageType.InnerSingleton;
 	}
-	void UMessageBase::StaticRegisterNativesUMessageBase()
+	void UBaseMessage::StaticRegisterNativesUBaseMessage()
 	{
 	}
-	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UMessageBase);
-	UClass* Z_Construct_UClass_UMessageBase_NoRegister()
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UBaseMessage);
+	UClass* Z_Construct_UClass_UBaseMessage_NoRegister()
 	{
-		return UMessageBase::StaticClass();
+		return UBaseMessage::StaticClass();
 	}
-	struct Z_Construct_UClass_UMessageBase_Statics
+	struct Z_Construct_UClass_UBaseMessage_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
 #if WITH_METADATA
@@ -92,67 +94,67 @@ void EmptyLinkFunctionForGeneratedCodeMessageQueue() {}
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
 	};
-	UObject* (*const Z_Construct_UClass_UMessageBase_Statics::DependentSingletons[])() = {
+	UObject* (*const Z_Construct_UClass_UBaseMessage_Statics::DependentSingletons[])() = {
 		(UObject* (*)())Z_Construct_UClass_UObject,
 		(UObject* (*)())Z_Construct_UPackage__Script_UE5_3_Example,
 	};
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMessageBase_Statics::DependentSingletons) < 16);
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseMessage_Statics::DependentSingletons) < 16);
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMessageBase_Statics::Class_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseMessage_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "MessageQueue.h" },
 		{ "ModuleRelativePath", "MessageQueue.h" },
 	};
 #endif
-	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UMessageBase_Statics::NewProp_Type_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UBaseMessage_Statics::NewProp_Type_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UMessageBase_Statics::NewProp_Type_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseMessage_Statics::NewProp_Type_MetaData[] = {
 		{ "ModuleRelativePath", "MessageQueue.h" },
 	};
 #endif
-	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UMessageBase_Statics::NewProp_Type = { "Type", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMessageBase, Type), Z_Construct_UEnum_UE5_3_Example_UMessageType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMessageBase_Statics::NewProp_Type_MetaData), Z_Construct_UClass_UMessageBase_Statics::NewProp_Type_MetaData) }; // 78364647
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMessageBase_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMessageBase_Statics::NewProp_Type_Underlying,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMessageBase_Statics::NewProp_Type,
+	const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UBaseMessage_Statics::NewProp_Type = { "Type", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseMessage, Type), Z_Construct_UEnum_UE5_3_Example_UMessageType, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseMessage_Statics::NewProp_Type_MetaData), Z_Construct_UClass_UBaseMessage_Statics::NewProp_Type_MetaData) }; // 3032742715
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBaseMessage_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseMessage_Statics::NewProp_Type_Underlying,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseMessage_Statics::NewProp_Type,
 	};
-	const FCppClassTypeInfoStatic Z_Construct_UClass_UMessageBase_Statics::StaticCppClassTypeInfo = {
-		TCppClassTypeTraits<UMessageBase>::IsAbstract,
+	const FCppClassTypeInfoStatic Z_Construct_UClass_UBaseMessage_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<UBaseMessage>::IsAbstract,
 	};
-	const UECodeGen_Private::FClassParams Z_Construct_UClass_UMessageBase_Statics::ClassParams = {
-		&UMessageBase::StaticClass,
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_UBaseMessage_Statics::ClassParams = {
+		&UBaseMessage::StaticClass,
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
 		nullptr,
-		Z_Construct_UClass_UMessageBase_Statics::PropPointers,
+		Z_Construct_UClass_UBaseMessage_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
 		0,
-		UE_ARRAY_COUNT(Z_Construct_UClass_UMessageBase_Statics::PropPointers),
+		UE_ARRAY_COUNT(Z_Construct_UClass_UBaseMessage_Statics::PropPointers),
 		0,
 		0x000000A0u,
-		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMessageBase_Statics::Class_MetaDataParams), Z_Construct_UClass_UMessageBase_Statics::Class_MetaDataParams)
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseMessage_Statics::Class_MetaDataParams), Z_Construct_UClass_UBaseMessage_Statics::Class_MetaDataParams)
 	};
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UMessageBase_Statics::PropPointers) < 2048);
-	UClass* Z_Construct_UClass_UMessageBase()
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseMessage_Statics::PropPointers) < 2048);
+	UClass* Z_Construct_UClass_UBaseMessage()
 	{
-		if (!Z_Registration_Info_UClass_UMessageBase.OuterSingleton)
+		if (!Z_Registration_Info_UClass_UBaseMessage.OuterSingleton)
 		{
-			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UMessageBase.OuterSingleton, Z_Construct_UClass_UMessageBase_Statics::ClassParams);
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_UBaseMessage.OuterSingleton, Z_Construct_UClass_UBaseMessage_Statics::ClassParams);
 		}
-		return Z_Registration_Info_UClass_UMessageBase.OuterSingleton;
+		return Z_Registration_Info_UClass_UBaseMessage.OuterSingleton;
 	}
-	template<> UE5_3_EXAMPLE_API UClass* StaticClass<UMessageBase>()
+	template<> UE5_3_EXAMPLE_API UClass* StaticClass<UBaseMessage>()
 	{
-		return UMessageBase::StaticClass();
+		return UBaseMessage::StaticClass();
 	}
-	UMessageBase::UMessageBase(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
-	DEFINE_VTABLE_PTR_HELPER_CTOR(UMessageBase);
-	UMessageBase::~UMessageBase() {}
+	UBaseMessage::UBaseMessage(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
+	DEFINE_VTABLE_PTR_HELPER_CTOR(UBaseMessage);
+	UBaseMessage::~UBaseMessage() {}
 	struct Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature_Statics
 	{
 		struct _Script_UE5_3_Example_eventOnMessageProcess_Parms
 		{
-			UMessageBase* Msg;
+			UBaseMessage* Msg;
 		};
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_Msg;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -161,7 +163,7 @@ void EmptyLinkFunctionForGeneratedCodeMessageQueue() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature_Statics::NewProp_Msg = { "Msg", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_UE5_3_Example_eventOnMessageProcess_Parms, Msg), Z_Construct_UClass_UMessageBase_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature_Statics::NewProp_Msg = { "Msg", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_UE5_3_Example_eventOnMessageProcess_Parms, Msg), Z_Construct_UClass_UBaseMessage_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature_Statics::NewProp_Msg,
 	};
@@ -182,11 +184,11 @@ void EmptyLinkFunctionForGeneratedCodeMessageQueue() {}
 		}
 		return ReturnFunction;
 	}
-void FOnMessageProcess_DelegateWrapper(const FMulticastScriptDelegate& OnMessageProcess, UMessageBase* Msg)
+void FOnMessageProcess_DelegateWrapper(const FMulticastScriptDelegate& OnMessageProcess, UBaseMessage* Msg)
 {
 	struct _Script_UE5_3_Example_eventOnMessageProcess_Parms
 	{
-		UMessageBase* Msg;
+		UBaseMessage* Msg;
 	};
 	_Script_UE5_3_Example_eventOnMessageProcess_Parms Parms;
 	Parms.Msg=Msg;
@@ -230,7 +232,7 @@ void FOnMessageProcess_DelegateWrapper(const FMulticastScriptDelegate& OnMessage
 		{ "ModuleRelativePath", "MessageQueue.h" },
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMessageQueue_Statics::NewProp_OnMessageProcess = { "OnMessageProcess", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMessageQueue, OnMessageProcess), Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMessageQueue_Statics::NewProp_OnMessageProcess_MetaData), Z_Construct_UClass_UMessageQueue_Statics::NewProp_OnMessageProcess_MetaData) }; // 1901826780
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UMessageQueue_Statics::NewProp_OnMessageProcess = { "OnMessageProcess", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UMessageQueue, OnMessageProcess), Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UMessageQueue_Statics::NewProp_OnMessageProcess_MetaData), Z_Construct_UClass_UMessageQueue_Statics::NewProp_OnMessageProcess_MetaData) }; // 661171069
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UMessageQueue_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UMessageQueue_Statics::NewProp_OnMessageProcess,
 	};
@@ -273,13 +275,13 @@ void FOnMessageProcess_DelegateWrapper(const FMulticastScriptDelegate& OnMessage
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_MessageQueue_h_Statics::EnumInfo[] = {
-		{ UMessageType_StaticEnum, TEXT("UMessageType"), &Z_Registration_Info_UEnum_UMessageType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 78364647U) },
+		{ UMessageType_StaticEnum, TEXT("UMessageType"), &Z_Registration_Info_UEnum_UMessageType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3032742715U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_MessageQueue_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UMessageBase, UMessageBase::StaticClass, TEXT("UMessageBase"), &Z_Registration_Info_UClass_UMessageBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMessageBase), 54034845U) },
-		{ Z_Construct_UClass_UMessageQueue, UMessageQueue::StaticClass, TEXT("UMessageQueue"), &Z_Registration_Info_UClass_UMessageQueue, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMessageQueue), 3562922929U) },
+		{ Z_Construct_UClass_UBaseMessage, UBaseMessage::StaticClass, TEXT("UBaseMessage"), &Z_Registration_Info_UClass_UBaseMessage, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseMessage), 1116934333U) },
+		{ Z_Construct_UClass_UMessageQueue, UMessageQueue::StaticClass, TEXT("UMessageQueue"), &Z_Registration_Info_UClass_UMessageQueue, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UMessageQueue), 3079079178U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_MessageQueue_h_157762391(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_MessageQueue_h_574330194(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_MessageQueue_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_MessageQueue_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_MessageQueue_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_MessageQueue_h_Statics::EnumInfo));

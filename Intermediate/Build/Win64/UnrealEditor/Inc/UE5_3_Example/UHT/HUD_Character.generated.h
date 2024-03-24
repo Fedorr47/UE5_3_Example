@@ -9,7 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UMessageBase;
+class UBaseMessage;
 #ifdef UE5_3_EXAMPLE_HUD_Character_generated_h
 #error "HUD_Character.generated.h already included, missing '#pragma once' in HUD_Character.h"
 #endif

@@ -1,24 +1,16 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
-
 #include "HealthComponent.h"
-#include "UE5_3_ExampleGameMode.h"
-#include "Kismet/GameplayStatics.h"
 #include "Math/UnrealMathUtility.h"
 
-// Sets default values
-UHealthComponent::UHealthComponent()
+UHealthComponent::UHealthComponent(const FObjectInitializer& ObjectInitializer) :
+    Super(ObjectInitializer)
 {
     Health = MaxHealth;
 }
 
 void UHealthComponent::SetWorld(UWorld* InWorld)
 {
-    if (IsValid(InWorld))
-    {
-        mWorld = InWorld;
-        mGameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
-    }
+    Super::SetWorld(InWorld);
+    GetComponentGameMode()->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UHealthComponent::TakeMsg);
 }
 
 void UHealthComponent::TakeDamage(float InDamageAmount)
@@ -27,13 +19,9 @@ void UHealthComponent::TakeDamage(float InDamageAmount)
     {
         float NewHealth = Health - InDamageAmount;
         Health = FMath::Clamp(NewHealth, 0.0f, MaxHealth);
-        if (mWorld)
+        if (GetComponentWorld())
         {
-            
-            UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
-            MsgToSend->NewHealthPercent = Health/MaxHealth;
-            MsgToSend->Type = UMessageType::HealthType;
-            mGameMode->SendMessage(Cast<UMessageBase>(MsgToSend));
+            SnedPercent();
         }
     }
 }
@@ -44,17 +32,47 @@ void UHealthComponent::Heal(float InHealAmount)
     {
         float NewHealth = Health + InHealAmount;
         Health = FMath::Clamp(NewHealth, 0.0f, MaxHealth);
-        if (mWorld)
+        if (GetComponentWorld())
         {
-            UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
-            MsgToSend->NewHealthPercent = Health / MaxHealth;
-            MsgToSend->Type = UMessageType::HealthType;
-            mGameMode->SendMessage(Cast<UMessageBase>(MsgToSend));
+            SnedPercent();
         }
     }
 }
 
+void UHealthComponent::SnedPercent()
+{
+    UHealthPercentMessage* MsgToSend = NewObject<UHealthPercentMessage>();
+    MsgToSend->HealthPercent = Health / MaxHealth;
+    MsgToSend->Type = UMessageType::HealthPercent;
+    GetComponentGameMode()->SendMessage(Cast<UBaseMessage>(MsgToSend));
+}
+
+void UHealthComponent::TakeMsg(UBaseMessage* InMsg)
+{
+    if (InMsg->Type == UMessageType::HealthType)
+    {
+        auto HealthMessage = static_cast<UHealthMessage*>(InMsg);
+        switch (HealthMessage->HealthType)
+        {
+        case UHealthMessageType::Damage:
+            TakeDamage(HealthMessage->Amount);
+            break;
+        case UHealthMessageType::Heal:
+            Heal(HealthMessage->Amount);
+            break;
+        default:
+            break;
+        }
+       
+    }
+}
+
 UHealthMessage::UHealthMessage(const FObjectInitializer& ObjectInitializer) :
+    Super(ObjectInitializer)
+{
+}
+
+UHealthPercentMessage::UHealthPercentMessage(const FObjectInitializer& ObjectInitializer) :
     Super(ObjectInitializer)
 {
 }

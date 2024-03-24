@@ -20,7 +20,7 @@ public:
 
 	virtual void StartPlay();
 
-	void SendMessage(UMessageBase* InMsg);
+	void SendMessage(UBaseMessage* InMsg);
 };
 
 

@@ -17,14 +17,14 @@ TStatId UMessageQueue::GetStatId() const
 	return TStatId();
 }
 
-void UMessageQueue::Push(UMessageBase* InMsg)
+void UMessageQueue::Push(UBaseMessage* InMsg)
 {
 	mMessages.Enqueue(InMsg);
 }
 
 void UMessageQueue::Tick(float DeltaTime)
 {
-	if (UMessageBase** Msg = mMessages.Peek())
+	if (UBaseMessage** Msg = mMessages.Peek())
 	{
 		if (*Msg)
 		{

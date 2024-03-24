@@ -1,0 +1,179 @@
+// Copyright Epic Games, Inc. All Rights Reserved.
+/*===========================================================================
+	Generated code exported from UnrealHeaderTool.
+	DO NOT modify this manually! Edit the corresponding .h files instead!
+===========================================================================*/
+
+#include "UObject/GeneratedCppIncludes.h"
+#include "UE5_3_Example/BaseInteractableActor.h"
+PRAGMA_DISABLE_DEPRECATION_WARNINGS
+void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
+// Cross Module References
+	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ABaseInteractableActor();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ABaseInteractableActor_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseComponent_NoRegister();
+	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
+	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
+// End Cross Module References
+	void ABaseInteractableActor::StaticRegisterNativesABaseInteractableActor()
+	{
+	}
+	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ABaseInteractableActor);
+	UClass* Z_Construct_UClass_ABaseInteractableActor_NoRegister()
+	{
+		return ABaseInteractableActor::StaticClass();
+	}
+	struct Z_Construct_UClass_ABaseInteractableActor_Statics
+	{
+		static UObject* (*const DependentSingletons[])();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FClassPropertyParams NewProp_AllUIWidgets_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AllUIWidgets_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_AllUIWidgets;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mWorld_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mWorld;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mGameMode_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mGameMode;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CreatedComponents_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CreatedComponents_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_CreatedComponents;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mCreatedWidgets_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mCreatedWidgets_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_mCreatedWidgets;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_AttachedComponents_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachedComponents_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_AttachedComponents;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
+		static const UECodeGen_Private::FClassParams ClassParams;
+	};
+	UObject* (*const Z_Construct_UClass_ABaseInteractableActor_Statics::DependentSingletons[])() = {
+		(UObject* (*)())Z_Construct_UClass_AActor,
+		(UObject* (*)())Z_Construct_UPackage__Script_UE5_3_Example,
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::DependentSingletons) < 16);
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABaseInteractableActor_Statics::Class_MetaDataParams[] = {
+		{ "IncludePath", "BaseInteractableActor.h" },
+		{ "ModuleRelativePath", "BaseInteractableActor.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
+	};
+#endif
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AllUIWidgets_Inner = { "AllUIWidgets", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UClass, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AllUIWidgets_MetaData[] = {
+		{ "Category", "BaseInteractableActor" },
+		{ "ModuleRelativePath", "BaseInteractableActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AllUIWidgets = { "AllUIWidgets", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseInteractableActor, AllUIWidgets), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AllUIWidgets_MetaData), Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AllUIWidgets_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mWorld_MetaData[] = {
+		{ "ModuleRelativePath", "BaseInteractableActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mWorld = { "mWorld", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseInteractableActor, mWorld), Z_Construct_UClass_UWorld_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mWorld_MetaData), Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mWorld_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mGameMode_MetaData[] = {
+		{ "ModuleRelativePath", "BaseInteractableActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mGameMode = { "mGameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseInteractableActor, mGameMode), Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mGameMode_MetaData), Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mGameMode_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_CreatedComponents_Inner = { "CreatedComponents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UBaseComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_CreatedComponents_MetaData[] = {
+		{ "ModuleRelativePath", "BaseInteractableActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_CreatedComponents = { "CreatedComponents", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseInteractableActor, CreatedComponents), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_CreatedComponents_MetaData), Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_CreatedComponents_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mCreatedWidgets_Inner = { "mCreatedWidgets", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UUserWidget_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mCreatedWidgets_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "BaseInteractableActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mCreatedWidgets = { "mCreatedWidgets", nullptr, (EPropertyFlags)0x0040008000000008, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseInteractableActor, mCreatedWidgets), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mCreatedWidgets_MetaData), Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mCreatedWidgets_MetaData) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents_Inner = { "AttachedComponents", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UClass, Z_Construct_UClass_UBaseComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents_MetaData[] = {
+		{ "Category", "Health" },
+		{ "ModuleRelativePath", "BaseInteractableActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents = { "AttachedComponents", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseInteractableActor, AttachedComponents), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents_MetaData), Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ABaseInteractableActor_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AllUIWidgets_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AllUIWidgets,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mWorld,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mGameMode,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_CreatedComponents_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_CreatedComponents,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mCreatedWidgets_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_mCreatedWidgets,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents,
+	};
+	const FCppClassTypeInfoStatic Z_Construct_UClass_ABaseInteractableActor_Statics::StaticCppClassTypeInfo = {
+		TCppClassTypeTraits<ABaseInteractableActor>::IsAbstract,
+	};
+	const UECodeGen_Private::FClassParams Z_Construct_UClass_ABaseInteractableActor_Statics::ClassParams = {
+		&ABaseInteractableActor::StaticClass,
+		"Engine",
+		&StaticCppClassTypeInfo,
+		DependentSingletons,
+		nullptr,
+		Z_Construct_UClass_ABaseInteractableActor_Statics::PropPointers,
+		nullptr,
+		UE_ARRAY_COUNT(DependentSingletons),
+		0,
+		UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::PropPointers),
+		0,
+		0x009000A4u,
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::Class_MetaDataParams), Z_Construct_UClass_ABaseInteractableActor_Statics::Class_MetaDataParams)
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::PropPointers) < 2048);
+	UClass* Z_Construct_UClass_ABaseInteractableActor()
+	{
+		if (!Z_Registration_Info_UClass_ABaseInteractableActor.OuterSingleton)
+		{
+			UECodeGen_Private::ConstructUClass(Z_Registration_Info_UClass_ABaseInteractableActor.OuterSingleton, Z_Construct_UClass_ABaseInteractableActor_Statics::ClassParams);
+		}
+		return Z_Registration_Info_UClass_ABaseInteractableActor.OuterSingleton;
+	}
+	template<> UE5_3_EXAMPLE_API UClass* StaticClass<ABaseInteractableActor>()
+	{
+		return ABaseInteractableActor::StaticClass();
+	}
+	DEFINE_VTABLE_PTR_HELPER_CTOR(ABaseInteractableActor);
+	ABaseInteractableActor::~ABaseInteractableActor() {}
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseInteractableActor_h_Statics
+	{
+		static const FClassRegisterCompiledInInfo ClassInfo[];
+	};
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseInteractableActor_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ABaseInteractableActor, ABaseInteractableActor::StaticClass, TEXT("ABaseInteractableActor"), &Z_Registration_Info_UClass_ABaseInteractableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseInteractableActor), 2018687438U) },
+	};
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseInteractableActor_h_2704156613(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseInteractableActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseInteractableActor_h_Statics::ClassInfo),
+		nullptr, 0,
+		nullptr, 0);
+PRAGMA_ENABLE_DEPRECATION_WARNINGS

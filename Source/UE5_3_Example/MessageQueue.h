@@ -6,11 +6,12 @@
 UENUM(BlueprintType)
 enum class UMessageType : uint8
 {
-	HealthType
+	HealthType,
+	HealthPercent
 };
 
 UCLASS()
-class UMessageBase : public UObject
+class UBaseMessage : public UObject
 {
 	GENERATED_BODY()
 
@@ -19,21 +20,21 @@ public:
 	UMessageType Type;
 };
 
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMessageProcess, UMessageBase*, Msg);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMessageProcess, UBaseMessage*, Msg);
 
 UCLASS()
 class UMessageQueue : public UObject, public FTickableGameObject
 {
 	GENERATED_BODY()
 
-	TQueue<UMessageBase*> mMessages;
+	TQueue<UBaseMessage*> mMessages;
 public:
 	UMessageQueue();
 	virtual void Tick(float DeltaTime) override;
 	virtual bool IsTickable() const override;
 	virtual TStatId GetStatId() const override;
 
-	void Push(UMessageBase* InMsg);
+	void Push(UBaseMessage* InMsg);
 
 	UPROPERTY(BlueprintAssignable)
 	FOnMessageProcess OnMessageProcess;

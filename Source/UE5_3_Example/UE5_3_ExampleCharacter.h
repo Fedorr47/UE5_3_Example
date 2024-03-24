@@ -12,8 +12,10 @@ class USkeletalMeshComponent;
 class UCameraComponent;
 class UInputAction;
 class UInputMappingContext;
+class UBaseComponent;
 class UHealthComponent;
 struct FInputActionValue;
+class AUE5_3_ExampleGameMode;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -44,7 +46,13 @@ class AUE5_3_ExampleCharacter : public ACharacter
 	UInputAction* MoveAction;
 
 	UPROPERTY()
-	UHealthComponent* mHealthComponentImpl;
+	TArray<UBaseComponent*> CreatedComponents;
+
+	UPROPERTY()
+	UWorld* mWorld = nullptr;
+
+	UPROPERTY()
+	AUE5_3_ExampleGameMode* mGameMode = nullptr;
 
 public:
 	AUE5_3_ExampleCharacter();
@@ -53,7 +61,7 @@ protected:
 	virtual void BeginPlay();
 
 	UPROPERTY(EditDefaultsOnly, Category = Health)
-	TSubclassOf<UHealthComponent> mHealthComponent;
+	TArray<TSubclassOf<UBaseComponent>> AttachedComponents;
 
 public:
 		

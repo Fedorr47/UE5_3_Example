@@ -23,7 +23,7 @@ protected:
 	UProgressBar* mHelthBar;
 
 	UFUNCTION()
-	void HealthWasChanged(UMessageBase* InMsg);
+	void HealthWasChanged(UBaseMessage* InMsg);
 };
 
 UCLASS()

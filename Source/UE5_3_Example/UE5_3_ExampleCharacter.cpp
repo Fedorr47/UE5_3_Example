@@ -10,7 +10,9 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "HealthComponent.h"
+#include "BaseComponent.h"
 #include "Engine/LocalPlayer.h"
+#include <Kismet/GameplayStatics.h>
 
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
@@ -46,12 +48,18 @@ void AUE5_3_ExampleCharacter::BeginPlay()
 	// Call the base class  
 	Super::BeginPlay();
 
-	if (mHealthComponent)
+	if (UWorld* lWorld = GetWorld())
 	{
-		mHealthComponentImpl = NewObject<UHealthComponent>(mHealthComponent);
-		if (IsValid(mHealthComponentImpl) && IsValid(GetWorld()))
+		mWorld = lWorld;
+		mGameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
+		for (TSubclassOf<UBaseComponent> Component : AttachedComponents)
 		{
-			mHealthComponentImpl->SetWorld(GetWorld());
+			UBaseComponent* CreatedComponent = Cast<UBaseComponent>(Component->GetDefaultObject());
+			if (IsValid(CreatedComponent))
+			{
+				CreatedComponent->SetWorld(mWorld);
+				CreatedComponents.Emplace(CreatedComponent);
+			}
 		}
 	}
 
@@ -127,16 +135,18 @@ bool AUE5_3_ExampleCharacter::GetHasRifle()
 
 void AUE5_3_ExampleCharacter::TakeDamage(float InDamageAmount)
 {
-	if (IsValid(mHealthComponentImpl))
-	{
-		mHealthComponentImpl->TakeDamage(InDamageAmount);
-	}
+	UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
+	MsgToSend->Type = UMessageType::HealthType;
+	MsgToSend->HealthType = UHealthMessageType::Damage;
+	MsgToSend->Amount = InDamageAmount;
+	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
 }
 
 void AUE5_3_ExampleCharacter::Heal(float InHealAmount)
 {
-	if (IsValid(mHealthComponentImpl))
-	{
-		mHealthComponentImpl->Heal(InHealAmount);
-	}
+	UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
+	MsgToSend->Type = UMessageType::HealthType;
+	MsgToSend->HealthType = UHealthMessageType::Heal;
+	MsgToSend->Amount = InHealAmount;
+	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
 }

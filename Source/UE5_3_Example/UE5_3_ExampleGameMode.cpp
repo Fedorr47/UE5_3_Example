@@ -18,7 +18,7 @@ void AUE5_3_ExampleGameMode::StartPlay()
 	Super::StartPlay();	
 }
 
-void AUE5_3_ExampleGameMode::SendMessage(UMessageBase* InMsg)
+void AUE5_3_ExampleGameMode::SendMessage(UBaseMessage* InMsg)
 {
 	GeneralMessageQueue->Push(InMsg);
 }

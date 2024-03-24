@@ -13,11 +13,13 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter();
 	ENGINE_API UClass* Z_Construct_UClass_UCameraComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USkeletalMeshComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleCharacter();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleCharacter_NoRegister();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UHealthComponent_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
 	DEFINE_FUNCTION(AUE5_3_ExampleCharacter::execHeal)
@@ -256,14 +258,24 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MoveAction_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_MoveAction;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CreatedComponents_Inner;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_mHealthComponentImpl_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CreatedComponents_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_mHealthComponentImpl;
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_CreatedComponents;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_mHealthComponent_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mWorld_MetaData[];
 #endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_mHealthComponent;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mWorld;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mGameMode_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mGameMode;
+		static const UECodeGen_Private::FClassPropertyParams NewProp_AttachedComponents_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachedComponents_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_AttachedComponents;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_LookAction_MetaData[];
 #endif
@@ -367,19 +379,33 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_MoveAction = { "MoveAction", nullptr, (EPropertyFlags)0x0040000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, MoveAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_MoveAction_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_MoveAction_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_Inner = { "CreatedComponents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UBaseComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponentImpl_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_MetaData[] = {
 		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponentImpl = { "mHealthComponentImpl", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, mHealthComponentImpl), Z_Construct_UClass_UHealthComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponentImpl_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponentImpl_MetaData) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents = { "CreatedComponents", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, CreatedComponents), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponent_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld_MetaData[] = {
+		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld = { "mWorld", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, mWorld), Z_Construct_UClass_UWorld_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode_MetaData[] = {
+		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode = { "mGameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, mGameMode), Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode_MetaData) };
+	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents_Inner = { "AttachedComponents", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UClass, Z_Construct_UClass_UBaseComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents_MetaData[] = {
 		{ "Category", "Health" },
 		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
 	};
 #endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponent = { "mHealthComponent", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, mHealthComponent), Z_Construct_UClass_UClass, Z_Construct_UClass_UHealthComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponent_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponent_MetaData) };
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents = { "AttachedComponents", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, AttachedComponents), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_LookAction_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -417,8 +443,12 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_DefaultMappingContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_JumpAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_MoveAction,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponentImpl,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mHealthComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_LookAction,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_bHasRifle,
 	};
@@ -460,9 +490,9 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AUE5_3_ExampleCharacter, AUE5_3_ExampleCharacter::StaticClass, TEXT("AUE5_3_ExampleCharacter"), &Z_Registration_Info_UClass_AUE5_3_ExampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleCharacter), 1170388897U) },
+		{ Z_Construct_UClass_AUE5_3_ExampleCharacter, AUE5_3_ExampleCharacter::StaticClass, TEXT("AUE5_3_ExampleCharacter"), &Z_Registration_Info_UClass_AUE5_3_ExampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleCharacter), 1747200365U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_564665950(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_4287091905(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
