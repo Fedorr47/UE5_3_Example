@@ -16,10 +16,14 @@ ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectI
 		RootComponent = ObjectInitializer.CreateDefaultSubobject<USceneComponent>(this, TEXT("Root"));
 	}
 
+	StatMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "Mesh");
+	StatMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+
 	//for (int i = 0; i < AllUIWidgets.Num(); ++i)
 	//{
-		UWidgetComponent* WidgetComp = ObjectInitializer.CreateDefaultSubobject<UWidgetComponent>(this, "Health");
-		mCreatedWidgetComponents.Emplace(WidgetComp);
+	//UWidgetComponent* WidgetComp = ObjectInitializer.CreateDefaultSubobject<UWidgetComponent>(this, "Health");
+	//WidgetComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	//mCreatedWidgetComponents.Emplace(WidgetComp);
 	//}
 }
 
@@ -47,12 +51,25 @@ void ABaseInteractableActor::BeginPlay()
 
 	for (int i = 0; i < AllUIWidgets.Num(); ++i)
 	{
-		auto WidgetComp = mCreatedWidgetComponents[i];
-		WidgetComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-		WidgetComp->SetWidgetClass(AllUIWidgets[i]);
-		WidgetComp->InitWidget();
-		WidgetComp->UpdateWidget();	
+		UWidgetComponent* WidgetComp = NewObject<UWidgetComponent>(this, AllUIWidgets[i]->GetFName());
+
+		if (IsValid(WidgetComp))
+		{
+			WidgetComp->RegisterComponent();
+			WidgetComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+
+			WidgetComp->SetWidgetClass(AllUIWidgets[i]);
+			//WidgetComp->InitWidget();
+			//WidgetComp->UpdateWidget();	
+			WidgetComp->SetupAttachment(RootComponent);
+			WidgetComp->SetVisibility(true);
+			WidgetComp->SetWidgetSpace(EWidgetSpace::World);	
+		}
+
+		mCreatedWidgetComponents.Emplace(WidgetComp);
 	}
+
+	StatMesh->SetSimulatePhysics(true);
 }
 
 // Called every frame

@@ -60,7 +60,7 @@ public:
 protected:
 	virtual void BeginPlay();
 
-	UPROPERTY(EditDefaultsOnly, Category = Health)
+	UPROPERTY(EditDefaultsOnly, Category = Components)
 	TArray<TSubclassOf<UBaseComponent>> AttachedComponents;
 
 	UPROPERTY()

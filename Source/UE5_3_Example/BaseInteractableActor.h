@@ -42,10 +42,13 @@ private:
 	UPROPERTY()
 	TArray <UWidgetComponent*> mCreatedWidgetComponents;
 
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UStaticMeshComponent* StatMesh;
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditDefaultsOnly, Category = Health)
+	UPROPERTY(EditDefaultsOnly, Category = Components)
 	TArray<TSubclassOf<UBaseComponent>> AttachedComponents;
 };
