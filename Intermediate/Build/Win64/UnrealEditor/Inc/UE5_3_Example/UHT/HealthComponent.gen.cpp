@@ -250,11 +250,11 @@ void EmptyLinkFunctionForGeneratedCodeHealthComponent() {}
 		P_THIS->TakeMsg(Z_Param_InMsg);
 		P_NATIVE_END;
 	}
-	DEFINE_FUNCTION(UHealthComponent::execSnedPercent)
+	DEFINE_FUNCTION(UHealthComponent::execSendPercent)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->SnedPercent();
+		P_THIS->SendPercent();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(UHealthComponent::execHeal)
@@ -278,7 +278,7 @@ void EmptyLinkFunctionForGeneratedCodeHealthComponent() {}
 		UClass* Class = UHealthComponent::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "Heal", &UHealthComponent::execHeal },
-			{ "SnedPercent", &UHealthComponent::execSnedPercent },
+			{ "SendPercent", &UHealthComponent::execSendPercent },
 			{ "TakeDamage", &UHealthComponent::execTakeDamage },
 			{ "TakeMsg", &UHealthComponent::execTakeMsg },
 		};
@@ -318,7 +318,7 @@ void EmptyLinkFunctionForGeneratedCodeHealthComponent() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_UHealthComponent_SnedPercent_Statics
+	struct Z_Construct_UFunction_UHealthComponent_SendPercent_Statics
 	{
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
@@ -326,17 +326,17 @@ void EmptyLinkFunctionForGeneratedCodeHealthComponent() {}
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UHealthComponent_SnedPercent_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UHealthComponent_SendPercent_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "HealthComponent.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UHealthComponent_SnedPercent_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UHealthComponent, nullptr, "SnedPercent", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UHealthComponent_SnedPercent_Statics::Function_MetaDataParams), Z_Construct_UFunction_UHealthComponent_SnedPercent_Statics::Function_MetaDataParams) };
-	UFunction* Z_Construct_UFunction_UHealthComponent_SnedPercent()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UHealthComponent_SendPercent_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UHealthComponent, nullptr, "SendPercent", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UHealthComponent_SendPercent_Statics::Function_MetaDataParams), Z_Construct_UFunction_UHealthComponent_SendPercent_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UHealthComponent_SendPercent()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UHealthComponent_SnedPercent_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UHealthComponent_SendPercent_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -439,7 +439,7 @@ void EmptyLinkFunctionForGeneratedCodeHealthComponent() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UHealthComponent_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UHealthComponent_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_UHealthComponent_Heal, "Heal" }, // 3158337347
-		{ &Z_Construct_UFunction_UHealthComponent_SnedPercent, "SnedPercent" }, // 2704800748
+		{ &Z_Construct_UFunction_UHealthComponent_SendPercent, "SendPercent" }, // 2600943190
 		{ &Z_Construct_UFunction_UHealthComponent_TakeDamage, "TakeDamage" }, // 1787437033
 		{ &Z_Construct_UFunction_UHealthComponent_TakeMsg, "TakeMsg" }, // 4041306423
 	};
@@ -510,11 +510,11 @@ void EmptyLinkFunctionForGeneratedCodeHealthComponent() {}
 		{ UHealthMessageType_StaticEnum, TEXT("UHealthMessageType"), &Z_Registration_Info_UEnum_UHealthMessageType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3653730639U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UHealthMessage, UHealthMessage::StaticClass, TEXT("UHealthMessage"), &Z_Registration_Info_UClass_UHealthMessage, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthMessage), 3043192640U) },
-		{ Z_Construct_UClass_UHealthPercentMessage, UHealthPercentMessage::StaticClass, TEXT("UHealthPercentMessage"), &Z_Registration_Info_UClass_UHealthPercentMessage, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthPercentMessage), 1210250644U) },
-		{ Z_Construct_UClass_UHealthComponent, UHealthComponent::StaticClass, TEXT("UHealthComponent"), &Z_Registration_Info_UClass_UHealthComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthComponent), 1605053025U) },
+		{ Z_Construct_UClass_UHealthMessage, UHealthMessage::StaticClass, TEXT("UHealthMessage"), &Z_Registration_Info_UClass_UHealthMessage, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthMessage), 363040023U) },
+		{ Z_Construct_UClass_UHealthPercentMessage, UHealthPercentMessage::StaticClass, TEXT("UHealthPercentMessage"), &Z_Registration_Info_UClass_UHealthPercentMessage, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthPercentMessage), 86844259U) },
+		{ Z_Construct_UClass_UHealthComponent, UHealthComponent::StaticClass, TEXT("UHealthComponent"), &Z_Registration_Info_UClass_UHealthComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthComponent), 3146147843U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_2710282449(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_1170574902(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::EnumInfo));

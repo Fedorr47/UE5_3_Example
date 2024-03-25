@@ -55,7 +55,9 @@ class UE5_3_EXAMPLE_API UHealthComponent : public UBaseComponent
 public:	
 	UHealthComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual void SetWorld(UWorld* InWorld) override;
+	virtual UBaseComponent* RetNewComponent();
+
+	virtual void InitComponent(UWorld* InWorld, uint32 InOwnerId) override;
 
 	UFUNCTION()
 	void TakeDamage(float InDamageAmount);
@@ -64,7 +66,7 @@ public:
 	void Heal(float InHealAmount);
 
 	UFUNCTION()
-	void SnedPercent();
+	void SendPercent();
 
 	UFUNCTION()
 	void TakeMsg(UBaseMessage* InMsg);

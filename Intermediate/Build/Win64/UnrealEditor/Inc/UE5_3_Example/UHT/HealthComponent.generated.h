@@ -107,7 +107,7 @@ template<> UE5_3_EXAMPLE_API UClass* StaticClass<class UHealthPercentMessage>();
 #define FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_53_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execTakeMsg); \
-	DECLARE_FUNCTION(execSnedPercent); \
+	DECLARE_FUNCTION(execSendPercent); \
 	DECLARE_FUNCTION(execHeal); \
 	DECLARE_FUNCTION(execTakeDamage);
 

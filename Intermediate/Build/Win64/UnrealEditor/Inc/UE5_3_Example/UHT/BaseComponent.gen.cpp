@@ -38,6 +38,10 @@ void EmptyLinkFunctionForGeneratedCodeBaseComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_mGameMode_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_mGameMode;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mOwnerId_MetaData[];
+#endif
+		static const UECodeGen_Private::FUInt32PropertyParams NewProp_mOwnerId;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -59,16 +63,23 @@ void EmptyLinkFunctionForGeneratedCodeBaseComponent() {}
 		{ "ModuleRelativePath", "BaseComponent.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseComponent_Statics::NewProp_mWorld = { "mWorld", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseComponent, mWorld), Z_Construct_UClass_UWorld_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseComponent_Statics::NewProp_mWorld_MetaData), Z_Construct_UClass_UBaseComponent_Statics::NewProp_mWorld_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseComponent_Statics::NewProp_mWorld = { "mWorld", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseComponent, mWorld), Z_Construct_UClass_UWorld_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseComponent_Statics::NewProp_mWorld_MetaData), Z_Construct_UClass_UBaseComponent_Statics::NewProp_mWorld_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode_MetaData[] = {
 		{ "ModuleRelativePath", "BaseComponent.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode = { "mGameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseComponent, mGameMode), Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode_MetaData), Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode = { "mGameMode", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseComponent, mGameMode), Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode_MetaData), Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerId_MetaData[] = {
+		{ "ModuleRelativePath", "BaseComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FUInt32PropertyParams Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerId = { "mOwnerId", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::UInt32, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseComponent, mOwnerId), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerId_MetaData), Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerId_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBaseComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseComponent_Statics::NewProp_mWorld,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerId,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UBaseComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UBaseComponent>::IsAbstract,
@@ -108,9 +119,9 @@ void EmptyLinkFunctionForGeneratedCodeBaseComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBaseComponent, UBaseComponent::StaticClass, TEXT("UBaseComponent"), &Z_Registration_Info_UClass_UBaseComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseComponent), 628656325U) },
+		{ Z_Construct_UClass_UBaseComponent, UBaseComponent::StaticClass, TEXT("UBaseComponent"), &Z_Registration_Info_UClass_UBaseComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseComponent), 1218510536U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_3068298780(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_1974323710(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

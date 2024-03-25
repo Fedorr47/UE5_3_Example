@@ -25,6 +25,9 @@ protected:
 	UPROPERTY(EditAnywhere)
 	TArray<TSubclassOf<UUserWidget>> AllUIWidgets;
 
+	UPROPERTY(EditAnywhere)
+	uint32 mOwnerId;
+
 private:
 
 	UPROPERTY()
@@ -37,7 +40,7 @@ private:
 	TArray<UBaseComponent*> CreatedComponents;
 
 	UPROPERTY()
-	TArray <UUserWidget*> mCreatedWidgets;
+	TArray <UWidgetComponent*> mCreatedWidgetComponents;
 
 public:	
 	// Called every frame

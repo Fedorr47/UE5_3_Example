@@ -18,6 +18,9 @@ class UBaseMessage : public UObject
 public:
 	UPROPERTY()
 	UMessageType Type;
+
+	UPROPERTY()
+	int32 OwnerId;
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMessageProcess, UBaseMessage*, Msg);

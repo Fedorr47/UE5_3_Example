@@ -14,6 +14,8 @@
 #include "Engine/LocalPlayer.h"
 #include <Kismet/GameplayStatics.h>
 
+#define CLASS_NAME(CLASS) {#CLASS}
+
 DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 
 //////////////////////////////////////////////////////////////////////////
@@ -47,6 +49,7 @@ void AUE5_3_ExampleCharacter::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
+	mOwnerId = this->GetUniqueID();
 
 	if (UWorld* lWorld = GetWorld())
 	{
@@ -55,9 +58,10 @@ void AUE5_3_ExampleCharacter::BeginPlay()
 		for (TSubclassOf<UBaseComponent> Component : AttachedComponents)
 		{
 			UBaseComponent* CreatedComponent = Cast<UBaseComponent>(Component->GetDefaultObject());
+			CreatedComponent = CreatedComponent->RetNewComponent();
 			if (IsValid(CreatedComponent))
 			{
-				CreatedComponent->SetWorld(mWorld);
+				CreatedComponent->InitComponent(mWorld, mOwnerId);
 				CreatedComponents.Emplace(CreatedComponent);
 			}
 		}
@@ -139,6 +143,7 @@ void AUE5_3_ExampleCharacter::TakeDamage(float InDamageAmount)
 	MsgToSend->Type = UMessageType::HealthType;
 	MsgToSend->HealthType = UHealthMessageType::Damage;
 	MsgToSend->Amount = InDamageAmount;
+	MsgToSend->OwnerId = mOwnerId;
 	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
 }
 
@@ -148,5 +153,6 @@ void AUE5_3_ExampleCharacter::Heal(float InHealAmount)
 	MsgToSend->Type = UMessageType::HealthType;
 	MsgToSend->HealthType = UHealthMessageType::Heal;
 	MsgToSend->Amount = InHealAmount;
+	MsgToSend->OwnerId = mOwnerId;
 	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
 }

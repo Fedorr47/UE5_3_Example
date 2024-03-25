@@ -7,9 +7,14 @@ UHealthComponent::UHealthComponent(const FObjectInitializer& ObjectInitializer) 
     Health = MaxHealth;
 }
 
-void UHealthComponent::SetWorld(UWorld* InWorld)
+UBaseComponent* UHealthComponent::RetNewComponent()
 {
-    Super::SetWorld(InWorld);
+    return NewObject<UHealthComponent>();
+}
+
+void UHealthComponent::InitComponent(UWorld* InWorld, uint32 InOwnerId)
+{
+    Super::InitComponent(InWorld, InOwnerId);
     GetComponentGameMode()->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UHealthComponent::TakeMsg);
 }
 
@@ -21,7 +26,7 @@ void UHealthComponent::TakeDamage(float InDamageAmount)
         Health = FMath::Clamp(NewHealth, 0.0f, MaxHealth);
         if (GetComponentWorld())
         {
-            SnedPercent();
+            SendPercent();
         }
     }
 }
@@ -34,22 +39,23 @@ void UHealthComponent::Heal(float InHealAmount)
         Health = FMath::Clamp(NewHealth, 0.0f, MaxHealth);
         if (GetComponentWorld())
         {
-            SnedPercent();
+            SendPercent();
         }
     }
 }
 
-void UHealthComponent::SnedPercent()
+void UHealthComponent::SendPercent()
 {
     UHealthPercentMessage* MsgToSend = NewObject<UHealthPercentMessage>();
     MsgToSend->HealthPercent = Health / MaxHealth;
     MsgToSend->Type = UMessageType::HealthPercent;
+    MsgToSend->OwnerId = mOwnerId;
     GetComponentGameMode()->SendMessage(Cast<UBaseMessage>(MsgToSend));
 }
 
 void UHealthComponent::TakeMsg(UBaseMessage* InMsg)
 {
-    if (InMsg->Type == UMessageType::HealthType)
+    if (InMsg->Type == UMessageType::HealthType && mOwnerId == InMsg->OwnerId)
     {
         auto HealthMessage = static_cast<UHealthMessage*>(InMsg);
         switch (HealthMessage->HealthType)
@@ -62,8 +68,7 @@ void UHealthComponent::TakeMsg(UBaseMessage* InMsg)
             break;
         default:
             break;
-        }
-       
+        }  
     }
 }
 

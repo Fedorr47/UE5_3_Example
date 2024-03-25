@@ -18,15 +18,20 @@ public:
 		Super(ObjectInitializer)
 	{}
 
-	virtual void SetWorld(UWorld* InWorld);
+	virtual void InitComponent(UWorld* InWorld, uint32 InOwnerId);
 
 	UWorld* GetComponentWorld() { return mWorld; }
 	AUE5_3_ExampleGameMode* GetComponentGameMode() { return mGameMode; }
 
-private:
+	virtual UBaseComponent* RetNewComponent() { return nullptr;  }
+
+protected:
 	UPROPERTY()
 	UWorld* mWorld = nullptr;
 
 	UPROPERTY()
 	AUE5_3_ExampleGameMode* mGameMode = nullptr;
+
+	UPROPERTY()
+	uint32 mOwnerId = 0;
 };

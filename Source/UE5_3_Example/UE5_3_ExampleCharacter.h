@@ -63,6 +63,9 @@ protected:
 	UPROPERTY(EditDefaultsOnly, Category = Health)
 	TArray<TSubclassOf<UBaseComponent>> AttachedComponents;
 
+	UPROPERTY()
+	uint32 mOwnerId;
+
 public:
 		
 	/** Look Input Action */
@@ -93,8 +96,6 @@ protected:
 
 	/** Called for looking input */
 	void Look(const FInputActionValue& Value);
-
-protected:
 	// APawn interface
 	virtual void SetupPlayerInputComponent(UInputComponent* InputComponent) override;
 	// End of APawn interface
