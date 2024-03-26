@@ -100,8 +100,7 @@
               "ToolTip": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\CoreUObject\\Private\\UObject\\UObjectGlobals.cpp [Read Only]",
               "ViewState": "AQIAAM0QAAAAAAAAAAAywOYQAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-25T21:13:49.318Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-03-25T21:13:49.318Z"
             },
             {
               "$type": "Document",
@@ -111,8 +110,7 @@
               "ToolTip": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\Core\\Private\\HAL\\MallocMimalloc.cpp [Read Only]",
               "ViewState": "AQIAAG0AAAAAAAAAAAAWwHAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-25T21:09:37.726Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-03-25T21:09:37.726Z"
             },
             {
               "$type": "Document",
@@ -122,8 +120,7 @@
               "ToolTip": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\Core\\Private\\Windows\\WindowsErrorOutputDevice.cpp [Read Only]",
               "ViewState": "AQIAAAcAAAAAAAAAAAAWwB8AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-25T21:09:35.025Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-03-25T21:09:35.025Z"
             },
             {
               "$type": "Document",
@@ -133,8 +130,7 @@
               "ToolTip": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\Core\\Private\\Logging\\StructuredLog.cpp [Read Only]",
               "ViewState": "AQIAACkEAAAAAAAAAAAWwEIEAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-25T21:09:33.265Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-03-25T21:09:33.265Z"
             },
             {
               "$type": "Document",
@@ -170,8 +166,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\BaseComponent.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-25T14:41:34.49Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T14:41:34.49Z"
             },
             {
               "$type": "Document",
@@ -195,8 +190,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\BaseComponent.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-25T14:31:50.594Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T14:31:50.594Z"
             },
             {
               "$type": "Document",
@@ -218,8 +212,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\HealthComponent.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAADQAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-25T14:04:50.987Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-25T14:04:50.987Z"
             },
             {
               "$type": "Document",
@@ -261,8 +254,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\UE5_3_ExampleCharacter.h",
               "ViewState": "AQIAAAUAAAAAAAAAAIAywBwAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-24T12:49:25.684Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-24T12:49:25.684Z"
             },
             {
               "$type": "Document",
@@ -274,8 +266,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\UE5_3_ExampleCharacter.cpp",
               "ViewState": "AQIAABgAAAAAAAAAAAAAADsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-24T12:49:15.846Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-24T12:49:15.846Z"
             },
             {
               "$type": "Document",
@@ -285,7 +276,7 @@
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\BaseInteractableActor.h",
               "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\BaseInteractableActor.h",
               "RelativeToolTip": "Source\\UE5_3_Example\\BaseInteractableActor.h",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAYwBkAAAAuAAAA",
+              "ViewState": "AQIAABQAAAAAAAAAAAAYwBIAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-03-24T12:49:23.607Z",
               "EditorCaption": ""
@@ -298,7 +289,7 @@
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\BaseInteractableActor.cpp",
               "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\BaseInteractableActor.cpp",
               "RelativeToolTip": "Source\\UE5_3_Example\\BaseInteractableActor.cpp",
-              "ViewState": "AQIAAB4AAAAAAAAAAAAAADoAAAAFAAAA",
+              "ViewState": "AQIAAC0AAAAAAAAAAAAAAEAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-03-24T12:49:21.938Z",
               "EditorCaption": ""
@@ -325,8 +316,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\HUD_Character.cpp",
               "ViewState": "AQIAAAMAAAAAAAAAAAAAABQAAAA6AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-03-24T12:45:10.095Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-24T12:45:10.095Z"
             },
             {
               "$type": "Document",
@@ -338,8 +328,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\FloatableHealth.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-03-24T12:44:26.712Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-03-24T12:44:26.712Z"
             },
             {
               "$type": "Document",

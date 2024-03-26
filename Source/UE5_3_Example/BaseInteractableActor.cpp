@@ -3,6 +3,7 @@
 #include "BaseInteractableActor.h"
 #include <Kismet/GameplayStatics.h>
 #include <Subsystems/PanelExtensionSubsystem.h>
+#include <Kismet/KismetMathLibrary.h>
 
 // Sets default values
 ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectInitializer)
@@ -18,19 +19,13 @@ ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectI
 
 	StatMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "Mesh");
 	StatMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-
-	//for (int i = 0; i < AllUIWidgets.Num(); ++i)
-	//{
-	//UWidgetComponent* WidgetComp = ObjectInitializer.CreateDefaultSubobject<UWidgetComponent>(this, "Health");
-	//WidgetComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	//mCreatedWidgetComponents.Emplace(WidgetComp);
-	//}
 }
 
 // Called when the game starts or when spawned
 void ABaseInteractableActor::BeginPlay()
 {
 	Super::BeginPlay();
+	mCreatedWidgetComponents.Empty();
 	mOwnerId = this->GetUniqueID();
 
 	if (UWorld* lWorld = GetWorld())
@@ -59,14 +54,13 @@ void ABaseInteractableActor::BeginPlay()
 			WidgetComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 
 			WidgetComp->SetWidgetClass(AllUIWidgets[i]);
-			//WidgetComp->InitWidget();
-			//WidgetComp->UpdateWidget();	
-			WidgetComp->SetupAttachment(RootComponent);
 			WidgetComp->SetVisibility(true);
-			WidgetComp->SetWidgetSpace(EWidgetSpace::World);	
-		}
+			WidgetComp->SetWidgetSpace(EWidgetSpace::World);
+			WidgetComp->SetMobility(EComponentMobility::Movable);
+			WidgetComp->RegisterComponentWithWorld(mWorld);
 
-		mCreatedWidgetComponents.Emplace(WidgetComp);
+			mCreatedWidgetComponents.Emplace(WidgetComp);
+		}	
 	}
 
 	StatMesh->SetSimulatePhysics(true);
@@ -76,5 +70,20 @@ void ABaseInteractableActor::BeginPlay()
 void ABaseInteractableActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+
+	// TODO: Move this coede to the actual move
+	APlayerCameraManager* CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
+
+	FVector MeshLocation = StatMesh->GetComponentLocation();		
+	FVector CameraLocation = CameraManager->GetTransformComponent()->GetComponentLocation();
+	FVector WidgetLocation = mCreatedWidgetComponents[0]->GetComponentLocation();
+
+	FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
+
+	// TODO: Add a special flag for a movable widget
+	for (auto WidgetComp : mCreatedWidgetComponents)
+	{
+		WidgetComp->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
+	}
 }
 
