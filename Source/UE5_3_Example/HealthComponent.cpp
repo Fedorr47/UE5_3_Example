@@ -7,14 +7,14 @@ UHealthComponent::UHealthComponent(const FObjectInitializer& ObjectInitializer) 
     Health = MaxHealth;
 }
 
-UBaseComponent* UHealthComponent::RetNewComponent()
+UBaseComponent* UHealthComponent::RetNewComponent(UObject* OwnerObject)
 {
     return NewObject<UHealthComponent>();
 }
 
-void UHealthComponent::InitComponent(UWorld* InWorld, uint32 InOwnerId)
+void UHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
 {
-    Super::InitComponent(InWorld, InOwnerId);
+    Super::InitComponent(InWorld, InOwnerObject);
     GetComponentGameMode()->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UHealthComponent::TakeMsg);
 }
 

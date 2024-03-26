@@ -4,12 +4,12 @@
 #include "BaseComponent.h"
 #include "Kismet/GameplayStatics.h"
 
-void UBaseComponent::InitComponent(UWorld* InWorld, uint32 InOwnerId)
+void UBaseComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
 {
     if (IsValid(InWorld))
     {
         mWorld = InWorld;
         mGameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
     }
-    mOwnerId = InOwnerId;
+    mOwnerId = InOwnerObject->GetUniqueID();
 }

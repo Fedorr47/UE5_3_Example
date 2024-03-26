@@ -61,7 +61,7 @@ void AUE5_3_ExampleCharacter::BeginPlay()
 			CreatedComponent = CreatedComponent->RetNewComponent();
 			if (IsValid(CreatedComponent))
 			{
-				CreatedComponent->InitComponent(mWorld, mOwnerId);
+				CreatedComponent->InitComponent(mWorld, this);
 				CreatedComponents.Emplace(CreatedComponent);
 			}
 		}

@@ -15,16 +15,12 @@ class UBaseMessage;
 #endif
 #define UE5_3_EXAMPLE_FloatableHealth_generated_h
 
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_SPARSE_DATA
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execHealthWasChanged);
-
-
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_ACCESSORS
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_INCLASS_NO_PURE_DECLS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_SPARSE_DATA
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUFloatableHealth(); \
 	friend struct Z_Construct_UClass_UFloatableHealth_Statics; \
@@ -33,7 +29,7 @@ public: \
 	DECLARE_SERIALIZER(UFloatableHealth)
 
 
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_ENHANCED_CONSTRUCTORS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_ENHANCED_CONSTRUCTORS \
 	/** Standard constructor, called after all reflected properties have been initialized */ \
 	NO_API UFloatableHealth(const FObjectInitializer& ObjectInitializer = FObjectInitializer::Get()); \
 private: \
@@ -47,22 +43,69 @@ public: \
 	NO_API virtual ~UFloatableHealth();
 
 
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_11_PROLOG
-#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_GENERATED_BODY \
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_13_PROLOG
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_SPARSE_DATA \
-	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_ACCESSORS \
-	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_INCLASS_NO_PURE_DECLS \
-	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_14_ENHANCED_CONSTRUCTORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_SPARSE_DATA \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_INCLASS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_16_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
 
 template<> UE5_3_EXAMPLE_API UClass* StaticClass<class UFloatableHealth>();
+
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_SPARSE_DATA
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execTakeMsg);
+
+
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_INCLASS_NO_PURE_DECLS \
+private: \
+	static void StaticRegisterNativesUFloatableHealthComponent(); \
+	friend struct Z_Construct_UClass_UFloatableHealthComponent_Statics; \
+public: \
+	DECLARE_CLASS(UFloatableHealthComponent, UBaseComponent, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/UE5_3_Example"), NO_API) \
+	DECLARE_SERIALIZER(UFloatableHealthComponent)
+
+
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_ENHANCED_CONSTRUCTORS \
+private: \
+	/** Private move- and copy-constructors, should never be used */ \
+	NO_API UFloatableHealthComponent(UFloatableHealthComponent&&); \
+	NO_API UFloatableHealthComponent(const UFloatableHealthComponent&); \
+public: \
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UFloatableHealthComponent); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UFloatableHealthComponent); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UFloatableHealthComponent) \
+	NO_API virtual ~UFloatableHealthComponent();
+
+
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_27_PROLOG
+#define FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_GENERATED_BODY \
+PRAGMA_DISABLE_DEPRECATION_WARNINGS \
+public: \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_SPARSE_DATA \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_INCLASS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_30_ENHANCED_CONSTRUCTORS \
+private: \
+PRAGMA_ENABLE_DEPRECATION_WARNINGS
+
+
+template<> UE5_3_EXAMPLE_API UClass* StaticClass<class UFloatableHealthComponent>();
 
 #undef CURRENT_FILE_ID
 #define CURRENT_FILE_ID FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h

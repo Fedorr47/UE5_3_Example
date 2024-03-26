@@ -26,48 +26,23 @@ ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectI
 void ABaseInteractableActor::BeginPlay()
 {
 	Super::BeginPlay();
-	mCreatedWidgetComponents.Empty();
 	mOwnerId = this->GetUniqueID();
-
-	StatMesh->TransformUpdated.AddUObject(this, &ABaseInteractableActor::OnStatMeshTransformUpdate);
-	CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
 
 	if (UWorld* lWorld = GetWorld())
 	{
 		mWorld = lWorld;
 		mGameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
-		for (TSubclassOf<UBaseComponent> Component : AttachedComponents)
+		for (FBaseComponentWrapper Component : AttachedComponents)
 		{
-			UBaseComponent* CreatedComponent = Cast<UBaseComponent>(Component->GetDefaultObject());
-			CreatedComponent = CreatedComponent->RetNewComponent();
-			if (IsValid(CreatedComponent))
+			if (IsValid(Component.Template))
 			{
-				CreatedComponent->InitComponent(mWorld, mOwnerId);
-				CreatedComponents.Emplace(CreatedComponent);
+				Component.Template->InitComponent(mWorld, this);
+				CreatedComponents.Emplace(Component.Template);
 			}
 		}
+		StatMesh->TransformUpdated.AddUObject(this, &ABaseInteractableActor::OnStatMeshTransformUpdate);
+		StatMesh->SetSimulatePhysics(true);
 	}
-
-	for (int i = 0; i < AllUIWidgets.Num(); ++i)
-	{
-		UWidgetComponent* WidgetComp = NewObject<UWidgetComponent>(this, AllUIWidgets[i]->GetFName());
-
-		if (IsValid(WidgetComp))
-		{
-			WidgetComp->RegisterComponent();
-			WidgetComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-
-			WidgetComp->SetWidgetClass(AllUIWidgets[i]);
-			WidgetComp->SetVisibility(true);
-			WidgetComp->SetWidgetSpace(EWidgetSpace::World);
-			WidgetComp->SetMobility(EComponentMobility::Movable);
-			WidgetComp->RegisterComponentWithWorld(mWorld);
-
-			mCreatedWidgetComponents.Emplace(WidgetComp);
-		}	
-	}
-
-	StatMesh->SetSimulatePhysics(true);
 }
 
 void ABaseInteractableActor::OnStatMeshTransformUpdate(USceneComponent* InRootComponent, EUpdateTransformFlags UpdateTransformFlags, ETeleportType Teleport)
@@ -85,10 +60,10 @@ void ABaseInteractableActor::UpdateWidgetsLocation()
 		FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
 
 		// TODO: Add a special flag for a movable widget
-		for (auto WidgetComp : mCreatedWidgetComponents)
-		{
-			WidgetComp->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
-		}
+//		for (auto WidgetComp : mCreatedWidgetComponents)
+//		{
+//			WidgetComp->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
+//		}
 	}
 }
 

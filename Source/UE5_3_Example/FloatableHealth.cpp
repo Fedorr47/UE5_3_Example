@@ -3,14 +3,11 @@
 #include <Kismet/GameplayStatics.h>
 #include "Components/ProgressBar.h"
 #include "HealthComponent.h"
+#include "Components/WidgetComponent.h"
 
 void UFloatableHealth::NativeConstruct()
 {
 	Super::NativeConstruct();
-	if (IsValid(mHelthBar))
-	{
-		mHelthBar->SetPercent(1.0f);
-	}
 }
 
 void UFloatableHealth::NativeDestruct()
@@ -21,18 +18,51 @@ void UFloatableHealth::NativeDestruct()
 void UFloatableHealth::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
-	if (UWorld* world = GetWorld())
+	if (IsValid(mHealthBar))
+	{
+		mHealthBar->SetPercent(1.0f);
+	}
+	if (UWorld* world = UUserWidget::GetWorld())
 	{
 		const auto GameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(world));
-		GameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UFloatableHealth::HealthWasChanged);
+		//GameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UFloatableHealth::HealthWasChanged);
 	}
 }
 
-void UFloatableHealth::HealthWasChanged(UBaseMessage* InMsg)
+UFloatableHealthComponent::UFloatableHealthComponent(const FObjectInitializer& ObjectInitializer) :
+	Super(ObjectInitializer)
 {
-	if (InMsg->Type == UMessageType::HealthPercent)
+}
+
+UBaseComponent* UFloatableHealthComponent::RetNewComponent()
+{
+	UFloatableHealthComponent* FloatableHealthComponent = NewObject<UFloatableHealthComponent>();
+	return FloatableHealthComponent;
+}
+
+void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
+{
+	Super::InitComponent(InWorld, InOwnerObject);
+	AActor* OwnerActor = Cast<AActor>(InOwnerObject);
+	
+	if (IsValid(OwnerActor))
 	{
-		float NewHealthPercent = static_cast<UHealthPercentMessage*>(InMsg)->HealthPercent;
-		mHelthBar->SetPercent(NewHealthPercent);
+		mFloatableHealthWC = NewObject<UWidgetComponent>(OwnerActor, TEXT("Floatable Text"));
+		if (IsValid(mFloatableHealthWC))
+		{
+			mFloatableHealthWC->RegisterComponent();
+			mFloatableHealthWC->AttachToComponent(OwnerActor->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+			mFloatableHealthWC->SetWidgetClass(FloatableHealthW);
+			mFloatableHealthWC->SetVisibility(true);
+			mFloatableHealthWC->SetWidgetSpace(EWidgetSpace::World);
+			mFloatableHealthWC->SetMobility(EComponentMobility::Movable);
+			mFloatableHealthWC->RegisterComponentWithWorld(InWorld);
+
+			CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
+		}	
 	}
+}
+
+void UFloatableHealthComponent::TakeMsg(UBaseMessage* InMsg)
+{
 }

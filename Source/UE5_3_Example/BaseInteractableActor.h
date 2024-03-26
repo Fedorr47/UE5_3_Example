@@ -27,9 +27,6 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY(EditAnywhere)
-	TArray<TSubclassOf<UUserWidget>> AllUIWidgets;
-
-	UPROPERTY(EditAnywhere)
 	uint32 mOwnerId;
 
 private:
@@ -43,12 +40,6 @@ private:
 	UPROPERTY()
 	TArray<UBaseComponent*> CreatedComponents;
 
-	UPROPERTY()
-	TArray <UWidgetComponent*> mCreatedWidgetComponents;
-	
-	UPROPERTY()
-	APlayerCameraManager* CameraManager = nullptr;
-
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	UStaticMeshComponent* StatMesh;
 
@@ -59,6 +50,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UPROPERTY(EditDefaultsOnly, Category = Components)
-	TArray<TSubclassOf<UBaseComponent>> AttachedComponents;
+	//UPROPERTY(EditDefaultsOnly, Category = Components)
+	UPROPERTY(EditAnywhere, Category = Components)
+	TArray<FBaseComponentWrapper> AttachedComponents;
 };

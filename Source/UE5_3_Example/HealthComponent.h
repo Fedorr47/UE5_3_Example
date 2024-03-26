@@ -55,9 +55,9 @@ class UE5_3_EXAMPLE_API UHealthComponent : public UBaseComponent
 public:	
 	UHealthComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual UBaseComponent* RetNewComponent();
+	virtual UBaseComponent* RetNewComponent(UObject* OwnerObject);
 
-	virtual void InitComponent(UWorld* InWorld, uint32 InOwnerId) override;
+	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
 	UFUNCTION()
 	void TakeDamage(float InDamageAmount);
@@ -71,11 +71,10 @@ public:
 	UFUNCTION()
 	void TakeMsg(UBaseMessage* InMsg);
 
-private:
-	UPROPERTY()
-	float Health = 0.0f;
-
 protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)
 	float MaxHealth = 100.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)
+	float Health = 0.0f;
 };

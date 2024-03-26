@@ -7,8 +7,18 @@
 #include "BaseComponent.generated.h"
 
 class AUE5_3_ExampleGameMode;
+class UBaseComponent;
 
-UCLASS()
+
+USTRUCT(BlueprintType)
+struct UE5_3_EXAMPLE_API FBaseComponentWrapper
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Instanced, meta = (ShowOnlyInnerProperties, BlueprintSearchable ="true"))
+	UBaseComponent* Template = nullptr;
+};
+
+UCLASS(EditInlineNew, Abstract, BlueprintType)
 class UE5_3_EXAMPLE_API UBaseComponent : public UObject
 {
 	GENERATED_BODY()
@@ -18,12 +28,12 @@ public:
 		Super(ObjectInitializer)
 	{}
 
-	virtual void InitComponent(UWorld* InWorld, uint32 InOwnerId);
+	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject);
 
 	UWorld* GetComponentWorld() { return mWorld; }
 	AUE5_3_ExampleGameMode* GetComponentGameMode() { return mGameMode; }
 
-	virtual UBaseComponent* RetNewComponent() { return nullptr;  }
+	virtual UBaseComponent* RetNewComponent(UObject* OwnerObject = nullptr) { return nullptr;  }
 
 protected:
 	UPROPERTY()
