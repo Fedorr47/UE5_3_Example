@@ -6,8 +6,12 @@
 #include "GameFramework/Actor.h"
 #include "BaseComponent.h"
 #include "Components/WidgetComponent.h"
-#include "Blueprint/UserWidget.h"
 #include "BaseInteractableActor.generated.h"
+
+enum class ETeleportType : uint8;
+enum class EUpdateTransformFlags : int32;
+
+class UUserWidget;
 
 UCLASS()
 class UE5_3_EXAMPLE_API ABaseInteractableActor : public AActor
@@ -41,9 +45,15 @@ private:
 
 	UPROPERTY()
 	TArray <UWidgetComponent*> mCreatedWidgetComponents;
+	
+	UPROPERTY()
+	APlayerCameraManager* CameraManager = nullptr;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	UStaticMeshComponent* StatMesh;
+
+	void OnStatMeshTransformUpdate(USceneComponent* InRootComponent, EUpdateTransformFlags UpdateTransformFlags, ETeleportType Teleport);
+	void UpdateWidgetsLocation();
 
 public:	
 	// Called every frame

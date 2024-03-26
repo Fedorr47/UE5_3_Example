@@ -4,6 +4,7 @@
 #include <Kismet/GameplayStatics.h>
 #include <Subsystems/PanelExtensionSubsystem.h>
 #include <Kismet/KismetMathLibrary.h>
+#include "Blueprint/UserWidget.h"
 
 // Sets default values
 ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectInitializer)
@@ -27,6 +28,9 @@ void ABaseInteractableActor::BeginPlay()
 	Super::BeginPlay();
 	mCreatedWidgetComponents.Empty();
 	mOwnerId = this->GetUniqueID();
+
+	StatMesh->TransformUpdated.AddUObject(this, &ABaseInteractableActor::OnStatMeshTransformUpdate);
+	CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
 
 	if (UWorld* lWorld = GetWorld())
 	{
@@ -66,24 +70,33 @@ void ABaseInteractableActor::BeginPlay()
 	StatMesh->SetSimulatePhysics(true);
 }
 
+void ABaseInteractableActor::OnStatMeshTransformUpdate(USceneComponent* InRootComponent, EUpdateTransformFlags UpdateTransformFlags, ETeleportType Teleport)
+{
+	UpdateWidgetsLocation();
+}
+
+void ABaseInteractableActor::UpdateWidgetsLocation()
+{
+	if (IsValid(CameraManager) && IsValid(StatMesh))
+	{
+		FVector MeshLocation = StatMesh->GetComponentLocation();
+		FVector CameraLocation = CameraManager->GetTransformComponent()->GetComponentLocation();
+
+		FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
+
+		// TODO: Add a special flag for a movable widget
+		for (auto WidgetComp : mCreatedWidgetComponents)
+		{
+			WidgetComp->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
+		}
+	}
+}
+
 // Called every frame
 void ABaseInteractableActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+	
 
-	// TODO: Move this coede to the actual move
-	APlayerCameraManager* CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
-
-	FVector MeshLocation = StatMesh->GetComponentLocation();		
-	FVector CameraLocation = CameraManager->GetTransformComponent()->GetComponentLocation();
-	FVector WidgetLocation = mCreatedWidgetComponents[0]->GetComponentLocation();
-
-	FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
-
-	// TODO: Add a special flag for a movable widget
-	for (auto WidgetComp : mCreatedWidgetComponents)
-	{
-		WidgetComp->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
-	}
 }
 
