@@ -8,6 +8,7 @@
 #include "HUD_Character.generated.h"
 
 class UProgressBar;
+class AUE5_3_ExampleCharacter;
 
 UCLASS()
 class UCharacterHUDWidget : public UUserWidget
@@ -24,6 +25,9 @@ protected:
 
 	UFUNCTION()
 	void HealthWasChanged(UBaseMessage* InMsg);
+
+	UPROPERTY()
+	AUE5_3_ExampleCharacter* PlayerCharacter = nullptr;
 };
 
 UCLASS()

@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "UE5_3_Example/UE5_3_ExampleCharacter.h"
+#include "Actors/UE5_3_ExampleCharacter.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 // Cross Module References
@@ -92,7 +92,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Getter for the bool */" },
 #endif
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Getter for the bool" },
 #endif
@@ -130,7 +130,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Health" },
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AUE5_3_ExampleCharacter, nullptr, "Heal", nullptr, nullptr, Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::PropPointers), sizeof(Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::UE5_3_ExampleCharacter_eventHeal_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::Function_MetaDataParams), Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal_Statics::Function_MetaDataParams) };
@@ -173,7 +173,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Setter to set the bool */" },
 #endif
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Setter to set the bool" },
 #endif
@@ -211,7 +211,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Health" },
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AUE5_3_ExampleCharacter, nullptr, "TakeDamage", nullptr, nullptr, Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage_Statics::UE5_3_ExampleCharacter_eventTakeDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage_Statics::Function_MetaDataParams) };
@@ -299,17 +299,17 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_GetHasRifle, "GetHasRifle" }, // 1349835562
-		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal, "Heal" }, // 1921504239
-		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_SetHasRifle, "SetHasRifle" }, // 1265913124
-		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage, "TakeDamage" }, // 2402837791
+		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_GetHasRifle, "GetHasRifle" }, // 2458915685
+		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_Heal, "Heal" }, // 1543212712
+		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_SetHasRifle, "SetHasRifle" }, // 3150205889
+		{ &Z_Construct_UFunction_AUE5_3_ExampleCharacter_TakeDamage, "TakeDamage" }, // 3338259057
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "UE5_3_ExampleCharacter.h" },
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "IncludePath", "Actors/UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 	};
 #endif
 #if WITH_METADATA
@@ -319,7 +319,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 		{ "Comment", "/** Pawn mesh: 1st person view (arms; seen only by self) */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Pawn mesh: 1st person view (arms; seen only by self)" },
 #endif
@@ -334,7 +334,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 		{ "Comment", "/** First person camera */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "First person camera" },
 #endif
@@ -348,7 +348,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** MappingContext */" },
 #endif
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "MappingContext" },
 #endif
@@ -362,7 +362,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Jump Input Action */" },
 #endif
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Jump Input Action" },
 #endif
@@ -376,7 +376,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Move Input Action */" },
 #endif
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Move Input Action" },
 #endif
@@ -386,19 +386,19 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_Inner = { "CreatedComponents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UBaseComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_MetaData[] = {
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents = { "CreatedComponents", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, CreatedComponents), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_CreatedComponents_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld_MetaData[] = {
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld = { "mWorld", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, mWorld), Z_Construct_UClass_UWorld_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mWorld_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode_MetaData[] = {
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode = { "mGameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, mGameMode), Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mGameMode_MetaData) };
@@ -406,13 +406,13 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents_MetaData[] = {
 		{ "Category", "Components" },
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents = { "AttachedComponents", nullptr, (EPropertyFlags)0x0024080000010001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, AttachedComponents), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_AttachedComponents_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mOwnerId_MetaData[] = {
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FUInt32PropertyParams Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mOwnerId = { "mOwnerId", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::UInt32, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleCharacter, mOwnerId), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mOwnerId_MetaData), Z_Construct_UClass_AUE5_3_ExampleCharacter_Statics::NewProp_mOwnerId_MetaData) };
@@ -423,7 +423,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Look Input Action */" },
 #endif
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Look Input Action" },
 #endif
@@ -436,7 +436,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Bool for AnimBP to switch to another animation set */" },
 #endif
-		{ "ModuleRelativePath", "UE5_3_ExampleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/UE5_3_ExampleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Bool for AnimBP to switch to another animation set" },
 #endif
@@ -496,15 +496,15 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleCharacter() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE5_3_ExampleCharacter);
 	AUE5_3_ExampleCharacter::~AUE5_3_ExampleCharacter() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_UE5_3_ExampleCharacter_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AUE5_3_ExampleCharacter, AUE5_3_ExampleCharacter::StaticClass, TEXT("AUE5_3_ExampleCharacter"), &Z_Registration_Info_UClass_AUE5_3_ExampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleCharacter), 3554744820U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_UE5_3_ExampleCharacter_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AUE5_3_ExampleCharacter, AUE5_3_ExampleCharacter::StaticClass, TEXT("AUE5_3_ExampleCharacter"), &Z_Registration_Info_UClass_AUE5_3_ExampleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleCharacter), 332056177U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_2928658985(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleCharacter_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_UE5_3_ExampleCharacter_h_718247332(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_UE5_3_ExampleCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_UE5_3_ExampleCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

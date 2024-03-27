@@ -1,8 +1,8 @@
 {
 	"SourceFiles": [
-		"D:\\UE5_proj\\UE5_3_Example\\Source\\UE5_3_Example\\UE5_3_Example.Build.cs",
-		"D:\\UE5_proj\\UE5_3_Example\\Source\\UE5_3_Example.Target.cs",
-		"D:\\UE5_proj\\UE5_3_Example\\Source\\UE5_3_ExampleEditor.Target.cs"
+		"D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\UE5_3_Example.Build.cs",
+		"D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example.Target.cs",
+		"D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_ExampleEditor.Target.cs"
 	],
 	"EngineVersion": "5.3.2"
 }

@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "UE5_3_Example/UE5_3_ExampleGameMode.h"
+#include "Mods/UE5_3_ExampleGameMode.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleGameMode() {}
 // Cross Module References
@@ -45,14 +45,14 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleGameMode() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
-		{ "IncludePath", "UE5_3_ExampleGameMode.h" },
-		{ "ModuleRelativePath", "UE5_3_ExampleGameMode.h" },
+		{ "IncludePath", "Mods/UE5_3_ExampleGameMode.h" },
+		{ "ModuleRelativePath", "Mods/UE5_3_ExampleGameMode.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_GeneralMessageQueue_MetaData[] = {
-		{ "ModuleRelativePath", "UE5_3_ExampleGameMode.h" },
+		{ "ModuleRelativePath", "Mods/UE5_3_ExampleGameMode.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_GeneralMessageQueue = { "GeneralMessageQueue", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleGameMode, GeneralMessageQueue), Z_Construct_UClass_UMessageQueue_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_GeneralMessageQueue_MetaData), Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_GeneralMessageQueue_MetaData) };
@@ -92,15 +92,15 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleGameMode() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE5_3_ExampleGameMode);
 	AUE5_3_ExampleGameMode::~AUE5_3_ExampleGameMode() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleGameMode_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AUE5_3_ExampleGameMode, AUE5_3_ExampleGameMode::StaticClass, TEXT("AUE5_3_ExampleGameMode"), &Z_Registration_Info_UClass_AUE5_3_ExampleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleGameMode), 575040115U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AUE5_3_ExampleGameMode, AUE5_3_ExampleGameMode::StaticClass, TEXT("AUE5_3_ExampleGameMode"), &Z_Registration_Info_UClass_AUE5_3_ExampleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleGameMode), 4012924567U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleGameMode_h_2601602004(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExampleGameMode_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_2976701854(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

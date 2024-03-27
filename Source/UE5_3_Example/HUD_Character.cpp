@@ -1,7 +1,8 @@
 #include "HUD_Character.h"
-#include "UE5_3_ExampleGameMode.h"
+#include "Mods/UE5_3_ExampleGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/ProgressBar.h"
+#include "Actors/UE5_3_ExampleCharacter.h"
 
 AHUD_Character::AHUD_Character()
 {
@@ -53,12 +54,13 @@ void UCharacterHUDWidget::NativeOnInitialized()
 	{
 		const auto GameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(world));
 		GameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UCharacterHUDWidget::HealthWasChanged);
+		PlayerCharacter = dynamic_cast<AUE5_3_ExampleCharacter*>(UGameplayStatics::GetPlayerCharacter(world, 0));
 	}
 }
 
 void UCharacterHUDWidget::HealthWasChanged(UBaseMessage* InMsg)
 {
-	if (InMsg->Type == UMessageType::HealthPercent)
+	if (IsValid(PlayerCharacter) && InMsg->Type == UMessageType::HealthPercent && InMsg->OwnerId == PlayerCharacter->GetUniqueID())
 	{
 		float NewHealthPercent = static_cast<UHealthPercentMessage*>(InMsg)->HealthPercent;
 		mHelthBar->SetPercent(NewHealthPercent);
