@@ -5,6 +5,7 @@
 #include <Subsystems/PanelExtensionSubsystem.h>
 #include <Kismet/KismetMathLibrary.h>
 #include "Blueprint/UserWidget.h"
+#include "HealthComponent.h"
 
 // Sets default values
 ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectInitializer)
@@ -63,4 +64,25 @@ void ABaseInteractableActor::Tick(float DeltaTime)
 	}
 
 }
+
+void ABaseInteractableActor::TakeDamage(float InDamageAmount)
+{
+	UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
+	MsgToSend->Type = UMessageType::HealthType;
+	MsgToSend->HealthType = UHealthMessageType::Damage;
+	MsgToSend->Amount = InDamageAmount;
+	MsgToSend->OwnerId = mOwnerId;
+	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
+}
+
+void ABaseInteractableActor::Heal(float InHealAmount)
+{
+	UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
+	MsgToSend->Type = UMessageType::HealthType;
+	MsgToSend->HealthType = UHealthMessageType::Heal;
+	MsgToSend->Amount = InHealAmount;
+	MsgToSend->OwnerId = mOwnerId;
+	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
+}
+
 

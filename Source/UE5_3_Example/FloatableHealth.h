@@ -20,6 +20,7 @@ protected:
 	virtual void NativeDestruct() override;
 	virtual void NativeOnInitialized() override;
 
+public:
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	UProgressBar* mHealthBar;
 };

@@ -49,6 +49,11 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
+	UFUNCTION(BlueprintCallable, Category = Health)
+	void TakeDamage(float InDamageAmount);
+	UFUNCTION(BlueprintCallable, Category = Health)
+	void Heal(float InHealAmount);
+
 	//UPROPERTY(EditDefaultsOnly, Category = Components)
 	UPROPERTY(EditAnywhere, Category = Components)
 	TArray<FBaseComponentWrapper> AttachedComponents;

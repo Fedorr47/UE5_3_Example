@@ -23,11 +23,6 @@ void UFloatableHealth::NativeOnInitialized()
 	{
 		mHealthBar->SetPercent(1.0f);
 	}
-	if (UWorld* world = UUserWidget::GetWorld())
-	{
-		const auto GameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(world));
-		//GameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UFloatableHealth::HealthWasChanged);
-	}
 }
 
 UFloatableHealthComponent::UFloatableHealthComponent(const FObjectInitializer& ObjectInitializer) :
@@ -59,6 +54,8 @@ void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerO
 			mFloatableHealthWC->SetMobility(EComponentMobility::Movable);
 			mFloatableHealthWC->RegisterComponentWithWorld(InWorld);
 
+			mGameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UFloatableHealthComponent::TakeMsg);
+
 			CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
 			if (IsValid(CameraManager))
 			{
@@ -66,6 +63,7 @@ void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerO
 				mFloatableHealthWC->GetAttachmentRoot()->GetChildrenComponents(true, ChildComponents);
 				for (auto ChildComp : ChildComponents)
 				{
+					// TODO: Add a check that current mesh is a goal for a floatable widget
 					if (auto Mesh = Cast<UStaticMeshComponent>(ChildComp))
 					{
 						MeshToAttach = Mesh;
@@ -78,6 +76,17 @@ void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerO
 
 void UFloatableHealthComponent::TakeMsg(UBaseMessage* InMsg)
 {
+	if (InMsg->Type == UMessageType::HealthPercent && mOwnerId == InMsg->OwnerId)
+	{
+		auto HealthMessage = static_cast<UHealthPercentMessage*>(InMsg);
+		if (IsValid(HealthMessage))
+		{
+			if (auto FloatalbeHealthWidget = Cast<UFloatableHealth>(mFloatableHealthWC->GetWidget()))
+			{
+				FloatalbeHealthWidget->mHealthBar->SetPercent(HealthMessage->HealthPercent);
+			}
+		}
+	}
 }
 
 void UFloatableHealthComponent::Update(float DeltaTime)
