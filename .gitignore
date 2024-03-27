@@ -361,3 +361,11 @@ MigrationBackup/
 
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
+*.vsidx
+/.idea
+/.vs
+/.vs
+/.vs/UE5_3_Example
+/Saved/Config/CrashReportClient
+UE5_3_Example.sln
+/.vs

@@ -11,5 +11,6 @@ void UBaseComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
         mWorld = InWorld;
         mGameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
     }
+    mOwnerObject = InOwnerObject;
     mOwnerId = InOwnerObject->GetUniqueID();
 }

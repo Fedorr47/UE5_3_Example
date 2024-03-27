@@ -10,6 +10,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+	ENGINE_API UClass* Z_Construct_UClass_APlayerCameraManager_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseComponent();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseMessage_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UFloatableHealth();
@@ -170,6 +172,14 @@ void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_mFloatableHealthWC_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_mFloatableHealthWC;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CameraManager_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraManager;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_MeshToAttach_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_MeshToAttach;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -204,9 +214,24 @@ void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_mFloatableHealthWC = { "mFloatableHealthWC", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UFloatableHealthComponent, mFloatableHealthWC), Z_Construct_UClass_UWidgetComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_mFloatableHealthWC_MetaData), Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_mFloatableHealthWC_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_CameraManager_MetaData[] = {
+		{ "ModuleRelativePath", "FloatableHealth.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_CameraManager = { "CameraManager", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UFloatableHealthComponent, CameraManager), Z_Construct_UClass_APlayerCameraManager_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_CameraManager_MetaData), Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_CameraManager_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_MeshToAttach_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "FloatableHealth.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_MeshToAttach = { "MeshToAttach", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UFloatableHealthComponent, MeshToAttach), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_MeshToAttach_MetaData), Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_MeshToAttach_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UFloatableHealthComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_FloatableHealthW,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_mFloatableHealthWC,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_CameraManager,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_MeshToAttach,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UFloatableHealthComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UFloatableHealthComponent>::IsAbstract,
@@ -241,16 +266,16 @@ void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UFloatableHealthComponent);
 	UFloatableHealthComponent::~UFloatableHealthComponent() {}
-	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_Statics::ClassInfo[] = {
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UFloatableHealth, UFloatableHealth::StaticClass, TEXT("UFloatableHealth"), &Z_Registration_Info_UClass_UFloatableHealth, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloatableHealth), 53103914U) },
-		{ Z_Construct_UClass_UFloatableHealthComponent, UFloatableHealthComponent::StaticClass, TEXT("UFloatableHealthComponent"), &Z_Registration_Info_UClass_UFloatableHealthComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloatableHealthComponent), 1936500613U) },
+		{ Z_Construct_UClass_UFloatableHealthComponent, UFloatableHealthComponent::StaticClass, TEXT("UFloatableHealthComponent"), &Z_Registration_Info_UClass_UFloatableHealthComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloatableHealthComponent), 2734683183U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_4164946436(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_3168750889(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_FloatableHealth_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -33,7 +33,9 @@ public:
 	UWorld* GetComponentWorld() { return mWorld; }
 	AUE5_3_ExampleGameMode* GetComponentGameMode() { return mGameMode; }
 
-	virtual UBaseComponent* RetNewComponent(UObject* OwnerObject = nullptr) { return nullptr;  }
+	virtual UBaseComponent* RetNewComponent(UObject* OwnerObject = nullptr) { return nullptr; }
+
+	virtual void Update(float DeltaTime) {}
 
 protected:
 	UPROPERTY()
@@ -41,6 +43,9 @@ protected:
 
 	UPROPERTY()
 	AUE5_3_ExampleGameMode* mGameMode = nullptr;
+
+	UPROPERTY()
+	UObject* mOwnerObject = nullptr;
 
 	UPROPERTY()
 	uint32 mOwnerId = 0;

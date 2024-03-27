@@ -42,11 +42,16 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)
 	TSubclassOf<UFloatableHealth> FloatableHealthW;
 
+	virtual void Update(float DeltaTime) override;
+
 private:
 	UPROPERTY()
 	UWidgetComponent* mFloatableHealthWC = nullptr;
 
 	UPROPERTY()
 	APlayerCameraManager* CameraManager = nullptr;
+
+	UPROPERTY()
+	UStaticMeshComponent* MeshToAttach = nullptr;
 };
 

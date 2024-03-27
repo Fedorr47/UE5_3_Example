@@ -4,6 +4,7 @@
 #include "Components/ProgressBar.h"
 #include "HealthComponent.h"
 #include "Components/WidgetComponent.h"
+#include <Kismet/KismetMathLibrary.h>
 
 void UFloatableHealth::NativeConstruct()
 {
@@ -59,10 +60,34 @@ void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerO
 			mFloatableHealthWC->RegisterComponentWithWorld(InWorld);
 
 			CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
+			if (IsValid(CameraManager))
+			{
+				TArray<USceneComponent*> ChildComponents;
+				mFloatableHealthWC->GetAttachmentRoot()->GetChildrenComponents(true, ChildComponents);
+				for (auto ChildComp : ChildComponents)
+				{
+					if (auto Mesh = Cast<UStaticMeshComponent>(ChildComp))
+					{
+						MeshToAttach = Mesh;
+					}
+				}
+			}
 		}	
 	}
 }
 
 void UFloatableHealthComponent::TakeMsg(UBaseMessage* InMsg)
 {
+}
+
+void UFloatableHealthComponent::Update(float DeltaTime)
+{
+	if (IsValid(CameraManager) && IsValid(MeshToAttach))
+	{
+		FVector MeshLocation = MeshToAttach->GetComponentLocation();
+		FVector CameraLocation = CameraManager->GetTransformComponent()->GetComponentLocation();
+
+		FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
+		mFloatableHealthWC->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
+	}
 }

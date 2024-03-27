@@ -502,21 +502,21 @@ void EmptyLinkFunctionForGeneratedCodeHealthComponent() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UHealthComponent);
 	UHealthComponent::~UHealthComponent() {}
-	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics
 	{
 		static const FEnumRegisterCompiledInInfo EnumInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::EnumInfo[] = {
+	const FEnumRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::EnumInfo[] = {
 		{ UHealthMessageType_StaticEnum, TEXT("UHealthMessageType"), &Z_Registration_Info_UEnum_UHealthMessageType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 3653730639U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo[] = {
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UHealthMessage, UHealthMessage::StaticClass, TEXT("UHealthMessage"), &Z_Registration_Info_UClass_UHealthMessage, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthMessage), 363040023U) },
 		{ Z_Construct_UClass_UHealthPercentMessage, UHealthPercentMessage::StaticClass, TEXT("UHealthPercentMessage"), &Z_Registration_Info_UClass_UHealthPercentMessage, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthPercentMessage), 86844259U) },
-		{ Z_Construct_UClass_UHealthComponent, UHealthComponent::StaticClass, TEXT("UHealthComponent"), &Z_Registration_Info_UClass_UHealthComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthComponent), 3661281276U) },
+		{ Z_Construct_UClass_UHealthComponent, UHealthComponent::StaticClass, TEXT("UHealthComponent"), &Z_Registration_Info_UClass_UHealthComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealthComponent), 3093692187U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_1090031525(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_63745017(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::ClassInfo),
 		nullptr, 0,
-		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::EnumInfo));
+		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HealthComponent_h_Statics::EnumInfo));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

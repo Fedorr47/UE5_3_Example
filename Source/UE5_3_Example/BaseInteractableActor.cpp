@@ -20,12 +20,12 @@ ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectI
 
 	StatMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "Mesh");
 	StatMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	StatMesh->SetSimulatePhysics(true);
 }
 
 // Called when the game starts or when spawned
 void ABaseInteractableActor::BeginPlay()
 {
-	Super::BeginPlay();
 	mOwnerId = this->GetUniqueID();
 
 	if (UWorld* lWorld = GetWorld())
@@ -40,38 +40,27 @@ void ABaseInteractableActor::BeginPlay()
 				CreatedComponents.Emplace(Component.Template);
 			}
 		}
-		StatMesh->TransformUpdated.AddUObject(this, &ABaseInteractableActor::OnStatMeshTransformUpdate);
-		StatMesh->SetSimulatePhysics(true);
+		//StatMesh->TransformUpdated.AddUObject(this, &ABaseInteractableActor::OnStatMeshTransformUpdate);	
 	}
+	Super::BeginPlay();
 }
 
+/*
 void ABaseInteractableActor::OnStatMeshTransformUpdate(USceneComponent* InRootComponent, EUpdateTransformFlags UpdateTransformFlags, ETeleportType Teleport)
 {
 	UpdateWidgetsLocation();
 }
-
-void ABaseInteractableActor::UpdateWidgetsLocation()
-{
-	if (IsValid(CameraManager) && IsValid(StatMesh))
-	{
-		FVector MeshLocation = StatMesh->GetComponentLocation();
-		FVector CameraLocation = CameraManager->GetTransformComponent()->GetComponentLocation();
-
-		FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
-
-		// TODO: Add a special flag for a movable widget
-//		for (auto WidgetComp : mCreatedWidgetComponents)
-//		{
-//			WidgetComp->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
-//		}
-	}
-}
+*/
 
 // Called every frame
 void ABaseInteractableActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
 	
+	for (auto Component : CreatedComponents)
+	{
+		Component->Update(DeltaTime);
+	}
 
 }
 

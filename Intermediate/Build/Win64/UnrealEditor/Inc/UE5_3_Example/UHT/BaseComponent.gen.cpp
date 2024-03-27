@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBaseComponent() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
+	COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseComponent();
@@ -111,6 +112,10 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FBaseComponentWrapper>(
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_mGameMode;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mOwnerObject_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mOwnerObject;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_mOwnerId_MetaData[];
 #endif
 		static const UECodeGen_Private::FUInt32PropertyParams NewProp_mOwnerId;
@@ -144,6 +149,12 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FBaseComponentWrapper>(
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode = { "mGameMode", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseComponent, mGameMode), Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode_MetaData), Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerObject_MetaData[] = {
+		{ "ModuleRelativePath", "BaseComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerObject = { "mOwnerObject", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UBaseComponent, mOwnerObject), Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerObject_MetaData), Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerObject_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerId_MetaData[] = {
 		{ "ModuleRelativePath", "BaseComponent.h" },
 	};
@@ -152,6 +163,7 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FBaseComponentWrapper>(
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UBaseComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseComponent_Statics::NewProp_mWorld,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseComponent_Statics::NewProp_mGameMode,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerObject,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UBaseComponent_Statics::NewProp_mOwnerId,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UBaseComponent_Statics::StaticCppClassTypeInfo = {
@@ -187,19 +199,19 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FBaseComponentWrapper>(
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UBaseComponent);
 	UBaseComponent::~UBaseComponent() {}
-	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics
 	{
 		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ScriptStructInfo[] = {
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ScriptStructInfo[] = {
 		{ FBaseComponentWrapper::StaticStruct, Z_Construct_UScriptStruct_FBaseComponentWrapper_Statics::NewStructOps, TEXT("BaseComponentWrapper"), &Z_Registration_Info_UScriptStruct_BaseComponentWrapper, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FBaseComponentWrapper), 2961476770U) },
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UBaseComponent, UBaseComponent::StaticClass, TEXT("UBaseComponent"), &Z_Registration_Info_UClass_UBaseComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseComponent), 1890631779U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UBaseComponent, UBaseComponent::StaticClass, TEXT("UBaseComponent"), &Z_Registration_Info_UClass_UBaseComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UBaseComponent), 192811731U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_4251676144(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo),
-		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ScriptStructInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_1673152537(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ClassInfo),
+		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_BaseComponent_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
