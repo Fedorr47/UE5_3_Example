@@ -21,23 +21,23 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_15_ACCESSORS
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_15_INCLASS_NO_PURE_DECLS \
 private: \
-	static void StaticRegisterNativesUHealthPercentMessage(); \
-	friend struct Z_Construct_UClass_UHealthPercentMessage_Statics; \
+	static void StaticRegisterNativesUHealthComponent(); \
+	friend struct Z_Construct_UClass_UHealthComponent_Statics; \
 public: \
-	DECLARE_CLASS(UHealthPercentMessage, UBaseMessage, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/UE5_3_Example"), NO_API) \
-	DECLARE_SERIALIZER(UHealthPercentMessage)
+	DECLARE_CLASS(UHealthComponent, UEntityComponent, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/UE5_3_Example"), NO_API) \
+	DECLARE_SERIALIZER(UHealthComponent)
 
 
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_15_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
-	NO_API UHealthPercentMessage(UHealthPercentMessage&&); \
-	NO_API UHealthPercentMessage(const UHealthPercentMessage&); \
+	NO_API UHealthComponent(UHealthComponent&&); \
+	NO_API UHealthComponent(const UHealthComponent&); \
 public: \
-	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UHealthPercentMessage); \
-	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UHealthPercentMessage); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UHealthPercentMessage) \
-	NO_API virtual ~UHealthPercentMessage();
+	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UHealthComponent); \
+	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UHealthComponent); \
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UHealthComponent) \
+	NO_API virtual ~UHealthComponent();
 
 
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_12_PROLOG
@@ -51,49 +51,6 @@ public: \
 	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_15_ACCESSORS \
 	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_15_INCLASS_NO_PURE_DECLS \
 	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_15_ENHANCED_CONSTRUCTORS \
-private: \
-PRAGMA_ENABLE_DEPRECATION_WARNINGS
-
-
-template<> UE5_3_EXAMPLE_API UClass* StaticClass<class UHealthPercentMessage>();
-
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_SPARSE_DATA
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_RPC_WRAPPERS_NO_PURE_DECLS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_INCLASS_NO_PURE_DECLS \
-private: \
-	static void StaticRegisterNativesUHealthComponent(); \
-	friend struct Z_Construct_UClass_UHealthComponent_Statics; \
-public: \
-	DECLARE_CLASS(UHealthComponent, UEntityComponent, COMPILED_IN_FLAGS(0), CASTCLASS_None, TEXT("/Script/UE5_3_Example"), NO_API) \
-	DECLARE_SERIALIZER(UHealthComponent)
-
-
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_ENHANCED_CONSTRUCTORS \
-private: \
-	/** Private move- and copy-constructors, should never be used */ \
-	NO_API UHealthComponent(UHealthComponent&&); \
-	NO_API UHealthComponent(const UHealthComponent&); \
-public: \
-	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, UHealthComponent); \
-	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(UHealthComponent); \
-	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(UHealthComponent) \
-	NO_API virtual ~UHealthComponent();
-
-
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_25_PROLOG
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_GENERATED_BODY \
-PRAGMA_DISABLE_DEPRECATION_WARNINGS \
-public: \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_SPARSE_DATA \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_INCLASS_NO_PURE_DECLS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealthComponent_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 

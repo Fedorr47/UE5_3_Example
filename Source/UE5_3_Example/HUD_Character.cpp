@@ -15,15 +15,27 @@ void AHUD_Character::BeginPlay()
 	// If any widgets need to be added
 	if (AllUIWidgets.Num() > 0)
 	{
-		// Iterate through all widgets
-		for (TSubclassOf<UUserWidget> widget : AllUIWidgets)
-		{
-			// Create an instance of the widget and add to viewport
-			UUserWidget* createdWidget = CreateWidget<UUserWidget>(GetWorld(), widget);
-			createdWidget->AddToViewport();
+		UWorld* GameWorld = GetWorld();
+		AUE5_3_ExampleGameMode* GameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(GameWorld));
 
-			// Store instanced widget in array
-			mCreatedWidgets.Add(createdWidget);
+		if (IsValid(GameWorld) && IsValid(GameMode))
+		{
+			// Iterate through all widgets
+			for (TSubclassOf<UUserWidget> widget : AllUIWidgets)
+			{
+				// Create an instance of the widget and add to viewport
+				UUserWidget* createdWidget = CreateWidget<UUserWidget>(GameWorld, widget);
+				createdWidget->AddToViewport();
+				
+				UCharacterHUDWidget* HudWidget = Cast<UCharacterHUDWidget>(createdWidget);
+				if (IsValid(HudWidget))
+				{
+					GameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(HudWidget, &UCharacterHUDWidget::TakeMsg);
+				}
+
+				// Store instanced widget in array
+				mCreatedWidgets.Add(createdWidget);
+			}
 		}
 	}
 }
@@ -50,9 +62,17 @@ void UCharacterHUDWidget::NativeDestruct()
 void UCharacterHUDWidget::NativeOnInitialized()
 {
 	Super::NativeOnInitialized();
-	if (UWorld* world = GetWorld())
+}
+
+void UCharacterHUDWidget::TakeMsg(UBaseMessage* Msg)
+{
+	if (Msg->Type == UMessageType::HUDHealthPercent)
 	{
-		const auto GameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(world));
+		UHealthPercentMessage* HealthPercentMessage = Cast<UHealthPercentMessage>(Msg);
+		if (IsValid(HealthPercentMessage))
+		{
+			mHelthBar->SetPercent(HealthPercentMessage->HealthPercent);
+		}
 	}
 }
 

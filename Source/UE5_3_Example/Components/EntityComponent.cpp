@@ -11,4 +11,5 @@ void UEntityComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
         mWorld = InWorld;
         mGameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
     }
+    mOwnerObject = InOwnerObject;
 }

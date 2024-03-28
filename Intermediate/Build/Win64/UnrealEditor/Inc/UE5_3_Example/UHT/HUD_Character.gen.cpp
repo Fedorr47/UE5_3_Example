@@ -13,6 +13,7 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 	ENGINE_API UClass* Z_Construct_UClass_AHUD();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AHUD_Character();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AHUD_Character_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseMessage_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UCharacterHUDWidget();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UCharacterHUDWidget_NoRegister();
 	UMG_API UClass* Z_Construct_UClass_UProgressBar_NoRegister();
@@ -20,8 +21,55 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 	UMG_API UClass* Z_Construct_UClass_UUserWidget_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
+	DEFINE_FUNCTION(UCharacterHUDWidget::execTakeMsg)
+	{
+		P_GET_OBJECT(UBaseMessage,Z_Param_Msg);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->TakeMsg(Z_Param_Msg);
+		P_NATIVE_END;
+	}
 	void UCharacterHUDWidget::StaticRegisterNativesUCharacterHUDWidget()
 	{
+		UClass* Class = UCharacterHUDWidget::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "TakeMsg", &UCharacterHUDWidget::execTakeMsg },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics
+	{
+		struct CharacterHUDWidget_eventTakeMsg_Parms
+		{
+			UBaseMessage* Msg;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Msg;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::NewProp_Msg = { "Msg", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(CharacterHUDWidget_eventTakeMsg_Parms, Msg), Z_Construct_UClass_UBaseMessage_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::NewProp_Msg,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "HUD_Character.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCharacterHUDWidget, nullptr, "TakeMsg", nullptr, nullptr, Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::CharacterHUDWidget_eventTakeMsg_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::CharacterHUDWidget_eventTakeMsg_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UCharacterHUDWidget);
 	UClass* Z_Construct_UClass_UCharacterHUDWidget_NoRegister()
@@ -31,6 +79,7 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 	struct Z_Construct_UClass_UCharacterHUDWidget_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -47,6 +96,10 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_UE5_3_Example,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterHUDWidget_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_UCharacterHUDWidget_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg, "TakeMsg" }, // 827802965
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterHUDWidget_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterHUDWidget_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "HUD_Character.h" },
@@ -73,11 +126,11 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 		nullptr,
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_UCharacterHUDWidget_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterHUDWidget_Statics::PropPointers),
 		0,
 		0x00A010A0u,
@@ -206,10 +259,10 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCharacterHUDWidget, UCharacterHUDWidget::StaticClass, TEXT("UCharacterHUDWidget"), &Z_Registration_Info_UClass_UCharacterHUDWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterHUDWidget), 135633677U) },
+		{ Z_Construct_UClass_UCharacterHUDWidget, UCharacterHUDWidget::StaticClass, TEXT("UCharacterHUDWidget"), &Z_Registration_Info_UClass_UCharacterHUDWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterHUDWidget), 3217977266U) },
 		{ Z_Construct_UClass_AHUD_Character, AHUD_Character::StaticClass, TEXT("AHUD_Character"), &Z_Registration_Info_UClass_AHUD_Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHUD_Character), 1927470935U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_2826654183(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_62719667(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

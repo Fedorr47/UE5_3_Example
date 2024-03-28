@@ -5,7 +5,7 @@
 #include "CoreMinimal.h"
 #include "EntityManager.h"
 
-class  DamageSystem
+class DamageSystem
 {
 public:
 	DamageSystem();

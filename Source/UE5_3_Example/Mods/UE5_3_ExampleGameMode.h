@@ -29,5 +29,3 @@ public:
 	void SendMessage(UBaseMessage* InMsg);
 };
 
-
-

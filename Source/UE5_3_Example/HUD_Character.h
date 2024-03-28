@@ -22,6 +22,10 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	UProgressBar* mHelthBar;
+
+public:
+	UFUNCTION()
+	void TakeMsg(UBaseMessage* Msg);
 };
 
 UCLASS()

@@ -10,19 +10,6 @@
 class AUE5_3_ExampleGameMode;
 
 UCLASS()
-class UHealthPercentMessage : public UBaseMessage
-{
-	GENERATED_BODY()
-
-public:
-
-	UHealthPercentMessage(const FObjectInitializer& ObjectInitializer);
-
-	UPROPERTY()
-	float HealthPercent = 0.0f;
-};
-
-UCLASS()
 class UE5_3_EXAMPLE_API UHealthComponent : public UEntityComponent
 {
 	GENERATED_BODY()

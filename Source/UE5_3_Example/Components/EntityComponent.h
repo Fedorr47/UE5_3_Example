@@ -37,6 +37,8 @@ public:
 
 	virtual void Update(float DeltaTime) {}
 
+	UObject* GetOwnerObject() { return mOwnerObject; }
+
 protected:
 	UPROPERTY()
 	UWorld* mWorld = nullptr;

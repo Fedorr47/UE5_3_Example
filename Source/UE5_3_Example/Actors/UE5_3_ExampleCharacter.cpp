@@ -14,6 +14,8 @@
 #include "Engine/LocalPlayer.h"
 #include "DamageComponent.h"
 #include "Systems/DamageSystem.h"
+#include "HealComponent.h"
+#include "Systems/HealSystem.h"
 #include <Kismet/GameplayStatics.h>
 
 #define CLASS_NAME(CLASS) {#CLASS}
@@ -152,5 +154,10 @@ void AUE5_3_ExampleCharacter::TakeDamage(float InDamageAmount)
 
 void AUE5_3_ExampleCharacter::Heal(float InHealAmount)
 {
-	
+	UHealComponent* HealComp = mGameMode->EntityManager->AddComponent<UHealComponent>(ActorEntity);
+	if (HealComp)
+	{
+		HealComp->HealAmount = 15.0f;
+	}
+	HealSystem::ApplyHeal(mGameMode->EntityManager);
 }

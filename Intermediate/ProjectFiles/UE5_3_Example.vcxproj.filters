@@ -111,6 +111,12 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\FloatableHealth.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\HealComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\HealComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Components\HealthComponent.cpp">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClCompile>
@@ -148,6 +154,16 @@
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Systems\DamageSystem.h">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\HealSystem.cpp">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\HealSystem.h">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,9 +6,10 @@ D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\UE5_3_ExampleProjectile.h
 D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Actors\BaseInteractableActor.h
 D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Actors\UE5_3_ExampleCharacter.h
 D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Components\DamageComponent.h
-D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Components\HealthComponent.h
-D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Components\FloatableHealth.h
+D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Components\HealComponent.h
 D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Components\EntityComponent.h
 D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Mods\UE5_3_ExampleGameMode.h
+D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Components\FloatableHealth.h
+D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\Components\HealthComponent.h
 D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\SystemQueue\EntityManager.h
 D:\UE5_proj\UE5_3_Example\Source\UE5_3_Example\SystemQueue\MessageQueue.h

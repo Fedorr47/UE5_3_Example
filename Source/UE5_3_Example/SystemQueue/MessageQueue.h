@@ -6,8 +6,7 @@
 UENUM(BlueprintType)
 enum class UMessageType : uint8
 {
-	HealthType,
-	HealthPercent
+	HUDHealthPercent
 };
 
 UCLASS()
@@ -21,6 +20,19 @@ public:
 
 	UPROPERTY()
 	int32 OwnerId;
+};
+
+UCLASS()
+class UHealthPercentMessage : public UBaseMessage
+{
+	GENERATED_BODY()
+
+public:
+
+	UHealthPercentMessage(const FObjectInitializer& ObjectInitializer);
+
+	UPROPERTY()
+	float HealthPercent = 0.0f;
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMessageProcess, UBaseMessage*, Msg);
