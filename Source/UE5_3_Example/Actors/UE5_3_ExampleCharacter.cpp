@@ -10,8 +10,10 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 #include "HealthComponent.h"
-#include "BaseComponent.h"
+#include "EntityComponent.h"
 #include "Engine/LocalPlayer.h"
+#include "DamageComponent.h"
+#include "Systems/DamageSystem.h"
 #include <Kismet/GameplayStatics.h>
 
 #define CLASS_NAME(CLASS) {#CLASS}
@@ -54,15 +56,15 @@ void AUE5_3_ExampleCharacter::BeginPlay()
 	if (UWorld* lWorld = GetWorld())
 	{
 		mWorld = lWorld;
-		mGameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
-		for (TSubclassOf<UBaseComponent> Component : AttachedComponents)
+		mGameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
+		ActorEntity = mGameMode->EntityManager->CreateEntity();
+		for (FEntityComponentWrapper Component : AttachedComponents)
 		{
-			UBaseComponent* CreatedComponent = Cast<UBaseComponent>(Component->GetDefaultObject());
-			CreatedComponent = CreatedComponent->RetNewComponent();
-			if (IsValid(CreatedComponent))
+			if (IsValid(Component.Template))
 			{
-				CreatedComponent->InitComponent(mWorld, this);
-				CreatedComponents.Emplace(CreatedComponent);
+				Component.Template->InitComponent(mWorld, this);
+				mGameMode->EntityManager->AddCreatedComponent(ActorEntity, Component.Template);
+				CreatedComponents.Emplace(Component.Template);
 			}
 		}
 	}
@@ -139,20 +141,16 @@ bool AUE5_3_ExampleCharacter::GetHasRifle()
 
 void AUE5_3_ExampleCharacter::TakeDamage(float InDamageAmount)
 {
-	UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
-	MsgToSend->Type = UMessageType::HealthType;
-	MsgToSend->HealthType = UHealthMessageType::Damage;
-	MsgToSend->Amount = InDamageAmount;
-	MsgToSend->OwnerId = mOwnerId;
-	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
+	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
+	if (DamageComp)
+	{
+		// Инициализация компонента урона, если это необходимо
+		DamageComp->DamageAmount = 15.0f;
+	}
+	DamageSystem::ApplyDamage(mGameMode->EntityManager);
 }
 
 void AUE5_3_ExampleCharacter::Heal(float InHealAmount)
 {
-	UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
-	MsgToSend->Type = UMessageType::HealthType;
-	MsgToSend->HealthType = UHealthMessageType::Heal;
-	MsgToSend->Amount = InHealAmount;
-	MsgToSend->OwnerId = mOwnerId;
-	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
+	
 }

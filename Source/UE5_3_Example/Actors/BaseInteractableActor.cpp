@@ -6,6 +6,8 @@
 #include <Kismet/KismetMathLibrary.h>
 #include "Blueprint/UserWidget.h"
 #include "HealthComponent.h"
+#include "DamageComponent.h"
+#include "Systems/DamageSystem.h"
 
 // Sets default values
 ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectInitializer)
@@ -32,17 +34,20 @@ void ABaseInteractableActor::BeginPlay()
 	if (UWorld* lWorld = GetWorld())
 	{
 		mWorld = lWorld;
-		mGameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
-		for (FBaseComponentWrapper Component : AttachedComponents)
+		mGameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
+		ActorEntity = mGameMode->EntityManager->CreateEntity();
+		for (FEntityComponentWrapper Component : AttachedComponents)
 		{
 			if (IsValid(Component.Template))
 			{
 				Component.Template->InitComponent(mWorld, this);
+				mGameMode->EntityManager->AddCreatedComponent(ActorEntity, Component.Template);
 				CreatedComponents.Emplace(Component.Template);
 			}
 		}
 		//StatMesh->TransformUpdated.AddUObject(this, &ABaseInteractableActor::OnStatMeshTransformUpdate);	
 	}
+
 	Super::BeginPlay();
 }
 
@@ -67,22 +72,18 @@ void ABaseInteractableActor::Tick(float DeltaTime)
 
 void ABaseInteractableActor::TakeDamage(float InDamageAmount)
 {
-	UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
-	MsgToSend->Type = UMessageType::HealthType;
-	MsgToSend->HealthType = UHealthMessageType::Damage;
-	MsgToSend->Amount = InDamageAmount;
-	MsgToSend->OwnerId = mOwnerId;
-	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
+	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
+	if (DamageComp)
+	{
+		// Инициализация компонента урона, если это необходимо
+		DamageComp->DamageAmount = 15.0f;
+	}
+	DamageSystem::ApplyDamage(mGameMode->EntityManager);
 }
 
 void ABaseInteractableActor::Heal(float InHealAmount)
 {
-	UHealthMessage* MsgToSend = NewObject<UHealthMessage>();
-	MsgToSend->Type = UMessageType::HealthType;
-	MsgToSend->HealthType = UHealthMessageType::Heal;
-	MsgToSend->Amount = InHealAmount;
-	MsgToSend->OwnerId = mOwnerId;
-	mGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
+	
 }
 
 

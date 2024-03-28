@@ -75,68 +75,80 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\UE5_3_ExampleProjectile.h">
       <Filter>Source\UE5_3_Example</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
+    <Filter Include="Source\UE5_3_Example\Actors">
+      <UniqueIdentifier>{B3E28716-11CF-3206-AAA1-9018AA68B76E}</UniqueIdentifier>
+    </Filter>
     <ClCompile Include="..\..\Source\UE5_3_Example\Actors\BaseInteractableActor.cpp">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\UE5_3_ExampleCharacter.cpp">
-      <Filter>Source\UE5_3_Example\Actors</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\BaseComponent.cpp">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\FloatableHealth.cpp">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\HealthComponent.cpp">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Mods\UE5_3_ExampleGameMode.cpp">
-      <Filter>Source\UE5_3_Example\Mods</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\SystemQueue\MessageQueue.cpp">
-      <Filter>Source\UE5_3_Example\SystemQueue</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\Source\UE5_3_Example\Actors\BaseInteractableActor.h">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\UE5_3_ExampleCharacter.cpp">
+      <Filter>Source\UE5_3_Example\Actors</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Actors\UE5_3_ExampleCharacter.h">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\BaseComponent.h">
+    <Filter Include="Source\UE5_3_Example\Components">
+      <UniqueIdentifier>{E069C9CE-72CD-332A-895C-DCC5CB4C67C8}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\DamageComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\DamageComponent.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\EntityComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\EntityComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\FloatableHealth.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\FloatableHealth.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\HealthComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\HealthComponent.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
+    <Filter Include="Source\UE5_3_Example\Mods">
+      <UniqueIdentifier>{49CF9926-115A-3BB4-ADBF-0B74AEF0BDC9}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Mods\UE5_3_ExampleGameMode.cpp">
+      <Filter>Source\UE5_3_Example\Mods</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Mods\UE5_3_ExampleGameMode.h">
       <Filter>Source\UE5_3_Example\Mods</Filter>
     </ClInclude>
+    <Filter Include="Source\UE5_3_Example\SystemQueue">
+      <UniqueIdentifier>{65D2098F-0033-37FE-9C91-FF2874135FAF}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\SystemQueue\EntityManager.cpp">
+      <Filter>Source\UE5_3_Example\SystemQueue</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\SystemQueue\EntityManager.h">
+      <Filter>Source\UE5_3_Example\SystemQueue</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\SystemQueue\MessageQueue.cpp">
+      <Filter>Source\UE5_3_Example\SystemQueue</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\SystemQueue\MessageQueue.h">
       <Filter>Source\UE5_3_Example\SystemQueue</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="Source\UE5_3_Example\Actors">
-      <UniqueIdentifier>{f13297ad-4a67-481d-95b2-e1c3d82eaa9c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\UE5_3_Example\Components">
-      <UniqueIdentifier>{11d7f307-097b-43b8-8630-d1498f2d9518}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source\UE5_3_Example\Systems">
-      <UniqueIdentifier>{91f8af40-5e9d-4850-881e-0dae15d0da5a}</UniqueIdentifier>
+      <UniqueIdentifier>{90F500A5-17BB-3B76-A4C5-619872875520}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\UE5_3_Example\Mods">
-      <UniqueIdentifier>{41c1c4f6-26d3-4c46-a993-fb058aa81194}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\UE5_3_Example\SystemQueue">
-      <UniqueIdentifier>{9810953f-d93f-4a73-b8da-bc5ac99bc0cb}</UniqueIdentifier>
-    </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\DamageSystem.cpp">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\DamageSystem.h">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

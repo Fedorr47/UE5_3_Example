@@ -30,7 +30,7 @@ UFloatableHealthComponent::UFloatableHealthComponent(const FObjectInitializer& O
 {
 }
 
-UBaseComponent* UFloatableHealthComponent::RetNewComponent()
+UEntityComponent* UFloatableHealthComponent::RetNewComponent()
 {
 	UFloatableHealthComponent* FloatableHealthComponent = NewObject<UFloatableHealthComponent>();
 	return FloatableHealthComponent;
@@ -54,7 +54,7 @@ void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerO
 			mFloatableHealthWC->SetMobility(EComponentMobility::Movable);
 			mFloatableHealthWC->RegisterComponentWithWorld(InWorld);
 
-			mGameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UFloatableHealthComponent::TakeMsg);
+			mFloatableHealthW = mFloatableHealthWC->GetWidget();
 
 			CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
 			if (IsValid(CameraManager))
@@ -74,21 +74,6 @@ void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerO
 	}
 }
 
-void UFloatableHealthComponent::TakeMsg(UBaseMessage* InMsg)
-{
-	if (InMsg->Type == UMessageType::HealthPercent && mOwnerId == InMsg->OwnerId)
-	{
-		auto HealthMessage = static_cast<UHealthPercentMessage*>(InMsg);
-		if (IsValid(HealthMessage))
-		{
-			if (auto FloatalbeHealthWidget = Cast<UFloatableHealth>(mFloatableHealthWC->GetWidget()))
-			{
-				FloatalbeHealthWidget->mHealthBar->SetPercent(HealthMessage->HealthPercent);
-			}
-		}
-	}
-}
-
 void UFloatableHealthComponent::Update(float DeltaTime)
 {
 	if (IsValid(CameraManager) && IsValid(MeshToAttach))
@@ -98,5 +83,7 @@ void UFloatableHealthComponent::Update(float DeltaTime)
 
 		FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
 		mFloatableHealthWC->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
+
+		Cast<UFloatableHealth>(mFloatableHealthW)->mHealthBar->SetPercent(HealthPercent);
 	}
 }

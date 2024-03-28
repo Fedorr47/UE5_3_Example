@@ -7,7 +7,7 @@ UHealthComponent::UHealthComponent(const FObjectInitializer& ObjectInitializer) 
     Health = MaxHealth;
 }
 
-UBaseComponent* UHealthComponent::RetNewComponent(UObject* OwnerObject)
+UEntityComponent* UHealthComponent::RetNewComponent(UObject* OwnerObject)
 {
     return NewObject<UHealthComponent>();
 }
@@ -15,66 +15,7 @@ UBaseComponent* UHealthComponent::RetNewComponent(UObject* OwnerObject)
 void UHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
 {
     Super::InitComponent(InWorld, InOwnerObject);
-    GetComponentGameMode()->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UHealthComponent::TakeMsg);
-}
-
-void UHealthComponent::TakeDamage(float InDamageAmount)
-{
-    if (!FMath::IsNearlyEqual(Health, 0.0f, 0.001f))
-    {
-        float NewHealth = Health - InDamageAmount;
-        Health = FMath::Clamp(NewHealth, 0.0f, MaxHealth);
-        if (GetComponentWorld())
-        {
-            SendPercent();
-        }
-    }
-}
-
-void UHealthComponent::Heal(float InHealAmount)
-{
-    if (!FMath::IsNearlyEqual(Health, 0.0f, 0.001f))
-    {
-        float NewHealth = Health + InHealAmount;
-        Health = FMath::Clamp(NewHealth, 0.0f, MaxHealth);
-        if (GetComponentWorld())
-        {
-            SendPercent();
-        }
-    }
-}
-
-void UHealthComponent::SendPercent()
-{
-    UHealthPercentMessage* MsgToSend = NewObject<UHealthPercentMessage>();
-    MsgToSend->HealthPercent = Health / MaxHealth;
-    MsgToSend->Type = UMessageType::HealthPercent;
-    MsgToSend->OwnerId = mOwnerId;
-    GetComponentGameMode()->SendMessage(Cast<UBaseMessage>(MsgToSend));
-}
-
-void UHealthComponent::TakeMsg(UBaseMessage* InMsg)
-{
-    if (InMsg->Type == UMessageType::HealthType && mOwnerId == InMsg->OwnerId)
-    {
-        auto HealthMessage = static_cast<UHealthMessage*>(InMsg);
-        switch (HealthMessage->HealthType)
-        {
-        case UHealthMessageType::Damage:
-            TakeDamage(HealthMessage->Amount);
-            break;
-        case UHealthMessageType::Heal:
-            Heal(HealthMessage->Amount);
-            break;
-        default:
-            break;
-        }  
-    }
-}
-
-UHealthMessage::UHealthMessage(const FObjectInitializer& ObjectInitializer) :
-    Super(ObjectInitializer)
-{
+    //GetComponentGameMode()->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UHealthComponent::TakeMsg);
 }
 
 UHealthPercentMessage::UHealthPercentMessage(const FObjectInitializer& ObjectInitializer) :

@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "Logging/LogMacros.h"
+#include "SystemQueue/EntityManager.h"
 #include "UE5_3_ExampleCharacter.generated.h"
 
 class UInputComponent;
@@ -12,7 +13,7 @@ class USkeletalMeshComponent;
 class UCameraComponent;
 class UInputAction;
 class UInputMappingContext;
-class UBaseComponent;
+class UEntityComponent;
 class UHealthComponent;
 struct FInputActionValue;
 class AUE5_3_ExampleGameMode;
@@ -46,7 +47,7 @@ class AUE5_3_ExampleCharacter : public ACharacter
 	UInputAction* MoveAction;
 
 	UPROPERTY()
-	TArray<UBaseComponent*> CreatedComponents;
+	TArray<UEntityComponent*> CreatedComponents;
 
 	UPROPERTY()
 	UWorld* mWorld = nullptr;
@@ -60,11 +61,14 @@ public:
 protected:
 	virtual void BeginPlay();
 
-	UPROPERTY(EditDefaultsOnly, Category = Components)
-	TArray<TSubclassOf<UBaseComponent>> AttachedComponents;
+	UPROPERTY(EditAnywhere, Category = Components)
+	TArray<FEntityComponentWrapper> AttachedComponents;
 
 	UPROPERTY()
 	uint32 mOwnerId;
+
+	UPROPERTY()
+	FEntity ActorEntity;
 
 public:
 		

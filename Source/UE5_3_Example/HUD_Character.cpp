@@ -52,17 +52,7 @@ void UCharacterHUDWidget::NativeOnInitialized()
 	Super::NativeOnInitialized();
 	if (UWorld* world = GetWorld())
 	{
-		const auto GameMode = dynamic_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(world));
-		GameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UCharacterHUDWidget::HealthWasChanged);
-		PlayerCharacter = dynamic_cast<AUE5_3_ExampleCharacter*>(UGameplayStatics::GetPlayerCharacter(world, 0));
+		const auto GameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(world));
 	}
 }
 
-void UCharacterHUDWidget::HealthWasChanged(UBaseMessage* InMsg)
-{
-	if (IsValid(PlayerCharacter) && InMsg->Type == UMessageType::HealthPercent && InMsg->OwnerId == PlayerCharacter->GetUniqueID())
-	{
-		float NewHealthPercent = static_cast<UHealthPercentMessage*>(InMsg)->HealthPercent;
-		mHelthBar->SetPercent(NewHealthPercent);
-	}
-}

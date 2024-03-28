@@ -4,7 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
-#include "BaseComponent.h"
+#include "EntityComponent.h"
 #include "FloatableHealth.generated.h"
 
 class UProgressBar;
@@ -26,28 +26,31 @@ public:
 };
 
 UCLASS()
-class UE5_3_EXAMPLE_API UFloatableHealthComponent : public UBaseComponent
+class UE5_3_EXAMPLE_API UFloatableHealthComponent : public UEntityComponent
 {
 	GENERATED_BODY()
 
 public:
 	UFloatableHealthComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual UBaseComponent* RetNewComponent();
+	virtual UEntityComponent* RetNewComponent();
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
-	UFUNCTION()
-	void TakeMsg(UBaseMessage* InMsg);
+	virtual void Update(float DeltaTime) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = FlaotableHealthWidget)
 	TSubclassOf<UFloatableHealth> FloatableHealthW;
 
-	virtual void Update(float DeltaTime) override;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = FlaotableHealth)
+	float HealthPercent = 1.0f;
 
 private:
 	UPROPERTY()
 	UWidgetComponent* mFloatableHealthWC = nullptr;
+
+	UPROPERTY()
+	UUserWidget* mFloatableHealthW = nullptr;
 
 	UPROPERTY()
 	APlayerCameraManager* CameraManager = nullptr;

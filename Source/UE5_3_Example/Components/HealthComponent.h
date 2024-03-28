@@ -4,35 +4,10 @@
 
 #include "CoreMinimal.h"
 #include "MessageQueue.h"
-#include "BaseComponent.h"
+#include "EntityComponent.h"
 #include "HealthComponent.generated.h"
 
-
 class AUE5_3_ExampleGameMode;
-
-UENUM(BlueprintType)
-enum class UHealthMessageType : uint8
-{
-	Damage,
-	Heal,
-	MAX
-};
-
-UCLASS()
-class UHealthMessage : public UBaseMessage
-{
-	GENERATED_BODY()
-
-public:
-
-	UHealthMessage(const FObjectInitializer& ObjectInitializer);
-
-	UPROPERTY()
-	float Amount = 0.0f;
-
-	UPROPERTY()
-	UHealthMessageType HealthType = UHealthMessageType::MAX;
-};
 
 UCLASS()
 class UHealthPercentMessage : public UBaseMessage
@@ -48,30 +23,17 @@ public:
 };
 
 UCLASS()
-class UE5_3_EXAMPLE_API UHealthComponent : public UBaseComponent
+class UE5_3_EXAMPLE_API UHealthComponent : public UEntityComponent
 {
 	GENERATED_BODY()
 	
 public:	
 	UHealthComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual UBaseComponent* RetNewComponent(UObject* OwnerObject);
+	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject);
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
-	UFUNCTION()
-	void TakeDamage(float InDamageAmount);
-
-	UFUNCTION()
-	void Heal(float InHealAmount);
-
-	UFUNCTION()
-	void SendPercent();
-
-	UFUNCTION()
-	void TakeMsg(UBaseMessage* InMsg);
-
-protected:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)
 	float MaxHealth = 100.0f;
 

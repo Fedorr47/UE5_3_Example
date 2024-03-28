@@ -22,12 +22,6 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	UProgressBar* mHelthBar;
-
-	UFUNCTION()
-	void HealthWasChanged(UBaseMessage* InMsg);
-
-	UPROPERTY()
-	AUE5_3_ExampleCharacter* PlayerCharacter = nullptr;
 };
 
 UCLASS()

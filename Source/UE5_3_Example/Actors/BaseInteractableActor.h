@@ -4,8 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-#include "BaseComponent.h"
+#include "EntityComponent.h"
 #include "Components/WidgetComponent.h"
+#include "SystemQueue/EntityManager.h"
 #include "BaseInteractableActor.generated.h"
 
 enum class ETeleportType : uint8;
@@ -21,6 +22,11 @@ class UE5_3_EXAMPLE_API ABaseInteractableActor : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ABaseInteractableActor(const FObjectInitializer& ObjectInitializer);
+	
+	UFUNCTION(BlueprintCallable)
+	void TakeDamage(float InDamageAmount);
+	UFUNCTION(BlueprintCallable)
+	void Heal(float InHealAmount);
 
 protected:
 	// Called when the game starts or when spawned
@@ -28,6 +34,9 @@ protected:
 
 	UPROPERTY(EditAnywhere)
 	uint32 mOwnerId;
+
+	UPROPERTY()
+	FEntity ActorEntity;
 
 private:
 
@@ -38,7 +47,7 @@ private:
 	AUE5_3_ExampleGameMode* mGameMode = nullptr;
 
 	UPROPERTY()
-	TArray<UBaseComponent*> CreatedComponents;
+	TArray<UEntityComponent*> CreatedComponents;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	UStaticMeshComponent* StatMesh;
@@ -49,12 +58,7 @@ public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	UFUNCTION(BlueprintCallable, Category = Health)
-	void TakeDamage(float InDamageAmount);
-	UFUNCTION(BlueprintCallable, Category = Health)
-	void Heal(float InHealAmount);
-
 	//UPROPERTY(EditDefaultsOnly, Category = Components)
 	UPROPERTY(EditAnywhere, Category = Components)
-	TArray<FBaseComponentWrapper> AttachedComponents;
+	TArray<FEntityComponentWrapper> AttachedComponents;
 };
