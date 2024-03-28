@@ -2,3 +2,7 @@
 * Добавить главное меню + анимации переходов
 * Добавить читы
 * Добавить систему сохранений
+
+
+https://benui.ca/unreal/uproperty-edit-condition-can-edit-change/ - для здоровья
+ClampMin/ClampMax/Units
