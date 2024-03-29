@@ -38,8 +38,6 @@ protected:
 	UPROPERTY()
 	FEntity ActorEntity;
 
-private:
-
 	UPROPERTY()
 	UWorld* mWorld = nullptr;
 

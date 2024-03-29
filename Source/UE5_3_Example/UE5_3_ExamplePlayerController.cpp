@@ -2,6 +2,7 @@
 
 
 #include "UE5_3_ExamplePlayerController.h"
+#include "ExtendCheatManager.h"
 #include "EnhancedInputSubsystems.h"
 
 void AUE5_3_ExamplePlayerController::BeginPlay()
@@ -16,4 +17,5 @@ void AUE5_3_ExamplePlayerController::BeginPlay()
 
 		UE_LOG(LogTemp, Warning, TEXT("BeginPlay"));
 	}
+	CheatClass = UExtendCheatManager::StaticClass();
 }

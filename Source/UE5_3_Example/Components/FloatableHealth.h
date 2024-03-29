@@ -25,7 +25,7 @@ public:
 	UProgressBar* mHealthBar;
 };
 
-UCLASS()
+UCLASS(ClassGroup = (LODZERO), meta = (BlueprintSpawnableComponent))
 class UE5_3_EXAMPLE_API UFloatableHealthComponent : public UEntityComponent
 {
 	GENERATED_BODY()
@@ -56,6 +56,6 @@ private:
 	APlayerCameraManager* CameraManager = nullptr;
 
 	UPROPERTY()
-	UStaticMeshComponent* MeshToAttach = nullptr;
+	UMeshComponent* MeshToAttach = nullptr;
 };
 

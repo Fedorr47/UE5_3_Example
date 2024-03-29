@@ -39,37 +39,26 @@ UEntityComponent* UFloatableHealthComponent::RetNewComponent()
 void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
 {
 	Super::InitComponent(InWorld, InOwnerObject);
-	AActor* OwnerActor = Cast<AActor>(InOwnerObject);
+	UMeshComponent* OwnerMesh = Cast<UMeshComponent>(InOwnerObject);
 	
-	if (IsValid(OwnerActor))
+	if (IsValid(OwnerMesh))
 	{
-		mFloatableHealthWC = NewObject<UWidgetComponent>(OwnerActor, TEXT("Floatable Text"));
+		mFloatableHealthWC = NewObject<UWidgetComponent>(OwnerMesh, TEXT("Floatable Text"));
 		if (IsValid(mFloatableHealthWC))
 		{
 			mFloatableHealthWC->RegisterComponent();
-			mFloatableHealthWC->AttachToComponent(OwnerActor->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+			mFloatableHealthWC->AttachToComponent(OwnerMesh, FAttachmentTransformRules::KeepRelativeTransform);
 			mFloatableHealthWC->SetWidgetClass(FloatableHealthW);
 			mFloatableHealthWC->SetVisibility(true);
 			mFloatableHealthWC->SetWidgetSpace(EWidgetSpace::World);
 			mFloatableHealthWC->SetMobility(EComponentMobility::Movable);
 			mFloatableHealthWC->RegisterComponentWithWorld(InWorld);
+			mFloatableHealthWC->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 
 			mFloatableHealthW = mFloatableHealthWC->GetWidget();
 
 			CameraManager = (UGameplayStatics::GetPlayerCameraManager(GetWorld(), 0));
-			if (IsValid(CameraManager))
-			{
-				TArray<USceneComponent*> ChildComponents;
-				mFloatableHealthWC->GetAttachmentRoot()->GetChildrenComponents(true, ChildComponents);
-				for (auto ChildComp : ChildComponents)
-				{
-					// TODO: Add a check that current mesh is a goal for a floatable widget
-					if (auto Mesh = Cast<UStaticMeshComponent>(ChildComp))
-					{
-						MeshToAttach = Mesh;
-					}
-				}
-			}
+			MeshToAttach = OwnerMesh;
 		}	
 	}
 }

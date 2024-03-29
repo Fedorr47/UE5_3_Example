@@ -49,26 +49,22 @@ private:
             }
         }
 
-        return FEntity(); // Возвращаем пустую сущность, если ничего не найдено
+        return FEntity(); 
     }
 
 public:
-    // Создает новую сущность и возвращает ее
     FEntity CreateEntity();
 
     void AddEntity(FEntity* InEntity);
 
-    // Удаляет сущность и все ее компоненты
     void DestroyEntity(const FEntity& Entity);
 
-    // Добавляет компонент к сущности
     template<class T>
     T* AddComponent(const FEntity& Entity);
 
     template<class T>
     void AddCreatedComponent(const FEntity& Entity, T* InComponent);
 
-    // Получает компоненты определенного типа от сущности
     template<class T>
     TArray<T*> GetComponents(const FEntity& Entity);
 
@@ -88,7 +84,7 @@ public:
                 if (const T* Casted = Cast<T>(Component))
                 {
                     Result.Add(FindEntityById(Pair.Key));
-                    break; // Переходим к следующей сущности, если компонент найден
+                    break; 
                 }
             }
         }
@@ -101,7 +97,6 @@ public:
         return (HasComponent<ComponentTypes>(Entity) && ...);
     }
 
-    // Вспомогательный метод для проверки наличия компонента определённого типа
     template<typename T>
     bool HasComponent(const FEntity& Entity) const
     {
@@ -143,20 +138,17 @@ public:
         TArray<UEntityComponent*>* Components = EntityComponents.Find(Entity.Id);
         if (Components != nullptr)
         {
-            // Проходим по массиву с конца, так как мы можем удалять элементы в процессе
             for (int32 i = Components->Num() - 1; i >= 0; --i)
             {
                 UEntityComponent* Component = (*Components)[i];
                 if (T* TypedComponent = Cast<T>(Component))
                 {
-                    Components->RemoveAt(i); // Удаляем компонент из массива
+                    Components->RemoveAt(i); 
 
-                    // Освобождаем ресурсы компонента, если это необходимо
-                    TypedComponent->MarkPendingKill(); // Помечаем компонент на удаление
+                    TypedComponent->MarkPendingKill(); 
                 }
             }
 
-            // Если после удаления массив компонентов становится пустым, можно также удалить запись из карты
             if (Components->IsEmpty())
             {
                 EntityComponents.Remove(Entity.Id);

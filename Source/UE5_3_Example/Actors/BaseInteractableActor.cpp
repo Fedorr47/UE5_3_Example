@@ -29,6 +29,8 @@ ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectI
 // Called when the game starts or when spawned
 void ABaseInteractableActor::BeginPlay()
 {
+	RootComponent = StatMesh;
+	Super::BeginPlay();
 	mOwnerId = this->GetUniqueID();
 
 	if (UWorld* lWorld = GetWorld())
@@ -40,15 +42,12 @@ void ABaseInteractableActor::BeginPlay()
 		{
 			if (IsValid(Component.Template))
 			{
-				Component.Template->InitComponent(mWorld, this);
+				Component.Template->InitComponent(mWorld, StatMesh);
 				mGameMode->EntityManager->AddCreatedComponent(ActorEntity, Component.Template);
 				CreatedComponents.Emplace(Component.Template);
 			}
 		}
-		//StatMesh->TransformUpdated.AddUObject(this, &ABaseInteractableActor::OnStatMeshTransformUpdate);	
 	}
-
-	Super::BeginPlay();
 }
 
 /*
@@ -75,7 +74,6 @@ void ABaseInteractableActor::TakeDamage(float InDamageAmount)
 	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
 	if (DamageComp)
 	{
-		// Инициализация компонента урона, если это необходимо
 		DamageComp->DamageAmount = 15.0f;
 	}
 	DamageSystem::ApplyDamage(mGameMode->EntityManager);
