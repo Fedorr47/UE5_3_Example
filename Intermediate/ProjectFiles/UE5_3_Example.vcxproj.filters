@@ -161,9 +161,39 @@
     <ClCompile Include="..\..\Source\UE5_3_Example\Systems\HealSystem.cpp">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ExplosionComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\PhysicComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\TimerComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\ExplosionSystem.cpp">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\TimerSystem.cpp">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\Source\UE5_3_Example\Systems\HealSystem.h">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ExplosionComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\PhysicComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\TimerComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\ExplosionSystem.h">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\TimerSystem.h">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
   </ItemGroup>

@@ -118,19 +118,29 @@
     <None Include="..\..\Config\DefaultEngine.ini" />
     <None Include="..\..\Config\DefaultGame.ini" />
     <None Include="..\..\Config\DefaultInput.ini" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ExplosionComponent.cpp" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\PhysicComponent.cpp" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\TimerComponent.cpp" />
     <ClCompile Include="..\..\Source\UE5_3_Example\HUD_Character.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ExplosionComponent.h" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\PhysicComponent.h" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\TimerComponent.h" />
     <ClInclude Include="..\..\Source\UE5_3_Example\HUD_Character.h" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\ExplosionSystem.cpp" />
     <ClCompile Include="..\..\Source\UE5_3_Example\Systems\HealSystem.cpp" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\TimerSystem.cpp" />
     <ClCompile Include="..\..\Source\UE5_3_Example\TP_PickUpComponent.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\ExplosionSystem.h" />
     <ClInclude Include="..\..\Source\UE5_3_Example\Systems\HealSystem.h" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\TimerSystem.h" />
     <ClInclude Include="..\..\Source\UE5_3_Example\TP_PickUpComponent.h" />
     <ClCompile Include="..\..\Source\UE5_3_Example\TP_WeaponComponent.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
