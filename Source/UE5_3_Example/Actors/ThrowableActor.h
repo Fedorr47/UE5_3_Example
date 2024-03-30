@@ -61,4 +61,8 @@ public:
 
 	UPROPERTY(VisibleDefaultsOnly, Category = Spline)
 	AThrowbalePathVisualizer* ThrowbalePathVisualizer = nullptr;
+
+	// TODO: Replace to component
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UStaticMeshComponent* StatTVPMesh;
 };

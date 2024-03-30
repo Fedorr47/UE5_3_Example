@@ -3,6 +3,7 @@
 #include "ThrowbalePathVisualizer.h"
 #include "Actors/ThrowbalePathVisualizer.h"
 #include "Components/SplineComponent.h"
+#include "Components/SplineMeshComponent.h"
 
 // Sets default values
 AThrowbalePathVisualizer::AThrowbalePathVisualizer(const FObjectInitializer& ObjectInitializer)
@@ -21,7 +22,6 @@ AThrowbalePathVisualizer::AThrowbalePathVisualizer(const FObjectInitializer& Obj
 void AThrowbalePathVisualizer::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
@@ -42,18 +42,33 @@ void AThrowbalePathVisualizer::VisualizePath(FVector StartLocation, FVector Laun
     FVector CurrentVelocity = LaunchVelocity;
     FVector CurrentLocation = StartLocation;
 
+    /*
     for (float Time = 0; Time <= TotalTime; Time += TimeStep)
     {
         FVector NextLocation = CurrentLocation + CurrentVelocity * TimeStep + 0.5f * FVector(0, 0, Gravity) * FMath::Pow(TimeStep, 2);
         CurrentVelocity += FVector(0, 0, Gravity) * TimeStep;
 
         // Добавляем новую точку к сплайну
-        SplineComponent->AddSplinePointAtIndex(NextLocation, SplineComponent->GetNumberOfSplinePoints(), ESplineCoordinateSpace::World, false);
+        //SplineComponent->AddSplinePointAtIndex(NextLocation, SplineComponent->GetNumberOfSplinePoints(), ESplineCoordinateSpace::World, false);
 
         CurrentLocation = NextLocation;
+    }*/
+
+    for (int32 i = 0; i < TotalTime; ++i) {
+        FVector Location, Tangent, LocationNext, TangentNext;
+        SplineComponent->GetLocalLocationAndTangentAtSplinePoint(i, Location, Tangent);
+        SplineComponent->GetLocalLocationAndTangentAtSplinePoint(i + 1, LocationNext, TangentNext);
+        auto* s = NewObject<USplineMeshComponent>(GetOwner());
+        s->SetStaticMesh(MeshForPath->GetStaticMesh());
+        s->SetStartAndEnd(Location, Tangent, LocationNext, TangentNext);
     }
 
     // Обновляем сплайн для отображения изменений
     SplineComponent->UpdateSpline();
+}
+
+void AThrowbalePathVisualizer::SetMeshForPath(UStaticMeshComponent* InMesh)
+{
+    MeshForPath = InMesh;
 }
 

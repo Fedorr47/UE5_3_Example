@@ -28,7 +28,12 @@ public:
 	UFUNCTION()
 	void VisualizePath(FVector StartLocation, FVector LaunchVelocity);
 
+	void SetMeshForPath(UStaticMeshComponent* InMesh);
+
 
 	UPROPERTY(EditAnywhere)
-	USplineComponent* SplineComponent = nullptr;
+	USplineMeshComponent* SplineComponent = nullptr;
+
+	UPROPERTY()
+	UStaticMeshComponent* MeshForPath;
 };

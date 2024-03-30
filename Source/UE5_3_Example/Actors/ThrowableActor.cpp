@@ -19,7 +19,7 @@ AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
 
 void AThrowableActor::PrepareThrow(FVector LaunchVelocity)
 {
-	ThrowbalePathVisualizer->VisualizePath(GetActorLocation(), LaunchVelocity);
+	ThrowbalePathVisualizer->VisualizePath(OwnerCharacter->GetActorLocation(), LaunchVelocity);
 }
 
 void AThrowableActor::BeginPlay()
@@ -32,6 +32,7 @@ void AThrowableActor::BeginPlay()
 		mGameMode->EntityManager->AddCreatedComponent(ActorEntity, PhysicComponent);
 		CreatedComponents.Emplace(PhysicComponent);
 	}
+	ThrowbalePathVisualizer->SetMeshForPath(StatTVPMesh);
 }
 
 void AThrowableActor::Throw(FVector LaunchVelocity)
