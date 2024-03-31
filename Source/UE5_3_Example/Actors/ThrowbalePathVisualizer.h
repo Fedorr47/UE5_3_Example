@@ -32,7 +32,7 @@ public:
 
 
 	UPROPERTY(EditAnywhere)
-	USplineMeshComponent* SplineComponent = nullptr;
+	USplineComponent* SplineComponent = nullptr;
 
 	UPROPERTY()
 	UStaticMeshComponent* MeshForPath;

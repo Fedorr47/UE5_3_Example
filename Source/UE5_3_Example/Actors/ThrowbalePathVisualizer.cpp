@@ -42,24 +42,27 @@ void AThrowbalePathVisualizer::VisualizePath(FVector StartLocation, FVector Laun
     FVector CurrentVelocity = LaunchVelocity;
     FVector CurrentLocation = StartLocation;
 
-    /*
+    auto* s = NewObject<USplineMeshComponent>(this);
+   
+    
+    
     for (float Time = 0; Time <= TotalTime; Time += TimeStep)
     {
         FVector NextLocation = CurrentLocation + CurrentVelocity * TimeStep + 0.5f * FVector(0, 0, Gravity) * FMath::Pow(TimeStep, 2);
         CurrentVelocity += FVector(0, 0, Gravity) * TimeStep;
 
         // Добавляем новую точку к сплайну
-        //SplineComponent->AddSplinePointAtIndex(NextLocation, SplineComponent->GetNumberOfSplinePoints(), ESplineCoordinateSpace::World, false);
+        SplineComponent->AddSplinePointAtIndex(NextLocation, SplineComponent->GetNumberOfSplinePoints(), ESplineCoordinateSpace::World, false);
 
         CurrentLocation = NextLocation;
-    }*/
+    }
 
+    FVector Location, Tangent, LocationNext, TangentNext;
     for (int32 i = 0; i < TotalTime; ++i) {
-        FVector Location, Tangent, LocationNext, TangentNext;
+        
+        s->SetStaticMesh(MeshForPath->GetStaticMesh());
         SplineComponent->GetLocalLocationAndTangentAtSplinePoint(i, Location, Tangent);
         SplineComponent->GetLocalLocationAndTangentAtSplinePoint(i + 1, LocationNext, TangentNext);
-        auto* s = NewObject<USplineMeshComponent>(GetOwner());
-        s->SetStaticMesh(MeshForPath->GetStaticMesh());
         s->SetStartAndEnd(Location, Tangent, LocationNext, TangentNext);
     }
 
@@ -69,6 +72,6 @@ void AThrowbalePathVisualizer::VisualizePath(FVector StartLocation, FVector Laun
 
 void AThrowbalePathVisualizer::SetMeshForPath(UStaticMeshComponent* InMesh)
 {
-    MeshForPath = InMesh;
+    MeshForPath = NewObject<UStaticMeshComponent>(InMesh);
 }
 

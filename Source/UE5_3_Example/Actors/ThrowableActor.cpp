@@ -15,6 +15,8 @@ AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
 	{
 		RootComponent = ObjectInitializer.CreateDefaultSubobject<USceneComponent>(this, TEXT("Root"));
 	}
+	StatTVPMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
+	StatMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void AThrowableActor::PrepareThrow(FVector LaunchVelocity)

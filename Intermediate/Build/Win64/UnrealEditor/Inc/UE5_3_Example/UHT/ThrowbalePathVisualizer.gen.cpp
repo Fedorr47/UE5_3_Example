@@ -11,7 +11,7 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 // Cross Module References
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
-	ENGINE_API UClass* Z_Construct_UClass_USplineMeshComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USplineComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowbalePathVisualizer();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowbalePathVisualizer_NoRegister();
@@ -119,7 +119,7 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 		{ "ModuleRelativePath", "Actors/ThrowbalePathVisualizer.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComponent = { "SplineComponent", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowbalePathVisualizer, SplineComponent), Z_Construct_UClass_USplineMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComponent_MetaData), Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComponent_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComponent = { "SplineComponent", nullptr, (EPropertyFlags)0x0010000000080009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowbalePathVisualizer, SplineComponent), Z_Construct_UClass_USplineComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComponent_MetaData), Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComponent_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_MeshForPath_MetaData[] = {
 		{ "EditInline", "true" },
@@ -169,9 +169,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AThrowbalePathVisualizer, AThrowbalePathVisualizer::StaticClass, TEXT("AThrowbalePathVisualizer"), &Z_Registration_Info_UClass_AThrowbalePathVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowbalePathVisualizer), 2286069470U) },
+		{ Z_Construct_UClass_AThrowbalePathVisualizer, AThrowbalePathVisualizer::StaticClass, TEXT("AThrowbalePathVisualizer"), &Z_Registration_Info_UClass_AThrowbalePathVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowbalePathVisualizer), 1872605334U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_1348552145(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_375124567(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
