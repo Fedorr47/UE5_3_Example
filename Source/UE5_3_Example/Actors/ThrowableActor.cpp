@@ -17,11 +17,13 @@ AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
 	}
 	StatTVPMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
 	StatMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	ThrowbalePathVisualizer = ObjectInitializer.CreateDefaultSubobject<AThrowbalePathVisualizer>(this, "ThrowbalePathVisualizer");
+	ThrowbalePathVisualizer->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void AThrowableActor::PrepareThrow(FVector LaunchVelocity)
 {
-	ThrowbalePathVisualizer->VisualizePath(OwnerCharacter->GetActorLocation(), LaunchVelocity);
+	ThrowbalePathVisualizer->VisualizePath(OwnerCharacter, LaunchVelocity);
 }
 
 void AThrowableActor::BeginPlay()

@@ -11,7 +11,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 // Cross Module References
 	COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector();
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USplineComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_USplineMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowbalePathVisualizer();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowbalePathVisualizer_NoRegister();
@@ -19,11 +21,11 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 // End Cross Module References
 	DEFINE_FUNCTION(AThrowbalePathVisualizer::execVisualizePath)
 	{
-		P_GET_STRUCT(FVector,Z_Param_StartLocation);
+		P_GET_OBJECT(AActor,Z_Param_SplineActorToAttach);
 		P_GET_STRUCT(FVector,Z_Param_LaunchVelocity);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->VisualizePath(Z_Param_StartLocation,Z_Param_LaunchVelocity);
+		P_THIS->VisualizePath(Z_Param_SplineActorToAttach,Z_Param_LaunchVelocity);
 		P_NATIVE_END;
 	}
 	void AThrowbalePathVisualizer::StaticRegisterNativesAThrowbalePathVisualizer()
@@ -38,10 +40,10 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 	{
 		struct ThrowbalePathVisualizer_eventVisualizePath_Parms
 		{
-			FVector StartLocation;
+			AActor* SplineActorToAttach;
 			FVector LaunchVelocity;
 		};
-		static const UECodeGen_Private::FStructPropertyParams NewProp_StartLocation;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_SplineActorToAttach;
 		static const UECodeGen_Private::FStructPropertyParams NewProp_LaunchVelocity;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
@@ -49,10 +51,10 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath_Statics::NewProp_StartLocation = { "StartLocation", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThrowbalePathVisualizer_eventVisualizePath_Parms, StartLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath_Statics::NewProp_SplineActorToAttach = { "SplineActorToAttach", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThrowbalePathVisualizer_eventVisualizePath_Parms, SplineActorToAttach), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath_Statics::NewProp_LaunchVelocity = { "LaunchVelocity", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThrowbalePathVisualizer_eventVisualizePath_Parms, LaunchVelocity), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath_Statics::NewProp_StartLocation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath_Statics::NewProp_SplineActorToAttach,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath_Statics::NewProp_LaunchVelocity,
 	};
 #if WITH_METADATA
@@ -92,6 +94,11 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_MeshForPath_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_MeshForPath;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_SplineComps_Inner;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SplineComps_MetaData[];
+#endif
+		static const UECodeGen_Private::FArrayPropertyParams NewProp_SplineComps;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -102,7 +109,7 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowbalePathVisualizer_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_AThrowbalePathVisualizer_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath, "VisualizePath" }, // 18677968
+		{ &Z_Construct_UFunction_AThrowbalePathVisualizer_VisualizePath, "VisualizePath" }, // 345540244
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowbalePathVisualizer_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -127,9 +134,19 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_MeshForPath = { "MeshForPath", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowbalePathVisualizer, MeshForPath), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_MeshForPath_MetaData), Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_MeshForPath_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComps_Inner = { "SplineComps", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_USplineMeshComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComps_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Actors/ThrowbalePathVisualizer.h" },
+	};
+#endif
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComps = { "SplineComps", nullptr, (EPropertyFlags)0x0010008000000008, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowbalePathVisualizer, SplineComps), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComps_MetaData), Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComps_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AThrowbalePathVisualizer_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_MeshForPath,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComps_Inner,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowbalePathVisualizer_Statics::NewProp_SplineComps,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AThrowbalePathVisualizer_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AThrowbalePathVisualizer>::IsAbstract,
@@ -169,9 +186,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowbalePathVisualizer() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AThrowbalePathVisualizer, AThrowbalePathVisualizer::StaticClass, TEXT("AThrowbalePathVisualizer"), &Z_Registration_Info_UClass_AThrowbalePathVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowbalePathVisualizer), 1872605334U) },
+		{ Z_Construct_UClass_AThrowbalePathVisualizer, AThrowbalePathVisualizer::StaticClass, TEXT("AThrowbalePathVisualizer"), &Z_Registration_Info_UClass_AThrowbalePathVisualizer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowbalePathVisualizer), 3368407112U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_375124567(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_284628258(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowbalePathVisualizer_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

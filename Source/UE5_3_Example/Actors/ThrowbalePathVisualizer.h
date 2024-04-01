@@ -7,6 +7,7 @@
 #include "ThrowbalePathVisualizer.generated.h"
 
 class USplineComponent;
+class USplineMeshComponent;
 
 UCLASS()
 class UE5_3_EXAMPLE_API AThrowbalePathVisualizer : public AActor
@@ -26,7 +27,7 @@ public:
 	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION()
-	void VisualizePath(FVector StartLocation, FVector LaunchVelocity);
+	void VisualizePath(AActor* SplineActorToAttach, FVector LaunchVelocity);
 
 	void SetMeshForPath(UStaticMeshComponent* InMesh);
 
@@ -36,4 +37,7 @@ public:
 
 	UPROPERTY()
 	UStaticMeshComponent* MeshForPath;
+
+	UPROPERTY()
+	TArray<USplineMeshComponent*> SplineComps;
 };
