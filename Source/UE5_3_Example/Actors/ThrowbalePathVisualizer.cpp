@@ -4,6 +4,7 @@
 #include "Actors/ThrowbalePathVisualizer.h"
 #include "Components/SplineComponent.h"
 #include "Components/SplineMeshComponent.h"
+#include "UE5_3_ExampleCharacter.h"
 
 // Sets default values
 AThrowbalePathVisualizer::AThrowbalePathVisualizer(const FObjectInitializer& ObjectInitializer)
@@ -36,6 +37,10 @@ void AThrowbalePathVisualizer::VisualizePath(AActor* SplineActorToAttach, FVecto
 {
     if (IsValid(SplineActorToAttach))
     {
+        for (auto Com : SplineComps)
+        {
+            Com->DestroyComponent();
+        }
         SplineComponent->ClearSplinePoints(false);
         SplineComps.Empty();
 
@@ -44,16 +49,16 @@ void AThrowbalePathVisualizer::VisualizePath(AActor* SplineActorToAttach, FVecto
         float Gravity = -980.0f; // См/с^2
 
         FVector CurrentVelocity = LaunchVelocity;
-        FVector CurrentLocation = SplineActorToAttach->GetActorLocation();
+        FVector  CurrentLocation = SplineActorToAttach->GetActorLocation();
+ 
 
         for (float Time = 0; Time <= TotalTime; Time += TimeStep)
         {
+            SplineComponent->AddSplinePointAtIndex(CurrentLocation, SplineComponent->GetNumberOfSplinePoints(), ESplineCoordinateSpace::World, false);
+
             FVector NextLocation = CurrentLocation + CurrentVelocity * TimeStep + 0.5f * FVector(0, 0, Gravity) * FMath::Pow(TimeStep, 2);
             CurrentVelocity += FVector(0, 0, Gravity) * TimeStep;
-
-            // Добавляем новую точку к сплайну
-            SplineComponent->AddSplinePointAtIndex(NextLocation, SplineComponent->GetNumberOfSplinePoints(), ESplineCoordinateSpace::World, false);
-
+           
             CurrentLocation = NextLocation;
         }
 
@@ -62,7 +67,7 @@ void AThrowbalePathVisualizer::VisualizePath(AActor* SplineActorToAttach, FVecto
         {
             auto* s = NewObject<USplineMeshComponent>(SplineActorToAttach, USplineMeshComponent::StaticClass());
             s->SetMobility(EComponentMobility::Movable);
-            s->AttachToComponent(SplineActorToAttach->GetRootComponent(), FAttachmentTransformRules::KeepRelativeTransform);
+            //s->AttachToComponent(SplineActorToAttach->GetRootComponent(), FAttachmentTransformRules::KeepWorldTransform);
             s->RegisterComponent();
             SplineActorToAttach->AddInstanceComponent(s);
 
