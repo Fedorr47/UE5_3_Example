@@ -2,10 +2,11 @@
 
 
 #include "Actors/ThrowableActor.h"
-#include "ThrowbalePathVisualizer.h"
 #include "GameFramework/Character.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
+#include "ThrowableComponent.h"
+#include "Systems/ThrowableSystem.h"
 #include "InputActionValue.h"
 
 AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
@@ -15,15 +16,8 @@ AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
 	{
 		RootComponent = ObjectInitializer.CreateDefaultSubobject<USceneComponent>(this, TEXT("Root"));
 	}
-	StatTVPMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
+	//StatTVPMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
 	StatMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	ThrowbalePathVisualizer = ObjectInitializer.CreateDefaultSubobject<AThrowbalePathVisualizer>(this, "ThrowbalePathVisualizer");
-	ThrowbalePathVisualizer->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-}
-
-void AThrowableActor::PrepareThrow(FVector LaunchVelocity)
-{
-	ThrowbalePathVisualizer->VisualizePath(OwnerCharacter, LaunchVelocity);
 }
 
 void AThrowableActor::BeginPlay()
@@ -36,7 +30,6 @@ void AThrowableActor::BeginPlay()
 		mGameMode->EntityManager->AddCreatedComponent(ActorEntity, PhysicComponent);
 		CreatedComponents.Emplace(PhysicComponent);
 	}
-	ThrowbalePathVisualizer->SetMeshForPath(StatTVPMesh);
 }
 
 void AThrowableActor::Throw(FVector LaunchVelocity)
@@ -83,5 +76,11 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 
 void AThrowableActor::ActiveThrow()
 {
-	PrepareThrow(PhysicComponent->Velocity);
+	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
+	if (IsValid(ThrowableComp))
+	{
+		ThrowableComp->InitComponent(mWorld, OwnerCharacter);
+		ThrowableComp->ThrowVector = PhysicComponent->Velocity;
+		ThrowableSystem::ApplyThrow(mGameMode->EntityManager);
+	}
 }

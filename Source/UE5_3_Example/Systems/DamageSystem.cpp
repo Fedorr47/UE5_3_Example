@@ -23,28 +23,21 @@ void DamageSystem::ApplyDamage(UEntityManager* EntityManager)
 {
     if (!EntityManager) return;
 
-    // Получаем список всех сущностей
     TArray<FEntity> Entities = EntityManager->GetAllEntities();
 
     for (const FEntity& Entity : Entities)
     {
-        // Проверяем, имеет ли сущность компонент урона
         UDamageComponent* DamageComp = EntityManager->GetComponent<UDamageComponent>(Entity);
-        if (DamageComp)
+        if (IsValid(DamageComp))
         {
-            // Если есть, то ищем компонент здоровья
             UHealthComponent* HealthComp = EntityManager->GetComponent<UHealthComponent>(Entity);
             if (IsValid(HealthComp))
             {
-                // Применяем урон
                 HealthComp->Health -= DamageComp->DamageAmount;
                 HealthComp->Health = FMath::Clamp(HealthComp->Health, 0.0f, HealthComp->MaxHealth);
 
-                // Проверка на смерть сущности может быть здесь
 
                 EntityManager->RemoveComponents<UDamageComponent>(Entity);
-
-                // TODO: Подумать как исправить хак с HUD персонажа
                 if (auto Character = Cast<AUE5_3_ExampleCharacter>(HealthComp->GetOwnerObject()))
                 {
                     auto GemeMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(Character->GetWorld()));

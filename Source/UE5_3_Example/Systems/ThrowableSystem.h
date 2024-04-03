@@ -5,6 +5,8 @@
 #include "CoreMinimal.h"
 #include "EntityManager.h"
 
+class AActor;
+
 class ThrowableSystem
 {
 public:
@@ -13,5 +15,6 @@ public:
 
 public:
 
-	static void ApplyDamage(UEntityManager* EntityManager);
+	static void ApplyThrow(UEntityManager* EntityManager);
+	static void VisualizePath(AActor* SplineActorToAttach, FVector LaunchVelocity);
 };

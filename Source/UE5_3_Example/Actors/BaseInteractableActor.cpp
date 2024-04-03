@@ -29,7 +29,7 @@ ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectI
 // Called when the game starts or when spawned
 void ABaseInteractableActor::BeginPlay()
 {
-	RootComponent = StatMesh;
+	//RootComponent = StatMesh;
 	Super::BeginPlay();
 	mOwnerId = this->GetUniqueID();
 
@@ -72,11 +72,11 @@ void ABaseInteractableActor::Tick(float DeltaTime)
 void ABaseInteractableActor::TakeDamage(float InDamageAmount)
 {
 	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
-	if (DamageComp)
+	if (IsValid(DamageComp))
 	{
-		DamageComp->DamageAmount = 15.0f;
-	}
-	DamageSystem::ApplyDamage(mGameMode->EntityManager);
+		DamageComp->DamageAmount = InDamageAmount;
+		DamageSystem::ApplyDamage(mGameMode->EntityManager);
+	}	
 }
 
 void ABaseInteractableActor::Heal(float InHealAmount)

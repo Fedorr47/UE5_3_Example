@@ -1,13 +1,14 @@
-// Fill out your copyright notice in the Description page of Project Settings.
+﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 #include "Systems/ThrowableSystem.h"
 
 #include <Kismet/GameplayStatics.h>
 #include "Math/UnrealMathUtility.h"
 
+#include "GameFramework/Actor.h"
 #include "ThrowableComponent.h"
-#include "HUD_Character.h"
-#include "UE5_3_ExampleCharacter.h"
+#include "DefaultProjectile.h"
+#include "ThrowableSystem.h"
 
 ThrowableSystem::ThrowableSystem()
 {
@@ -17,7 +18,7 @@ ThrowableSystem::~ThrowableSystem()
 {
 }
 
-void ThrowableSystem::ApplyDamage(UEntityManager* EntityManager)
+void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 {
     if (!EntityManager) return;
 
@@ -26,33 +27,42 @@ void ThrowableSystem::ApplyDamage(UEntityManager* EntityManager)
 
     for (const FEntity& Entity : Entities)
     {
-        /*
-        UDamageComponent* DamageComp = EntityManager->GetComponent<UDamageComponent>(Entity);
-        if (DamageComp)
+        UThrowableComponent* ThrowableComp = EntityManager->GetComponent<UThrowableComponent>(Entity);
+        if (IsValid(ThrowableComp))
         {
-            UHealthComponent* HealthComp = EntityManager->GetComponent<UHealthComponent>(Entity);
-            if (IsValid(HealthComp))
+            if (auto OwnerActor = Cast<AActor>(ThrowableComp->GetOwnerObject()))
             {
-                HealthComp->Health -= DamageComp->DamageAmount;
-                HealthComp->Health = FMath::Clamp(HealthComp->Health, 0.0f, HealthComp->MaxHealth);
+				// Try and fire a projectile
+				if (ThrowableComp->ProjectileClass != nullptr)
+				{
+                    UWorld* World = ThrowableComp->GetComponentWorld();
+					if (IsValid(World))
+					{
+                        /*
+						APlayerController* PlayerController = Cast<APlayerController>(OwnerActor->GetController());
+						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
+						// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
+						const FVector SpawnLocation = OwnerActor()->GetActorLocation() + SpawnRotation.RotateVector(MuzzleOffset);
 
+						//Set Spawn Collision Handling Override
+						FActorSpawnParameters ActorSpawnParams;
+						ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
-                EntityManager->RemoveComponents<UDamageComponent>(Entity);
-
-                if (auto Character = Cast<AUE5_3_ExampleCharacter>(HealthComp->GetOwnerObject()))
-                {
-                    auto GemeMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(Character->GetWorld()));
-                    UHealthPercentMessage* MsgToSend = NewObject<UHealthPercentMessage>();
-                    MsgToSend->Type = UMessageType::HUDHealthPercent;
-                    MsgToSend->HealthPercent = HealthComp->Health / HealthComp->MaxHealth;
-                    GemeMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
-                }
+						// Spawn the projectile at the muzzle
+						World->SpawnActor<DefaultProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+                        */
+					}
+				}
+                VisualizePath(OwnerActor, ThrowableComp->ThrowVector);
             }
-            UFloatableHealthComponent* FloatableHealthComp = EntityManager->GetComponent<UFloatableHealthComponent>(Entity);
-            if (IsValid(FloatableHealthComp))
-            {
-                FloatableHealthComp->HealthPercent = HealthComp->Health / HealthComp->MaxHealth;
-            }
-        }*/
+        }
+    }
+}
+
+void ThrowableSystem::VisualizePath(AActor* SplineActorToAttach, FVector LaunchVelocity)
+{
+    if (IsValid(SplineActorToAttach))
+    {
+        
     }
 }

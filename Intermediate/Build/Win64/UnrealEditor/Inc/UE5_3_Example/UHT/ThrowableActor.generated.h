@@ -29,8 +29,7 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<struct FPhysicComponent
  \
 	DECLARE_FUNCTION(execActiveThrow); \
 	DECLARE_FUNCTION(execAttachToCharacter); \
-	DECLARE_FUNCTION(execThrow); \
-	DECLARE_FUNCTION(execPrepareThrow);
+	DECLARE_FUNCTION(execThrow);
 
 
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_28_ACCESSORS

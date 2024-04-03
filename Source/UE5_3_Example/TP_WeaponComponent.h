@@ -16,7 +16,7 @@ class UE5_3_EXAMPLE_API UTP_WeaponComponent : public USkeletalMeshComponent
 public:
 	/** Projectile class to spawn */
 	UPROPERTY(EditDefaultsOnly, Category=Projectile)
-	TSubclassOf<class AUE5_3_ExampleProjectile> ProjectileClass;
+	TSubclassOf<class ADefaultProjectile> ProjectileClass;
 
 	/** Sound to play each time we fire */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category=Gameplay)

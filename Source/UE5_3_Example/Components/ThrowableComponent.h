@@ -6,6 +6,7 @@
 #include "Components/EntityComponent.h"
 #include "ThrowableComponent.generated.h"
 
+class ADefaultProjectile;
 
 UCLASS()
 class UE5_3_EXAMPLE_API UThrowableComponent : public UEntityComponent
@@ -20,5 +21,11 @@ public:
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Throwable)
-	float ThrowPower = 0.0f;
+	FVector ThrowVector{};
+
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UStaticMeshComponent* PathMesh;
+
+	UPROPERTY(EditDefaultsOnly, Category = Projectile)
+	TSubclassOf<ADefaultProjectile> ProjectileClass;
 };

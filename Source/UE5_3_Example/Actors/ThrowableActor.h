@@ -39,9 +39,6 @@ public:
 	AThrowableActor(const FObjectInitializer& ObjectInitializer);
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
-	void PrepareThrow(FVector LaunchVelocity);
-
-	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void Throw(FVector LaunchVelocity);
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
@@ -58,11 +55,4 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void ActiveThrow();
-
-	UPROPERTY(VisibleDefaultsOnly, Category = Spline)
-	AThrowbalePathVisualizer* ThrowbalePathVisualizer = nullptr;
-
-	// TODO: Replace to component
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-	UStaticMeshComponent* StatTVPMesh;
 };
