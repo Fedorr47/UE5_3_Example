@@ -16,4 +16,5 @@ public:
 public:
 
 	static void ApplyThrow(UEntityManager* EntityManager);
+	static void PredictThrow(UEntityManager* EntityManager);
 };

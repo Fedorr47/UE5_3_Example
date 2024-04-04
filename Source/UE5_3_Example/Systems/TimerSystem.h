@@ -12,6 +12,5 @@ public:
 	~TimerSystem();
 
 public:
-    // Функция обработки урона
 	void Update(float DeltaTime, UEntityManager* EntityManager);
 };

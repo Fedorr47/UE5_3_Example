@@ -31,13 +31,6 @@ void AThrowableActor::BeginPlay()
 	}
 }
 
-void AThrowableActor::Throw(FVector LaunchVelocity)
-{
-    // Здесь вы можете добавить логику для инициализации броска гранаты
-    // Например, задать начальную скорость в PhysicsComponent
-	PhysicComponent->Velocity = LaunchVelocity;
-}
-
 void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 {
 	OwnerCharacter = TargetCharacter;
@@ -48,39 +41,43 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		return;
 	}
 
-	// Attach the weapon to the First Person Character
-	FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
-	//AttachToComponent(Character->GetMesh1P(), AttachmentRules, FName(TEXT("GripPoint")));
-
-
-	// switch bHasRifle so the animation blueprint can switch to another animation set
-	//Character->SetHasRifle(true);
-
-	// Set up action bindings
-	if (APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController()))
+	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->GetComponent<UThrowableComponent>(ActorEntity);
+	if (!IsValid(ThrowableComp))
 	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
-		{
-			// Set the priority of the mapping to 1, so that it overrides the Jump action with the Fire action when using touch input
-			Subsystem->AddMappingContext(ThrowMappingContext, 1);
-		}
+		ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
+		FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
 
-		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
+		if (APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController()))
 		{
-			// Fire
-			EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Completed, this, &AThrowableActor::ActiveThrow);
+			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+			{
+				// Set the priority of the mapping to 1, so that it overrides the Jump action with the Fire action when using touch input
+				Subsystem->AddMappingContext(ThrowMappingContext, 1);
+			}
+
+			if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
+			{
+				EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Started, this, &AThrowableActor::PredictThrow);
+				EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Completed, this, &AThrowableActor::ActiveThrow);
+			}
 		}
+	}
+	if (IsValid(ThrowableComp))
+	{
+		ThrowableComp->InitComponent(mWorld, this);
+		ThrowableComp->ThrowVector = PhysicComponent->Velocity;
+		ThrowableComp->ProjectileMesh = GetThrowableMesh();	
+		ThrowableComp->IsActiveThrowable = true;
+		CreatedComponents.Emplace(ThrowableComp);
 	}
 }
 
 void AThrowableActor::ActiveThrow()
 {
-	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
-	if (IsValid(ThrowableComp))
-	{
-		ThrowableComp->InitComponent(mWorld, this);
-		ThrowableComp->ThrowVector = PhysicComponent->Velocity;
-		ThrowableComp->ProjectileMesh = GetThrowableMesh();
-		ThrowableSystem::ApplyThrow(mGameMode->EntityManager);
-	}
+	ThrowableSystem::ApplyThrow(mGameMode->EntityManager);
+}
+
+void AThrowableActor::PredictThrow()
+{
+	ThrowableSystem::PredictThrow(mGameMode->EntityManager);
 }

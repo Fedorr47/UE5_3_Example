@@ -28,4 +28,7 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 	UStaticMesh* ProjectileMesh;
+	
+	UPROPERTY()
+	bool IsActiveThrowable = false;
 };

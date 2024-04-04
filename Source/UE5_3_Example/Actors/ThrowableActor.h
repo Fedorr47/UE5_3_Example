@@ -41,9 +41,6 @@ public:
 	AThrowableActor(const FObjectInitializer& ObjectInitializer);
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
-	void Throw(FVector LaunchVelocity);
-
-	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void AttachToCharacter(ACharacter* TargetCharacter);
 
 	UPROPERTY(EditAnywhere, Category = "Components")
@@ -57,6 +54,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void ActiveThrow();
+
+	UFUNCTION(BlueprintCallable, Category = "Throw")
+	void PredictThrow();
 
 	UFUNCTION()
 	ACharacter* GetThrowbaleOwnerCharacter() { return OwnerCharacter; }

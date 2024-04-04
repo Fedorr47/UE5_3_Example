@@ -28,9 +28,9 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<struct FPhysicComponent
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_29_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetThrowbaleOwnerCharacter); \
+	DECLARE_FUNCTION(execPredictThrow); \
 	DECLARE_FUNCTION(execActiveThrow); \
-	DECLARE_FUNCTION(execAttachToCharacter); \
-	DECLARE_FUNCTION(execThrow);
+	DECLARE_FUNCTION(execAttachToCharacter);
 
 
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_29_ACCESSORS
