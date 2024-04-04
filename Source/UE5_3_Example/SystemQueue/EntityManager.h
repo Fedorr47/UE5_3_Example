@@ -29,15 +29,24 @@ FORCEINLINE uint32 GetTypeHash(const FEntity& Entity)
     return GetTypeHash(Entity.Id);
 }
 
+USTRUCT()
+struct FEntityInternal
+{
+    GENERATED_BODY()
+
+    TArray<UEntityComponent*> Components;
+};
+
 UCLASS()
 class UE5_3_EXAMPLE_API UEntityManager : public UObject
 {
     GENERATED_BODY()
 
 private:
-    UPROPERTY()
+    UPROPERTY(Transient)
     TArray<FEntity> Entities;
-    TMap<FGuid, TArray<UEntityComponent*>> EntityComponents;
+    UPROPERTY(Transient)
+    TMap<FGuid, FEntityInternal> EntityComponents;
 
     FEntity FindEntityById(const FGuid& Id) const
     {
@@ -79,7 +88,7 @@ public:
         TArray<FEntity> Result;
         for (const auto& Pair : EntityComponents)
         {
-            for (const auto* Component : Pair.Value)
+            for (const UEntityComponent* Component : Pair.Value.Components)
             {
                 if (const T* Casted = Cast<T>(Component))
                 {
@@ -117,10 +126,10 @@ public:
     template<typename T>
     T* GetComponent(const FEntity& Entity) const
     {
-        const TArray<UEntityComponent*>* Components = EntityComponents.Find(Entity.Id);
-        if (Components != nullptr)
+        const FEntityInternal* EntityInternal = EntityComponents.Find(Entity.Id);
+        if (EntityInternal != nullptr)
         {
-            for (UEntityComponent* Component : *Components)
+            for (UEntityComponent* Component : EntityInternal->Components)
             {
                 T* TypedComponent = Cast<T>(Component);
                 if (TypedComponent)
@@ -135,21 +144,23 @@ public:
     template<typename T>
     void RemoveComponents(const FEntity& Entity)
     {
-        TArray<UEntityComponent*>* Components = EntityComponents.Find(Entity.Id);
-        if (Components != nullptr)
+
+        FEntityInternal* EntityInternal = EntityComponents.Find(Entity.Id);
+        if (EntityInternal != nullptr)
         {
-            for (int32 i = Components->Num() - 1; i >= 0; --i)
+            TArray<UEntityComponent*> Components = EntityInternal->Components;
+            for (int32 i = Components.Num() - 1; i >= 0; --i)
             {
-                UEntityComponent* Component = (*Components)[i];
+                UEntityComponent* Component = Components[i];
                 if (T* TypedComponent = Cast<T>(Component))
                 {
-                    Components->RemoveAt(i); 
+                    Components.RemoveAt(i); 
 
                     TypedComponent->MarkPendingKill(); 
                 }
             }
 
-            if (Components->IsEmpty())
+            if (Components.IsEmpty())
             {
                 EntityComponents.Remove(Entity.Id);
             }
@@ -163,8 +174,8 @@ inline T* UEntityManager::AddComponent(const FEntity& Entity)
     static_assert(TIsDerivedFrom<T, UEntityComponent>::IsDerived, "T must inherit from UEntityComponent");
 
     T* NewComponent = NewObject<T>(this);
-    TArray<UEntityComponent*>& Components = EntityComponents.FindOrAdd(Entity.Id);
-    Components.Add(NewComponent);
+    FEntityInternal& EntityInternal = EntityComponents.FindOrAdd(Entity.Id);
+    EntityInternal.Components.Add(NewComponent);
 
     return NewComponent;
 }
@@ -174,8 +185,8 @@ inline void UEntityManager::AddCreatedComponent(const FEntity& Entity, T* InComp
 {
     static_assert(TIsDerivedFrom<T, UEntityComponent>::IsDerived, "T must inherit from UEntityComponent");
 
-    TArray<UEntityComponent*>& Components = EntityComponents.FindOrAdd(Entity.Id);
-    Components.Add(InComponent);
+    FEntityInternal& EntityInternal = EntityComponents.FindOrAdd(Entity.Id);
+    EntityInternal.Components.Add(InComponent);
 }
 
 

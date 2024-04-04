@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class UStaticMesh;
 #ifdef UE5_3_EXAMPLE_BaseInteractableActor_generated_h
 #error "BaseInteractableActor.generated.h already included, missing '#pragma once' in BaseInteractableActor.h"
 #endif
@@ -19,6 +20,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_20_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_20_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetThrowableMesh); \
 	DECLARE_FUNCTION(execHeal); \
 	DECLARE_FUNCTION(execTakeDamage);
 

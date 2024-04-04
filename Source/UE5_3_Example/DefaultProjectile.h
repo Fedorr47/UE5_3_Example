@@ -8,6 +8,8 @@
 
 class USphereComponent;
 class UProjectileMovementComponent;
+class UStaticMesh;
+class UStaticMeshComponent;
 
 UCLASS(config=Game)
 class ADefaultProjectile : public AActor
@@ -23,7 +25,7 @@ class ADefaultProjectile : public AActor
 	UProjectileMovementComponent* ProjectileMovement;
 
 public:
-	ADefaultProjectile();
+	ADefaultProjectile(const FObjectInitializer& ObjectInitializer);
 
 	/** called when projectile hits something */
 	UFUNCTION()
@@ -34,8 +36,17 @@ public:
 	/** Returns ProjectileMovement subobject **/
 	UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
 
+	UFUNCTION()
+	void SetMesh(UStaticMesh* Mesh);
+
+	UFUNCTION()
+	UStaticMesh* GetMesh() const { return ProjectileMesh->GetStaticMesh(); };
+
 protected:
 	UPROPERTY(EditAnywhere, Category = Damage)
 	float AmountDamageOnHit = 0.0f;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UStaticMeshComponent* ProjectileMesh;
 };
 

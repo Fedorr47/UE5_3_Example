@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Actors/BaseInteractableActor.h"
 #include "Components/PhysicComponent.h"
+#include "DefaultProjectile.h"
 #include "ThrowableActor.generated.h"
 
 class UPhysicComponent;
@@ -26,6 +27,7 @@ UCLASS()
 class UE5_3_EXAMPLE_API AThrowableActor : public ABaseInteractableActor
 {
 	GENERATED_BODY()
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -55,4 +57,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void ActiveThrow();
+
+	UFUNCTION()
+	ACharacter* GetThrowbaleOwnerCharacter() { return OwnerCharacter; }
 };

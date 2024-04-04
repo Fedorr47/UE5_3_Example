@@ -17,7 +17,6 @@ AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
 		RootComponent = ObjectInitializer.CreateDefaultSubobject<USceneComponent>(this, TEXT("Root"));
 	}
 	//StatTVPMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
-	StatMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void AThrowableActor::BeginPlay()
@@ -26,7 +25,7 @@ void AThrowableActor::BeginPlay()
 	if (IsValid(TemplatePhysicComponent.Template))
 	{
 		PhysicComponent = TemplatePhysicComponent.Template;
-		PhysicComponent->InitComponent(mWorld, StatMesh);
+		PhysicComponent->InitComponent(mWorld, StatMeshComp);
 		mGameMode->EntityManager->AddCreatedComponent(ActorEntity, PhysicComponent);
 		CreatedComponents.Emplace(PhysicComponent);
 	}
@@ -69,7 +68,7 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
 		{
 			// Fire
-			EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Started, this, &AThrowableActor::ActiveThrow);
+			EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Completed, this, &AThrowableActor::ActiveThrow);
 		}
 	}
 }
@@ -79,8 +78,9 @@ void AThrowableActor::ActiveThrow()
 	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
 	if (IsValid(ThrowableComp))
 	{
-		ThrowableComp->InitComponent(mWorld, OwnerCharacter);
+		ThrowableComp->InitComponent(mWorld, this);
 		ThrowableComp->ThrowVector = PhysicComponent->Velocity;
+		ThrowableComp->ProjectileMesh = GetThrowableMesh();
 		ThrowableSystem::ApplyThrow(mGameMode->EntityManager);
 	}
 }

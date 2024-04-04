@@ -14,6 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeEntityManager() {}
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityManager();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityManager_NoRegister();
 	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FEntity();
+	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FEntityInternal();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
 	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_Entity;
@@ -83,6 +84,57 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntity>()
 		}
 		return Z_Registration_Info_UScriptStruct_Entity.InnerSingleton;
 	}
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_EntityInternal;
+class UScriptStruct* FEntityInternal::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_EntityInternal.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_EntityInternal.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FEntityInternal, (UObject*)Z_Construct_UPackage__Script_UE5_3_Example(), TEXT("EntityInternal"));
+	}
+	return Z_Registration_Info_UScriptStruct_EntityInternal.OuterSingleton;
+}
+template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityInternal>()
+{
+	return FEntityInternal::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FEntityInternal_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FEntityInternal_Statics::Struct_MetaDataParams[] = {
+		{ "ModuleRelativePath", "SystemQueue/EntityManager.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FEntityInternal_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FEntityInternal>();
+	}
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FEntityInternal_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_UE5_3_Example,
+		nullptr,
+		&NewStructOps,
+		"EntityInternal",
+		nullptr,
+		0,
+		sizeof(FEntityInternal),
+		alignof(FEntityInternal),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000001),
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FEntityInternal_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FEntityInternal_Statics::Struct_MetaDataParams)
+	};
+	UScriptStruct* Z_Construct_UScriptStruct_FEntityInternal()
+	{
+		if (!Z_Registration_Info_UScriptStruct_EntityInternal.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_EntityInternal.InnerSingleton, Z_Construct_UScriptStruct_FEntityInternal_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_EntityInternal.InnerSingleton;
+	}
 	void UEntityManager::StaticRegisterNativesUEntityManager()
 	{
 	}
@@ -102,6 +154,12 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntity>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Entities_MetaData[];
 #endif
 		static const UECodeGen_Private::FArrayPropertyParams NewProp_Entities;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_EntityComponents_ValueProp;
+		static const UECodeGen_Private::FStructPropertyParams NewProp_EntityComponents_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_EntityComponents_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_EntityComponents;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -123,10 +181,21 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntity>()
 		{ "ModuleRelativePath", "SystemQueue/EntityManager.h" },
 	};
 #endif
-	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities = { "Entities", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEntityManager, Entities), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities_MetaData), Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities_MetaData) }; // 904214179
+	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities = { "Entities", nullptr, (EPropertyFlags)0x0040000000002000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEntityManager, Entities), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities_MetaData), Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities_MetaData) }; // 904214179
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents_ValueProp = { "EntityComponents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FEntityInternal, METADATA_PARAMS(0, nullptr) }; // 1211764720
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents_Key_KeyProp = { "EntityComponents_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FGuid, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents_MetaData[] = {
+		{ "ModuleRelativePath", "SystemQueue/EntityManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents = { "EntityComponents", nullptr, (EPropertyFlags)0x0040000000002000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEntityManager, EntityComponents), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents_MetaData), Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents_MetaData) }; // 1211764720
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEntityManager_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UEntityManager_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UEntityManager>::IsAbstract,
@@ -169,11 +238,12 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntity>()
 	};
 	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ScriptStructInfo[] = {
 		{ FEntity::StaticStruct, Z_Construct_UScriptStruct_FEntity_Statics::NewStructOps, TEXT("Entity"), &Z_Registration_Info_UScriptStruct_Entity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEntity), 904214179U) },
+		{ FEntityInternal::StaticStruct, Z_Construct_UScriptStruct_FEntityInternal_Statics::NewStructOps, TEXT("EntityInternal"), &Z_Registration_Info_UScriptStruct_EntityInternal, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEntityInternal), 1211764720U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEntityManager, UEntityManager::StaticClass, TEXT("UEntityManager"), &Z_Registration_Info_UClass_UEntityManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEntityManager), 1320622093U) },
+		{ Z_Construct_UClass_UEntityManager, UEntityManager::StaticClass, TEXT("UEntityManager"), &Z_Registration_Info_UClass_UEntityManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEntityManager), 3468286534U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_1373921095(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_65113172(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ScriptStructInfo),
 		nullptr, 0);

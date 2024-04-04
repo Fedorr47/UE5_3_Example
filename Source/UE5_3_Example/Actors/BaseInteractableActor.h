@@ -28,6 +28,9 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void Heal(float InHealAmount);
 
+	UFUNCTION()
+	UStaticMesh* GetThrowableMesh() const { return StatMeshComp->GetStaticMesh(); }
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -48,7 +51,7 @@ protected:
 	TArray<UEntityComponent*> CreatedComponents;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-	UStaticMeshComponent* StatMesh;
+	UStaticMeshComponent* StatMeshComp;
 
 	//void OnStatMeshTransformUpdate(USceneComponent* InRootComponent, EUpdateTransformFlags UpdateTransformFlags, ETeleportType Teleport);
 

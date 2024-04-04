@@ -5,7 +5,8 @@
 #include "Actors/BaseInteractableActor.h"
 #include "Components/SphereComponent.h"
 
-ADefaultProjectile::ADefaultProjectile() 
+ADefaultProjectile::ADefaultProjectile(const FObjectInitializer& ObjectInitializer) :
+	Super(ObjectInitializer)
 {
 	// Use a sphere as a simple collision representation
 	CollisionComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
@@ -30,6 +31,9 @@ ADefaultProjectile::ADefaultProjectile()
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
+
+	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMeshComp"));
+	ProjectileMesh->AttachToComponent(CollisionComp, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void ADefaultProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
@@ -44,4 +48,9 @@ void ADefaultProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor,
 		}
 		Destroy();
 	}
+}
+
+void ADefaultProjectile::SetMesh(UStaticMesh* Mesh)
+{
+	ProjectileMesh->SetStaticMesh(Mesh);
 }

@@ -27,5 +27,5 @@ public:
 	UStaticMeshComponent* PathMesh;
 
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
-	TSubclassOf<ADefaultProjectile> ProjectileClass;
+	UStaticMesh* ProjectileMesh;
 };

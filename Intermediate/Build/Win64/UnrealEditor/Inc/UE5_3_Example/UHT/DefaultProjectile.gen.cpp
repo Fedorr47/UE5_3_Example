@@ -16,11 +16,28 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UProjectileMovementComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
+	DEFINE_FUNCTION(ADefaultProjectile::execGetMesh)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(UStaticMesh**)Z_Param__Result=P_THIS->GetMesh();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(ADefaultProjectile::execSetMesh)
+	{
+		P_GET_OBJECT(UStaticMesh,Z_Param_Mesh);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SetMesh(Z_Param_Mesh);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ADefaultProjectile::execOnHit)
 	{
 		P_GET_OBJECT(UPrimitiveComponent,Z_Param_HitComp);
@@ -37,9 +54,45 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	{
 		UClass* Class = ADefaultProjectile::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "GetMesh", &ADefaultProjectile::execGetMesh },
 			{ "OnHit", &ADefaultProjectile::execOnHit },
+			{ "SetMesh", &ADefaultProjectile::execSetMesh },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics
+	{
+		struct DefaultProjectile_eventGetMesh_Parms
+		{
+			UStaticMesh* ReturnValue;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(DefaultProjectile_eventGetMesh_Parms, ReturnValue), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultProjectile.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultProjectile, nullptr, "GetMesh", nullptr, nullptr, Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::DefaultProjectile_eventGetMesh_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::DefaultProjectile_eventGetMesh_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ADefaultProjectile_GetMesh()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADefaultProjectile_GetMesh_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ADefaultProjectile_OnHit_Statics
 	{
@@ -121,6 +174,40 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics
+	{
+		struct DefaultProjectile_eventSetMesh_Parms
+		{
+			UStaticMesh* Mesh;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Mesh;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::NewProp_Mesh = { "Mesh", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(DefaultProjectile_eventSetMesh_Parms, Mesh), Z_Construct_UClass_UStaticMesh_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::NewProp_Mesh,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "DefaultProjectile.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultProjectile, nullptr, "SetMesh", nullptr, nullptr, Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::DefaultProjectile_eventSetMesh_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::DefaultProjectile_eventSetMesh_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ADefaultProjectile_SetMesh()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADefaultProjectile_SetMesh_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ADefaultProjectile);
 	UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister()
 	{
@@ -145,6 +232,10 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AmountDamageOnHit_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_AmountDamageOnHit;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileMesh_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ProjectileMesh;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -155,13 +246,16 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultProjectile_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ADefaultProjectile_GetMesh, "GetMesh" }, // 325209514
 		{ &Z_Construct_UFunction_ADefaultProjectile_OnHit, "OnHit" }, // 4155752838
+		{ &Z_Construct_UFunction_ADefaultProjectile_SetMesh, "SetMesh" }, // 761576252
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "DefaultProjectile.h" },
 		{ "ModuleRelativePath", "DefaultProjectile.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 #endif
 #if WITH_METADATA
@@ -200,10 +294,19 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit = { "AmountDamageOnHit", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultProjectile, AmountDamageOnHit), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit_MetaData), Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh_MetaData[] = {
+		{ "Category", "Mesh" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "DefaultProjectile.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh = { "ProjectileMesh", nullptr, (EPropertyFlags)0x00200800000b0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultProjectile, ProjectileMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh_MetaData), Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ADefaultProjectile_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_CollisionComp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMovement,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADefaultProjectile_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ADefaultProjectile>::IsAbstract,
@@ -243,9 +346,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADefaultProjectile, ADefaultProjectile::StaticClass, TEXT("ADefaultProjectile"), &Z_Registration_Info_UClass_ADefaultProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultProjectile), 4119173179U) },
+		{ Z_Construct_UClass_ADefaultProjectile, ADefaultProjectile::StaticClass, TEXT("ADefaultProjectile"), &Z_Registration_Info_UClass_ADefaultProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultProjectile), 922872707U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_2147104604(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_1317192333(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

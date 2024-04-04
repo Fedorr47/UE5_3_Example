@@ -216,5 +216,6 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Systems\TimerSystem.h">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
+    <None Include="cpp.hint" />
   </ItemGroup>
 </Project>

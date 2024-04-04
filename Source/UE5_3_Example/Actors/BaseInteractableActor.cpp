@@ -21,9 +21,9 @@ ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectI
 		RootComponent = ObjectInitializer.CreateDefaultSubobject<USceneComponent>(this, TEXT("Root"));
 	}
 
-	StatMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "Mesh");
-	StatMesh->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
-	StatMesh->SetSimulatePhysics(true);
+	StatMeshComp = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "Mesh");
+	StatMeshComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
+	StatMeshComp->SetSimulatePhysics(true);
 }
 
 // Called when the game starts or when spawned
@@ -42,7 +42,7 @@ void ABaseInteractableActor::BeginPlay()
 		{
 			if (IsValid(Component.Template))
 			{
-				Component.Template->InitComponent(mWorld, StatMesh);
+				Component.Template->InitComponent(mWorld, StatMeshComp);
 				mGameMode->EntityManager->AddCreatedComponent(ActorEntity, Component.Template);
 				CreatedComponents.Emplace(Component.Template);
 			}

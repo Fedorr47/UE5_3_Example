@@ -5,7 +5,9 @@
 #include <Kismet/GameplayStatics.h>
 #include "Math/UnrealMathUtility.h"
 
+#include "GameFramework/Character.h"
 #include "GameFramework/Actor.h"
+#include "Actors/ThrowableActor.h"
 #include "ThrowableComponent.h"
 #include "DefaultProjectile.h"
 #include "ThrowableSystem.h"
@@ -30,39 +32,28 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
         UThrowableComponent* ThrowableComp = EntityManager->GetComponent<UThrowableComponent>(Entity);
         if (IsValid(ThrowableComp))
         {
-            if (auto OwnerActor = Cast<AActor>(ThrowableComp->GetOwnerObject()))
+            if (AThrowableActor* ThrowableActor = Cast<AThrowableActor>(ThrowableComp->GetOwnerObject()))
             {
-				// Try and fire a projectile
-				if (ThrowableComp->ProjectileClass != nullptr)
+                ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableActor->GetThrowbaleOwnerCharacter());
+				if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileMesh))
 				{
                     UWorld* World = ThrowableComp->GetComponentWorld();
 					if (IsValid(World))
 					{
-                        /*
-						APlayerController* PlayerController = Cast<APlayerController>(OwnerActor->GetController());
+						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-						// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-						const FVector SpawnLocation = OwnerActor()->GetActorLocation() + SpawnRotation.RotateVector(MuzzleOffset);
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation();
 
-						//Set Spawn Collision Handling Override
 						FActorSpawnParameters ActorSpawnParams;
 						ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
-						// Spawn the projectile at the muzzle
-						World->SpawnActor<DefaultProjectile>(ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-                        */
+						auto* SpawnActor = World->SpawnActor<ADefaultProjectile>(ADefaultProjectile::StaticClass(), SpawnLocation, SpawnRotation, ActorSpawnParams);
+						SpawnActor->SetMesh(ThrowableComp->ProjectileMesh);
 					}
+					//FPredictProjectilePathParams& PredictParams, FPredictProjectilePathResult& PredictResult
+					//UGameplayStatics::PredictProjectilePath(World, )
 				}
-                VisualizePath(OwnerActor, ThrowableComp->ThrowVector);
             }
         }
-    }
-}
-
-void ThrowableSystem::VisualizePath(AActor* SplineActorToAttach, FVector LaunchVelocity)
-{
-    if (IsValid(SplineActorToAttach))
-    {
-        
     }
 }
