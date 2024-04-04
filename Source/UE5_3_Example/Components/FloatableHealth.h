@@ -33,7 +33,7 @@ class UE5_3_EXAMPLE_API UFloatableHealthComponent : public UEntityComponent
 public:
 	UFloatableHealthComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual UEntityComponent* RetNewComponent();
+	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 

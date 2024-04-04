@@ -24,7 +24,7 @@ public:
 	ABaseInteractableActor(const FObjectInitializer& ObjectInitializer);
 	
 	UFUNCTION(BlueprintCallable)
-	void TakeDamage(float InDamageAmount);
+	void TakeBaseDamage(float InDamageAmount);
 	UFUNCTION(BlueprintCallable)
 	void Heal(float InHealAmount);
 

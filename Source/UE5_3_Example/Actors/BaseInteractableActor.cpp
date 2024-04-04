@@ -2,7 +2,7 @@
 
 #include "BaseInteractableActor.h"
 #include <Kismet/GameplayStatics.h>
-#include <Subsystems/PanelExtensionSubsystem.h>
+
 #include <Kismet/KismetMathLibrary.h>
 #include "Blueprint/UserWidget.h"
 #include "HealthComponent.h"
@@ -69,7 +69,7 @@ void ABaseInteractableActor::Tick(float DeltaTime)
 
 }
 
-void ABaseInteractableActor::TakeDamage(float InDamageAmount)
+void ABaseInteractableActor::TakeBaseDamage(float InDamageAmount)
 {
 	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
 	if (IsValid(DamageComp))

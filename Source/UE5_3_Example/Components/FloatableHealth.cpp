@@ -30,7 +30,7 @@ UFloatableHealthComponent::UFloatableHealthComponent(const FObjectInitializer& O
 {
 }
 
-UEntityComponent* UFloatableHealthComponent::RetNewComponent()
+UEntityComponent* UFloatableHealthComponent::RetNewComponent(UObject* OwnerObject)
 {
 	UFloatableHealthComponent* FloatableHealthComponent = NewObject<UFloatableHealthComponent>();
 	return FloatableHealthComponent;

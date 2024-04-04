@@ -44,7 +44,7 @@ void ADefaultProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor,
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
 		if (auto* Interactable = Cast<ABaseInteractableActor>(OtherActor))
 		{ 
-			Interactable->TakeDamage(AmountDamageOnHit);
+			Interactable->TakeBaseDamage(AmountDamageOnHit);
 		}
 		Destroy();
 	}

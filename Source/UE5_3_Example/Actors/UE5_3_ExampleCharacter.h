@@ -89,7 +89,7 @@ public:
 	bool GetHasRifle();
 
 	UFUNCTION(BlueprintCallable, Category = Health)
-	void TakeDamage(float InDamageAmount);
+	void TakeCharacterDamage(float InDamageAmount);
 
 	UFUNCTION(BlueprintCallable, Category = Health)
 	void Heal(float InHealAmount);

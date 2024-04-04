@@ -141,13 +141,12 @@ bool AUE5_3_ExampleCharacter::GetHasRifle()
 	return bHasRifle;
 }
 
-void AUE5_3_ExampleCharacter::TakeDamage(float InDamageAmount)
+void AUE5_3_ExampleCharacter::TakeCharacterDamage(float InDamageAmount)
 {
 	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
 	if (DamageComp)
 	{
-		// Инициализация компонента урона, если это необходимо
-		DamageComp->DamageAmount = 15.0f;
+		DamageComp->DamageAmount = InDamageAmount;
 	}
 	DamageSystem::ApplyDamage(mGameMode->EntityManager);
 }
@@ -157,7 +156,7 @@ void AUE5_3_ExampleCharacter::Heal(float InHealAmount)
 	UHealComponent* HealComp = mGameMode->EntityManager->AddComponent<UHealComponent>(ActorEntity);
 	if (HealComp)
 	{
-		HealComp->HealAmount = 15.0f;
+		HealComp->HealAmount = InHealAmount;
 	}
 	HealSystem::ApplyHeal(mGameMode->EntityManager);
 }

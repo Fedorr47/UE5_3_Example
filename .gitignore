@@ -369,3 +369,6 @@ FodyWeavers.xsd
 /Saved/Config/CrashReportClient
 UE5_3_Example.sln
 /.vs
+/Binaries
+/.vs
+/Saved
