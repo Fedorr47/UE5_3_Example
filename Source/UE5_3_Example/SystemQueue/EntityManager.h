@@ -34,6 +34,7 @@ struct FEntityInternal
 {
     GENERATED_BODY()
 
+    UPROPERTY()
     TArray<UEntityComponent*> Components;
 };
 
@@ -148,7 +149,7 @@ public:
         FEntityInternal* EntityInternal = EntityComponents.Find(Entity.Id);
         if (EntityInternal != nullptr)
         {
-            TArray<UEntityComponent*> Components = EntityInternal->Components;
+            TArray<UEntityComponent*>& Components = EntityInternal->Components;
             for (int32 i = Components.Num() - 1; i >= 0; --i)
             {
                 UEntityComponent* Component = Components[i];

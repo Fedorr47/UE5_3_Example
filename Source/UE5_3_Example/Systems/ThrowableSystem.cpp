@@ -48,7 +48,10 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 						ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
 						auto* SpawnActor = World->SpawnActor<ADefaultProjectile>(ADefaultProjectile::StaticClass(), SpawnLocation, SpawnRotation, ActorSpawnParams);
-						SpawnActor->SetMesh(ThrowableComp->ProjectileMesh);
+						if (IsValid(SpawnActor))
+						{
+							SpawnActor->SetMesh(ThrowableComp->ProjectileMesh);
+						}
 					}
 					//FPredictProjectilePathParams& PredictParams, FPredictProjectilePathResult& PredictResult
 					//UGameplayStatics::PredictProjectilePath(World, )

@@ -38,6 +38,7 @@ void DamageSystem::ApplyDamage(UEntityManager* EntityManager)
 
 
                 EntityManager->RemoveComponents<UDamageComponent>(Entity);
+
                 if (auto Character = Cast<AUE5_3_ExampleCharacter>(HealthComp->GetOwnerObject()))
                 {
                     auto GemeMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(Character->GetWorld()));
