@@ -62,11 +62,11 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 			}
 		}
 	}
-	if (IsValid(ThrowableComp))
+	if (IsValid(ThrowableComp) && IsValid(ThrowableProjectileClass.Get()))
 	{
 		ThrowableComp->InitComponent(mWorld, this);
 		ThrowableComp->ThrowVector = PhysicComponent->Velocity;
-		ThrowableComp->ProjectileMesh = GetThrowableMesh();	
+		ThrowableComp->ProjectileClass = ThrowableProjectileClass;
 		ThrowableComp->IsActiveThrowable = true;
 		CreatedComponents.Emplace(ThrowableComp);
 	}

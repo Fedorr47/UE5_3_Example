@@ -6,6 +6,8 @@
 #include "Math/UnrealMathUtility.h"
 
 #include "GameFramework/Character.h"
+#include "Kismet/KismetMathLibrary.h"
+#include "GameFramework/ProjectileMovementComponent.h"
 #include "GameFramework/Actor.h"
 #include "Actors/ThrowableActor.h"
 #include "ThrowableComponent.h"
@@ -34,7 +36,7 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 			if (AThrowableActor* ThrowableActor = Cast<AThrowableActor>(ThrowableComp->GetOwnerObject()))
 			{
 				ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableActor->GetThrowbaleOwnerCharacter());
-				if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileMesh))
+				if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileClass.Get()))
 				{
 					UWorld* World = ThrowableComp->GetComponentWorld();
 					if (IsValid(World))
@@ -44,13 +46,9 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 						const FVector SpawnLocation = OwnerCharacter->GetActorLocation();
 
 						FActorSpawnParameters ActorSpawnParams;
-						ActorSpawnParams.SpawnCollisionHandlingOverride =  ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+						ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
 
-						auto* SpawnActor = World->SpawnActor<ADefaultProjectile>(ADefaultProjectile::StaticClass(), SpawnLocation, SpawnRotation, ActorSpawnParams);
-						if (IsValid(SpawnActor))
-						{
-							SpawnActor->SetMesh(ThrowableComp->ProjectileMesh);
-						}
+						auto* SpawnActor = World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 					}
 				}
 			}
@@ -72,26 +70,28 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 			if (AThrowableActor* ThrowableActor = Cast<AThrowableActor>(ThrowableComp->GetOwnerObject()))
 			{
 				ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableActor->GetThrowbaleOwnerCharacter());
-				if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileMesh))
+				if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileClass.Get()))
 				{
 					UWorld* World = ThrowableComp->GetComponentWorld();
 					if (IsValid(World))
 					{
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation();
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() * 1.05;
 
 						FPredictProjectilePathParams PredictParams;
 						FPredictProjectilePathResult PredictResult;
 
 						// TODO: Rewrite Projectile's logic to better version
-						float Speed = 3000.0f;
-						const FVector SpawnVelocity = SpawnLocation * Speed;
+						ADefaultProjectile* ProjectileDef = ThrowableComp->ProjectileClass.GetDefaultObject();
+						float Speed = ProjectileDef->GetProjectileMovement()->InitialSpeed;
+						const FVector SpawnVelocity = UKismetMathLibrary::GetForwardVector(SpawnRotation) * Speed;
 
 						PredictParams.StartLocation = SpawnLocation;
 						PredictParams.LaunchVelocity = SpawnVelocity;
 						PredictParams.DrawDebugTime = 100.0f;
 						PredictParams.MaxSimTime = 4.0f;
+						PredictParams.bTraceWithCollision = true;
 						PredictParams.DrawDebugType = EDrawDebugTrace::Persistent;
 
 						UGameplayStatics::PredictProjectilePath(World, PredictParams, PredictResult);

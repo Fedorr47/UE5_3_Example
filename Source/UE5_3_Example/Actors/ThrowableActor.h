@@ -46,6 +46,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Components")
 	FPhysicComponentWrapper TemplatePhysicComponent;
 
+	UPROPERTY(EditAnywhere, Category = "Projectile")
+	TSubclassOf<ADefaultProjectile> ThrowableProjectileClass;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* ThrowMappingContext;
 

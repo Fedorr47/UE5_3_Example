@@ -27,7 +27,7 @@ public:
 	UStaticMeshComponent* PathMesh;
 
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
-	UStaticMesh* ProjectileMesh;
+	TSubclassOf<ADefaultProjectile> ProjectileClass;
 	
 	UPROPERTY()
 	bool IsActiveThrowable = false;
