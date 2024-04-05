@@ -28,6 +28,9 @@ class UE5_3_EXAMPLE_API AThrowableActor : public ABaseInteractableActor
 {
 	GENERATED_BODY()
 
+	UPROPERTY()
+	bool bDrawPredictTrace = false;
+
 protected:
 	virtual void BeginPlay() override;
 
@@ -39,6 +42,8 @@ protected:
 
 public:
 	AThrowableActor(const FObjectInitializer& ObjectInitializer);
+
+	virtual void Tick(float DeltaTime) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void AttachToCharacter(ACharacter* TargetCharacter);

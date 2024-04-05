@@ -77,7 +77,7 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 					{
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() * 1.05;
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation();
 
 						FPredictProjectilePathParams PredictParams;
 						FPredictProjectilePathResult PredictResult;
@@ -87,12 +87,16 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						float Speed = ProjectileDef->GetProjectileMovement()->InitialSpeed;
 						const FVector SpawnVelocity = UKismetMathLibrary::GetForwardVector(SpawnRotation) * Speed;
 
+						TArray<AActor*> ActorToIgnore{ OwnerCharacter };
+
 						PredictParams.StartLocation = SpawnLocation;
 						PredictParams.LaunchVelocity = SpawnVelocity;
-						PredictParams.DrawDebugTime = 100.0f;
+						PredictParams.DrawDebugTime = 1.0f;
+						PredictParams.ActorsToIgnore = ActorToIgnore;
+
 						PredictParams.MaxSimTime = 4.0f;
 						PredictParams.bTraceWithCollision = true;
-						PredictParams.DrawDebugType = EDrawDebugTrace::Persistent;
+						PredictParams.DrawDebugType = EDrawDebugTrace::ForOneFrame;
 
 						UGameplayStatics::PredictProjectilePath(World, PredictParams, PredictResult);
 					}

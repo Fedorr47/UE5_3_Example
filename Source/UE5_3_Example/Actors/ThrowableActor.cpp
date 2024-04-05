@@ -19,6 +19,15 @@ AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
 	//StatTVPMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
 }
 
+void AThrowableActor::Tick(float DeltaTime)
+{
+	Super::Tick(DeltaTime);
+	if (bDrawPredictTrace)
+	{
+		ThrowableSystem::PredictThrow(mGameMode->EntityManager);
+	}
+}
+
 void AThrowableActor::BeginPlay()
 {
 	Super::BeginPlay();
@@ -74,10 +83,11 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 
 void AThrowableActor::ActiveThrow()
 {
+	bDrawPredictTrace = false;
 	ThrowableSystem::ApplyThrow(mGameMode->EntityManager);
 }
 
 void AThrowableActor::PredictThrow()
 {
-	ThrowableSystem::PredictThrow(mGameMode->EntityManager);
+	bDrawPredictTrace = true;
 }
