@@ -43,10 +43,13 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 					{
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation();
+						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
+						InFrontOwner.Z = 0.0f;
+						InFrontOwner = InFrontOwner * 20;
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner);
 
 						FActorSpawnParameters ActorSpawnParams;
-						ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButDontSpawnIfColliding;
+						ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
 						auto* SpawnActor = World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 					}
@@ -77,7 +80,10 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 					{
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation();
+						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
+						InFrontOwner.Z = 0.0f;
+						InFrontOwner = InFrontOwner * 20;
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner);
 
 						FPredictProjectilePathParams PredictParams;
 						FPredictProjectilePathResult PredictResult;
