@@ -85,6 +85,8 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		ThrowableComp->SplinePredict->bDrawDebug = true;
 		CreatedComponents.Emplace(ThrowableComp);
 	}
+	SetActorHiddenInGame(true);
+	SetActorEnableCollision(false);
 }
 
 void AThrowableActor::ActiveThrow()
