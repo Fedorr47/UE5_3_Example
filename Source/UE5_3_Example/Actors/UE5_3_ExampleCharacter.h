@@ -70,6 +70,9 @@ protected:
 	UPROPERTY()
 	FEntity ActorEntity;
 
+	UPROPERTY()
+	USplineComponent* SplinePredict = nullptr;
+
 public:
 		
 	/** Look Input Action */
@@ -93,6 +96,9 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = Health)
 	void Heal(float InHealAmount);
+
+	UFUNCTION()
+	USplineComponent* GetSplinePredict() { return SplinePredict; }
 
 protected:
 	/** Called for movement input */

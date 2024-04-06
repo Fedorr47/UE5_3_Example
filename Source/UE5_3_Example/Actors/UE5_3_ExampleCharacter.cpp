@@ -16,6 +16,7 @@
 #include "Systems/DamageSystem.h"
 #include "HealComponent.h"
 #include "Systems/HealSystem.h"
+#include "Components/SplineComponent.h"
 #include <Kismet/GameplayStatics.h>
 
 #define CLASS_NAME(CLASS) {#CLASS}
@@ -47,6 +48,9 @@ AUE5_3_ExampleCharacter::AUE5_3_ExampleCharacter()
 	Mesh1P->CastShadow = false;
 	//Mesh1P->SetRelativeRotation(FRotator(0.9f, -19.19f, 5.2f));
 	Mesh1P->SetRelativeLocation(FVector(-30.f, 0.f, -150.f));
+
+	SplinePredict = CreateDefaultSubobject<USplineComponent>(TEXT("Spline"));
+	SplinePredict->SetupAttachment(GetCapsuleComponent());
 }
 
 void AUE5_3_ExampleCharacter::BeginPlay()

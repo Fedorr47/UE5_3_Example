@@ -7,6 +7,7 @@
 #include "ThrowableComponent.generated.h"
 
 class ADefaultProjectile;
+class USplineComponent;
 
 UCLASS()
 class UE5_3_EXAMPLE_API UThrowableComponent : public UEntityComponent
@@ -29,6 +30,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 	TSubclassOf<ADefaultProjectile> ProjectileClass;
 	
+	UPROPERTY()
+	USplineComponent* SplinePredict = nullptr;
+
 	UPROPERTY()
 	bool IsActiveThrowable = false;
 };

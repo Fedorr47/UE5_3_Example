@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class USplineComponent;
 #ifdef UE5_3_EXAMPLE_UE5_3_ExampleCharacter_generated_h
 #error "UE5_3_ExampleCharacter.generated.h already included, missing '#pragma once' in UE5_3_ExampleCharacter.h"
 #endif
@@ -19,6 +20,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_UE5_3_ExampleCharacter_h_27_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_UE5_3_ExampleCharacter_h_27_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetSplinePredict); \
 	DECLARE_FUNCTION(execHeal); \
 	DECLARE_FUNCTION(execTakeCharacterDamage); \
 	DECLARE_FUNCTION(execGetHasRifle); \

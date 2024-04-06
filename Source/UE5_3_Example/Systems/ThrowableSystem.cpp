@@ -11,6 +11,7 @@
 #include "GameFramework/Actor.h"
 #include "Actors/ThrowableActor.h"
 #include "ThrowableComponent.h"
+#include "Components/SplineComponent.h"
 #include "DefaultProjectile.h"
 #include "ThrowableSystem.h"
 
@@ -105,6 +106,14 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						PredictParams.DrawDebugType = EDrawDebugTrace::ForOneFrame;
 
 						UGameplayStatics::PredictProjectilePath(World, PredictParams, PredictResult);
+
+						ThrowableComp->SplinePredict->ClearSplinePoints();
+
+						for (FPredictProjectilePathPointData Point : PredictResult.PathData)
+						{
+							ThrowableComp->SplinePredict->AddSplinePoint(Point.Location, ESplineCoordinateSpace::World, false);
+						}
+						ThrowableComp->SplinePredict->UpdateSpline();
 					}
 				}
 			}

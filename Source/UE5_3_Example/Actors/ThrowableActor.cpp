@@ -7,6 +7,8 @@
 #include "EnhancedInputSubsystems.h"
 #include "ThrowableComponent.h"
 #include "Systems/ThrowableSystem.h"
+#include "Components/SplineComponent.h"
+#include "UE5_3_ExampleCharacter.h"
 #include "InputActionValue.h"
 
 AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
@@ -50,7 +52,7 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		return;
 	}
 
-	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->GetComponent<UThrowableComponent>(ActorEntity);
+	ThrowableComp = mGameMode->EntityManager->GetComponent<UThrowableComponent>(ActorEntity);
 	if (!IsValid(ThrowableComp))
 	{
 		ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
@@ -77,6 +79,10 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		ThrowableComp->ThrowVector = PhysicComponent->Velocity;
 		ThrowableComp->ProjectileClass = ThrowableProjectileClass;
 		ThrowableComp->IsActiveThrowable = true;
+		// TODO: it's a hack
+		ThrowableComp->SplinePredict = Cast<AUE5_3_ExampleCharacter>(OwnerCharacter)->GetSplinePredict();
+		// end of hack
+		ThrowableComp->SplinePredict->bDrawDebug = true;
 		CreatedComponents.Emplace(ThrowableComp);
 	}
 }
@@ -85,6 +91,11 @@ void AThrowableActor::ActiveThrow()
 {
 	bDrawPredictTrace = false;
 	ThrowableSystem::ApplyThrow(mGameMode->EntityManager);
+	if (IsValid(ThrowableComp))
+	{
+		ThrowableComp->SplinePredict->ClearSplinePoints();
+		ThrowableComp->SplinePredict->UpdateSpline();
+	}
 }
 
 void AThrowableActor::PredictThrow()

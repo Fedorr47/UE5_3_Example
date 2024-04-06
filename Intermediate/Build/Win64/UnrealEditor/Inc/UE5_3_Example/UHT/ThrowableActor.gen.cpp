@@ -18,6 +18,7 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowableActor();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowableActor_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UPhysicComponent_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UThrowableComponent_NoRegister();
 	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FPhysicComponentWrapper();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
@@ -273,6 +274,10 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FPhysicComponentWrapper
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PhysicComponent;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrowableComp_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ThrowableComp;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_TemplatePhysicComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FStructPropertyParams NewProp_TemplatePhysicComponent;
@@ -334,6 +339,12 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FPhysicComponentWrapper
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowableActor_Statics::NewProp_PhysicComponent = { "PhysicComponent", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowableActor, PhysicComponent), Z_Construct_UClass_UPhysicComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::NewProp_PhysicComponent_MetaData), Z_Construct_UClass_AThrowableActor_Statics::NewProp_PhysicComponent_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableComp_MetaData[] = {
+		{ "ModuleRelativePath", "Actors/ThrowableActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableComp = { "ThrowableComp", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowableActor, ThrowableComp), Z_Construct_UClass_UThrowableComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableComp_MetaData), Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableComp_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowableActor_Statics::NewProp_TemplatePhysicComponent_MetaData[] = {
 		{ "Category", "Components" },
 		{ "ModuleRelativePath", "Actors/ThrowableActor.h" },
@@ -367,6 +378,7 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FPhysicComponentWrapper
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_bDrawPredictTrace,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_PhysicComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableComp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_TemplatePhysicComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableProjectileClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowMappingContext,
@@ -414,9 +426,9 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FPhysicComponentWrapper
 		{ FPhysicComponentWrapper::StaticStruct, Z_Construct_UScriptStruct_FPhysicComponentWrapper_Statics::NewStructOps, TEXT("PhysicComponentWrapper"), &Z_Registration_Info_UScriptStruct_PhysicComponentWrapper, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPhysicComponentWrapper), 2735011534U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AThrowableActor, AThrowableActor::StaticClass, TEXT("AThrowableActor"), &Z_Registration_Info_UClass_AThrowableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableActor), 1301373373U) },
+		{ Z_Construct_UClass_AThrowableActor, AThrowableActor::StaticClass, TEXT("AThrowableActor"), &Z_Registration_Info_UClass_AThrowableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableActor), 1808435240U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_1547553034(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_590818442(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_Statics::ScriptStructInfo),
 		nullptr, 0);

@@ -14,6 +14,7 @@ class ACharacter;
 class UInputMappingContext;
 class UInputAction;
 class USplineComponent;
+class UThrowableComponent;
 
 USTRUCT(BlueprintType)
 struct UE5_3_EXAMPLE_API FPhysicComponentWrapper
@@ -39,6 +40,9 @@ protected:
 
 	UPROPERTY()
 	UPhysicComponent* PhysicComponent;
+
+	UPROPERTY()
+	UThrowableComponent* ThrowableComp;
 
 public:
 	AThrowableActor(const FObjectInitializer& ObjectInitializer);
