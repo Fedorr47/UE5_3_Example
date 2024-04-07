@@ -8,7 +8,7 @@
 #include "HUD_Character.generated.h"
 
 class UProgressBar;
-class AUE5_3_ExampleCharacter;
+class ADefaultPlaybleCharacter;
 
 UCLASS()
 class UCharacterHUDWidget : public UUserWidget

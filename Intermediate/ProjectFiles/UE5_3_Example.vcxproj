@@ -173,12 +173,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Actors\ThrowableActor.h" />
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\UE5_3_ExampleCharacter.cpp">
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\DefaultPlaybleCharacter.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\UE5_3_ExampleCharacter.h" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\DefaultPlaybleCharacter.h" />
     <ClCompile Include="..\..\Source\UE5_3_Example\Components\DamageComponent.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>

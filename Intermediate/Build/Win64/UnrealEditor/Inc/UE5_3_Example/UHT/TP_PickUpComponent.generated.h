@@ -10,7 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
-class AUE5_3_ExampleCharacter;
+class ADefaultPlaybleCharacter;
 class UPrimitiveComponent;
 struct FHitResult;
 #ifdef UE5_3_EXAMPLE_TP_PickUpComponent_generated_h
@@ -19,7 +19,7 @@ struct FHitResult;
 #define UE5_3_EXAMPLE_TP_PickUpComponent_generated_h
 
 #define FID_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_12_DELEGATE \
-UE5_3_EXAMPLE_API void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, AUE5_3_ExampleCharacter* PickUpCharacter);
+UE5_3_EXAMPLE_API void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, ADefaultPlaybleCharacter* PickUpCharacter);
 
 
 #define FID_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_17_SPARSE_DATA

@@ -1,7 +1,7 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "UE5_3_ExampleGameMode.h"
-#include "UE5_3_ExampleCharacter.h"
+#include "DefaultPlaybleCharacter.h"
 #include "MessageQueue.h"
 #include "SystemQueue/EntityManager.h"
 #include "UObject/ConstructorHelpers.h"

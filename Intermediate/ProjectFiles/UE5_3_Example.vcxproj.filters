@@ -96,10 +96,10 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Actors\ThrowableActor.h">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\UE5_3_ExampleCharacter.cpp">
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\DefaultPlaybleCharacter.cpp">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\UE5_3_ExampleCharacter.h">
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\DefaultPlaybleCharacter.h">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClInclude>
     <Filter Include="Source\UE5_3_Example\Components">

@@ -7,7 +7,7 @@
 
 #include "Components/ExplosionComponent.h"
 #include "HUD_Character.h"
-#include "UE5_3_ExampleCharacter.h"
+#include "DefaultPlaybleCharacter.h"
 
 ExplosionSystem::ExplosionSystem()
 {

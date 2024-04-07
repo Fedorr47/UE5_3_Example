@@ -36,7 +36,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY()
-	ACharacter* OwnerCharacter = nullptr;
+	ADefaultPlaybleCharacter* OwnerCharacter = nullptr;
 
 	UPROPERTY()
 	UPhysicComponent* PhysicComponent;

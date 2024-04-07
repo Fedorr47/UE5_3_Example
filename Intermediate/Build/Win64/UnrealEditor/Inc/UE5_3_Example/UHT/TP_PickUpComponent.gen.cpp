@@ -14,7 +14,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_PickUpComponent() {}
 	ENGINE_API UClass* Z_Construct_UClass_UPrimitiveComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_USphereComponent();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleCharacter_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultPlaybleCharacter_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UTP_PickUpComponent();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UTP_PickUpComponent_NoRegister();
 	UE5_3_EXAMPLE_API UFunction* Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature();
@@ -24,7 +24,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_PickUpComponent() {}
 	{
 		struct _Script_UE5_3_Example_eventOnPickUp_Parms
 		{
-			AUE5_3_ExampleCharacter* PickUpCharacter;
+			ADefaultPlaybleCharacter* PickUpCharacter;
 		};
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_PickUpCharacter;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -33,7 +33,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_PickUpComponent() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature_Statics::NewProp_PickUpCharacter = { "PickUpCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_UE5_3_Example_eventOnPickUp_Parms, PickUpCharacter), Z_Construct_UClass_AUE5_3_ExampleCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature_Statics::NewProp_PickUpCharacter = { "PickUpCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_UE5_3_Example_eventOnPickUp_Parms, PickUpCharacter), Z_Construct_UClass_ADefaultPlaybleCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature_Statics::NewProp_PickUpCharacter,
 	};
@@ -60,11 +60,11 @@ void EmptyLinkFunctionForGeneratedCodeTP_PickUpComponent() {}
 		}
 		return ReturnFunction;
 	}
-void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, AUE5_3_ExampleCharacter* PickUpCharacter)
+void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, ADefaultPlaybleCharacter* PickUpCharacter)
 {
 	struct _Script_UE5_3_Example_eventOnPickUp_Parms
 	{
-		AUE5_3_ExampleCharacter* PickUpCharacter;
+		ADefaultPlaybleCharacter* PickUpCharacter;
 	};
 	_Script_UE5_3_Example_eventOnPickUp_Parms Parms;
 	Parms.PickUpCharacter=PickUpCharacter;
@@ -232,7 +232,7 @@ void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, AUE5_3_
 #endif
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp = { "OnPickUp", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTP_PickUpComponent, OnPickUp), Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp_MetaData), Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp_MetaData) }; // 948107269
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp = { "OnPickUp", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTP_PickUpComponent, OnPickUp), Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp_MetaData), Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp_MetaData) }; // 939469681
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UTP_PickUpComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp,
 	};
@@ -274,9 +274,9 @@ void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, AUE5_3_
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTP_PickUpComponent, UTP_PickUpComponent::StaticClass, TEXT("UTP_PickUpComponent"), &Z_Registration_Info_UClass_UTP_PickUpComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_PickUpComponent), 3847575158U) },
+		{ Z_Construct_UClass_UTP_PickUpComponent, UTP_PickUpComponent::StaticClass, TEXT("UTP_PickUpComponent"), &Z_Registration_Info_UClass_UTP_PickUpComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_PickUpComponent), 3320972353U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_2631541513(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_843714590(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

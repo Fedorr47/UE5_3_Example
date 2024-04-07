@@ -9,7 +9,7 @@
 #include "FloatableHealth.h"
 #include "DamageComponent.h"
 #include "HUD_Character.h"
-#include "UE5_3_ExampleCharacter.h"
+#include "DefaultPlaybleCharacter.h"
 
 DamageSystem::DamageSystem()
 {
@@ -39,7 +39,7 @@ void DamageSystem::ApplyDamage(UEntityManager* EntityManager)
 
                 EntityManager->RemoveComponents<UDamageComponent>(Entity);
 
-                if (auto Character = Cast<AUE5_3_ExampleCharacter>(HealthComp->GetOwnerObject()))
+                if (auto Character = Cast<ADefaultPlaybleCharacter>(HealthComp->GetOwnerObject()))
                 {
                     auto GemeMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(Character->GetWorld()));
                     UHealthPercentMessage* MsgToSend = NewObject<UHealthPercentMessage>();

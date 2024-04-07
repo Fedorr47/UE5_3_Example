@@ -8,7 +8,7 @@
 #include "ThrowableComponent.h"
 #include "Systems/ThrowableSystem.h"
 #include "Components/SplineComponent.h"
-#include "UE5_3_ExampleCharacter.h"
+#include "DefaultPlaybleCharacter.h"
 #include "InputActionValue.h"
 
 AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
@@ -44,7 +44,7 @@ void AThrowableActor::BeginPlay()
 
 void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 {
-	OwnerCharacter = TargetCharacter;
+	OwnerCharacter = Cast<ADefaultPlaybleCharacter>(TargetCharacter);
 
 	// Check that the character is valid, and has no rifle yet
 	if (OwnerCharacter == nullptr)
@@ -79,9 +79,7 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		ThrowableComp->ThrowVector = PhysicComponent->Velocity;
 		ThrowableComp->ProjectileClass = ThrowableProjectileClass;
 		ThrowableComp->IsActiveThrowable = true;
-		// TODO: it's a hack
-		ThrowableComp->SplinePredict = Cast<AUE5_3_ExampleCharacter>(OwnerCharacter)->GetSplinePredict();
-		// end of hack
+		ThrowableComp->SplinePredict = OwnerCharacter->GetSplinePredict();
 		ThrowableComp->SplinePredict->bDrawDebug = true;
 		CreatedComponents.Emplace(ThrowableComp);
 	}
