@@ -96,6 +96,12 @@ void AThrowableActor::ActiveThrow()
 	{
 		ThrowableComp->SplinePredict->ClearSplinePoints();
 		ThrowableComp->SplinePredict->UpdateSpline();
+
+		for (auto* MeshComp : ThrowableComp->SplinePredictMeshes)
+		{
+			MeshComp->DestroyComponent();
+		}
+		ThrowableComp->SplinePredictMeshes.Empty();
 	}
 }
 
