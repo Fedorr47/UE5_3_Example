@@ -9,6 +9,7 @@
 #include "Systems/ThrowableSystem.h"
 #include "Components/SplineComponent.h"
 #include "DefaultPlaybleCharacter.h"
+#include "Components/SplineMeshComponent.h"
 #include "InputActionValue.h"
 
 AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
@@ -18,7 +19,7 @@ AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
 	{
 		RootComponent = ObjectInitializer.CreateDefaultSubobject<USceneComponent>(this, TEXT("Root"));
 	}
-	//StatTVPMesh = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
+	StatPredictThrowMeshComp = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
 }
 
 void AThrowableActor::Tick(float DeltaTime)

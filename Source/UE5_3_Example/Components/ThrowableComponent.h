@@ -8,6 +8,7 @@
 
 class ADefaultProjectile;
 class USplineComponent;
+class USplineMeshComponent;
 
 UCLASS()
 class UE5_3_EXAMPLE_API UThrowableComponent : public UEntityComponent
@@ -32,6 +33,8 @@ public:
 	
 	UPROPERTY()
 	USplineComponent* SplinePredict = nullptr;
+
+	TArray<USplineMeshComponent*> SplinePredictMeshes;
 
 	UPROPERTY()
 	bool IsActiveThrowable = false;

@@ -12,6 +12,7 @@
 #include "Actors/ThrowableActor.h"
 #include "ThrowableComponent.h"
 #include "Components/SplineComponent.h"
+#include "Components/SplineMeshComponent.h"
 #include "DefaultProjectile.h"
 #include "ThrowableSystem.h"
 
@@ -111,9 +112,34 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 
 						for (FPredictProjectilePathPointData Point : PredictResult.PathData)
 						{
-							ThrowableComp->SplinePredict->AddSplinePoint(Point.Location, ESplineCoordinateSpace::World, false);
+							ThrowableComp->SplinePredict->AddSplinePoint(Point.Location, ESplineCoordinateSpace::Local, false);
 						}
 						ThrowableComp->SplinePredict->UpdateSpline();
+
+						FVector Location, Tangent, LocationNext, TangentNext;
+						int NumOfPoints = ThrowableComp->SplinePredict->GetNumberOfSplinePoints();
+						for (auto* MeshComp : ThrowableComp->SplinePredictMeshes)
+						{
+							MeshComp->DestroyComponent();
+						}
+						ThrowableComp->SplinePredictMeshes.Empty();
+						for (int i = 0; i < NumOfPoints; ++i)
+						{
+							auto SplineMeshComp = NewObject<USplineMeshComponent>(OwnerCharacter);
+							ThrowableComp->SplinePredictMeshes.Add(SplineMeshComp);
+							SplineMeshComp->SetMobility(EComponentMobility::Movable);
+							SplineMeshComp->SetStaticMesh(ThrowableActor->StatPredictThrowMeshComp->GetStaticMesh());
+							SplineMeshComp->RegisterComponent();
+							SplineMeshComp->AttachToComponent(
+								OwnerCharacter->GetRootComponent(),
+								FAttachmentTransformRules::KeepWorldTransform
+							);
+
+							ThrowableComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i, Location, Tangent, ESplineCoordinateSpace::World);
+							ThrowableComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i+1, LocationNext, TangentNext, ESplineCoordinateSpace::World);
+							ThrowableComp->SplinePredictMeshes.Last()->SetStartAndEnd(Location, Tangent, LocationNext, TangentNext);
+							++i;
+						}						
 					}
 				}
 			}
