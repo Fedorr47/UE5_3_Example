@@ -99,10 +99,9 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 
 						PredictParams.StartLocation = SpawnLocation;
 						PredictParams.LaunchVelocity = SpawnVelocity;
-						PredictParams.DrawDebugTime = 1.0f;
 						PredictParams.ActorsToIgnore = ActorToIgnore;
 
-						PredictParams.MaxSimTime = 4.0f;
+						PredictParams.MaxSimTime = 1.0f;
 						PredictParams.bTraceWithCollision = true;
 						PredictParams.DrawDebugType = EDrawDebugTrace::None;
 
@@ -129,7 +128,6 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 							ThrowableComp->SplinePredictMeshes.Add(SplineMeshComp);
 							SplineMeshComp->SetMobility(EComponentMobility::Movable);
 							SplineMeshComp->SetStaticMesh(ThrowableActor->StatPredictThrowMeshComp->GetStaticMesh());
-							SplineMeshComp->GetStaticMesh()->SetMaterial(0, ThrowableActor->StatPredictThrowMeshComp->GetStaticMesh()->GetMaterial(0));
 							SplineMeshComp->RegisterComponent();
 							SplineMeshComp->AttachToComponent(
 								OwnerCharacter->GetRootComponent(),
