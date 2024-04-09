@@ -34,13 +34,6 @@ void AThrowableActor::Tick(float DeltaTime)
 void AThrowableActor::BeginPlay()
 {
 	Super::BeginPlay();
-	if (IsValid(TemplatePhysicComponent.Template))
-	{
-		PhysicComponent = TemplatePhysicComponent.Template;
-		PhysicComponent->InitComponent(mWorld, StatMeshComp);
-		mGameMode->EntityManager->AddCreatedComponent(ActorEntity, PhysicComponent);
-		CreatedComponents.Emplace(PhysicComponent);
-	}
 }
 
 void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
@@ -77,7 +70,6 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 	if (IsValid(ThrowableComp) && IsValid(ThrowableProjectileClass.Get()))
 	{
 		ThrowableComp->InitComponent(mWorld, this);
-		ThrowableComp->ThrowVector = PhysicComponent->Velocity;
 		ThrowableComp->ProjectileClass = ThrowableProjectileClass;
 		ThrowableComp->IsActiveThrowable = true;
 		ThrowableComp->SplinePredict = OwnerCharacter->GetSplinePredict();

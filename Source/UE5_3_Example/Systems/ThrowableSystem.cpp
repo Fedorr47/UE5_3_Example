@@ -46,7 +46,7 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-						InFrontOwner.Z = 0.0f;
+						//InFrontOwner.Z = 0.0f;
 						InFrontOwner = InFrontOwner * 20;
 						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner);
 
@@ -83,7 +83,7 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-						InFrontOwner.Z = 0.0f;
+						//InFrontOwner.Z = 0.0f;
 						InFrontOwner = InFrontOwner * 20;
 						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner);
 

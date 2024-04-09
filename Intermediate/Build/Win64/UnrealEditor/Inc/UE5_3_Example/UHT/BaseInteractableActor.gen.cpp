@@ -12,6 +12,9 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 // Cross Module References
 	ENGINE_API UClass* Z_Construct_UClass_AActor();
+	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_AController_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UDamageType_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMesh_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
@@ -40,10 +43,14 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 	}
 	DEFINE_FUNCTION(ABaseInteractableActor::execTakeBaseDamage)
 	{
-		P_GET_PROPERTY(FFloatProperty,Z_Param_InDamageAmount);
+		P_GET_OBJECT(AActor,Z_Param_DamagedActor);
+		P_GET_PROPERTY(FFloatProperty,Z_Param_Damage);
+		P_GET_OBJECT(UDamageType,Z_Param_DamageType);
+		P_GET_OBJECT(AController,Z_Param_InstigatedBy);
+		P_GET_OBJECT(AActor,Z_Param_DamageCauser);
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		P_THIS->TakeBaseDamage(Z_Param_InDamageAmount);
+		P_THIS->TakeBaseDamage(Z_Param_DamagedActor,Z_Param_Damage,Z_Param_DamageType,Z_Param_InstigatedBy,Z_Param_DamageCauser);
 		P_NATIVE_END;
 	}
 	void ABaseInteractableActor::StaticRegisterNativesABaseInteractableActor()
@@ -128,25 +135,49 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 	{
 		struct BaseInteractableActor_eventTakeBaseDamage_Parms
 		{
-			float InDamageAmount;
+			AActor* DamagedActor;
+			float Damage;
+			const UDamageType* DamageType;
+			AController* InstigatedBy;
+			AActor* DamageCauser;
 		};
-		static const UECodeGen_Private::FFloatPropertyParams NewProp_InDamageAmount;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DamagedActor;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_Damage;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_DamageType_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DamageType;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_InstigatedBy;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_DamageCauser;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_InDamageAmount = { "InDamageAmount", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseInteractableActor_eventTakeBaseDamage_Parms, InDamageAmount), METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamagedActor = { "DamagedActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseInteractableActor_eventTakeBaseDamage_Parms, DamagedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseInteractableActor_eventTakeBaseDamage_Parms, Damage), METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamageType_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamageType = { "DamageType", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseInteractableActor_eventTakeBaseDamage_Parms, DamageType), Z_Construct_UClass_UDamageType_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamageType_MetaData), Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamageType_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_InstigatedBy = { "InstigatedBy", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseInteractableActor_eventTakeBaseDamage_Parms, InstigatedBy), Z_Construct_UClass_AController_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamageCauser = { "DamageCauser", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseInteractableActor_eventTakeBaseDamage_Parms, DamageCauser), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_InDamageAmount,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamagedActor,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_Damage,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamageType,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_InstigatedBy,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::NewProp_DamageCauser,
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Actors/BaseInteractableActor.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABaseInteractableActor, nullptr, "TakeBaseDamage", nullptr, nullptr, Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::BaseInteractableActor_eventTakeBaseDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::Function_MetaDataParams) };
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABaseInteractableActor, nullptr, "TakeBaseDamage", nullptr, nullptr, Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::BaseInteractableActor_eventTakeBaseDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::Function_MetaDataParams) };
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::PropPointers) < 2048);
 	static_assert(sizeof(Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage_Statics::BaseInteractableActor_eventTakeBaseDamage_Parms) < MAX_uint16);
 	UFunction* Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage()
@@ -212,7 +243,7 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_ABaseInteractableActor_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ABaseInteractableActor_GetThrowableMesh, "GetThrowableMesh" }, // 2841986495
 		{ &Z_Construct_UFunction_ABaseInteractableActor_Heal, "Heal" }, // 1421189946
-		{ &Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage, "TakeBaseDamage" }, // 74196848
+		{ &Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage, "TakeBaseDamage" }, // 935431463
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -325,9 +356,9 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABaseInteractableActor, ABaseInteractableActor::StaticClass, TEXT("ABaseInteractableActor"), &Z_Registration_Info_UClass_ABaseInteractableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseInteractableActor), 3011270971U) },
+		{ Z_Construct_UClass_ABaseInteractableActor, ABaseInteractableActor::StaticClass, TEXT("ABaseInteractableActor"), &Z_Registration_Info_UClass_ABaseInteractableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseInteractableActor), 2912502248U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_3137217408(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_565755837(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

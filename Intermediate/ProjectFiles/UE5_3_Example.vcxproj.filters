@@ -36,12 +36,6 @@
     <Filter Include="Source\UE5_3_Example">
       <UniqueIdentifier>{4F602253-6CA6-368B-8A14-1A0B947FA6BB}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\UE5_3_Example\DefaultProjectile.cpp">
-      <Filter>Source\UE5_3_Example</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\DefaultProjectile.h">
-      <Filter>Source\UE5_3_Example</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\ExtendCheatManager.cpp">
       <Filter>Source\UE5_3_Example</Filter>
     </ClCompile>
@@ -217,5 +211,15 @@
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
     <None Include="cpp.hint" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\UE5_3_Example\DefaultProjectile.cpp">
+      <Filter>Source\UE5_3_Example\Actors</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\UE5_3_Example\DefaultProjectile.h">
+      <Filter>Source\UE5_3_Example\Actors</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

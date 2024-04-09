@@ -11,7 +11,6 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class AActor;
 class UPrimitiveComponent;
-class UStaticMesh;
 struct FHitResult;
 #ifdef UE5_3_EXAMPLE_DefaultProjectile_generated_h
 #error "DefaultProjectile.generated.h already included, missing '#pragma once' in DefaultProjectile.h"
@@ -23,12 +22,11 @@ struct FHitResult;
 #define FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execGetMesh); \
-	DECLARE_FUNCTION(execSetMesh); \
 	DECLARE_FUNCTION(execOnHit);
 
 
 #define FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_CALLBACK_WRAPPERS
 #define FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADefaultProjectile(); \
@@ -61,6 +59,7 @@ public: \
 	FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
 	FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
 	FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_CALLBACK_WRAPPERS \
 	FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_INCLASS_NO_PURE_DECLS \
 	FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_17_ENHANCED_CONSTRUCTORS \
 private: \

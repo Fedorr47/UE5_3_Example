@@ -22,9 +22,6 @@ public:
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Throwable)
-	FVector ThrowVector{};
-
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	UStaticMeshComponent* PathMesh;
 

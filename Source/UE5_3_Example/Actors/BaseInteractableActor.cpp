@@ -48,6 +48,7 @@ void ABaseInteractableActor::BeginPlay()
 			}
 		}
 	}
+	OnTakeAnyDamage.AddUniqueDynamic(this, &ABaseInteractableActor::TakeBaseDamage);
 }
 
 /*
@@ -69,12 +70,12 @@ void ABaseInteractableActor::Tick(float DeltaTime)
 
 }
 
-void ABaseInteractableActor::TakeBaseDamage(float InDamageAmount)
+void ABaseInteractableActor::TakeBaseDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
 {
 	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
 	if (IsValid(DamageComp))
 	{
-		DamageComp->DamageAmount = InDamageAmount;
+		DamageComp->DamageAmount = Damage;
 		DamageSystem::ApplyDamage(mGameMode->EntityManager);
 	}	
 }

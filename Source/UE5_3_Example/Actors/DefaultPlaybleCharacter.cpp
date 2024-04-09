@@ -84,6 +84,8 @@ void ADefaultPlaybleCharacter::BeginPlay()
 		}
 	}
 
+	OnTakeAnyDamage.AddUniqueDynamic(this, &ADefaultPlaybleCharacter::TakeCharacterDamage);
+	OnTakeRadialDamage.AddUniqueDynamic(this, &ADefaultPlaybleCharacter::TakeCharacterRadialDamage);
 }
 
 //////////////////////////////////////////////////////////////////////////// Input
@@ -145,12 +147,22 @@ bool ADefaultPlaybleCharacter::GetHasRifle()
 	return bHasRifle;
 }
 
-void ADefaultPlaybleCharacter::TakeCharacterDamage(float InDamageAmount)
+void ADefaultPlaybleCharacter::TakeCharacterDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser)
 {
 	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
 	if (DamageComp)
 	{
-		DamageComp->DamageAmount = InDamageAmount;
+		DamageComp->DamageAmount = Damage;
+	}
+	DamageSystem::ApplyDamage(mGameMode->EntityManager);
+}
+
+void ADefaultPlaybleCharacter::TakeCharacterRadialDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, FVector Origin, const FHitResult& HitInfo, AController* InstigatedBy, AActor* DamageCauser)
+{
+	UDamageComponent* DamageComp = mGameMode->EntityManager->AddComponent<UDamageComponent>(ActorEntity);
+	if (DamageComp)
+	{
+		DamageComp->DamageAmount = Damage;
 	}
 	DamageSystem::ApplyDamage(mGameMode->EntityManager);
 }

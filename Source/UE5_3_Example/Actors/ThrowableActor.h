@@ -16,6 +16,7 @@ class UInputAction;
 class USplineComponent;
 class UThrowableComponent;
 
+/*
 USTRUCT(BlueprintType)
 struct UE5_3_EXAMPLE_API FPhysicComponentWrapper
 {
@@ -23,6 +24,7 @@ struct UE5_3_EXAMPLE_API FPhysicComponentWrapper
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Instanced, meta = (ShowOnlyInnerProperties, BlueprintSearchable = "true"))
 	UPhysicComponent* Template = nullptr;
 };
+*/
 
 UCLASS()
 class UE5_3_EXAMPLE_API AThrowableActor : public ABaseInteractableActor
@@ -39,9 +41,6 @@ protected:
 	ADefaultPlaybleCharacter* OwnerCharacter = nullptr;
 
 	UPROPERTY()
-	UPhysicComponent* PhysicComponent;
-
-	UPROPERTY()
 	UThrowableComponent* ThrowableComp;
 
 public:
@@ -52,8 +51,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void AttachToCharacter(ACharacter* TargetCharacter);
 
-	UPROPERTY(EditAnywhere, Category = "Components")
-	FPhysicComponentWrapper TemplatePhysicComponent;
+	//UPROPERTY(EditAnywhere, Category = "Components")
+	//FPhysicComponentWrapper TemplatePhysicComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Projectile")
 	TSubclassOf<ADefaultProjectile> ThrowableProjectileClass;

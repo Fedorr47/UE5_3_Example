@@ -31,22 +31,19 @@ public:
 	UFUNCTION()
 	void OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
 
+	UFUNCTION(BlueprintImplementableEvent, Category = Damage)
+	void ScriptOnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit);
+
 	/** Returns CollisionComp subobject **/
 	USphereComponent* GetCollisionComp() const { return CollisionComp; }
 	/** Returns ProjectileMovement subobject **/
 	UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
 
-	UFUNCTION()
-	void SetMesh(UStaticMesh* Mesh);
-
-	UFUNCTION()
-	UStaticMesh* GetMesh() const { return ProjectileMesh->GetStaticMesh(); };
-
 protected:
 	UPROPERTY(EditAnywhere, Category = Damage)
 	float AmountDamageOnHit = 0.0f;
 
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UPROPERTY(BlueprintReadWrite, Category = Mesh)
 	UStaticMeshComponent* ProjectileMesh;
 };
 

@@ -13,6 +13,7 @@ enum class ETeleportType : uint8;
 enum class EUpdateTransformFlags : int32;
 
 class UUserWidget;
+class UDamageType;
 
 UCLASS()
 class UE5_3_EXAMPLE_API ABaseInteractableActor : public AActor
@@ -23,8 +24,8 @@ public:
 	// Sets default values for this actor's properties
 	ABaseInteractableActor(const FObjectInitializer& ObjectInitializer);
 	
-	UFUNCTION(BlueprintCallable)
-	void TakeBaseDamage(float InDamageAmount);
+	UFUNCTION()
+	void TakeBaseDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);
 	UFUNCTION(BlueprintCallable)
 	void Heal(float InHealAmount);
 

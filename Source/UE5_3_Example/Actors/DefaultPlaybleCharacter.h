@@ -17,6 +17,7 @@ class UEntityComponent;
 class UHealthComponent;
 struct FInputActionValue;
 class AUE5_3_ExampleGameMode;
+class UDamageType;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -91,8 +92,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Weapon)
 	bool GetHasRifle();
 
-	UFUNCTION(BlueprintCallable, Category = Health)
-	void TakeCharacterDamage(float InDamageAmount);
+	UFUNCTION()
+	void TakeCharacterDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, AController* InstigatedBy, AActor* DamageCauser);
+	UFUNCTION()
+	void TakeCharacterRadialDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, FVector Origin, const FHitResult& HitInfo, AController* InstigatedBy, AActor* DamageCauser);
 
 	UFUNCTION(BlueprintCallable, Category = Health)
 	void Heal(float InHealAmount);

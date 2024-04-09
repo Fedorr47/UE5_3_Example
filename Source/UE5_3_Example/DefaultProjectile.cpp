@@ -1,8 +1,8 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "DefaultProjectile.h"
+#include <Kismet/GameplayStatics.h>
 #include "GameFramework/ProjectileMovementComponent.h"
-#include "Actors/BaseInteractableActor.h"
 #include "Components/SphereComponent.h"
 
 ADefaultProjectile::ADefaultProjectile(const FObjectInitializer& ObjectInitializer) :
@@ -41,16 +41,8 @@ void ADefaultProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor,
 	// Only add impulse and destroy projectile if we hit a physics
 	if ((OtherActor != nullptr) && (OtherActor != this) && (OtherComp != nullptr) && OtherComp->IsSimulatingPhysics())
 	{
+		ScriptOnHit(HitComp, OtherActor, OtherComp, NormalImpulse, Hit);
 		OtherComp->AddImpulseAtLocation(GetVelocity() * 100.0f, GetActorLocation());
-		if (auto* Interactable = Cast<ABaseInteractableActor>(OtherActor))
-		{ 
-			Interactable->TakeBaseDamage(AmountDamageOnHit);
-		}
 		Destroy();
 	}
-}
-
-void ADefaultProjectile::SetMesh(UStaticMesh* Mesh)
-{
-	ProjectileMesh->SetStaticMesh(Mesh);
 }
