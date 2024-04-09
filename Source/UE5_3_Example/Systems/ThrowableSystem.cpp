@@ -93,7 +93,10 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						// TODO: Rewrite Projectile's logic to better version
 						ADefaultProjectile* ProjectileDef = ThrowableComp->ProjectileClass.GetDefaultObject();
 						float Speed = ProjectileDef->GetProjectileMovement()->InitialSpeed;
-						const FVector SpawnVelocity = UKismetMathLibrary::GetForwardVector(SpawnRotation) * Speed;
+						FVector ForwardVector = UKismetMathLibrary::GetForwardVector(SpawnRotation);
+						FVector OrtogonalForwardVector = FVector(ForwardVector.Y, -ForwardVector.X, 0.0f);
+						float DotRes = FVector::DotProduct(ForwardVector, OrtogonalForwardVector);
+						const FVector SpawnVelocity = ForwardVector * Speed;
 
 						TArray<AActor*> ActorToIgnore{ OwnerCharacter };
 
@@ -108,15 +111,29 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						UGameplayStatics::PredictProjectilePath(World, PredictParams, PredictResult);
 
 						ThrowableComp->SplinePredict->ClearSplinePoints();
+						int NumOfPoints = PredictResult.PathData.Num();
+						int HalfOfPath = NumOfPoints / 2;
+						float StepForAngle = (10.0f - 1.0f) / NumOfPoints;
 
+						int PointCounter = 0;
 						for (FPredictProjectilePathPointData Point : PredictResult.PathData)
 						{
-							ThrowableComp->SplinePredict->AddSplinePoint(Point.Location, ESplineCoordinateSpace::World, false);
+							FVector PointLocation = Point.Location + OrtogonalForwardVector* StepForAngle;
+							ThrowableComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
+							if (PointCounter < HalfOfPath)
+							{
+								++PointCounter;
+								StepForAngle += StepForAngle;
+							}
+							else
+							{
+								StepForAngle -= StepForAngle;
+							}
 						}
 						ThrowableComp->SplinePredict->UpdateSpline();
 
 						FVector Location, Tangent, LocationNext, TangentNext;
-						int NumOfPoints = ThrowableComp->SplinePredict->GetNumberOfSplinePoints();
+						
 						for (auto* MeshComp : ThrowableComp->SplinePredictMeshes)
 						{
 							MeshComp->DestroyComponent();

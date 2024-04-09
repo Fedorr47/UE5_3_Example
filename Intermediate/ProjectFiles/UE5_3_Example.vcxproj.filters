@@ -213,12 +213,12 @@
     <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\UE5_3_Example\DefaultProjectile.cpp">
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\DefaultProjectile.cpp">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\UE5_3_Example\DefaultProjectile.h">
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\DefaultProjectile.h">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClInclude>
   </ItemGroup>

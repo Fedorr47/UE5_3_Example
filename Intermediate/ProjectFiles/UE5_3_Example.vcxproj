@@ -118,12 +118,8 @@
     <None Include="..\..\Config\DefaultEngine.ini" />
     <None Include="..\..\Config\DefaultGame.ini" />
     <None Include="..\..\Config\DefaultInput.ini" />
-    <ClCompile Include="..\..\Source\UE5_3_Example\DefaultProjectile.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\DefaultProjectile.h" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\DefaultProjectile.cpp" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\DefaultProjectile.h" />
     <ClCompile Include="..\..\Source\UE5_3_Example\ExtendCheatManager.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>

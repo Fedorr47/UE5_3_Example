@@ -40,7 +40,7 @@ public:
 	UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
 
 protected:
-	UPROPERTY(EditAnywhere, Category = Damage)
+	UPROPERTY(BlueprintReadWrite, Category = Damage)
 	float AmountDamageOnHit = 0.0f;
 
 	UPROPERTY(BlueprintReadWrite, Category = Mesh)

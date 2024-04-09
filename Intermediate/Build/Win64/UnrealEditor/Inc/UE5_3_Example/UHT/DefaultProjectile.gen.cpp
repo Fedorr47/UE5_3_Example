@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "DefaultProjectile.h"
+#include "Actors/DefaultProjectile.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/HitResult.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
@@ -123,7 +123,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** called when projectile hits something */" },
 #endif
-		{ "ModuleRelativePath", "DefaultProjectile.h" },
+		{ "ModuleRelativePath", "Actors/DefaultProjectile.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "called when projectile hits something" },
 #endif
@@ -193,7 +193,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultProjectile_ScriptOnHit_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Damage" },
-		{ "ModuleRelativePath", "DefaultProjectile.h" },
+		{ "ModuleRelativePath", "Actors/DefaultProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultProjectile_ScriptOnHit_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultProjectile, nullptr, "ScriptOnHit", nullptr, nullptr, Z_Construct_UFunction_ADefaultProjectile_ScriptOnHit_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_ScriptOnHit_Statics::PropPointers), sizeof(DefaultProjectile_eventScriptOnHit_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08C20800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultProjectile_ScriptOnHit_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADefaultProjectile_ScriptOnHit_Statics::Function_MetaDataParams) };
@@ -246,14 +246,14 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultProjectile_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ADefaultProjectile_OnHit, "OnHit" }, // 4155752838
-		{ &Z_Construct_UFunction_ADefaultProjectile_ScriptOnHit, "ScriptOnHit" }, // 3712254577
+		{ &Z_Construct_UFunction_ADefaultProjectile_OnHit, "OnHit" }, // 3950907508
+		{ &Z_Construct_UFunction_ADefaultProjectile_ScriptOnHit, "ScriptOnHit" }, // 2525172656
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "DefaultProjectile.h" },
-		{ "ModuleRelativePath", "DefaultProjectile.h" },
+		{ "IncludePath", "Actors/DefaultProjectile.h" },
+		{ "ModuleRelativePath", "Actors/DefaultProjectile.h" },
 		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 #endif
@@ -264,7 +264,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 		{ "Comment", "/** Sphere collision component */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "DefaultProjectile.h" },
+		{ "ModuleRelativePath", "Actors/DefaultProjectile.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Sphere collision component" },
 #endif
@@ -279,7 +279,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 		{ "Comment", "/** Projectile movement component */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "DefaultProjectile.h" },
+		{ "ModuleRelativePath", "Actors/DefaultProjectile.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Projectile movement component" },
 #endif
@@ -289,15 +289,15 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit_MetaData[] = {
 		{ "Category", "Damage" },
-		{ "ModuleRelativePath", "DefaultProjectile.h" },
+		{ "ModuleRelativePath", "Actors/DefaultProjectile.h" },
 	};
 #endif
-	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit = { "AmountDamageOnHit", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultProjectile, AmountDamageOnHit), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit_MetaData), Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit_MetaData) };
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit = { "AmountDamageOnHit", nullptr, (EPropertyFlags)0x0020080000000004, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultProjectile, AmountDamageOnHit), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit_MetaData), Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_AmountDamageOnHit_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh_MetaData[] = {
 		{ "Category", "Mesh" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "DefaultProjectile.h" },
+		{ "ModuleRelativePath", "Actors/DefaultProjectile.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh = { "ProjectileMesh", nullptr, (EPropertyFlags)0x002008000008000c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultProjectile, ProjectileMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh_MetaData), Z_Construct_UClass_ADefaultProjectile_Statics::NewProp_ProjectileMesh_MetaData) };
@@ -340,15 +340,15 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ADefaultProjectile);
 	ADefaultProjectile::~ADefaultProjectile() {}
-	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADefaultProjectile, ADefaultProjectile::StaticClass, TEXT("ADefaultProjectile"), &Z_Registration_Info_UClass_ADefaultProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultProjectile), 3578239657U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ADefaultProjectile, ADefaultProjectile::StaticClass, TEXT("ADefaultProjectile"), &Z_Registration_Info_UClass_ADefaultProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultProjectile), 512995584U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_2708853522(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_DefaultProjectile_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_391529725(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
