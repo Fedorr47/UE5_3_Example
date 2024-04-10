@@ -21,9 +21,13 @@ public:
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)
+	UPROPERTY(EditAnywhere)
+	bool IsImmortal = false;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health, meta = (EditCondition = "IsImmortal == false"))
 	float MaxHealth = 100.0f;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health)
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Health, meta = (EditCondition = "IsImmortal == false"))
 	float Health = 0.0f;
+
 };

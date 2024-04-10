@@ -31,7 +31,7 @@ void DamageSystem::ApplyDamage(UEntityManager* EntityManager)
         if (IsValid(DamageComp))
         {
             UHealthComponent* HealthComp = EntityManager->GetComponent<UHealthComponent>(Entity);
-            if (IsValid(HealthComp))
+            if (IsValid(HealthComp) && !HealthComp->IsImmortal)
             {
                 HealthComp->Health -= DamageComp->DamageAmount;
                 HealthComp->Health = FMath::Clamp(HealthComp->Health, 0.0f, HealthComp->MaxHealth);
