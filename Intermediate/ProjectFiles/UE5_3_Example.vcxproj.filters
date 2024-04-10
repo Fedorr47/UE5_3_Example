@@ -36,12 +36,6 @@
     <Filter Include="Source\UE5_3_Example">
       <UniqueIdentifier>{4F602253-6CA6-368B-8A14-1A0B947FA6BB}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\UE5_3_Example\ExtendCheatManager.cpp">
-      <Filter>Source\UE5_3_Example</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\ExtendCheatManager.h">
-      <Filter>Source\UE5_3_Example</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\HUD_Character.cpp">
       <Filter>Source\UE5_3_Example</Filter>
     </ClCompile>
@@ -84,16 +78,22 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Actors\BaseInteractableActor.h">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\ThrowableActor.cpp">
-      <Filter>Source\UE5_3_Example\Actors</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\ThrowableActor.h">
-      <Filter>Source\UE5_3_Example\Actors</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Actors\DefaultPlaybleCharacter.cpp">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Actors\DefaultPlaybleCharacter.h">
+      <Filter>Source\UE5_3_Example\Actors</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\DefaultProjectile.cpp">
+      <Filter>Source\UE5_3_Example\Actors</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\DefaultProjectile.h">
+      <Filter>Source\UE5_3_Example\Actors</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\ThrowableActor.cpp">
+      <Filter>Source\UE5_3_Example\Actors</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\ThrowableActor.h">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClInclude>
     <Filter Include="Source\UE5_3_Example\Components">
@@ -210,16 +210,20 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Systems\TimerSystem.h">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
-    <None Include="cpp.hint" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\DefaultProjectile.cpp">
-      <Filter>Source\UE5_3_Example\Actors</Filter>
+    <Filter Include="Source\UE5_3_Example\Cheats">
+      <UniqueIdentifier>{d04cc262-9f17-4d94-8a1a-b83d0933fe5d}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\UE5_3_Example\ExtendCheatManager.cpp">
+      <Filter>Source\UE5_3_Example\Cheats</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\DefaultProjectile.h">
-      <Filter>Source\UE5_3_Example\Actors</Filter>
+    <ClInclude Include="..\..\Source\UE5_3_Example\ExtendCheatManager.h">
+      <Filter>Source\UE5_3_Example\Cheats</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Actors/BaseInteractableActor.h"
+#include "DefaultPlaybleCharacter.h"
 #include "Components/PhysicComponent.h"
 #include "DefaultProjectile.h"
 #include "ThrowableActor.generated.h"
