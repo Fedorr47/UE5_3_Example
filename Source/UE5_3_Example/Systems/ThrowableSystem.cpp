@@ -95,7 +95,6 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						float Speed = ProjectileDef->GetProjectileMovement()->InitialSpeed;
 						FVector ForwardVector = UKismetMathLibrary::GetForwardVector(SpawnRotation);
 						FVector OrtogonalForwardVector = FVector(ForwardVector.Y, -ForwardVector.X, -ForwardVector.Z);
-						float DotRes = FVector::DotProduct(ForwardVector, OrtogonalForwardVector);
 						const FVector SpawnVelocity = ForwardVector * Speed;
 
 						TArray<AActor*> ActorToIgnore{ OwnerCharacter };
@@ -112,24 +111,15 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 
 						ThrowableComp->SplinePredict->ClearSplinePoints();
 						int NumOfPoints = PredictResult.PathData.Num();
-						int HalfOfPath = NumOfPoints / 2;
-						float StepForAngle = (30.0f - 1.0f) / NumOfPoints;
+						float StepForAngle = 3.14159f / NumOfPoints;
 
-						int PointCounter = 0;
 						float NextStep = 0.0f;
-						for (FPredictProjectilePathPointData Point : PredictResult.PathData)
+						for (FPredictProjectilePathPointData& Point : PredictResult.PathData)
 						{
-							FVector PointLocation = Point.Location + (OrtogonalForwardVector * NextStep + ForwardVector * NextStep);
+							auto SinVal = (1.0f + FMath::Sin(NextStep)) * 10;
+							FVector PointLocation = Point.Location + (ForwardVector * SinVal + OrtogonalForwardVector * SinVal);
 							ThrowableComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
-							if (PointCounter < HalfOfPath)
-							{
-								++PointCounter;
-								NextStep += StepForAngle;
-							}
-							else if (NextStep > 0.0f)
-							{
-								NextStep -= StepForAngle;
-							}
+							NextStep += StepForAngle;
 						}
 						ThrowableComp->SplinePredict->UpdateSpline();
 
