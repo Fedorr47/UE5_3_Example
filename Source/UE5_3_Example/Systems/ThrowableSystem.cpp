@@ -46,11 +46,8 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-						//InFrontOwner.Z = 0.0f;
-						InFrontOwner = InFrontOwner * 20;
-						//InFrontOwner.X = InFrontOwner.X + (InFrontOwner.X / 2) * 10;
-						//InFrontOwner.Y = InFrontOwner.Y - (InFrontOwner.Y / 2) * 10;
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner);
+						FVector OrtogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, -InFrontOwner.Z);
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrtogonalForwardVector * -100.0f);
 
 						FActorSpawnParameters ActorSpawnParams;
 						ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
@@ -85,11 +82,8 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-						//InFrontOwner.Z = 0.0f;
-						InFrontOwner = InFrontOwner * 20;
-						//InFrontOwner.X = InFrontOwner.X + (InFrontOwner.X / 2) * 10;
-						//InFrontOwner.Y = InFrontOwner.Y - (InFrontOwner.Y / 2) * 10;
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner);
+						FVector OrtogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, 0.0f);
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrtogonalForwardVector * -100.0f);
 
 						FPredictProjectilePathParams PredictParams;
 						FPredictProjectilePathResult PredictResult;
@@ -97,9 +91,7 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						// TODO: Rewrite Projectile's logic to better version
 						ADefaultProjectile* ProjectileDef = ThrowableComp->ProjectileClass.GetDefaultObject();
 						float Speed = ProjectileDef->GetProjectileMovement()->InitialSpeed;
-						FVector ForwardVector = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-						FVector OrtogonalForwardVector = FVector(ForwardVector.Y, -ForwardVector.X, -ForwardVector.Z);
-						const FVector SpawnVelocity = ForwardVector * Speed;
+						const FVector SpawnVelocity = InFrontOwner * Speed;
 
 						TArray<AActor*> ActorToIgnore{ OwnerCharacter };
 
@@ -107,7 +99,7 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						PredictParams.LaunchVelocity = SpawnVelocity;
 						PredictParams.ActorsToIgnore = ActorToIgnore;
 
-						PredictParams.MaxSimTime = 1.0f;
+						PredictParams.MaxSimTime = 4.0f;
 						PredictParams.bTraceWithCollision = true;
 						PredictParams.DrawDebugType = EDrawDebugTrace::None;
 
@@ -120,8 +112,8 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						float NextStep = 0.0f;
 						for (FPredictProjectilePathPointData& Point : PredictResult.PathData)
 						{
-							//auto SinVal = (1.0f + FMath::Sin(NextStep)) * 10;
-							FVector PointLocation = Point.Location; //+ (ForwardVector * SinVal + OrtogonalForwardVector * SinVal);
+							float SinVal = FMath::Sin(NextStep) * 10.0f;
+							FVector PointLocation = Point.Location + OrtogonalForwardVector * (1.0f + SinVal);
 							ThrowableComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
 							NextStep += StepForAngle;
 						}
