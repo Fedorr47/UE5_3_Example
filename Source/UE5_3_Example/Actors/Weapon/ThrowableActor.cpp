@@ -1,16 +1,15 @@
 ﻿// Fill out your copyright notice in the Description page of Project Settings.
 
 
-#include "Actors/ThrowableActor.h"
-#include "GameFramework/Character.h"
+#include "ThrowableActor.h"
+#include "InputActionValue.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "ThrowableComponent.h"
 #include "Systems/ThrowableSystem.h"
-#include "Components/SplineComponent.h"
-#include "DefaultPlaybleCharacter.h"
 #include "Components/SplineMeshComponent.h"
-#include "InputActionValue.h"
+#include "Actors/Player/DefaultPlaybleCharacter.h"
+#include "Actors/Projectiles/DefaultProjectile.h"
 
 AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
     : Super(ObjectInitializer)
@@ -100,4 +99,9 @@ void AThrowableActor::ActiveThrow()
 void AThrowableActor::PredictThrow()
 {
 	bDrawPredictTrace = true;
+}
+
+ACharacter* AThrowableActor::GetThrowbaleOwnerCharacter()
+{
+	return OwnerCharacter;
 }

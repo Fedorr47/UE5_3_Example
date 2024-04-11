@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "HUD_Character.h"
+#include "UI/HUD_Character.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 // Cross Module References
@@ -56,7 +56,7 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "HUD_Character.h" },
+		{ "ModuleRelativePath", "UI/HUD_Character.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UCharacterHUDWidget, nullptr, "TakeMsg", nullptr, nullptr, Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::PropPointers), sizeof(Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::CharacterHUDWidget_eventTakeMsg_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::Function_MetaDataParams), Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg_Statics::Function_MetaDataParams) };
@@ -97,13 +97,13 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterHUDWidget_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UCharacterHUDWidget_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg, "TakeMsg" }, // 827802965
+		{ &Z_Construct_UFunction_UCharacterHUDWidget_TakeMsg, "TakeMsg" }, // 385245879
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterHUDWidget_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UCharacterHUDWidget_Statics::Class_MetaDataParams[] = {
-		{ "IncludePath", "HUD_Character.h" },
-		{ "ModuleRelativePath", "HUD_Character.h" },
+		{ "IncludePath", "UI/HUD_Character.h" },
+		{ "ModuleRelativePath", "UI/HUD_Character.h" },
 	};
 #endif
 #if WITH_METADATA
@@ -111,7 +111,7 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 		{ "BindWidget", "" },
 		{ "Category", "CharacterHUDWidget" },
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "HUD_Character.h" },
+		{ "ModuleRelativePath", "UI/HUD_Character.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UCharacterHUDWidget_Statics::NewProp_mHelthBar = { "mHelthBar", nullptr, (EPropertyFlags)0x002008000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UCharacterHUDWidget, mHelthBar), Z_Construct_UClass_UProgressBar_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UCharacterHUDWidget_Statics::NewProp_mHelthBar_MetaData), Z_Construct_UClass_UCharacterHUDWidget_Statics::NewProp_mHelthBar_MetaData) };
@@ -188,8 +188,8 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHUD_Character_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Rendering Actor Input Replication" },
-		{ "IncludePath", "HUD_Character.h" },
-		{ "ModuleRelativePath", "HUD_Character.h" },
+		{ "IncludePath", "UI/HUD_Character.h" },
+		{ "ModuleRelativePath", "UI/HUD_Character.h" },
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 	};
 #endif
@@ -200,7 +200,7 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// All on screen widgets to add to the HUD on BeginPlay\n" },
 #endif
-		{ "ModuleRelativePath", "HUD_Character.h" },
+		{ "ModuleRelativePath", "UI/HUD_Character.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "All on screen widgets to add to the HUD on BeginPlay" },
 #endif
@@ -211,7 +211,7 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHUD_Character_Statics::NewProp_mCreatedWidgets_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "HUD_Character.h" },
+		{ "ModuleRelativePath", "UI/HUD_Character.h" },
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AHUD_Character_Statics::NewProp_mCreatedWidgets = { "mCreatedWidgets", nullptr, (EPropertyFlags)0x0040008000000008, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHUD_Character, mCreatedWidgets), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHUD_Character_Statics::NewProp_mCreatedWidgets_MetaData), Z_Construct_UClass_AHUD_Character_Statics::NewProp_mCreatedWidgets_MetaData) };
@@ -254,16 +254,16 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AHUD_Character);
 	AHUD_Character::~AHUD_Character() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UCharacterHUDWidget, UCharacterHUDWidget::StaticClass, TEXT("UCharacterHUDWidget"), &Z_Registration_Info_UClass_UCharacterHUDWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterHUDWidget), 3217977266U) },
-		{ Z_Construct_UClass_AHUD_Character, AHUD_Character::StaticClass, TEXT("AHUD_Character"), &Z_Registration_Info_UClass_AHUD_Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHUD_Character), 1927470935U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UCharacterHUDWidget, UCharacterHUDWidget::StaticClass, TEXT("UCharacterHUDWidget"), &Z_Registration_Info_UClass_UCharacterHUDWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterHUDWidget), 4133924713U) },
+		{ Z_Construct_UClass_AHUD_Character, AHUD_Character::StaticClass, TEXT("AHUD_Character"), &Z_Registration_Info_UClass_AHUD_Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHUD_Character), 2145284U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_62719667(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_HUD_Character_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_4051225587(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

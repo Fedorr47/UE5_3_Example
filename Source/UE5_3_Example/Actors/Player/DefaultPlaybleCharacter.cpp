@@ -1,23 +1,26 @@
 // Copyright Epic Games, Inc. All Rights Reserved.
 
 #include "DefaultPlaybleCharacter.h"
+
+#include <Kismet/GameplayStatics.h>
+
 #include "DefaultProjectile.h"
 #include "Animation/AnimInstance.h"
 #include "Camera/CameraComponent.h"
 #include "Components/CapsuleComponent.h"
 #include "Components/SkeletalMeshComponent.h"
+#include "Components/SplineComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+// Components
 #include "HealthComponent.h"
-#include "EntityComponent.h"
-#include "Engine/LocalPlayer.h"
 #include "DamageComponent.h"
-#include "Systems/DamageSystem.h"
 #include "HealComponent.h"
+#include "Engine/LocalPlayer.h"
+// Systems
+#include "Systems/DamageSystem.h"
 #include "Systems/HealSystem.h"
-#include "Components/SplineComponent.h"
-#include <Kismet/GameplayStatics.h>
 
 #define CLASS_NAME(CLASS) {#CLASS}
 

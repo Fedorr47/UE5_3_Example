@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "Actors/DefaultPlaybleCharacter.h"
+// IWYU pragma: private, include "Actors/Player/DefaultPlaybleCharacter.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -19,10 +19,10 @@ struct FHitResult;
 #endif
 #define UE5_3_EXAMPLE_DefaultPlaybleCharacter_generated_h
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_SPARSE_DATA
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_SPARSE_DATA
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetSplinePredict); \
 	DECLARE_FUNCTION(execHeal); \
@@ -32,8 +32,8 @@ struct FHitResult;
 	DECLARE_FUNCTION(execSetHasRifle);
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_INCLASS_NO_PURE_DECLS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADefaultPlaybleCharacter(); \
 	friend struct Z_Construct_UClass_ADefaultPlaybleCharacter_Statics; \
@@ -42,7 +42,7 @@ public: \
 	DECLARE_SERIALIZER(ADefaultPlaybleCharacter)
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_ENHANCED_CONSTRUCTORS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ADefaultPlaybleCharacter(ADefaultPlaybleCharacter&&); \
@@ -54,17 +54,17 @@ public: \
 	NO_API virtual ~ADefaultPlaybleCharacter();
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_25_PROLOG
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_GENERATED_BODY \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_25_PROLOG
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_SPARSE_DATA \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_INCLASS_NO_PURE_DECLS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_28_ENHANCED_CONSTRUCTORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_SPARSE_DATA \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_INCLASS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_28_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -72,7 +72,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> UE5_3_EXAMPLE_API UClass* StaticClass<class ADefaultPlaybleCharacter>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h
+#define CURRENT_FILE_ID FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "UE5_3_ExamplePlayerController.h"
+#include "Actors/Player/UE5_3_ExamplePlayerController.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeUE5_3_ExamplePlayerController() {}
 // Cross Module References
@@ -48,8 +48,8 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExamplePlayerController() {}
 		{ "Comment", "/**\n *\n */" },
 #endif
 		{ "HideCategories", "Collision Rendering Transformation" },
-		{ "IncludePath", "UE5_3_ExamplePlayerController.h" },
-		{ "ModuleRelativePath", "UE5_3_ExamplePlayerController.h" },
+		{ "IncludePath", "Actors/Player/UE5_3_ExamplePlayerController.h" },
+		{ "ModuleRelativePath", "Actors/Player/UE5_3_ExamplePlayerController.h" },
 	};
 #endif
 #if WITH_METADATA
@@ -58,7 +58,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExamplePlayerController() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Input Mapping Context to be used for player input */" },
 #endif
-		{ "ModuleRelativePath", "UE5_3_ExamplePlayerController.h" },
+		{ "ModuleRelativePath", "Actors/Player/UE5_3_ExamplePlayerController.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Input Mapping Context to be used for player input" },
 #endif
@@ -102,15 +102,15 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExamplePlayerController() {}
 	AUE5_3_ExamplePlayerController::AUE5_3_ExamplePlayerController(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE5_3_ExamplePlayerController);
 	AUE5_3_ExamplePlayerController::~AUE5_3_ExamplePlayerController() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExamplePlayerController_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_UE5_3_ExamplePlayerController_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExamplePlayerController_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AUE5_3_ExamplePlayerController, AUE5_3_ExamplePlayerController::StaticClass, TEXT("AUE5_3_ExamplePlayerController"), &Z_Registration_Info_UClass_AUE5_3_ExamplePlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExamplePlayerController), 832161476U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_UE5_3_ExamplePlayerController_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AUE5_3_ExamplePlayerController, AUE5_3_ExamplePlayerController::StaticClass, TEXT("AUE5_3_ExamplePlayerController"), &Z_Registration_Info_UClass_AUE5_3_ExamplePlayerController, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExamplePlayerController), 3769213910U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExamplePlayerController_h_559122688(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExamplePlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UE5_3_ExamplePlayerController_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_UE5_3_ExamplePlayerController_h_3696086085(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_UE5_3_ExamplePlayerController_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_UE5_3_ExamplePlayerController_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "Actors/DefaultProjectile.h"
+// IWYU pragma: private, include "Actors/Projectiles/DefaultProjectile.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -17,17 +17,17 @@ struct FHitResult;
 #endif
 #define UE5_3_EXAMPLE_DefaultProjectile_generated_h
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_SPARSE_DATA
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_SPARSE_DATA
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execOnHit);
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_CALLBACK_WRAPPERS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_INCLASS_NO_PURE_DECLS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_CALLBACK_WRAPPERS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesADefaultProjectile(); \
 	friend struct Z_Construct_UClass_ADefaultProjectile_Statics; \
@@ -38,7 +38,7 @@ public: \
 
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_ENHANCED_CONSTRUCTORS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API ADefaultProjectile(ADefaultProjectile&&); \
@@ -50,18 +50,18 @@ public: \
 	NO_API virtual ~ADefaultProjectile();
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_14_PROLOG
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_GENERATED_BODY \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_14_PROLOG
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_SPARSE_DATA \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_CALLBACK_WRAPPERS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_INCLASS_NO_PURE_DECLS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h_17_ENHANCED_CONSTRUCTORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_SPARSE_DATA \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_CALLBACK_WRAPPERS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_INCLASS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_17_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -69,7 +69,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> UE5_3_EXAMPLE_API UClass* StaticClass<class ADefaultProjectile>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultProjectile_h
+#define CURRENT_FILE_ID FID_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

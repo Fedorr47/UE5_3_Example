@@ -109,15 +109,15 @@ void EmptyLinkFunctionForGeneratedCodeExplosionComponent() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UExplosionComponent);
 	UExplosionComponent::~UExplosionComponent() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo[] = {
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UExplosionComponent, UExplosionComponent::StaticClass, TEXT("UExplosionComponent"), &Z_Registration_Info_UClass_UExplosionComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UExplosionComponent), 3804721252U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_4179275463(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_4179275463(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

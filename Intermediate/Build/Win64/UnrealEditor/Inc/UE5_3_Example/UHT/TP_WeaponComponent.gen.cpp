@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "TP_WeaponComponent.h"
+#include "Actors/Weapon/TP_WeaponComponent.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 // Cross Module References
@@ -79,7 +79,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Attaches the actor to a FirstPersonCharacter */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Attaches the actor to a FirstPersonCharacter" },
 #endif
@@ -127,7 +127,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Ends gameplay for this component. */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Ends gameplay for this component." },
 #endif
@@ -158,7 +158,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Make the weapon Fire a Projectile */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Make the weapon Fire a Projectile" },
 #endif
@@ -220,9 +220,9 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UTP_WeaponComponent_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon, "AttachWeapon" }, // 407597501
-		{ &Z_Construct_UFunction_UTP_WeaponComponent_EndPlay, "EndPlay" }, // 3571639044
-		{ &Z_Construct_UFunction_UTP_WeaponComponent_Fire, "Fire" }, // 962522825
+		{ &Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon, "AttachWeapon" }, // 1324727371
+		{ &Z_Construct_UFunction_UTP_WeaponComponent_EndPlay, "EndPlay" }, // 3501335985
+		{ &Z_Construct_UFunction_UTP_WeaponComponent_Fire, "Fire" }, // 3109096996
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -231,9 +231,9 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		{ "BlueprintType", "true" },
 		{ "ClassGroupNames", "Custom" },
 		{ "HideCategories", "Object Mesh|SkeletalAsset Object Mobility Trigger" },
-		{ "IncludePath", "TP_WeaponComponent.h" },
+		{ "IncludePath", "Actors/Weapon/TP_WeaponComponent.h" },
 		{ "IsBlueprintBase", "true" },
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 	};
 #endif
 #if WITH_METADATA
@@ -242,7 +242,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Projectile class to spawn */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Projectile class to spawn" },
 #endif
@@ -255,7 +255,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Sound to play each time we fire */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Sound to play each time we fire" },
 #endif
@@ -268,7 +268,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** AnimMontage to play each time we fire */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "AnimMontage to play each time we fire" },
 #endif
@@ -281,7 +281,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Gun muzzle's offset from the characters location */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Gun muzzle's offset from the characters location" },
 #endif
@@ -295,7 +295,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** MappingContext */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "MappingContext" },
 #endif
@@ -309,7 +309,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Fire Input Action */" },
 #endif
-		{ "ModuleRelativePath", "TP_WeaponComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Fire Input Action" },
 #endif
@@ -357,15 +357,15 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UTP_WeaponComponent);
 	UTP_WeaponComponent::~UTP_WeaponComponent() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_WeaponComponent_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_WeaponComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTP_WeaponComponent, UTP_WeaponComponent::StaticClass, TEXT("UTP_WeaponComponent"), &Z_Registration_Info_UClass_UTP_WeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_WeaponComponent), 3851440744U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UTP_WeaponComponent, UTP_WeaponComponent::StaticClass, TEXT("UTP_WeaponComponent"), &Z_Registration_Info_UClass_UTP_WeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_WeaponComponent), 2778718088U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_WeaponComponent_h_3518939005(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_WeaponComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_WeaponComponent_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_2028413132(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

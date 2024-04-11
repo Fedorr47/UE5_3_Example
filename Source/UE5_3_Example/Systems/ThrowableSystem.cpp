@@ -9,11 +9,11 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "GameFramework/Actor.h"
-#include "Actors/ThrowableActor.h"
+#include "Actors/Weapon/ThrowableActor.h"
 #include "ThrowableComponent.h"
 #include "Components/SplineComponent.h"
 #include "Components/SplineMeshComponent.h"
-#include "DefaultProjectile.h"
+#include "Actors/Projectiles/DefaultProjectile.h"
 #include "ThrowableSystem.h"
 
 ThrowableSystem::ThrowableSystem()
@@ -48,6 +48,8 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
 						//InFrontOwner.Z = 0.0f;
 						InFrontOwner = InFrontOwner * 20;
+						//InFrontOwner.X = InFrontOwner.X + (InFrontOwner.X / 2) * 10;
+						//InFrontOwner.Y = InFrontOwner.Y - (InFrontOwner.Y / 2) * 10;
 						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner);
 
 						FActorSpawnParameters ActorSpawnParams;
@@ -85,6 +87,8 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
 						//InFrontOwner.Z = 0.0f;
 						InFrontOwner = InFrontOwner * 20;
+						//InFrontOwner.X = InFrontOwner.X + (InFrontOwner.X / 2) * 10;
+						//InFrontOwner.Y = InFrontOwner.Y - (InFrontOwner.Y / 2) * 10;
 						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner);
 
 						FPredictProjectilePathParams PredictParams;
@@ -116,8 +120,8 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						float NextStep = 0.0f;
 						for (FPredictProjectilePathPointData& Point : PredictResult.PathData)
 						{
-							auto SinVal = (1.0f + FMath::Sin(NextStep)) * 10;
-							FVector PointLocation = Point.Location + (ForwardVector * SinVal + OrtogonalForwardVector * SinVal);
+							//auto SinVal = (1.0f + FMath::Sin(NextStep)) * 10;
+							FVector PointLocation = Point.Location; //+ (ForwardVector * SinVal + OrtogonalForwardVector * SinVal);
 							ThrowableComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
 							NextStep += StepForAngle;
 						}

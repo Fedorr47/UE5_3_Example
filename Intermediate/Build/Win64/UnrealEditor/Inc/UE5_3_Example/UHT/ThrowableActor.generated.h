@@ -4,7 +4,7 @@
 	DO NOT modify this manually! Edit the corresponding .h files instead!
 ===========================================================================*/
 
-// IWYU pragma: private, include "Actors/ThrowableActor.h"
+// IWYU pragma: private, include "Actors/Weapon/ThrowableActor.h"
 #include "UObject/ObjectMacros.h"
 #include "UObject/ScriptMacros.h"
 
@@ -15,10 +15,10 @@ class ACharacter;
 #endif
 #define UE5_3_EXAMPLE_ThrowableActor_generated_h
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_SPARSE_DATA
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_SPARSE_DATA
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execGetThrowbaleOwnerCharacter); \
 	DECLARE_FUNCTION(execPredictThrow); \
@@ -26,8 +26,8 @@ class ACharacter;
 	DECLARE_FUNCTION(execAttachToCharacter);
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_ACCESSORS
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_INCLASS_NO_PURE_DECLS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_ACCESSORS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesAThrowableActor(); \
 	friend struct Z_Construct_UClass_AThrowableActor_Statics; \
@@ -36,7 +36,7 @@ public: \
 	DECLARE_SERIALIZER(AThrowableActor)
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_ENHANCED_CONSTRUCTORS \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	NO_API AThrowableActor(AThrowableActor&&); \
@@ -48,17 +48,17 @@ public: \
 	NO_API virtual ~AThrowableActor();
 
 
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_30_PROLOG
-#define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_GENERATED_BODY \
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_28_PROLOG
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_SPARSE_DATA \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_ACCESSORS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_INCLASS_NO_PURE_DECLS \
-	FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h_33_ENHANCED_CONSTRUCTORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_SPARSE_DATA \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_ACCESSORS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_INCLASS_NO_PURE_DECLS \
+	FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_31_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -66,7 +66,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> UE5_3_EXAMPLE_API UClass* StaticClass<class AThrowableActor>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_ThrowableActor_h
+#define CURRENT_FILE_ID FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

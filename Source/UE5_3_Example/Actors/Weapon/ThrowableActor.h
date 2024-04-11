@@ -4,9 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "Actors/BaseInteractableActor.h"
-#include "DefaultPlaybleCharacter.h"
-#include "Components/PhysicComponent.h"
-#include "DefaultProjectile.h"
 #include "ThrowableActor.generated.h"
 
 class UPhysicComponent;
@@ -16,6 +13,7 @@ class UInputMappingContext;
 class UInputAction;
 class USplineComponent;
 class UThrowableComponent;
+class ADefaultPlaybleCharacter;
 
 /*
 USTRUCT(BlueprintType)
@@ -74,5 +72,5 @@ public:
 	void PredictThrow();
 
 	UFUNCTION()
-	ACharacter* GetThrowbaleOwnerCharacter() { return OwnerCharacter; }
+	ACharacter* GetThrowbaleOwnerCharacter();
 };

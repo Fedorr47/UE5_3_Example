@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "Actors/DefaultPlaybleCharacter.h"
+#include "Actors/Player/DefaultPlaybleCharacter.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/HitResult.h"
 #include "Components/EntityComponent.h"
 #include "SystemQueue/EntityManager.h"
@@ -129,7 +129,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Getter for the bool */" },
 #endif
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Getter for the bool" },
 #endif
@@ -174,7 +174,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultPlaybleCharacter, nullptr, "GetSplinePredict", nullptr, nullptr, Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict_Statics::DefaultPlaybleCharacter_eventGetSplinePredict_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict_Statics::Function_MetaDataParams) };
@@ -209,7 +209,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal_Statics::Function_MetaDataParams[] = {
 		{ "Category", "Health" },
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultPlaybleCharacter, nullptr, "Heal", nullptr, nullptr, Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal_Statics::DefaultPlaybleCharacter_eventHeal_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal_Statics::Function_MetaDataParams) };
@@ -252,7 +252,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Setter to set the bool */" },
 #endif
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Setter to set the bool" },
 #endif
@@ -313,7 +313,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultPlaybleCharacter, nullptr, "TakeCharacterDamage", nullptr, nullptr, Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage_Statics::DefaultPlaybleCharacter_eventTakeCharacterDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage_Statics::Function_MetaDataParams) };
@@ -387,7 +387,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 	};
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultPlaybleCharacter, nullptr, "TakeCharacterRadialDamage", nullptr, nullptr, Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage_Statics::DefaultPlaybleCharacter_eventTakeCharacterRadialDamage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00C20401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage_Statics::Function_MetaDataParams) };
@@ -483,19 +483,19 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_GetHasRifle, "GetHasRifle" }, // 1460158196
-		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict, "GetSplinePredict" }, // 4025557081
-		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal, "Heal" }, // 3752691681
-		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_SetHasRifle, "SetHasRifle" }, // 455338722
-		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage, "TakeCharacterDamage" }, // 3215119467
-		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage, "TakeCharacterRadialDamage" }, // 1913629905
+		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_GetHasRifle, "GetHasRifle" }, // 1884335403
+		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_GetSplinePredict, "GetSplinePredict" }, // 223568250
+		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_Heal, "Heal" }, // 739647435
+		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_SetHasRifle, "SetHasRifle" }, // 1559920711
+		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterDamage, "TakeCharacterDamage" }, // 1747789882
+		{ &Z_Construct_UFunction_ADefaultPlaybleCharacter_TakeCharacterRadialDamage, "TakeCharacterRadialDamage" }, // 1156430865
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Navigation" },
-		{ "IncludePath", "Actors/DefaultPlaybleCharacter.h" },
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "IncludePath", "Actors/Player/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 #if WITH_METADATA
@@ -505,7 +505,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 		{ "Comment", "/** Pawn mesh: 1st person view (arms; seen only by self) */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Pawn mesh: 1st person view (arms; seen only by self)" },
 #endif
@@ -520,7 +520,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 		{ "Comment", "/** First person camera */" },
 #endif
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "First person camera" },
 #endif
@@ -534,7 +534,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** MappingContext */" },
 #endif
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "MappingContext" },
 #endif
@@ -548,7 +548,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Jump Input Action */" },
 #endif
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Jump Input Action" },
 #endif
@@ -562,7 +562,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Move Input Action */" },
 #endif
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Move Input Action" },
 #endif
@@ -572,19 +572,19 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_CreatedComponents_Inner = { "CreatedComponents", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UEntityComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_CreatedComponents_MetaData[] = {
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_CreatedComponents = { "CreatedComponents", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlaybleCharacter, CreatedComponents), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_CreatedComponents_MetaData), Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_CreatedComponents_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mWorld_MetaData[] = {
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mWorld = { "mWorld", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlaybleCharacter, mWorld), Z_Construct_UClass_UWorld_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mWorld_MetaData), Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mWorld_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mGameMode_MetaData[] = {
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mGameMode = { "mGameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlaybleCharacter, mGameMode), Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mGameMode_MetaData), Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mGameMode_MetaData) };
@@ -592,26 +592,26 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_AttachedComponents_MetaData[] = {
 		{ "Category", "Components" },
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_AttachedComponents = { "AttachedComponents", nullptr, (EPropertyFlags)0x0020088000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlaybleCharacter, AttachedComponents), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_AttachedComponents_MetaData), Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_AttachedComponents_MetaData) }; // 4286559399
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mOwnerId_MetaData[] = {
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FUInt32PropertyParams Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mOwnerId = { "mOwnerId", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::UInt32, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlaybleCharacter, mOwnerId), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mOwnerId_MetaData), Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_mOwnerId_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_ActorEntity_MetaData[] = {
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_ActorEntity = { "ActorEntity", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlaybleCharacter, ActorEntity), Z_Construct_UScriptStruct_FEntity, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_ActorEntity_MetaData), Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_ActorEntity_MetaData) }; // 904214179
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_SplinePredict_MetaData[] = {
 		{ "EditInline", "true" },
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_SplinePredict = { "SplinePredict", nullptr, (EPropertyFlags)0x0020080000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlaybleCharacter, SplinePredict), Z_Construct_UClass_USplineComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_SplinePredict_MetaData), Z_Construct_UClass_ADefaultPlaybleCharacter_Statics::NewProp_SplinePredict_MetaData) };
@@ -622,7 +622,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Look Input Action */" },
 #endif
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Look Input Action" },
 #endif
@@ -635,7 +635,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Bool for AnimBP to switch to another animation set */" },
 #endif
-		{ "ModuleRelativePath", "Actors/DefaultPlaybleCharacter.h" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlaybleCharacter.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Bool for AnimBP to switch to another animation set" },
 #endif
@@ -697,15 +697,15 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlaybleCharacter() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ADefaultPlaybleCharacter);
 	ADefaultPlaybleCharacter::~ADefaultPlaybleCharacter() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADefaultPlaybleCharacter, ADefaultPlaybleCharacter::StaticClass, TEXT("ADefaultPlaybleCharacter"), &Z_Registration_Info_UClass_ADefaultPlaybleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultPlaybleCharacter), 2393109690U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_ADefaultPlaybleCharacter, ADefaultPlaybleCharacter::StaticClass, TEXT("ADefaultPlaybleCharacter"), &Z_Registration_Info_UClass_ADefaultPlaybleCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultPlaybleCharacter), 1816180460U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_3755768235(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_DefaultPlaybleCharacter_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_2269175916(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlaybleCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

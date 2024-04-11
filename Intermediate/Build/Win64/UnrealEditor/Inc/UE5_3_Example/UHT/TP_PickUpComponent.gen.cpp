@@ -5,7 +5,7 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "TP_PickUpComponent.h"
+#include "Actors/Weapon/TP_PickUpComponent.h"
 #include "../../Source/Runtime/Engine/Classes/Engine/HitResult.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeTP_PickUpComponent() {}
@@ -42,7 +42,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_PickUpComponent() {}
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "// Declaration of the delegate that will be called when someone picks this up\n// The character picking this up is the parameter sent with the notification\n" },
 #endif
-		{ "ModuleRelativePath", "TP_PickUpComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_PickUpComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Declaration of the delegate that will be called when someone picks this up\nThe character picking this up is the parameter sent with the notification" },
 #endif
@@ -162,7 +162,7 @@ void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, ADefaul
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Code for when something overlaps this component */" },
 #endif
-		{ "ModuleRelativePath", "TP_PickUpComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_PickUpComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Code for when something overlaps this component" },
 #endif
@@ -206,7 +206,7 @@ void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, ADefaul
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_PickUpComponent_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UTP_PickUpComponent_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UTP_PickUpComponent_OnSphereBeginOverlap, "OnSphereBeginOverlap" }, // 2511957123
+		{ &Z_Construct_UFunction_UTP_PickUpComponent_OnSphereBeginOverlap, "OnSphereBeginOverlap" }, // 1870458733
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_PickUpComponent_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -215,9 +215,9 @@ void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, ADefaul
 		{ "BlueprintType", "true" },
 		{ "ClassGroupNames", "Custom" },
 		{ "HideCategories", "Object LOD Lighting TextureStreaming Object LOD Lighting TextureStreaming Activation Components|Activation Trigger VirtualTexture" },
-		{ "IncludePath", "TP_PickUpComponent.h" },
+		{ "IncludePath", "Actors/Weapon/TP_PickUpComponent.h" },
 		{ "IsBlueprintBase", "true" },
-		{ "ModuleRelativePath", "TP_PickUpComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_PickUpComponent.h" },
 	};
 #endif
 #if WITH_METADATA
@@ -226,13 +226,13 @@ void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, ADefaul
 #if !UE_BUILD_SHIPPING
 		{ "Comment", "/** Delegate to whom anyone can subscribe to receive this event */" },
 #endif
-		{ "ModuleRelativePath", "TP_PickUpComponent.h" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_PickUpComponent.h" },
 #if !UE_BUILD_SHIPPING
 		{ "ToolTip", "Delegate to whom anyone can subscribe to receive this event" },
 #endif
 	};
 #endif
-	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp = { "OnPickUp", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTP_PickUpComponent, OnPickUp), Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp_MetaData), Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp_MetaData) }; // 939469681
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp = { "OnPickUp", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTP_PickUpComponent, OnPickUp), Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp_MetaData), Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp_MetaData) }; // 36469521
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UTP_PickUpComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_PickUpComponent_Statics::NewProp_OnPickUp,
 	};
@@ -269,15 +269,15 @@ void FOnPickUp_DelegateWrapper(const FMulticastScriptDelegate& OnPickUp, ADefaul
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UTP_PickUpComponent);
 	UTP_PickUpComponent::~UTP_PickUpComponent() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_PickUpComponent_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTP_PickUpComponent, UTP_PickUpComponent::StaticClass, TEXT("UTP_PickUpComponent"), &Z_Registration_Info_UClass_UTP_PickUpComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_PickUpComponent), 3320972353U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_PickUpComponent_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_UTP_PickUpComponent, UTP_PickUpComponent::StaticClass, TEXT("UTP_PickUpComponent"), &Z_Registration_Info_UClass_UTP_PickUpComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_PickUpComponent), 3395977037U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_843714590(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_TP_PickUpComponent_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_PickUpComponent_h_3239895327(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_PickUpComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_PickUpComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

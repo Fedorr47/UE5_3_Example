@@ -2,7 +2,7 @@
 #include "Mods/UE5_3_ExampleGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/ProgressBar.h"
-#include "Actors/DefaultPlaybleCharacter.h"
+#include "Actors/Player/DefaultPlaybleCharacter.h"
 
 AHUD_Character::AHUD_Character()
 {

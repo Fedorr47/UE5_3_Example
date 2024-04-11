@@ -6,9 +6,7 @@
 #include "Components/EntityComponent.h"
 #include "HealComponent.generated.h"
 
-/**
- * 
- */
+
 UCLASS()
 class UE5_3_EXAMPLE_API UHealComponent : public UEntityComponent
 {
