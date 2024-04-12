@@ -14,29 +14,47 @@
 #include "Components/SplineComponent.h"
 #include "Components/SplineMeshComponent.h"
 #include "Actors/Projectiles/DefaultProjectile.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
 
-ThrowableSystem::ThrowableSystem()
+AThrowableSystem::AThrowableSystem()
 {
 }
 
-ThrowableSystem::~ThrowableSystem()
+AThrowableSystem::~AThrowableSystem()
 {
 }
 
-void ThrowableSystem::UpdateSystem(float DeltaSeconds)
+void AThrowableSystem::UpdateSystem(float DeltaSeconds)
 {
+	if (ShouldPredictPath)
+	{
+		PredictThrow();
+	}
 }
 
-void ThrowableSystem::ApplyThrow()
+void AThrowableSystem::BindActions(const APlayerController* PlayerController, UInputAction* ThrowAction)
 {
-	/*
-	if (!EntityManager) return;
+	if (ActionsNotBind)
+	{
+		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
+		{
+			EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Started, this, &AThrowableSystem::PredictThrow);
+			EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Completed, this, &AThrowableSystem::ApplyThrow);
+		}
+		ActionsNotBind = false;
+	}
+}
 
-	TArray<FEntity> Entities = EntityManager->GetAllEntities();
+void AThrowableSystem::ApplyThrow()
+{
+	if (!mEntityManager) return;
+
+	TArray<FEntity> Entities = mEntityManager->GetAllEntities();
 
 	for (const FEntity& Entity : Entities)
 	{
-		UThrowableComponent* ThrowableComp = EntityManager->GetComponent<UThrowableComponent>(Entity);
+		UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
 		if (IsValid(ThrowableComp))
 		{
 			if (const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowableComp->GetOwnerObject()))
@@ -66,23 +84,28 @@ void ThrowableSystem::ApplyThrow()
 							MeshComp->DestroyComponent();
 						}
 						ThrowableComp->SplinePredictMeshes.Empty();
+
+						mEntityManager->RemoveComponent(Entity, ThrowableComp);
+
+						ShouldPredictPath = false;
 					}
 				}
 			}
 		}
-	}*/
+	}
 }
 
-void ThrowableSystem::PredictThrow()
+void AThrowableSystem::PredictThrow()
 {
-	/*
-	if (mGameMode->EntityManager) return;
 
-	TArray<FEntity> Entities = EntityManager->GetAllEntities();
+	if (!mEntityManager) return;
+
+	TArray<FEntity> Entities = mEntityManager->GetAllEntities();
 
 	for (const FEntity& Entity : Entities)
 	{
-		UThrowableComponent* ThrowableComp = EntityManager->GetComponent<UThrowableComponent>(Entity);
+		//bool 
+		UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
 		if (IsValid(ThrowableComp) && ThrowableComp->IsActiveThrowable && IsValid(ThrowableComp->ProjectileClass.Get()))
 		{
 			if (ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableComp->GetOwnerObject()))
@@ -131,7 +154,6 @@ void ThrowableSystem::PredictThrow()
 					ThrowableComp->SplinePredict->UpdateSpline();
 
 					FVector Location, Tangent, LocationNext, TangentNext;
-					
 					for (auto* MeshComp : ThrowableComp->SplinePredictMeshes)
 					{
 						MeshComp->DestroyComponent();
@@ -142,7 +164,7 @@ void ThrowableSystem::PredictThrow()
 						auto SplineMeshComp = NewObject<USplineMeshComponent>(OwnerCharacter);
 						ThrowableComp->SplinePredictMeshes.Add(SplineMeshComp);
 						SplineMeshComp->SetMobility(EComponentMobility::Movable);
-						//SplineMeshComp->SetStaticMesh(StatPredictThrowMeshComp->GetStaticMesh());
+						SplineMeshComp->SetStaticMesh(ThrowableComp->ProjectileClass.GetDefaultObject()->GetPredictThrowMeshComp()->GetStaticMesh());
 						SplineMeshComp->RegisterComponent();
 						SplineMeshComp->AttachToComponent(
 							OwnerCharacter->GetRootComponent(),
@@ -152,9 +174,11 @@ void ThrowableSystem::PredictThrow()
 						ThrowableComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i, Location, Tangent, ESplineCoordinateSpace::World);
 						ThrowableComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i+1, LocationNext, TangentNext, ESplineCoordinateSpace::World);
 						ThrowableComp->SplinePredictMeshes.Last()->SetStartAndEnd(Location, Tangent, LocationNext, TangentNext);
-					}						
+					}
+
+					ShouldPredictPath = true;
 				}
 			}
 		}
-	}*/
+	}
 }

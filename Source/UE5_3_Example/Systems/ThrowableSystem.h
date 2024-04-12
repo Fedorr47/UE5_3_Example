@@ -4,18 +4,30 @@
 
 #include "CoreMinimal.h"
 #include "EntityManager.h"
-#include "BaseSystem.h"
+#include "BaseExtSystem.h"
+#include "ThrowableSystem.generated.h"
 
 class ACharacter;
 
-class ThrowableSystem : public BaseSystem
+UCLASS()
+class AThrowableSystem : public ABaseExtSystem
 {
+	GENERATED_BODY()
 public:
-	ThrowableSystem();
-	~ThrowableSystem();
+	AThrowableSystem();
+	~AThrowableSystem();
 
 	virtual void UpdateSystem(float DeltaSeconds) override;
 
+	void BindActions(const APlayerController* PlayerController, UInputAction* ThrowAction);
+
 	void ApplyThrow();
 	void PredictThrow();
+
+private:
+	UPROPERTY()
+	bool ActionsNotBind = true;
+
+	UPROPERTY()
+	bool ShouldPredictPath = false;
 };

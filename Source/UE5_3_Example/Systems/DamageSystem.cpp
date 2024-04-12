@@ -11,15 +11,19 @@
 #include "MessageQueue.h"
 #include "DefaultPlayableCharacter.h"
 
-DamageSystem::DamageSystem()
+ADamageSystem::ADamageSystem()
 {
 }
 
-DamageSystem::~DamageSystem()
+ADamageSystem::~ADamageSystem()
 {
 }
 
-void DamageSystem::ApplyDamage(UEntityManager* EntityManager)
+void ADamageSystem::UpdateSystem(float DeltaSeconds)
+{
+}
+
+void ADamageSystem::ApplyDamage(UEntityManager* EntityManager)
 {
     if (!EntityManager) return;
 

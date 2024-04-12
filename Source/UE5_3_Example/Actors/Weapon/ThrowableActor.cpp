@@ -55,16 +55,13 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 				// Set the priority of the mapping to 1, so that it overrides the Jump action with the Fire action when using touch input
 				Subsystem->AddMappingContext(ThrowMappingContext, 1);
 			}
-
-			if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
+			
+			auto ThrowableSystem = mGameMode->Systems.Find("ThrowableSystem");
+			if (ThrowableSystem != nullptr)
 			{
-				auto ThrowableSystem = mGameMode->Systems.find("ThrowableSystem");
-				if (ThrowableSystem != mGameMode->Systems.end())
-				{
-					EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Started, *ThrowableSystem->second.get(), &ThrowableSystem::PredictThrow);
-					EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Completed, *ThrowableSystem->second.get(), &ThrowableSystem::ApplyThrow);
-				}
+				Cast<AThrowableSystem>(*ThrowableSystem)->BindActions(PlayerController, ThrowAction);
 			}
+			
 		}
 
 		ThrowableComp->InitComponent(mWorld, OwnerCharacter);

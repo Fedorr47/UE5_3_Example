@@ -4,12 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "EntityManager.h"
+#include "BaseExtSystem.h"
+#include "DamageSystem.generated.h"
 
-class DamageSystem
+UCLASS()
+class ADamageSystem : public ABaseExtSystem
 {
+	GENERATED_BODY()
 public:
-	DamageSystem();
-	~DamageSystem();
+	ADamageSystem();
+	~ADamageSystem();
+
+	virtual void UpdateSystem(float DeltaSeconds) override;
 	
 	static void ApplyDamage(UEntityManager* EntityManager);
 };

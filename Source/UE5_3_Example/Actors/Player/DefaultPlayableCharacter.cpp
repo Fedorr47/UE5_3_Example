@@ -156,7 +156,7 @@ void ADefaultPlayableCharacter::TakeCharacterDamage(AActor* DamagedActor, float 
 	{
 		DamageComp->DamageAmount = Damage;
 	}
-	DamageSystem::ApplyDamage(mGameMode->EntityManager);
+	ADamageSystem::ApplyDamage(mGameMode->EntityManager);
 }
 
 void ADefaultPlayableCharacter::TakeCharacterRadialDamage(AActor* DamagedActor, float Damage, const UDamageType* DamageType, FVector Origin, const FHitResult& HitInfo, AController* InstigatedBy, AActor* DamageCauser)
@@ -166,7 +166,7 @@ void ADefaultPlayableCharacter::TakeCharacterRadialDamage(AActor* DamagedActor, 
 	{
 		DamageComp->DamageAmount = Damage;
 	}
-	DamageSystem::ApplyDamage(mGameMode->EntityManager);
+	ADamageSystem::ApplyDamage(mGameMode->EntityManager);
 }
 
 void ADefaultPlayableCharacter::Heal(float InHealAmount)
@@ -176,5 +176,5 @@ void ADefaultPlayableCharacter::Heal(float InHealAmount)
 	{
 		HealComp->HealAmount = InHealAmount;
 	}
-	HealSystem::ApplyHeal(mGameMode->EntityManager);
+	AHealSystem::ApplyHeal(mGameMode->EntityManager);
 }

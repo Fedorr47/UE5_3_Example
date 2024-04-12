@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleGameMode() {}
 // Cross Module References
 	ENGINE_API UClass* Z_Construct_UClass_AGameModeBase();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ABaseExtSystem_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleGameMode();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityManager_NoRegister();
@@ -38,6 +39,12 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleGameMode() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_EntityManager_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_EntityManager;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Systems_ValueProp;
+		static const UECodeGen_Private::FStrPropertyParams NewProp_Systems_Key_KeyProp;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Systems_MetaData[];
+#endif
+		static const UECodeGen_Private::FMapPropertyParams NewProp_Systems;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -67,9 +74,20 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleGameMode() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_EntityManager = { "EntityManager", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleGameMode, EntityManager), Z_Construct_UClass_UEntityManager_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_EntityManager_MetaData), Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_EntityManager_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems_ValueProp = { "Systems", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UClass_ABaseExtSystem_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FStrPropertyParams Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems_Key_KeyProp = { "Systems_Key", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, METADATA_PARAMS(0, nullptr) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems_MetaData[] = {
+		{ "ModuleRelativePath", "Mods/UE5_3_ExampleGameMode.h" },
+	};
+#endif
+	const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems = { "Systems", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AUE5_3_ExampleGameMode, Systems), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems_MetaData), Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_GeneralMessageQueue,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_EntityManager,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems_ValueProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems_Key_KeyProp,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::NewProp_Systems,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AUE5_3_ExampleGameMode>::IsAbstract,
@@ -104,15 +122,15 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleGameMode() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AUE5_3_ExampleGameMode);
 	AUE5_3_ExampleGameMode::~AUE5_3_ExampleGameMode() {}
-	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics
+	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
-	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AUE5_3_ExampleGameMode, AUE5_3_ExampleGameMode::StaticClass, TEXT("AUE5_3_ExampleGameMode"), &Z_Registration_Info_UClass_AUE5_3_ExampleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleGameMode), 1369310729U) },
+	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo[] = {
+		{ Z_Construct_UClass_AUE5_3_ExampleGameMode, AUE5_3_ExampleGameMode::StaticClass, TEXT("AUE5_3_ExampleGameMode"), &Z_Registration_Info_UClass_AUE5_3_ExampleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleGameMode), 4068691532U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_332873903(TEXT("/Script/UE5_3_Example"),
-		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_201509613(TEXT("/Script/UE5_3_Example"),
+		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

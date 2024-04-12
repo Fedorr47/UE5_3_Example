@@ -5,6 +5,7 @@
 #include "MessageQueue.h"
 #include "SystemQueue/EntityManager.h"
 #include "Systems/ThrowableSystem.h"
+#include "Systems/BaseExtSystem.h"
 #include "UObject/ConstructorHelpers.h"
 
 AUE5_3_ExampleGameMode::AUE5_3_ExampleGameMode()
@@ -13,6 +14,8 @@ AUE5_3_ExampleGameMode::AUE5_3_ExampleGameMode()
 	// set default pawn class to our Blueprinted character
 	static ConstructorHelpers::FClassFinder<APawn> PlayerPawnClassFinder(TEXT("/Game/FirstPerson/Blueprints/BP_FirstPersonCharacter"));
 	DefaultPawnClass = PlayerPawnClassFinder.Class;
+	
+	PrimaryActorTick.bCanEverTick = true;
 }
 
 void AUE5_3_ExampleGameMode::Tick(float DeltaSeconds)
@@ -21,7 +24,7 @@ void AUE5_3_ExampleGameMode::Tick(float DeltaSeconds)
 	{
 		for (auto System : Systems)
 		{
-			System.second->UpdateSystem(DeltaSeconds);
+			System.Value->UpdateSystem(DeltaSeconds);
 		}
 	}
 }
@@ -31,7 +34,10 @@ void AUE5_3_ExampleGameMode::StartPlay()
 	GeneralMessageQueue = NewObject<UMessageQueue>();
 	EntityManager = NewObject<UEntityManager>();
 	// Systems
-	Systems.emplace("ThrowableSystem", std::make_shared<ThrowableSystem>());
+	auto ThrowableSystem = NewObject<AThrowableSystem>();
+	ThrowableSystem->InitSystem(EntityManager, this);
+	Systems.Add(TEXT("ThrowableSystem"), ThrowableSystem);
+
 	Super::StartPlay();	
 }
 

@@ -39,6 +39,8 @@ public:
 	/** Returns ProjectileMovement subobject **/
 	UProjectileMovementComponent* GetProjectileMovement() const { return ProjectileMovement; }
 
+	UStaticMeshComponent* GetPredictThrowMeshComp() const { return PredictThrowMeshComp; }
+
 protected:
 	UPROPERTY(BlueprintReadWrite, Category = Damage)
 	float AmountDamageOnHit = 0.0f;
@@ -47,6 +49,6 @@ protected:
 	UStaticMeshComponent* ProjectileMesh;
 
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-	UStaticMeshComponent* StatPredictThrowMeshComp;
+	UStaticMeshComponent* PredictThrowMeshComp;
 };
 

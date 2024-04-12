@@ -4,12 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "EntityManager.h"
+#include "BaseExtSystem.h"
+#include "HealSystem.generated.h"
 
-class HealSystem
+UCLASS()
+class AHealSystem : public ABaseExtSystem
 {
+	GENERATED_BODY()
 public:
-	HealSystem();
-	~HealSystem();
+	AHealSystem();
+	~AHealSystem();
+
+	virtual void UpdateSystem(float DeltaSeconds) override;
 	
 	static void ApplyHeal(UEntityManager* EntityManager);
 };

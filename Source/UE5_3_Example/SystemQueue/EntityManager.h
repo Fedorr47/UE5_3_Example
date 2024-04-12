@@ -166,6 +166,26 @@ public:
             }
         }
     }
+
+    void RemoveComponent(const FEntity& Entity, UEntityComponent* EntityComp)
+    {
+
+        FEntityInternal* EntityInternal = EntityComponents.Find(Entity.Id);
+        if (EntityInternal != nullptr)
+        {
+            TArray<UEntityComponent*>& Components = EntityInternal->Components;
+            auto CompIndex = Components.Find(EntityComp);
+            if (CompIndex != INDEX_NONE)
+            {
+                Components.RemoveAt(CompIndex);
+            }
+
+            if (Components.IsEmpty())
+            {
+                EntityComponents.Remove(Entity.Id);
+            }
+        }
+    }
 };
 
 template<class T>

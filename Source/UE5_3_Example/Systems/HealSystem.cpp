@@ -11,15 +11,19 @@
 #include "MessageQueue.h"
 #include "DefaultPlayableCharacter.h"
 
-HealSystem::HealSystem()
+AHealSystem::AHealSystem()
 {
 }
 
-HealSystem::~HealSystem()
+AHealSystem::~AHealSystem()
 {
 }
 
-void HealSystem::ApplyHeal(UEntityManager* EntityManager)
+void AHealSystem::UpdateSystem(float DeltaSeconds)
+{
+}
+
+void AHealSystem::ApplyHeal(UEntityManager* EntityManager)
 {
     if (!EntityManager) return;
 
