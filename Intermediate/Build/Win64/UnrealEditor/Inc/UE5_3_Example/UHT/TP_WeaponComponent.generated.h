@@ -9,7 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class ADefaultPlaybleCharacter;
+class ADefaultPlayableCharacter;
 #ifdef UE5_3_EXAMPLE_TP_WeaponComponent_generated_h
 #error "TP_WeaponComponent.generated.h already included, missing '#pragma once' in TP_WeaponComponent.h"
 #endif

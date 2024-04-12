@@ -3,7 +3,6 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "MessageQueue.h"
 #include "EntityComponent.h"
 #include "HealthComponent.generated.h"
 
@@ -17,7 +16,7 @@ class UE5_3_EXAMPLE_API UHealthComponent : public UEntityComponent
 public:	
 	UHealthComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject);
+	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 

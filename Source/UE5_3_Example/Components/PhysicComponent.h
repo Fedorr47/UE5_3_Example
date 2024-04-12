@@ -17,7 +17,7 @@ class UE5_3_EXAMPLE_API UPhysicComponent : public UEntityComponent
 public:
 	UPhysicComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject);
+	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 

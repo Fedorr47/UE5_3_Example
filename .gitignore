@@ -375,3 +375,6 @@ UE5_3_Example.sln
 .vs/UE5_3_Example/v17/fileList.bin
 .vs/ProjectEvaluation/ue5_3_example.projects.v7.bin
 .vs/UE5_3_Example/v17/.futdcache.v2
+Config/DefaultEngine.ini
+Intermediate/Build/BuildRules/UE5_3_ExampleModuleRules.dll
+Intermediate/Build/SourceFileCache.bin

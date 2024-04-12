@@ -4,7 +4,6 @@
 #include <Kismet/KismetMathLibrary.h>
 
 #include "HealthComponent.h"
-#include "UE5_3_ExampleGameMode.h"
 #include "Components/ProgressBar.h"
 #include "Components/WidgetComponent.h"
 
@@ -69,10 +68,10 @@ void UFloatableHealthComponent::Update(float DeltaTime)
 {
 	if (IsValid(CameraManager) && IsValid(MeshToAttach))
 	{
-		FVector MeshLocation = MeshToAttach->GetComponentLocation();
-		FVector CameraLocation = CameraManager->GetTransformComponent()->GetComponentLocation();
+		const FVector MeshLocation = MeshToAttach->GetComponentLocation();
+		const FVector CameraLocation = CameraManager->GetTransformComponent()->GetComponentLocation();
+		const FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
 
-		FRotator PlayerRot = UKismetMathLibrary::FindLookAtRotation(MeshLocation, CameraLocation);
 		mFloatableHealthWC->SetWorldLocationAndRotation(MeshLocation, PlayerRot);
 
 		Cast<UFloatableHealth>(mFloatableHealthW)->mHealthBar->SetPercent(HealthPercent);

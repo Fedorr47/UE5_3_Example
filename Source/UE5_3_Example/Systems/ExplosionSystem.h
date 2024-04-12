@@ -10,8 +10,6 @@ class ExplosionSystem
 public:
 	ExplosionSystem();
 	~ExplosionSystem();
-
-public:
-    // Функция обработки урона
+	
 	void Update(UEntityManager* EntityManager);
 };

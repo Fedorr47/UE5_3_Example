@@ -10,8 +10,6 @@ class HealSystem
 public:
 	HealSystem();
 	~HealSystem();
-
-public:
-    // Функция обработки урона
+	
 	static void ApplyHeal(UEntityManager* EntityManager);
 };

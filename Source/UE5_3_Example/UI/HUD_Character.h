@@ -4,11 +4,10 @@
 #include "GameFramework/HUD.h"
 #include "Blueprint/UserWidget.h"
 #include "MessageQueue.h"
-#include "HealthComponent.h"
 #include "HUD_Character.generated.h"
 
 class UProgressBar;
-class ADefaultPlaybleCharacter;
+class ADefaultPlayableCharacter;
 
 UCLASS()
 class UCharacterHUDWidget : public UUserWidget
@@ -35,11 +34,7 @@ class UE5_3_EXAMPLE_API AHUD_Character : public AHUD
 public:
 	AHUD_Character();
 
-	/*
-	*	 VARIABLES
-	*/
 protected:
-	// All on screen widgets to add to the HUD on BeginPlay
 	UPROPERTY(EditAnywhere)
 	TArray<TSubclassOf<UUserWidget>> AllUIWidgets;
 
@@ -48,9 +43,6 @@ private:
 	UPROPERTY()
 	TArray <UUserWidget*> mCreatedWidgets;
 
-	/*
-	*	 METHODS
-	*/
 protected:
 	virtual void BeginPlay() override;
 	virtual void DrawHUD() override;

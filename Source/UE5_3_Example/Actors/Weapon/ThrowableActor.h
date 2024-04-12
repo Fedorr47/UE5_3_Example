@@ -6,14 +6,11 @@
 #include "Actors/BaseInteractableActor.h"
 #include "ThrowableActor.generated.h"
 
-class UPhysicComponent;
-class AThrowbalePathVisualizer;
-class ACharacter;
 class UInputMappingContext;
 class UInputAction;
-class USplineComponent;
 class UThrowableComponent;
-class ADefaultPlaybleCharacter;
+class ADefaultPlayableCharacter;
+class ADefaultProjectile;
 
 /*
 USTRUCT(BlueprintType)
@@ -37,7 +34,7 @@ protected:
 	virtual void BeginPlay() override;
 
 	UPROPERTY()
-	ADefaultPlaybleCharacter* OwnerCharacter = nullptr;
+	ADefaultPlayableCharacter* OwnerCharacter = nullptr;
 
 	UPROPERTY()
 	UThrowableComponent* ThrowableComp;
@@ -72,5 +69,5 @@ public:
 	void PredictThrow();
 
 	UFUNCTION()
-	ACharacter* GetThrowbaleOwnerCharacter();
+	ADefaultPlayableCharacter* GetThrowableOwnerCharacter();
 };

@@ -10,8 +10,6 @@ class DamageSystem
 public:
 	DamageSystem();
 	~DamageSystem();
-
-public:
-    // Функция обработки урона
+	
 	static void ApplyDamage(UEntityManager* EntityManager);
 };

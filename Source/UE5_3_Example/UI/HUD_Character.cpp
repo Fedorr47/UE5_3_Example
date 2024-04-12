@@ -2,7 +2,7 @@
 #include "Mods/UE5_3_ExampleGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/ProgressBar.h"
-#include "Actors/Player/DefaultPlaybleCharacter.h"
+#include "Actors/Player/DefaultPlayableCharacter.h"
 
 AHUD_Character::AHUD_Character()
 {
@@ -24,17 +24,17 @@ void AHUD_Character::BeginPlay()
 			for (TSubclassOf<UUserWidget> widget : AllUIWidgets)
 			{
 				// Create an instance of the widget and add to viewport
-				UUserWidget* createdWidget = CreateWidget<UUserWidget>(GameWorld, widget);
-				createdWidget->AddToViewport();
+				UUserWidget* CreatedWidget = CreateWidget<UUserWidget>(GameWorld, widget);
+				CreatedWidget->AddToViewport();
 				
-				UCharacterHUDWidget* HudWidget = Cast<UCharacterHUDWidget>(createdWidget);
+				UCharacterHUDWidget* HudWidget = Cast<UCharacterHUDWidget>(CreatedWidget);
 				if (IsValid(HudWidget))
 				{
 					GameMode->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(HudWidget, &UCharacterHUDWidget::TakeMsg);
 				}
 
 				// Store instanced widget in array
-				mCreatedWidgets.Add(createdWidget);
+				mCreatedWidgets.Add(CreatedWidget);
 			}
 		}
 	}

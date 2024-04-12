@@ -14,7 +14,6 @@
 #include "Components/SplineComponent.h"
 #include "Components/SplineMeshComponent.h"
 #include "Actors/Projectiles/DefaultProjectile.h"
-#include "ThrowableSystem.h"
 
 ThrowableSystem::ThrowableSystem()
 {
@@ -37,7 +36,7 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 		{
 			if (AThrowableActor* ThrowableActor = Cast<AThrowableActor>(ThrowableComp->GetOwnerObject()))
 			{
-				ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableActor->GetThrowbaleOwnerCharacter());
+				ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableActor->GetThrowableOwnerCharacter());
 				if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileClass.Get()))
 				{
 					UWorld* World = ThrowableComp->GetComponentWorld();
@@ -46,13 +45,13 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-						FVector OrtogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, -InFrontOwner.Z);
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrtogonalForwardVector * -100.0f);
+						FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, -InFrontOwner.Z);
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrthogonalForwardVector * -100.0f);
 
 						FActorSpawnParameters ActorSpawnParams;
 						ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-						auto* SpawnActor = World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+						World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 					}
 				}
 			}
@@ -73,7 +72,7 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 		{
 			if (AThrowableActor* ThrowableActor = Cast<AThrowableActor>(ThrowableComp->GetOwnerObject()))
 			{
-				ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableActor->GetThrowbaleOwnerCharacter());
+				ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableActor->GetThrowableOwnerCharacter());
 				if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileClass.Get()))
 				{
 					UWorld* World = ThrowableComp->GetComponentWorld();
@@ -82,8 +81,8 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-						FVector OrtogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, 0.0f);
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrtogonalForwardVector * -100.0f);
+						FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, 0.0f);
+						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrthogonalForwardVector * -100.0f);
 
 						FPredictProjectilePathParams PredictParams;
 						FPredictProjectilePathResult PredictResult;
@@ -113,7 +112,7 @@ void ThrowableSystem::PredictThrow(UEntityManager* EntityManager)
 						for (FPredictProjectilePathPointData& Point : PredictResult.PathData)
 						{
 							float SinVal = FMath::Sin(NextStep) * 10.0f;
-							FVector PointLocation = Point.Location + OrtogonalForwardVector * (1.0f + SinVal);
+							FVector PointLocation = Point.Location + OrthogonalForwardVector * (1.0f + SinVal);
 							ThrowableComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
 							NextStep += StepForAngle;
 						}

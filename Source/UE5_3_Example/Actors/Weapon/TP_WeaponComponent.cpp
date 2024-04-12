@@ -2,7 +2,7 @@
 
 
 #include "TP_WeaponComponent.h"
-#include "DefaultPlaybleCharacter.h"
+#include "DefaultPlayableCharacter.h"
 #include "DefaultProjectile.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/PlayerCameraManager.h"
@@ -63,7 +63,7 @@ void UTP_WeaponComponent::Fire()
 	}
 }
 
-void UTP_WeaponComponent::AttachWeapon(ADefaultPlaybleCharacter* TargetCharacter)
+void UTP_WeaponComponent::AttachWeapon(ADefaultPlayableCharacter* TargetCharacter)
 {
 	Character = TargetCharacter;
 

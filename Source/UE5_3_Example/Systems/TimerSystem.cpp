@@ -2,13 +2,11 @@
 
 #include "Systems/TimerSystem.h"
 
-#include <Kismet/GameplayStatics.h>
 #include "Math/UnrealMathUtility.h"
 
 #include "Components/ExplosionComponent.h"
 #include "Components/TimerComponent.h"
-#include "HUD_Character.h"
-#include "DefaultPlaybleCharacter.h"
+#include "DefaultPlayableCharacter.h"
 
 TimerSystem::TimerSystem()
 {
@@ -29,8 +27,7 @@ void TimerSystem::Update(float DeltaTime, UEntityManager* EntityManager)
             TimerComp->TimeLeft -= DeltaTime;
             if (TimerComp->TimeLeft <= 0.0f)
             {
-                // Активируем взрыв
-                EntityManager->AddComponent<UExplosionComponent>(Entity); // Предполагается, что взрыв обрабатывается другой системой
+                EntityManager->AddComponent<UExplosionComponent>(Entity);
             }
         }
     }

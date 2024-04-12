@@ -8,7 +8,7 @@
 #include "ThrowableComponent.h"
 #include "Systems/ThrowableSystem.h"
 #include "Components/SplineMeshComponent.h"
-#include "Actors/Player/DefaultPlaybleCharacter.h"
+#include "Actors/Player/DefaultPlayableCharacter.h"
 #include "Actors/Projectiles/DefaultProjectile.h"
 
 AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
@@ -37,7 +37,7 @@ void AThrowableActor::BeginPlay()
 
 void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 {
-	OwnerCharacter = Cast<ADefaultPlaybleCharacter>(TargetCharacter);
+	OwnerCharacter = Cast<ADefaultPlayableCharacter>(TargetCharacter);
 
 	// Check that the character is valid, and has no rifle yet
 	if (OwnerCharacter == nullptr)
@@ -101,7 +101,7 @@ void AThrowableActor::PredictThrow()
 	bDrawPredictTrace = true;
 }
 
-ACharacter* AThrowableActor::GetThrowbaleOwnerCharacter()
+ACharacter* AThrowableActor::GetThrowableOwnerCharacter()
 {
 	return OwnerCharacter;
 }

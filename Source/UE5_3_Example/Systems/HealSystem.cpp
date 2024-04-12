@@ -8,8 +8,7 @@
 #include "HealthComponent.h"
 #include "FloatableHealth.h"
 #include "HealComponent.h"
-#include "HUD_Character.h"
-#include "DefaultPlaybleCharacter.h"
+#include "DefaultPlayableCharacter.h"
 
 HealSystem::HealSystem()
 {
@@ -27,7 +26,7 @@ void HealSystem::ApplyHeal(UEntityManager* EntityManager)
 
     for (const FEntity& Entity : Entities)
     {
-        UHealComponent* HealComp = EntityManager->GetComponent<UHealComponent>(Entity);
+        const UHealComponent* HealComp = EntityManager->GetComponent<UHealComponent>(Entity);
         if (IsValid(HealComp))
         {
             UHealthComponent* HealthComp = EntityManager->GetComponent<UHealthComponent>(Entity);
@@ -38,7 +37,7 @@ void HealSystem::ApplyHeal(UEntityManager* EntityManager)
 
                 EntityManager->RemoveComponents<UHealComponent>(Entity);
 
-                if (auto Character = Cast<ADefaultPlaybleCharacter>(HealthComp->GetOwnerObject()))
+                if (const ADefaultPlayableCharacter* Character = Cast<ADefaultPlayableCharacter>(HealthComp->GetOwnerObject()))
                 {
                     auto GemeMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(Character->GetWorld()));
                     UHealthPercentMessage* MsgToSend = NewObject<UHealthPercentMessage>();

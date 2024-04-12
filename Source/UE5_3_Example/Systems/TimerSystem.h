@@ -10,7 +10,6 @@ class TimerSystem
 public:
 	TimerSystem();
 	~TimerSystem();
-
-public:
+	
 	void Update(float DeltaTime, UEntityManager* EntityManager);
 };

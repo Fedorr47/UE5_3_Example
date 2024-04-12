@@ -5,7 +5,6 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "EntityComponent.h"
-#include "Components/WidgetComponent.h"
 #include "SystemQueue/EntityManager.h"
 #include "BaseInteractableActor.generated.h"
 

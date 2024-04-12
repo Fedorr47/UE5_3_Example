@@ -15,5 +15,5 @@ class UE5_3_EXAMPLE_API UExtendCheatManager : public UCheatManager
 	GENERATED_BODY()
 
 	UFUNCTION(Exec)
-	void SetSlomo(float InTimeDilation);
+	void SetSlowMotion(float InTimeDilation);
 };

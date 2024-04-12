@@ -3,8 +3,6 @@
 #include "BaseInteractableActor.h"
 #include <Kismet/GameplayStatics.h>
 
-#include <Kismet/KismetMathLibrary.h>
-#include "Blueprint/UserWidget.h"
 #include "HealthComponent.h"
 #include "DamageComponent.h"
 #include "Systems/DamageSystem.h"

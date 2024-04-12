@@ -15,18 +15,18 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ABaseInteractableActor();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultPlaybleCharacter_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultPlayableCharacter_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowableActor();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowableActor_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UThrowableComponent_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
-	DEFINE_FUNCTION(AThrowableActor::execGetThrowbaleOwnerCharacter)
+	DEFINE_FUNCTION(AThrowableActor::execGetThrowableOwnerCharacter)
 	{
 		P_FINISH;
 		P_NATIVE_BEGIN;
-		*(ACharacter**)Z_Param__Result=P_THIS->GetThrowbaleOwnerCharacter();
+		*(ADefaultPlayableCharacter**)Z_Param__Result=P_THIS->GetThrowableOwnerCharacter();
 		P_NATIVE_END;
 	}
 	DEFINE_FUNCTION(AThrowableActor::execPredictThrow)
@@ -57,7 +57,7 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ActiveThrow", &AThrowableActor::execActiveThrow },
 			{ "AttachToCharacter", &AThrowableActor::execAttachToCharacter },
-			{ "GetThrowbaleOwnerCharacter", &AThrowableActor::execGetThrowbaleOwnerCharacter },
+			{ "GetThrowableOwnerCharacter", &AThrowableActor::execGetThrowableOwnerCharacter },
 			{ "PredictThrow", &AThrowableActor::execPredictThrow },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -120,11 +120,11 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 		}
 		return ReturnFunction;
 	}
-	struct Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics
+	struct Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics
 	{
-		struct ThrowableActor_eventGetThrowbaleOwnerCharacter_Parms
+		struct ThrowableActor_eventGetThrowableOwnerCharacter_Parms
 		{
-			ACharacter* ReturnValue;
+			ADefaultPlayableCharacter* ReturnValue;
 		};
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -133,24 +133,24 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThrowableActor_eventGetThrowbaleOwnerCharacter_Parms, ReturnValue), Z_Construct_UClass_ACharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::NewProp_ReturnValue,
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThrowableActor_eventGetThrowableOwnerCharacter_Parms, ReturnValue), Z_Construct_UClass_ADefaultPlayableCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::NewProp_ReturnValue,
 	};
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::Function_MetaDataParams[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::Function_MetaDataParams[] = {
 		{ "ModuleRelativePath", "Actors/Weapon/ThrowableActor.h" },
 	};
 #endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AThrowableActor, nullptr, "GetThrowbaleOwnerCharacter", nullptr, nullptr, Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::PropPointers), sizeof(Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::ThrowableActor_eventGetThrowbaleOwnerCharacter_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::Function_MetaDataParams), Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::ThrowableActor_eventGetThrowbaleOwnerCharacter_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter()
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AThrowableActor, nullptr, "GetThrowableOwnerCharacter", nullptr, nullptr, Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::PropPointers), sizeof(Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::ThrowableActor_eventGetThrowableOwnerCharacter_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::Function_MetaDataParams), Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::ThrowableActor_eventGetThrowableOwnerCharacter_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter()
 	{
 		static UFunction* ReturnFunction = nullptr;
 		if (!ReturnFunction)
 		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter_Statics::FuncParams);
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -230,7 +230,7 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 	const FClassFunctionLinkInfo Z_Construct_UClass_AThrowableActor_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_AThrowableActor_ActiveThrow, "ActiveThrow" }, // 2891905050
 		{ &Z_Construct_UFunction_AThrowableActor_AttachToCharacter, "AttachToCharacter" }, // 3069457897
-		{ &Z_Construct_UFunction_AThrowableActor_GetThrowbaleOwnerCharacter, "GetThrowbaleOwnerCharacter" }, // 838140125
+		{ &Z_Construct_UFunction_AThrowableActor_GetThrowableOwnerCharacter, "GetThrowableOwnerCharacter" }, // 3186291192
 		{ &Z_Construct_UFunction_AThrowableActor_PredictThrow, "PredictThrow" }, // 2842886802
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::FuncInfo) < 2048);
@@ -262,7 +262,7 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 		{ "ModuleRelativePath", "Actors/Weapon/ThrowableActor.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter = { "OwnerCharacter", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowableActor, OwnerCharacter), Z_Construct_UClass_ADefaultPlaybleCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter_MetaData), Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter = { "OwnerCharacter", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowableActor, OwnerCharacter), Z_Construct_UClass_ADefaultPlayableCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter_MetaData), Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableComp_MetaData[] = {
 		{ "ModuleRelativePath", "Actors/Weapon/ThrowableActor.h" },
@@ -353,9 +353,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AThrowableActor, AThrowableActor::StaticClass, TEXT("AThrowableActor"), &Z_Registration_Info_UClass_AThrowableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableActor), 1770543027U) },
+		{ Z_Construct_UClass_AThrowableActor, AThrowableActor::StaticClass, TEXT("AThrowableActor"), &Z_Registration_Info_UClass_AThrowableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableActor), 1601585575U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_412197112(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_3712755259(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

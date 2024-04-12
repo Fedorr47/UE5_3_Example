@@ -1,9 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "MessageQueue.h"
 #include "UE5_3_ExampleGameMode.h"
-#include "UObject/NoExportTypes.h"
 #include "EntityComponent.generated.h"
 
 class AUE5_3_ExampleGameMode;

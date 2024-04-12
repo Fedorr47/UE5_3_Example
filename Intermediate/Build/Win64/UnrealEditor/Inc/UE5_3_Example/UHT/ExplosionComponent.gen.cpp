@@ -62,13 +62,7 @@ void EmptyLinkFunctionForGeneratedCodeExplosionComponent() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UExplosionComponent_Statics::NewProp_Damage_MetaData[] = {
 		{ "Category", "Explosion" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\n" },
-#endif
 		{ "ModuleRelativePath", "Components/ExplosionComponent.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd \xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd\xef\xbf\xbd" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UExplosionComponent_Statics::NewProp_Damage = { "Damage", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UExplosionComponent, Damage), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UExplosionComponent_Statics::NewProp_Damage_MetaData), Z_Construct_UClass_UExplosionComponent_Statics::NewProp_Damage_MetaData) };
@@ -114,9 +108,9 @@ void EmptyLinkFunctionForGeneratedCodeExplosionComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UExplosionComponent, UExplosionComponent::StaticClass, TEXT("UExplosionComponent"), &Z_Registration_Info_UClass_UExplosionComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UExplosionComponent), 3804721252U) },
+		{ Z_Construct_UClass_UExplosionComponent, UExplosionComponent::StaticClass, TEXT("UExplosionComponent"), &Z_Registration_Info_UClass_UExplosionComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UExplosionComponent), 3297667912U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_4179275463(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_2028633635(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ExplosionComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "EntityComponent.h"
-#include "UObject/NoExportTypes.h"
 #include "EntityManager.generated.h"
 
 

@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	ENGINE_API UEnum* Z_Construct_UEnum_Engine_EEndPlayReason();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultPlaybleCharacter_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultPlayableCharacter_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UTP_WeaponComponent();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UTP_WeaponComponent_NoRegister();
@@ -40,7 +40,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	}
 	DEFINE_FUNCTION(UTP_WeaponComponent::execAttachWeapon)
 	{
-		P_GET_OBJECT(ADefaultPlaybleCharacter,Z_Param_TargetCharacter);
+		P_GET_OBJECT(ADefaultPlayableCharacter,Z_Param_TargetCharacter);
 		P_FINISH;
 		P_NATIVE_BEGIN;
 		P_THIS->AttachWeapon(Z_Param_TargetCharacter);
@@ -60,7 +60,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	{
 		struct TP_WeaponComponent_eventAttachWeapon_Parms
 		{
-			ADefaultPlaybleCharacter* TargetCharacter;
+			ADefaultPlayableCharacter* TargetCharacter;
 		};
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_TargetCharacter;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
@@ -69,7 +69,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 #endif
 		static const UECodeGen_Private::FFunctionParams FuncParams;
 	};
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon_Statics::NewProp_TargetCharacter = { "TargetCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(TP_WeaponComponent_eventAttachWeapon_Parms, TargetCharacter), Z_Construct_UClass_ADefaultPlaybleCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon_Statics::NewProp_TargetCharacter = { "TargetCharacter", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(TP_WeaponComponent_eventAttachWeapon_Parms, TargetCharacter), Z_Construct_UClass_ADefaultPlayableCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon_Statics::NewProp_TargetCharacter,
 	};
@@ -220,7 +220,7 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_UTP_WeaponComponent_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon, "AttachWeapon" }, // 1324727371
+		{ &Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon, "AttachWeapon" }, // 1441686610
 		{ &Z_Construct_UFunction_UTP_WeaponComponent_EndPlay, "EndPlay" }, // 3501335985
 		{ &Z_Construct_UFunction_UTP_WeaponComponent_Fire, "Fire" }, // 3109096996
 	};
@@ -362,9 +362,9 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTP_WeaponComponent, UTP_WeaponComponent::StaticClass, TEXT("UTP_WeaponComponent"), &Z_Registration_Info_UClass_UTP_WeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_WeaponComponent), 2778718088U) },
+		{ Z_Construct_UClass_UTP_WeaponComponent, UTP_WeaponComponent::StaticClass, TEXT("UTP_WeaponComponent"), &Z_Registration_Info_UClass_UTP_WeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_WeaponComponent), 3717283806U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_2028413132(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_1280557954(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

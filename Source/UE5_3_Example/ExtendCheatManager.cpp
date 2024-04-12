@@ -4,7 +4,7 @@
 #include "ExtendCheatManager.h"
 #include <Kismet/GameplayStatics.h>
 
-void UExtendCheatManager::SetSlomo(float InTimeDilation)
+void UExtendCheatManager::SetSlowMotion(float InTimeDilation)
 {
 	UGameplayStatics::SetGlobalTimeDilation(GetWorld(), InTimeDilation);
 }

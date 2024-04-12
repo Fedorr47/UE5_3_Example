@@ -19,7 +19,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_ExtendCheatManager_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_ExtendCheatManager_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execSetSlomo);
+	DECLARE_FUNCTION(execSetSlowMotion);
 
 
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_ExtendCheatManager_h_15_ACCESSORS

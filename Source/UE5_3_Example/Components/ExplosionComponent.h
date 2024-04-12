@@ -14,12 +14,12 @@ class UE5_3_EXAMPLE_API UExplosionComponent : public UEntityComponent
 public:
 	UExplosionComponent(const FObjectInitializer& ObjectInitializer);
 
-	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject);
+	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Explosion)
-	float Radius; // Радиус взрыва
+	float Radius; 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Explosion)
-	float Damage; // Урон от взрыва
+	float Damage; 
 };

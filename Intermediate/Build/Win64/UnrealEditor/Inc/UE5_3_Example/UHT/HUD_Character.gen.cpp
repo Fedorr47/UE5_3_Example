@@ -197,13 +197,7 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHUD_Character_Statics::NewProp_AllUIWidgets_MetaData[] = {
 		{ "Category", "HUD_Character" },
-#if !UE_BUILD_SHIPPING
-		{ "Comment", "// All on screen widgets to add to the HUD on BeginPlay\n" },
-#endif
 		{ "ModuleRelativePath", "UI/HUD_Character.h" },
-#if !UE_BUILD_SHIPPING
-		{ "ToolTip", "All on screen widgets to add to the HUD on BeginPlay" },
-#endif
 	};
 #endif
 	const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_AHUD_Character_Statics::NewProp_AllUIWidgets = { "AllUIWidgets", nullptr, (EPropertyFlags)0x0024080000000001, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AHUD_Character, AllUIWidgets), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AHUD_Character_Statics::NewProp_AllUIWidgets_MetaData), Z_Construct_UClass_AHUD_Character_Statics::NewProp_AllUIWidgets_MetaData) };
@@ -260,9 +254,9 @@ void EmptyLinkFunctionForGeneratedCodeHUD_Character() {}
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UCharacterHUDWidget, UCharacterHUDWidget::StaticClass, TEXT("UCharacterHUDWidget"), &Z_Registration_Info_UClass_UCharacterHUDWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UCharacterHUDWidget), 4133924713U) },
-		{ Z_Construct_UClass_AHUD_Character, AHUD_Character::StaticClass, TEXT("AHUD_Character"), &Z_Registration_Info_UClass_AHUD_Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHUD_Character), 2145284U) },
+		{ Z_Construct_UClass_AHUD_Character, AHUD_Character::StaticClass, TEXT("AHUD_Character"), &Z_Registration_Info_UClass_AHUD_Character, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHUD_Character), 1643826767U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_4051225587(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_1664207870(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_UI_HUD_Character_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
