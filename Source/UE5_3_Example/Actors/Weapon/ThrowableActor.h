@@ -1,5 +1,3 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
 #pragma once
 
 #include "CoreMinimal.h"
@@ -11,16 +9,6 @@ class UInputAction;
 class UThrowableComponent;
 class ADefaultPlayableCharacter;
 class ADefaultProjectile;
-
-/*
-USTRUCT(BlueprintType)
-struct UE5_3_EXAMPLE_API FPhysicComponentWrapper
-{
-	GENERATED_BODY()
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Instanced, meta = (ShowOnlyInnerProperties, BlueprintSearchable = "true"))
-	UPhysicComponent* Template = nullptr;
-};
-*/
 
 UCLASS()
 class UE5_3_EXAMPLE_API AThrowableActor : public ABaseInteractableActor
@@ -36,9 +24,6 @@ protected:
 	UPROPERTY()
 	ADefaultPlayableCharacter* OwnerCharacter = nullptr;
 
-	UPROPERTY()
-	UThrowableComponent* ThrowableComp;
-
 public:
 	AThrowableActor(const FObjectInitializer& ObjectInitializer);
 
@@ -46,9 +31,6 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void AttachToCharacter(ACharacter* TargetCharacter);
-
-	//UPROPERTY(EditAnywhere, Category = "Components")
-	//FPhysicComponentWrapper TemplatePhysicComponent;
 
 	UPROPERTY(EditAnywhere, Category = "Projectile")
 	TSubclassOf<ADefaultProjectile> ThrowableProjectileClass;
@@ -58,16 +40,4 @@ public:
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputAction* ThrowAction;
-
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-	UStaticMeshComponent* StatPredictThrowMeshComp;
-
-	UFUNCTION(BlueprintCallable, Category = "Throw")
-	void ActiveThrow();
-
-	UFUNCTION(BlueprintCallable, Category = "Throw")
-	void PredictThrow();
-
-	UFUNCTION()
-	ADefaultPlayableCharacter* GetThrowableOwnerCharacter() const;
 };

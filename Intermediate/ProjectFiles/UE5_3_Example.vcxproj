@@ -106,6 +106,8 @@
     <ClCompile_AdditionalOptions>$(AdditionalOptions) /Yu"$(SolutionDir)Intermediate\Build\Win64\x64\UE5_3_ExampleEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"</ClCompile_AdditionalOptions>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\FireArmWeapon.cpp" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\FireArmWeapon.h" />
     <None Include="..\..\UE5_3_Example.uproject" />
     <None Include="..\..\Source\UE5_3_Example.Target.cs" />
     <None Include="..\..\Source\UE5_3_ExampleEditor.Target.cs" />
@@ -125,11 +127,13 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\ExtendCheatManager.h" />
     <None Include="..\..\Source\UE5_3_Example\UE5_3_Example.Build.cs" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\BaseSystem.cpp" />
     <ClCompile Include="..\..\Source\UE5_3_Example\UE5_3_Example.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\BaseSystem.h" />
     <ClInclude Include="..\..\Source\UE5_3_Example\UE5_3_Example.h" />
     <ClCompile Include="..\..\Source\UE5_3_Example\Actors\BaseInteractableActor.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -185,12 +189,6 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\EntityComponent.h" />
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ExplosionComponent.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ExplosionComponent.h" />
     <ClCompile Include="..\..\Source\UE5_3_Example\Components\FloatableHealth.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -209,24 +207,12 @@
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\HealthComponent.h" />
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\PhysicComponent.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\PhysicComponent.h" />
     <ClCompile Include="..\..\Source\UE5_3_Example\Components\ThrowableComponent.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\ThrowableComponent.h" />
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\TimerComponent.cpp">
-      <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
-      <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
-      <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\TimerComponent.h" />
     <ClCompile Include="..\..\Source\UE5_3_Example\Mods\UE5_3_ExampleGameMode.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
@@ -290,7 +276,8 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <PropertyGroup>
     <CleanDependsOn> $(CleanDependsOn); </CleanDependsOn>
-    <CppCleanDependsOn></CppCleanDependsOn>
+    <CppCleanDependsOn>
+    </CppCleanDependsOn>
   </PropertyGroup>
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

@@ -3,12 +3,15 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include <map>
+#include <string>
 #include "GameFramework/GameModeBase.h"
 #include "UE5_3_ExampleGameMode.generated.h"
 
 class UEntityManager;
 class UMessageQueue;
 class UBaseMessage;
+class BaseSystem;
 
 UCLASS(minimalapi)
 class AUE5_3_ExampleGameMode : public AGameModeBase
@@ -17,6 +20,8 @@ class AUE5_3_ExampleGameMode : public AGameModeBase
 
 public:
 	AUE5_3_ExampleGameMode();
+
+	virtual void Tick(float DeltaSeconds);
 
 	UPROPERTY()
 	UMessageQueue* GeneralMessageQueue;
@@ -27,5 +32,7 @@ public:
 	virtual void StartPlay();
 
 	void SendMessage(UBaseMessage* InMsg);
+
+	std::map<std::string, std::shared_ptr<BaseSystem>> Systems;
 };
 

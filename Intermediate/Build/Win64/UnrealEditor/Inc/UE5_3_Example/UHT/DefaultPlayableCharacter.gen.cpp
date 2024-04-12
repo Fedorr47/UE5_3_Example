@@ -32,6 +32,13 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FEntityComponentWrapper();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
+	DEFINE_FUNCTION(ADefaultPlayableCharacter::execGetActorEntity)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(FEntity*)Z_Param__Result=P_THIS->GetActorEntity();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ADefaultPlayableCharacter::execGetSplinePredict)
 	{
 		P_FINISH;
@@ -92,6 +99,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 	{
 		UClass* Class = ADefaultPlayableCharacter::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
+			{ "GetActorEntity", &ADefaultPlayableCharacter::execGetActorEntity },
 			{ "GetHasRifle", &ADefaultPlayableCharacter::execGetHasRifle },
 			{ "GetSplinePredict", &ADefaultPlayableCharacter::execGetSplinePredict },
 			{ "Heal", &ADefaultPlayableCharacter::execHeal },
@@ -100,6 +108,41 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 			{ "TakeCharacterRadialDamage", &ADefaultPlayableCharacter::execTakeCharacterRadialDamage },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics
+	{
+		struct DefaultPlayableCharacter_eventGetActorEntity_Parms
+		{
+			FEntity ReturnValue;
+		};
+		static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(DefaultPlayableCharacter_eventGetActorEntity_Parms, ReturnValue), Z_Construct_UScriptStruct_FEntity, METADATA_PARAMS(0, nullptr) }; // 904214179
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Entity" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlayableCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ADefaultPlayableCharacter, nullptr, "GetActorEntity", nullptr, nullptr, Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::PropPointers), sizeof(Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::DefaultPlayableCharacter_eventGetActorEntity_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::Function_MetaDataParams), Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::DefaultPlayableCharacter_eventGetActorEntity_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	struct Z_Construct_UFunction_ADefaultPlayableCharacter_GetHasRifle_Statics
 	{
@@ -483,6 +526,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlayableCharacter_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ADefaultPlayableCharacter_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_ADefaultPlayableCharacter_GetActorEntity, "GetActorEntity" }, // 2220004052
 		{ &Z_Construct_UFunction_ADefaultPlayableCharacter_GetHasRifle, "GetHasRifle" }, // 3927725749
 		{ &Z_Construct_UFunction_ADefaultPlayableCharacter_GetSplinePredict, "GetSplinePredict" }, // 2139681667
 		{ &Z_Construct_UFunction_ADefaultPlayableCharacter_Heal, "Heal" }, // 369635657
@@ -702,9 +746,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADefaultPlayableCharacter, ADefaultPlayableCharacter::StaticClass, TEXT("ADefaultPlayableCharacter"), &Z_Registration_Info_UClass_ADefaultPlayableCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultPlayableCharacter), 3596142133U) },
+		{ Z_Construct_UClass_ADefaultPlayableCharacter, ADefaultPlayableCharacter::StaticClass, TEXT("ADefaultPlayableCharacter"), &Z_Registration_Info_UClass_ADefaultPlayableCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultPlayableCharacter), 4186479342U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_1818162056(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_3279931013(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

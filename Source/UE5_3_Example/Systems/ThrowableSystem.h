@@ -4,15 +4,18 @@
 
 #include "CoreMinimal.h"
 #include "EntityManager.h"
+#include "BaseSystem.h"
 
 class ACharacter;
 
-class ThrowableSystem
+class ThrowableSystem : public BaseSystem
 {
 public:
 	ThrowableSystem();
 	~ThrowableSystem();
 
-	static void ApplyThrow(UEntityManager* EntityManager);
-	static void PredictThrow(UEntityManager* EntityManager);
+	virtual void UpdateSystem(float DeltaSeconds) override;
+
+	void ApplyThrow();
+	void PredictThrow();
 };

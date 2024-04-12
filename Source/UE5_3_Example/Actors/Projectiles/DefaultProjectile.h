@@ -45,5 +45,8 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, Category = Mesh)
 	UStaticMeshComponent* ProjectileMesh;
+
+	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UStaticMeshComponent* StatPredictThrowMeshComp;
 };
 

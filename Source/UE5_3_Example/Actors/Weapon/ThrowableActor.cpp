@@ -18,16 +18,15 @@ AThrowableActor::AThrowableActor(const FObjectInitializer& ObjectInitializer)
 	{
 		RootComponent = ObjectInitializer.CreateDefaultSubobject<USceneComponent>(this, TEXT("Root"));
 	}
-	StatPredictThrowMeshComp = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "MeshPath");
 }
 
 void AThrowableActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	if (bDrawPredictTrace)
-	{
-		ThrowableSystem::PredictThrow(mGameMode->EntityManager);
-	}
+	//if (bDrawPredictTrace)
+	//{
+	//	ThrowableSystem::PredictThrow(mGameMode->EntityManager);
+	//}
 }
 
 void AThrowableActor::BeginPlay()
@@ -39,16 +38,14 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 {
 	OwnerCharacter = Cast<ADefaultPlayableCharacter>(TargetCharacter);
 
-	// Check that the character is valid, and has no rifle yet
 	if (OwnerCharacter == nullptr)
 	{
 		return;
 	}
 
-	ThrowableComp = mGameMode->EntityManager->GetComponent<UThrowableComponent>(ActorEntity);
-	if (!IsValid(ThrowableComp))
+	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
+	if (IsValid(ThrowableComp) && IsValid(ThrowableProjectileClass.Get()))
 	{
-		ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
 		FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
 
 		if (const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController()))
@@ -61,48 +58,32 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 
 			if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
 			{
-				EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Started, this, &AThrowableActor::PredictThrow);
-				EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Completed, this, &AThrowableActor::ActiveThrow);
+				auto ThrowableSystem = mGameMode->Systems.find("ThrowableSystem");
+				if (ThrowableSystem != mGameMode->Systems.end())
+				{
+					EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Started, *ThrowableSystem->second.get(), &ThrowableSystem::PredictThrow);
+					EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Completed, *ThrowableSystem->second.get(), &ThrowableSystem::ApplyThrow);
+				}
 			}
 		}
-	}
-	if (IsValid(ThrowableComp) && IsValid(ThrowableProjectileClass.Get()))
-	{
-		ThrowableComp->InitComponent(mWorld, this);
+
+		ThrowableComp->InitComponent(mWorld, OwnerCharacter);
 		ThrowableComp->ProjectileClass = ThrowableProjectileClass;
 		ThrowableComp->IsActiveThrowable = true;
 		ThrowableComp->SplinePredict = OwnerCharacter->GetSplinePredict();
 		ThrowableComp->SplinePredict->bDrawDebug = true;
-		CreatedComponents.Emplace(ThrowableComp);
 	}
-	SetActorHiddenInGame(true);
-	SetActorEnableCollision(false);
+	Destroy();
 }
 
+/*
 void AThrowableActor::ActiveThrow()
 {
 	bDrawPredictTrace = false;
 	ThrowableSystem::ApplyThrow(mGameMode->EntityManager);
-	if (IsValid(ThrowableComp))
-	{
-		ThrowableComp->SplinePredict->ClearSplinePoints();
-		ThrowableComp->SplinePredict->UpdateSpline();
-
-		for (auto* MeshComp : ThrowableComp->SplinePredictMeshes)
-		{
-			MeshComp->DestroyComponent();
-		}
-		ThrowableComp->SplinePredictMeshes.Empty();
-	}
-	Destroy();
 }
 
 void AThrowableActor::PredictThrow()
 {
 	bDrawPredictTrace = true;
-}
-
-ADefaultPlayableCharacter* AThrowableActor::GetThrowableOwnerCharacter() const
-{
-	return OwnerCharacter;
-}
+}*/

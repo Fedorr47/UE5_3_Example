@@ -4,6 +4,7 @@
 #include "DefaultPlayableCharacter.h"
 #include "MessageQueue.h"
 #include "SystemQueue/EntityManager.h"
+#include "Systems/ThrowableSystem.h"
 #include "UObject/ConstructorHelpers.h"
 
 AUE5_3_ExampleGameMode::AUE5_3_ExampleGameMode()
@@ -14,10 +15,23 @@ AUE5_3_ExampleGameMode::AUE5_3_ExampleGameMode()
 	DefaultPawnClass = PlayerPawnClassFinder.Class;
 }
 
+void AUE5_3_ExampleGameMode::Tick(float DeltaSeconds)
+{
+	if (IsValid(EntityManager))
+	{
+		for (auto System : Systems)
+		{
+			System.second->UpdateSystem(DeltaSeconds);
+		}
+	}
+}
+
 void AUE5_3_ExampleGameMode::StartPlay()
 {
 	GeneralMessageQueue = NewObject<UMessageQueue>();
 	EntityManager = NewObject<UEntityManager>();
+	// Systems
+	Systems.emplace("ThrowableSystem", std::make_shared<ThrowableSystem>());
 	Super::StartPlay();	
 }
 

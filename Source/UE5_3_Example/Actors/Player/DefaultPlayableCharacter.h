@@ -103,6 +103,9 @@ public:
 	UFUNCTION()
 	USplineComponent* GetSplinePredict() { return SplinePredict; }
 
+	UFUNCTION(Category = Entity)
+	FEntity& GetActorEntity() { return ActorEntity; }
+
 protected:
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);

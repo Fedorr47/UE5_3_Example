@@ -13,6 +13,7 @@ class AActor;
 class AController;
 class UDamageType;
 class USplineComponent;
+struct FEntity;
 struct FHitResult;
 #ifdef UE5_3_EXAMPLE_DefaultPlayableCharacter_generated_h
 #error "DefaultPlayableCharacter.generated.h already included, missing '#pragma once' in DefaultPlayableCharacter.h"
@@ -24,6 +25,7 @@ struct FHitResult;
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_28_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_28_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetActorEntity); \
 	DECLARE_FUNCTION(execGetSplinePredict); \
 	DECLARE_FUNCTION(execHeal); \
 	DECLARE_FUNCTION(execTakeCharacterRadialDamage); \
