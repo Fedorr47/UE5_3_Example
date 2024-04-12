@@ -60,6 +60,51 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Actors\BaseInteractableActor.h">
       <Filter>Source\UE5_3_Example\Actors</Filter>
     </ClInclude>
+    <Filter Include="Source\UE5_3_Example\Actors\Player">
+      <UniqueIdentifier>{BFB86D6A-8255-3C6F-BD31-1F1C9DDDB017}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Player\DefaultPlaybleCharacter.cpp">
+      <Filter>Source\UE5_3_Example\Actors\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Player\DefaultPlaybleCharacter.h">
+      <Filter>Source\UE5_3_Example\Actors\Player</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Player\UE5_3_ExamplePlayerController.cpp">
+      <Filter>Source\UE5_3_Example\Actors\Player</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Player\UE5_3_ExamplePlayerController.h">
+      <Filter>Source\UE5_3_Example\Actors\Player</Filter>
+    </ClInclude>
+    <Filter Include="Source\UE5_3_Example\Actors\Projectiles">
+      <UniqueIdentifier>{819ED295-CFF9-3D81-BFDE-61831D3056D6}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Projectiles\DefaultProjectile.cpp">
+      <Filter>Source\UE5_3_Example\Actors\Projectiles</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Projectiles\DefaultProjectile.h">
+      <Filter>Source\UE5_3_Example\Actors\Projectiles</Filter>
+    </ClInclude>
+    <Filter Include="Source\UE5_3_Example\Actors\Weapon">
+      <UniqueIdentifier>{23B38AD2-B3CD-3157-A01A-8DA0E389AFB0}</UniqueIdentifier>
+    </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\ThrowableActor.cpp">
+      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\ThrowableActor.h">
+      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_PickUpComponent.cpp">
+      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_PickUpComponent.h">
+      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_WeaponComponent.cpp">
+      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_WeaponComponent.h">
+      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
+    </ClInclude>
     <Filter Include="Source\UE5_3_Example\Components">
       <UniqueIdentifier>{E069C9CE-72CD-332A-895C-DCC5CB4C67C8}</UniqueIdentifier>
     </Filter>
@@ -174,65 +219,14 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Systems\TimerSystem.h">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Source\UE5_3_Example\UI">
-      <UniqueIdentifier>{923eb059-cd16-4862-a65b-7f0c541a9eb7}</UniqueIdentifier>
+      <UniqueIdentifier>{37E4A432-D25B-390F-940E-AEFE62F2AFA5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source\UE5_3_Example\Actors\Weapon">
-      <UniqueIdentifier>{f0602b3a-423d-40ca-ba5d-49be2ab50fc8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\UE5_3_Example\Actors\Player">
-      <UniqueIdentifier>{511ff1cf-f3c0-4144-8e00-de1a2537cee4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Source\UE5_3_Example\Actors\Projectiles">
-      <UniqueIdentifier>{5f7151f3-650e-4278-8f52-bf2e8da8904b}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
     <ClCompile Include="..\..\Source\UE5_3_Example\UI\HUD_Character.cpp">
       <Filter>Source\UE5_3_Example\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\ThrowableActor.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_PickUpComponent.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_WeaponComponent.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Player\UE5_3_ExamplePlayerController.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Player\DefaultPlaybleCharacter.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Player</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Projectiles\DefaultProjectile.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Projectiles</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="..\..\Source\UE5_3_Example\UI\HUD_Character.h">
       <Filter>Source\UE5_3_Example\UI</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\ThrowableActor.h">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_PickUpComponent.h">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_WeaponComponent.h">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Player\UE5_3_ExamplePlayerController.h">
-      <Filter>Source\UE5_3_Example\Actors\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Player\DefaultPlaybleCharacter.h">
-      <Filter>Source\UE5_3_Example\Actors\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Projectiles\DefaultProjectile.h">
-      <Filter>Source\UE5_3_Example\Actors\Projectiles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
