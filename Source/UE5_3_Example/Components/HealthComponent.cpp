@@ -1,4 +1,5 @@
 #include "HealthComponent.h"
+#include "MessageQueue.h"
 #include "Math/UnrealMathUtility.h"
 
 UHealthComponent::UHealthComponent(const FObjectInitializer& ObjectInitializer) :

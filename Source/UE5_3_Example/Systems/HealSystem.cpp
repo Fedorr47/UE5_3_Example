@@ -8,6 +8,7 @@
 #include "HealthComponent.h"
 #include "FloatableHealth.h"
 #include "HealComponent.h"
+#include "MessageQueue.h"
 #include "DefaultPlayableCharacter.h"
 
 HealSystem::HealSystem()

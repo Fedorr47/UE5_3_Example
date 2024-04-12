@@ -2,7 +2,7 @@
 
 
 #include "ThrowableActor.h"
-#include "InputActionValue.h"
+#include "Components/SplineComponent.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "ThrowableComponent.h"
@@ -51,7 +51,7 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
 		FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
 
-		if (APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController()))
+		if (const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController()))
 		{
 			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 			{
@@ -101,7 +101,7 @@ void AThrowableActor::PredictThrow()
 	bDrawPredictTrace = true;
 }
 
-ACharacter* AThrowableActor::GetThrowableOwnerCharacter()
+ADefaultPlayableCharacter* AThrowableActor::GetThrowableOwnerCharacter() const
 {
 	return OwnerCharacter;
 }

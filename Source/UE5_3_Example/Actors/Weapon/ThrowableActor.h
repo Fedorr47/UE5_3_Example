@@ -69,5 +69,5 @@ public:
 	void PredictThrow();
 
 	UFUNCTION()
-	ADefaultPlayableCharacter* GetThrowableOwnerCharacter();
+	ADefaultPlayableCharacter* GetThrowableOwnerCharacter() const;
 };

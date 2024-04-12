@@ -5,7 +5,7 @@
 #include <Kismet/GameplayStatics.h>
 #include "Math/UnrealMathUtility.h"
 
-#include "GameFramework/Character.h"
+#include "DefaultPlayableCharacter.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "GameFramework/Actor.h"
@@ -36,13 +36,13 @@ void ThrowableSystem::ApplyThrow(UEntityManager* EntityManager)
 		{
 			if (AThrowableActor* ThrowableActor = Cast<AThrowableActor>(ThrowableComp->GetOwnerObject()))
 			{
-				ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableActor->GetThrowableOwnerCharacter());
+				const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowableActor->GetThrowableOwnerCharacter());
 				if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileClass.Get()))
 				{
 					UWorld* World = ThrowableComp->GetComponentWorld();
 					if (IsValid(World))
 					{
-						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
+						const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
 						FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, -InFrontOwner.Z);
