@@ -24,17 +24,17 @@ void UTP_WeaponComponent::Fire()
 	{
 		return;
 	}
-
-	// Try and fire a projectile
+	
 	if (ProjectileClass != nullptr)
 	{
 		UWorld* const World = GetWorld();
 		if (World != nullptr)
 		{
-			APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
+			const APlayerController* PlayerController = Cast<APlayerController>(Character->GetController());
 			const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
+			FVector Location = GetSocketLocation("Muzzle");
 			// MuzzleOffset is in camera space, so transform it to world space before offsetting from the character location to find the final muzzle position
-			const FVector SpawnLocation = GetOwner()->GetActorLocation() + SpawnRotation.RotateVector(MuzzleOffset);
+			const FVector SpawnLocation = Location;
 	
 			//Set Spawn Collision Handling Override
 			FActorSpawnParameters ActorSpawnParams;
@@ -63,6 +63,16 @@ void UTP_WeaponComponent::Fire()
 	}
 }
 
+void UTP_WeaponComponent::StartAutomaticFire()
+{
+	IsFullyAutomaticActivated = true;
+}
+
+void UTP_WeaponComponent::StopAutomaticFire()
+{
+	IsFullyAutomaticActivated = false;
+}
+
 void UTP_WeaponComponent::AttachWeapon(ADefaultPlayableCharacter* TargetCharacter)
 {
 	Character = TargetCharacter;
@@ -82,7 +92,7 @@ void UTP_WeaponComponent::AttachWeapon(ADefaultPlayableCharacter* TargetCharacte
 	Character->SetHasRifle(true);
 
 	// Set up action bindings
-	if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
+	if (const APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
@@ -93,7 +103,29 @@ void UTP_WeaponComponent::AttachWeapon(ADefaultPlayableCharacter* TargetCharacte
 		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
 		{
 			// Fire
-			EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &UTP_WeaponComponent::Fire);
+			if (IsFullyAutomatic)
+			{
+				EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Started, this, &UTP_WeaponComponent::StartAutomaticFire);
+				EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Completed, this, &UTP_WeaponComponent::StopAutomaticFire);
+			}
+			else
+			{
+				EnhancedInputComponent->BindAction(FireAction, ETriggerEvent::Triggered, this, &UTP_WeaponComponent::Fire);
+			}
+		}
+	}
+}
+
+void UTP_WeaponComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
+{
+	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	if (IsFullyAutomaticActivated)
+	{
+		CurrentTimeBetweenShoot -= DeltaTime;
+		if (CurrentTimeBetweenShoot <= 0.0f)
+		{
+			Fire();
+			CurrentTimeBetweenShoot = TimeBetweenShoot;
 		}
 	}
 }
@@ -105,7 +137,7 @@ void UTP_WeaponComponent::EndPlay(const EEndPlayReason::Type EndPlayReason)
 		return;
 	}
 
-	if (APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
+	if (const APlayerController* PlayerController = Cast<APlayerController>(Character->GetController()))
 	{
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{

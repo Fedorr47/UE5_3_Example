@@ -21,6 +21,8 @@ class ADefaultPlayableCharacter;
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_14_RPC_WRAPPERS_NO_PURE_DECLS \
  \
 	DECLARE_FUNCTION(execEndPlay); \
+	DECLARE_FUNCTION(execStopAutomaticFire); \
+	DECLARE_FUNCTION(execStartAutomaticFire); \
 	DECLARE_FUNCTION(execFire); \
 	DECLARE_FUNCTION(execAttachWeapon);
 

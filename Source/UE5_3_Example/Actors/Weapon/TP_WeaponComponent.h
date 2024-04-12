@@ -49,6 +49,17 @@ public:
 	UFUNCTION(BlueprintCallable, Category="Weapon")
 	void Fire();
 
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	void StartAutomaticFire();
+
+	UFUNCTION(BlueprintCallable, Category = "Weapon")
+	void StopAutomaticFire();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Gameplay)
+	bool IsFullyAutomatic = false;
+
+	virtual void TickComponent(float DeltaTime, enum ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
+
 protected:
 	/** Ends gameplay for this component. */
 	UFUNCTION()
@@ -56,5 +67,15 @@ protected:
 
 private:
 	/** The Character holding this weapon*/
+	UPROPERTY()
 	ADefaultPlayableCharacter* Character;
+
+	UPROPERTY()
+	bool IsFullyAutomaticActivated = false;
+
+	UPROPERTY()
+	float TimeBetweenShoot = 0.2f;
+
+	UPROPERTY()
+	float CurrentTimeBetweenShoot = 0.0f;
 };

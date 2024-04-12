@@ -31,6 +31,20 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		P_THIS->EndPlay(EEndPlayReason::Type(Z_Param_EndPlayReason));
 		P_NATIVE_END;
 	}
+	DEFINE_FUNCTION(UTP_WeaponComponent::execStopAutomaticFire)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StopAutomaticFire();
+		P_NATIVE_END;
+	}
+	DEFINE_FUNCTION(UTP_WeaponComponent::execStartAutomaticFire)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->StartAutomaticFire();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(UTP_WeaponComponent::execFire)
 	{
 		P_FINISH;
@@ -53,6 +67,8 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 			{ "AttachWeapon", &UTP_WeaponComponent::execAttachWeapon },
 			{ "EndPlay", &UTP_WeaponComponent::execEndPlay },
 			{ "Fire", &UTP_WeaponComponent::execFire },
+			{ "StartAutomaticFire", &UTP_WeaponComponent::execStartAutomaticFire },
+			{ "StopAutomaticFire", &UTP_WeaponComponent::execStopAutomaticFire },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -174,6 +190,52 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_UTP_WeaponComponent_StartAutomaticFire_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTP_WeaponComponent_StartAutomaticFire_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Weapon" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UTP_WeaponComponent_StartAutomaticFire_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTP_WeaponComponent, nullptr, "StartAutomaticFire", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UTP_WeaponComponent_StartAutomaticFire_Statics::Function_MetaDataParams), Z_Construct_UFunction_UTP_WeaponComponent_StartAutomaticFire_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UTP_WeaponComponent_StartAutomaticFire()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UTP_WeaponComponent_StartAutomaticFire_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_UTP_WeaponComponent_StopAutomaticFire_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_UTP_WeaponComponent_StopAutomaticFire_Statics::Function_MetaDataParams[] = {
+		{ "Category", "Weapon" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UTP_WeaponComponent_StopAutomaticFire_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UTP_WeaponComponent, nullptr, "StopAutomaticFire", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UTP_WeaponComponent_StopAutomaticFire_Statics::Function_MetaDataParams), Z_Construct_UFunction_UTP_WeaponComponent_StopAutomaticFire_Statics::Function_MetaDataParams) };
+	UFunction* Z_Construct_UFunction_UTP_WeaponComponent_StopAutomaticFire()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UTP_WeaponComponent_StopAutomaticFire_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(UTP_WeaponComponent);
 	UClass* Z_Construct_UClass_UTP_WeaponComponent_NoRegister()
 	{
@@ -210,6 +272,28 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_FireAction_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_FireAction;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsFullyAutomatic_MetaData[];
+#endif
+		static void NewProp_IsFullyAutomatic_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsFullyAutomatic;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Character_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Character;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsFullyAutomaticActivated_MetaData[];
+#endif
+		static void NewProp_IsFullyAutomaticActivated_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsFullyAutomaticActivated;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_TimeBetweenShoot_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_TimeBetweenShoot;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_CurrentTimeBetweenShoot_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_CurrentTimeBetweenShoot;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -223,6 +307,8 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		{ &Z_Construct_UFunction_UTP_WeaponComponent_AttachWeapon, "AttachWeapon" }, // 1441686610
 		{ &Z_Construct_UFunction_UTP_WeaponComponent_EndPlay, "EndPlay" }, // 3501335985
 		{ &Z_Construct_UFunction_UTP_WeaponComponent_Fire, "Fire" }, // 3109096996
+		{ &Z_Construct_UFunction_UTP_WeaponComponent_StartAutomaticFire, "StartAutomaticFire" }, // 2256890496
+		{ &Z_Construct_UFunction_UTP_WeaponComponent_StopAutomaticFire, "StopAutomaticFire" }, // 2996048006
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -316,6 +402,51 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_FireAction = { "FireAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTP_WeaponComponent, FireAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_FireAction_MetaData), Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_FireAction_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomatic_MetaData[] = {
+		{ "Category", "Gameplay" },
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomatic_SetBit(void* Obj)
+	{
+		((UTP_WeaponComponent*)Obj)->IsFullyAutomatic = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomatic = { "IsFullyAutomatic", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UTP_WeaponComponent), &Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomatic_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomatic_MetaData), Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomatic_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_Character_MetaData[] = {
+#if !UE_BUILD_SHIPPING
+		{ "Comment", "/** The Character holding this weapon*/" },
+#endif
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
+#if !UE_BUILD_SHIPPING
+		{ "ToolTip", "The Character holding this weapon" },
+#endif
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_Character = { "Character", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTP_WeaponComponent, Character), Z_Construct_UClass_ADefaultPlayableCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_Character_MetaData), Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_Character_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomaticActivated_MetaData[] = {
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomaticActivated_SetBit(void* Obj)
+	{
+		((UTP_WeaponComponent*)Obj)->IsFullyAutomaticActivated = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomaticActivated = { "IsFullyAutomaticActivated", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UTP_WeaponComponent), &Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomaticActivated_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomaticActivated_MetaData), Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomaticActivated_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_TimeBetweenShoot_MetaData[] = {
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_TimeBetweenShoot = { "TimeBetweenShoot", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTP_WeaponComponent, TimeBetweenShoot), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_TimeBetweenShoot_MetaData), Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_TimeBetweenShoot_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_CurrentTimeBetweenShoot_MetaData[] = {
+		{ "ModuleRelativePath", "Actors/Weapon/TP_WeaponComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_CurrentTimeBetweenShoot = { "CurrentTimeBetweenShoot", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UTP_WeaponComponent, CurrentTimeBetweenShoot), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_CurrentTimeBetweenShoot_MetaData), Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_CurrentTimeBetweenShoot_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UTP_WeaponComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_ProjectileClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_FireSound,
@@ -323,6 +454,11 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_MuzzleOffset,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_FireMappingContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_FireAction,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomatic,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_Character,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_IsFullyAutomaticActivated,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_TimeBetweenShoot,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UTP_WeaponComponent_Statics::NewProp_CurrentTimeBetweenShoot,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UTP_WeaponComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UTP_WeaponComponent>::IsAbstract,
@@ -362,9 +498,9 @@ void EmptyLinkFunctionForGeneratedCodeTP_WeaponComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UTP_WeaponComponent, UTP_WeaponComponent::StaticClass, TEXT("UTP_WeaponComponent"), &Z_Registration_Info_UClass_UTP_WeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_WeaponComponent), 3717283806U) },
+		{ Z_Construct_UClass_UTP_WeaponComponent, UTP_WeaponComponent::StaticClass, TEXT("UTP_WeaponComponent"), &Z_Registration_Info_UClass_UTP_WeaponComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UTP_WeaponComponent), 1053830719U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_1280557954(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_3946594451(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_TP_WeaponComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

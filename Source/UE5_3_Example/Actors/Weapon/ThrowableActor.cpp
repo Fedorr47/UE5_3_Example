@@ -94,6 +94,7 @@ void AThrowableActor::ActiveThrow()
 		}
 		ThrowableComp->SplinePredictMeshes.Empty();
 	}
+	Destroy();
 }
 
 void AThrowableActor::PredictThrow()
