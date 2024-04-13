@@ -33,4 +33,10 @@ private:
 
 	UPROPERTY()
 	bool OnceThrowPerTime = true;
+
+	UPROPERTY()
+	float WaitForNextTrow = 0.0f;
+
+	UPROPERTY()
+	float CurrentTimeAfterThrow = 0.0f;
 };

@@ -58,8 +58,9 @@ void AThrowableSystem::ApplyThrow()
 
 	for (const FEntity& Entity : Entities)
 	{
+		bool WasThrown = false;
 		UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
-		if (IsValid(ThrowableComp) && CurrentTimeAfterThrow >= WaitForNextTrow)
+		if (IsValid(ThrowableComp) && CurrentTimeAfterThrow >= WaitForNextTrow && !WasThrown)
 		{
 			if (const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowableComp->GetOwnerObject()))
 			{
@@ -96,6 +97,10 @@ void AThrowableSystem::ApplyThrow()
 						if (WaitForNextTrow > 0.0f)
 						{
 							CurrentTimeAfterThrow = 0.0f;
+						}
+						if (OnceThrowPerTime)
+						{
+							WasThrown = true;
 						}
 					}
 				}

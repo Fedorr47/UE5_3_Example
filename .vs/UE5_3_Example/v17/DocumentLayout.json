@@ -422,9 +422,9 @@
               "Title": "ThrowableSystem.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.h",
-              "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.h*",
-              "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.h*",
-              "ViewState": "AQIAABIAAAAAAAAAAAAAACIAAAAWAAAA",
+              "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.h",
+              "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.h",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACUAAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-12T17:31:10.862Z",
               "EditorCaption": ""
@@ -667,7 +667,8 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\FloatableHealth.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T12:09:11.653Z"
+              "WhenOpened": "2024-04-11T12:09:11.653Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -675,9 +676,9 @@
               "Title": "ThrowableSystem.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp",
-              "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp",
-              "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACMAAAAoAAAA",
+              "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp*",
+              "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp*",
+              "ViewState": "AQIAAEgAAAAAAAAAAAAAAGYAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-11T12:09:11.681Z",
               "EditorCaption": ""
