@@ -43,7 +43,7 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		return;
 	}
 
-	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(ActorEntity);
+	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->AddComponent<UThrowableComponent>(OwnerCharacter->GetActorEntity());
 	if (IsValid(ThrowableComp) && IsValid(ThrowableProjectileClass.Get()))
 	{
 		FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
@@ -70,6 +70,7 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		ThrowableComp->SplinePredict = OwnerCharacter->GetSplinePredict();
 		ThrowableComp->SplinePredict->bDrawDebug = true;
 	}
+	mGameMode->EntityManager->DestroyEntity(ActorEntity);
 	Destroy();
 }
 
