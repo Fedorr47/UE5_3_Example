@@ -31,6 +31,10 @@ void AThrowableSystem::UpdateSystem(float DeltaSeconds)
 	{
 		PredictThrow();
 	}
+	if (CurrentTimeAfterThrow <= WaitForNextTrow)
+	{
+		CurrentTimeAfterThrow += DeltaSeconds;
+	}
 }
 
 void AThrowableSystem::BindActions(const APlayerController* PlayerController, UInputAction* ThrowAction)
@@ -55,7 +59,7 @@ void AThrowableSystem::ApplyThrow()
 	for (const FEntity& Entity : Entities)
 	{
 		UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
-		if (IsValid(ThrowableComp))
+		if (IsValid(ThrowableComp) && CurrentTimeAfterThrow >= WaitForNextTrow)
 		{
 			if (const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowableComp->GetOwnerObject()))
 			{
@@ -88,6 +92,11 @@ void AThrowableSystem::ApplyThrow()
 						mEntityManager->RemoveComponent(Entity, ThrowableComp);
 
 						ShouldPredictPath = false;
+
+						if (WaitForNextTrow > 0.0f)
+						{
+							CurrentTimeAfterThrow = 0.0f;
+						}
 					}
 				}
 			}
@@ -104,9 +113,12 @@ void AThrowableSystem::PredictThrow()
 
 	for (const FEntity& Entity : Entities)
 	{
-		//bool 
+		bool NotPredictForATick = true;
 		UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
-		if (IsValid(ThrowableComp) && ThrowableComp->IsActiveThrowable && IsValid(ThrowableComp->ProjectileClass.Get()))
+		if (IsValid(ThrowableComp) && 
+			ThrowableComp->IsActiveThrowable &&
+			IsValid(ThrowableComp->ProjectileClass.Get()) &&
+			NotPredictForATick)
 		{
 			if (ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableComp->GetOwnerObject()))
 			{
@@ -177,6 +189,7 @@ void AThrowableSystem::PredictThrow()
 					}
 
 					ShouldPredictPath = true;
+					NotPredictForATick = true;
 				}
 			}
 		}

@@ -30,4 +30,7 @@ private:
 
 	UPROPERTY()
 	bool ShouldPredictPath = false;
+
+	UPROPERTY()
+	bool OnceThrowPerTime = true;
 };

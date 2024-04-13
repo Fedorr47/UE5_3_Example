@@ -38,6 +38,11 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 #endif
 		static void NewProp_ShouldPredictPath_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_ShouldPredictPath;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnceThrowPerTime_MetaData[];
+#endif
+		static void NewProp_OnceThrowPerTime_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_OnceThrowPerTime;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -73,9 +78,20 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 		((AThrowableSystem*)Obj)->ShouldPredictPath = 1;
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AThrowableSystem_Statics::NewProp_ShouldPredictPath = { "ShouldPredictPath", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AThrowableSystem), &Z_Construct_UClass_AThrowableSystem_Statics::NewProp_ShouldPredictPath_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableSystem_Statics::NewProp_ShouldPredictPath_MetaData), Z_Construct_UClass_AThrowableSystem_Statics::NewProp_ShouldPredictPath_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowableSystem_Statics::NewProp_OnceThrowPerTime_MetaData[] = {
+		{ "ModuleRelativePath", "Systems/ThrowableSystem.h" },
+	};
+#endif
+	void Z_Construct_UClass_AThrowableSystem_Statics::NewProp_OnceThrowPerTime_SetBit(void* Obj)
+	{
+		((AThrowableSystem*)Obj)->OnceThrowPerTime = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AThrowableSystem_Statics::NewProp_OnceThrowPerTime = { "OnceThrowPerTime", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AThrowableSystem), &Z_Construct_UClass_AThrowableSystem_Statics::NewProp_OnceThrowPerTime_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableSystem_Statics::NewProp_OnceThrowPerTime_MetaData), Z_Construct_UClass_AThrowableSystem_Statics::NewProp_OnceThrowPerTime_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AThrowableSystem_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableSystem_Statics::NewProp_ActionsNotBind,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableSystem_Statics::NewProp_ShouldPredictPath,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableSystem_Statics::NewProp_OnceThrowPerTime,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AThrowableSystem_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<AThrowableSystem>::IsAbstract,
@@ -114,9 +130,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AThrowableSystem, AThrowableSystem::StaticClass, TEXT("AThrowableSystem"), &Z_Registration_Info_UClass_AThrowableSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableSystem), 2030442345U) },
+		{ Z_Construct_UClass_AThrowableSystem, AThrowableSystem::StaticClass, TEXT("AThrowableSystem"), &Z_Registration_Info_UClass_AThrowableSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableSystem), 3071753126U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_3007495354(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_3947664053(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

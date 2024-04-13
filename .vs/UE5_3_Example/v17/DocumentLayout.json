@@ -7,16 +7,28 @@
       "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Systems\\ThrowableSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\SystemQueue\\EntityManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\SystemQueue\\EntityManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\SystemQueue\\EntityManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\SystemQueue\\EntityManager.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.MakeFile.targets||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
@@ -64,10 +76,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\ThrowableComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Components\\ThrowableComponent.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{3C0D8D6D-093C-329B-B9FC-AA4456EFA17B}|Intermediate\\ProjectFiles\\UE5_3_Example.vcxproj|solutionrelative:Source\\UE5_3_Example\\Systems\\ThrowableSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{3669A65A-2825-3060-A6BC-58DA30BDF78A}|Intermediate\\ProjectFiles\\UE5.vcxproj|C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\CoreUObject\\Private\\UObject\\Class.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
@@ -185,22 +193,47 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 38,
+          "SelectedChildIndex": 40,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 3,
+              "Title": "FireArmWeapon.h",
+              "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.h",
+              "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.h",
+              "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.h",
+              "RelativeToolTip": "Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2024-04-13T09:57:14.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "FireArmWeapon.cpp",
+              "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.cpp",
+              "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.cpp",
+              "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.cpp",
+              "RelativeToolTip": "Source\\UE5_3_Example\\Actors\\Weapon\\FireArmWeapon.cpp",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-04-13T09:57:13.814Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "Class.cpp",
               "DocumentMoniker": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\CoreUObject\\Private\\UObject\\Class.cpp",
               "ToolTip": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\CoreUObject\\Private\\UObject\\Class.cpp [Read Only]",
               "ViewState": "AQIAALoIAAAAAAAAAAAqwM4IAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T19:12:00.238Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-04-12T19:12:00.238Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "EntityComponent.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\EntityComponent.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\EntityComponent.h",
@@ -208,34 +241,31 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\EntityComponent.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T19:00:48.168Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T19:00:48.168Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "MTAccessDetector.h",
               "DocumentMoniker": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\Core\\Public\\Misc\\MTAccessDetector.h",
               "ToolTip": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\Core\\Public\\Misc\\MTAccessDetector.h [Read Only]",
               "ViewState": "AQIAADQCAAAAAAAAAAAqwEcCAAADAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T18:57:18.119Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-04-12T18:57:18.119Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "Microsoft.MakeFile.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.MakeFile.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Microsoft\\VC\\v170\\Microsoft.MakeFile.targets",
               "ViewState": "AQIAABYAAAAAAAAAAAAmwCsAAAAEAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003801|",
-              "WhenOpened": "2024-04-12T17:56:48.089Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:56:48.089Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "NiagaraTypeCustomizations.cpp",
               "DocumentMoniker": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Plugins\\FX\\Niagara\\Source\\NiagaraEditor\\Private\\Customizations\\NiagaraTypeCustomizations.cpp",
               "ToolTip": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Plugins\\FX\\Niagara\\Source\\NiagaraEditor\\Private\\Customizations\\NiagaraTypeCustomizations.cpp",
@@ -245,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "DefaultPlayableCharacter.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Player\\DefaultPlayableCharacter.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Player\\DefaultPlayableCharacter.cpp",
@@ -257,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "BaseInteractableActor.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\BaseInteractableActor.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\BaseInteractableActor.h",
@@ -265,12 +295,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Actors\\BaseInteractableActor.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAbAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T17:44:18.02Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:44:18.02Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "BaseInteractableActor.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\BaseInteractableActor.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\BaseInteractableActor.cpp",
@@ -278,12 +307,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Actors\\BaseInteractableActor.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T17:43:34.581Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:43:34.581Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "MessageQueue.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\SystemQueue\\MessageQueue.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\SystemQueue\\MessageQueue.h",
@@ -295,7 +323,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "MessageQueue.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\SystemQueue\\MessageQueue.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\SystemQueue\\MessageQueue.cpp",
@@ -307,20 +335,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 2,
               "Title": "EntityManager.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\SystemQueue\\EntityManager.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\SystemQueue\\EntityManager.h",
               "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\SystemQueue\\EntityManager.h",
               "RelativeToolTip": "Source\\UE5_3_Example\\SystemQueue\\EntityManager.h",
-              "ViewState": "AQIAAB0AAAAAAAAAAAAswKoAAAAFAAAA",
+              "ViewState": "AQIAAGsAAAAAAAAAAAAnwH4AAAATAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-12T17:42:13.813Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "EntityManager.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\SystemQueue\\EntityManager.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\SystemQueue\\EntityManager.cpp",
@@ -328,23 +356,21 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\SystemQueue\\EntityManager.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T17:42:12.834Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:42:12.834Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "SharedPointerInternals.h",
               "DocumentMoniker": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\Core\\Public\\Templates\\SharedPointerInternals.h",
               "ToolTip": "C:\\Program Files\\Epic Games\\UE_5.3\\Engine\\Source\\Runtime\\Core\\Public\\Templates\\SharedPointerInternals.h [Read Only]",
               "ViewState": "AQIAAHMBAAAAAAAAAAAswIcBAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T17:41:22.069Z",
-              "EditorCaption": " [Read Only]"
+              "WhenOpened": "2024-04-12T17:41:22.069Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 9,
               "Title": "UE5_3_ExampleGameMode.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Mods\\UE5_3_ExampleGameMode.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Mods\\UE5_3_ExampleGameMode.cpp",
@@ -352,12 +378,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Mods\\UE5_3_ExampleGameMode.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T17:32:57.735Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:32:57.735Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "UE5_3_ExampleGameMode.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Mods\\UE5_3_ExampleGameMode.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Mods\\UE5_3_ExampleGameMode.h",
@@ -365,12 +390,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Mods\\UE5_3_ExampleGameMode.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T17:32:57.151Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:32:57.151Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "HealSystem.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\HealSystem.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\HealSystem.cpp",
@@ -378,12 +402,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\HealSystem.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAaAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T17:32:01.046Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:32:01.046Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 21,
               "Title": "HealSystem.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\HealSystem.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\HealSystem.h",
@@ -391,25 +414,24 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\HealSystem.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAANAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T17:31:29.226Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:31:29.226Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 1,
               "Title": "ThrowableSystem.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.h",
-              "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.h",
-              "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.h",
-              "ViewState": "AQIAAAgAAAAAAAAAAAAqwBwAAAAcAAAA",
+              "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.h*",
+              "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.h*",
+              "ViewState": "AQIAABIAAAAAAAAAAAAAACIAAAAWAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-04-12T17:31:10.862Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "DamageSystem.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\DamageSystem.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\DamageSystem.h",
@@ -417,12 +439,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\DamageSystem.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAPAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T17:31:05.773Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:31:05.773Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 20,
               "Title": "BaseExtSystem.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\BaseExtSystem.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\BaseExtSystem.h",
@@ -430,12 +451,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\BaseExtSystem.h",
               "ViewState": "AQIAAAQAAAAAAAAAAAAswBcAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-12T17:29:52.138Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:29:52.138Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 22,
               "Title": "BaseExtSystem.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\BaseExtSystem.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\BaseExtSystem.cpp",
@@ -443,12 +463,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\BaseExtSystem.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAABAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-12T17:29:50.248Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-12T17:29:50.248Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "HUD_Character.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\UI\\HUD_Character.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\UI\\HUD_Character.h",
@@ -460,7 +479,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 25,
               "Title": "ThrowableComponent.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\ThrowableComponent.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\ThrowableComponent.h",
@@ -468,12 +487,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\ThrowableComponent.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-11T12:37:56.452Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:37:56.452Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "ThrowableComponent.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\ThrowableComponent.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\ThrowableComponent.cpp",
@@ -481,12 +499,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\ThrowableComponent.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T12:37:51.754Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:37:51.754Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "HealthComponent.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\HealthComponent.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\HealthComponent.h",
@@ -494,12 +511,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\HealthComponent.h",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-11T12:37:44.885Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:37:44.885Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "HealthComponent.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\HealthComponent.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\HealthComponent.cpp",
@@ -507,12 +523,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\HealthComponent.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T12:37:43.023Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:37:43.023Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "HealComponent.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\HealComponent.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\HealComponent.h",
@@ -524,7 +539,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "HealComponent.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\HealComponent.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\HealComponent.cpp",
@@ -536,7 +551,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 37,
+              "DocumentIndex": 39,
               "Title": "FloatableHealth.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\FloatableHealth.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\FloatableHealth.h",
@@ -548,7 +563,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 8,
               "Title": "EntityComponent.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\EntityComponent.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\EntityComponent.cpp",
@@ -556,12 +571,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\EntityComponent.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T12:36:53.562Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:36:53.562Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "DamageComponent.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\DamageComponent.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\DamageComponent.cpp",
@@ -569,12 +583,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\DamageComponent.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T12:36:52.121Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:36:52.121Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 43,
+              "DocumentIndex": 45,
               "Title": "DefaultPlaybleCharacter.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Player\\DefaultPlaybleCharacter.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Player\\DefaultPlaybleCharacter.h",
@@ -586,7 +599,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 44,
+              "DocumentIndex": 46,
               "Title": "DefaultPlaybleCharacter.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Player\\DefaultPlaybleCharacter.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Player\\DefaultPlaybleCharacter.cpp",
@@ -598,7 +611,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "DefaultProjectile.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Projectiles\\DefaultProjectile.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Projectiles\\DefaultProjectile.h",
@@ -606,12 +619,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Actors\\Projectiles\\DefaultProjectile.h",
               "ViewState": "AQIAAAwAAAAAAAAAAAAcwCkAAABAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-11T12:31:33.482Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:31:33.482Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "DefaultProjectile.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Projectiles\\DefaultProjectile.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Projectiles\\DefaultProjectile.cpp",
@@ -619,12 +631,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Actors\\Projectiles\\DefaultProjectile.cpp",
               "ViewState": "AQIAABIAAAAAAAAAAAAAACUAAAAVAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T12:31:26.169Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:31:26.169Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "DamageSystem.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\DamageSystem.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\DamageSystem.cpp",
@@ -632,12 +643,11 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\DamageSystem.cpp",
               "ViewState": "AQIAABgAAAAAAAAAAAAAACsAAABKAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T12:30:51.274Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:30:51.274Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "HUD_Character.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\UI\\HUD_Character.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\UI\\HUD_Character.cpp",
@@ -649,7 +659,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 38,
+              "DocumentIndex": 40,
               "Title": "FloatableHealth.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Components\\FloatableHealth.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Components\\FloatableHealth.cpp",
@@ -657,8 +667,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Components\\FloatableHealth.cpp",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAnAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-04-11T12:09:11.653Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:09:11.653Z"
             },
             {
               "$type": "Document",
@@ -668,27 +677,27 @@
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp",
               "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp",
               "RelativeToolTip": "Source\\UE5_3_Example\\Systems\\ThrowableSystem.cpp",
-              "ViewState": "AQIAAGEAAAAAAAAAAAASwGoAAAAEAAAA",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAACMAAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-11T12:09:11.681Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "ThrowableActor.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.cpp",
               "ToolTip": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.cpp",
               "RelativeToolTip": "Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.cpp",
-              "ViewState": "AQIAACoAAAAAAAAAAAAAAC0AAABMAAAA",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAAAC0AAABMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-04-11T12:29:53.813Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 39,
+              "DocumentIndex": 41,
               "Title": "UE5_3_Example.Build.cs",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\UE5_3_Example.Build.cs",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\UE5_3_Example.Build.cs",
@@ -700,7 +709,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 40,
+              "DocumentIndex": 42,
               "Title": "UE5_3_Example.cpp",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\UE5_3_Example.cpp",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\UE5_3_Example.cpp",
@@ -712,7 +721,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 41,
+              "DocumentIndex": 43,
               "Title": "UE5_3_Example.Target.cs",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example.Target.cs",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example.Target.cs",
@@ -724,7 +733,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 42,
+              "DocumentIndex": 44,
               "Title": "UE5_3_ExampleEditor.Target.cs",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_ExampleEditor.Target.cs",
               "RelativeDocumentMoniker": "Source\\UE5_3_ExampleEditor.Target.cs",
@@ -736,7 +745,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 6,
               "Title": "ThrowableActor.h",
               "DocumentMoniker": "D:\\UE_projects\\UE5_3_Example\\Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.h",
               "RelativeDocumentMoniker": "Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.h",
@@ -744,8 +753,7 @@
               "RelativeToolTip": "Source\\UE5_3_Example\\Actors\\Weapon\\ThrowableActor.h",
               "ViewState": "AQIAAAcAAAAAAAAAAAAqwA0AAABHAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-04-11T12:28:03.022Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-04-11T12:28:03.022Z"
             }
           ]
         }
