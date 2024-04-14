@@ -9,13 +9,10 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 // Cross Module References
-	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_ACharacter_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ABaseInteractableActor();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultPlayableCharacter_NoRegister();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowableActor();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowableActor_NoRegister();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
@@ -89,14 +86,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 		static void NewProp_bDrawPredictTrace_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_bDrawPredictTrace;
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_OwnerCharacter_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_OwnerCharacter;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrowableProjectileClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_ThrowableProjectileClass;
-#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrowMappingContext_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_ThrowMappingContext;
@@ -135,19 +124,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_AThrowableActor_Statics::NewProp_bDrawPredictTrace = { "bDrawPredictTrace", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(AThrowableActor), &Z_Construct_UClass_AThrowableActor_Statics::NewProp_bDrawPredictTrace_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::NewProp_bDrawPredictTrace_MetaData), Z_Construct_UClass_AThrowableActor_Statics::NewProp_bDrawPredictTrace_MetaData) };
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter_MetaData[] = {
-		{ "ModuleRelativePath", "Actors/Weapon/ThrowableActor.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter = { "OwnerCharacter", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowableActor, OwnerCharacter), Z_Construct_UClass_ADefaultPlayableCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter_MetaData), Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableProjectileClass_MetaData[] = {
-		{ "Category", "Projectile" },
-		{ "ModuleRelativePath", "Actors/Weapon/ThrowableActor.h" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableProjectileClass = { "ThrowableProjectileClass", nullptr, (EPropertyFlags)0x0014000000000001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowableActor, ThrowableProjectileClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ADefaultProjectile_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableProjectileClass_MetaData), Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableProjectileClass_MetaData) };
-#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowMappingContext_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
 		{ "Category", "Input" },
@@ -165,8 +141,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowAction = { "ThrowAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(AThrowableActor, ThrowAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowAction_MetaData), Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowAction_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_AThrowableActor_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_bDrawPredictTrace,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_OwnerCharacter,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowableProjectileClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowMappingContext,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_AThrowableActor_Statics::NewProp_ThrowAction,
 	};
@@ -208,9 +182,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowableActor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AThrowableActor, AThrowableActor::StaticClass, TEXT("AThrowableActor"), &Z_Registration_Info_UClass_AThrowableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableActor), 2868495724U) },
+		{ Z_Construct_UClass_AThrowableActor, AThrowableActor::StaticClass, TEXT("AThrowableActor"), &Z_Registration_Info_UClass_AThrowableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableActor), 1415460951U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_810960607(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_771460193(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

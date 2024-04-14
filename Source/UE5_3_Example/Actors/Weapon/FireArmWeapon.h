@@ -15,4 +15,7 @@ class UE5_3_EXAMPLE_API AFireArmWeapon : public ABaseInteractableActor
 	GENERATED_BODY()
 public:
 	AFireArmWeapon(const FObjectInitializer& ObjectInitializer);
+
+	UFUNCTION(BlueprintCallable, Category = "Throw")
+	void AttachToCharacter(ACharacter* TargetCharacter);
 };

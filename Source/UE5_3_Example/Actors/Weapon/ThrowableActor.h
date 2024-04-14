@@ -21,9 +21,6 @@ class UE5_3_EXAMPLE_API AThrowableActor : public ABaseInteractableActor
 protected:
 	virtual void BeginPlay() override;
 
-	UPROPERTY()
-	ADefaultPlayableCharacter* OwnerCharacter = nullptr;
-
 public:
 	AThrowableActor(const FObjectInitializer& ObjectInitializer);
 
@@ -31,9 +28,6 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void AttachToCharacter(ACharacter* TargetCharacter);
-
-	UPROPERTY(EditAnywhere, Category = "Projectile")
-	TSubclassOf<ADefaultProjectile> ThrowableProjectileClass;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* ThrowMappingContext;

@@ -9,6 +9,7 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class ACharacter;
 #ifdef UE5_3_EXAMPLE_FireArmWeapon_generated_h
 #error "FireArmWeapon.generated.h already included, missing '#pragma once' in FireArmWeapon.h"
 #endif
@@ -17,7 +18,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_15_SPARSE_DATA
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_15_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_15_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_15_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_15_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execAttachToCharacter);
+
+
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_15_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_15_INCLASS_NO_PURE_DECLS \
 private: \

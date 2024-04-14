@@ -118,11 +118,13 @@
     <None Include="..\..\Config\DefaultEngine.ini" />
     <None Include="..\..\Config\DefaultGame.ini" />
     <None Include="..\..\Config\DefaultInput.ini" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.cpp" />
     <ClCompile Include="..\..\Source\UE5_3_Example\ExtendCheatManager.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.h" />
     <ClInclude Include="..\..\Source\UE5_3_Example\ExtendCheatManager.h" />
     <None Include="..\..\Source\UE5_3_Example\UE5_3_Example.Build.cs" />
     <ClCompile Include="..\..\Source\UE5_3_Example\UE5_3_Example.cpp">

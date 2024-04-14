@@ -33,9 +33,6 @@ ADefaultProjectile::ADefaultProjectile(const FObjectInitializer& ObjectInitializ
 
 	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMeshComp"));
 	ProjectileMesh->AttachToComponent(CollisionComp, FAttachmentTransformRules::KeepRelativeTransform);
-
-	PredictThrowMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectilePathMeshCPath"));
-	PredictThrowMeshComp->AttachToComponent(CollisionComp, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void ADefaultProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)

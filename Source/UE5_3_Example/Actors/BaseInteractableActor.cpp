@@ -5,6 +5,7 @@
 
 #include "HealthComponent.h"
 #include "DamageComponent.h"
+#include "Actors/Player/DefaultPlayableCharacter.h"
 #include "Systems/DamageSystem.h"
 
 // Sets default values

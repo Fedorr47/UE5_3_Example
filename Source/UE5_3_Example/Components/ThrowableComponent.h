@@ -22,16 +22,8 @@ public:
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
-	UStaticMeshComponent* PathMesh;
-
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 	TSubclassOf<ADefaultProjectile> ProjectileClass;
-	
-	UPROPERTY()
-	USplineComponent* SplinePredict = nullptr;
-
-	TArray<USplineMeshComponent*> SplinePredictMeshes;
 
 	UPROPERTY()
 	bool IsActiveThrowable = false;

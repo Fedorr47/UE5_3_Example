@@ -9,8 +9,8 @@
 #include "Kismet/KismetMathLibrary.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "GameFramework/Actor.h"
-#include "Actors/Weapon/ThrowableActor.h"
 #include "ThrowableComponent.h"
+#include "ThrowablePredictComponent.h"
 #include "Components/SplineComponent.h"
 #include "Components/SplineMeshComponent.h"
 #include "Actors/Projectiles/DefaultProjectile.h"
@@ -80,16 +80,6 @@ void AThrowableSystem::ApplyThrow()
 
 						World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 
-			
-						ThrowableComp->SplinePredict->ClearSplinePoints();
-						ThrowableComp->SplinePredict->UpdateSpline();
-
-						for (auto* MeshComp : ThrowableComp->SplinePredictMeshes)
-						{
-							MeshComp->DestroyComponent();
-						}
-						ThrowableComp->SplinePredictMeshes.Empty();
-
 						mEntityManager->RemoveComponent(Entity, ThrowableComp);
 
 						ShouldPredictPath = false;
@@ -106,6 +96,21 @@ void AThrowableSystem::ApplyThrow()
 				}
 			}
 		}
+		if (UThrowablePredictComponent* ThrowablePredictComp = mEntityManager->GetComponent<UThrowablePredictComponent>(Entity))
+		{
+			if (ThrowablePredictComp->SplinePredict->GetNumberOfSplinePoints() > 0)
+			{
+				ThrowablePredictComp->SplinePredict->ClearSplinePoints();
+				ThrowablePredictComp->SplinePredict->UpdateSpline();
+
+				for (auto* MeshComp : ThrowablePredictComp->SplinePredictMeshes)
+				{
+					MeshComp->DestroyComponent();
+				}
+				ThrowablePredictComp->SplinePredictMeshes.Empty();
+			}
+			
+		}
 	}
 }
 
@@ -119,15 +124,13 @@ void AThrowableSystem::PredictThrow()
 	for (const FEntity& Entity : Entities)
 	{
 		bool NotPredictForATick = true;
-		UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
-		if (IsValid(ThrowableComp) && 
-			ThrowableComp->IsActiveThrowable &&
-			IsValid(ThrowableComp->ProjectileClass.Get()) &&
+		UThrowablePredictComponent* ThrowablePredictComp = mEntityManager->GetComponent<UThrowablePredictComponent>(Entity);
+		if (IsValid(ThrowablePredictComp) &&
 			NotPredictForATick)
 		{
-			if (ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowableComp->GetOwnerObject()))
+			if (ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowablePredictComp->GetOwnerObject()))
 			{
-				UWorld* World = ThrowableComp->GetComponentWorld();
+				UWorld* World = ThrowablePredictComp->GetComponentWorld();
 				if (IsValid(World))
 				{
 					APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
@@ -140,9 +143,7 @@ void AThrowableSystem::PredictThrow()
 					FPredictProjectilePathResult PredictResult;
 
 					// TODO: Rewrite Projectile's logic to better version
-					ADefaultProjectile* ProjectileDef = ThrowableComp->ProjectileClass.GetDefaultObject();
-					float Speed = ProjectileDef->GetProjectileMovement()->InitialSpeed;
-					const FVector SpawnVelocity = InFrontOwner * Speed;
+					const FVector SpawnVelocity = InFrontOwner * ThrowablePredictComp->VelocityOfProjectile;
 
 					TArray<AActor*> ActorToIgnore{ OwnerCharacter };
 
@@ -156,7 +157,7 @@ void AThrowableSystem::PredictThrow()
 
 					UGameplayStatics::PredictProjectilePath(World, PredictParams, PredictResult);
 
-					ThrowableComp->SplinePredict->ClearSplinePoints();
+					ThrowablePredictComp->SplinePredict->ClearSplinePoints();
 					int NumOfPoints = PredictResult.PathData.Num();
 					float StepForAngle = 3.14159f / NumOfPoints;
 
@@ -165,32 +166,32 @@ void AThrowableSystem::PredictThrow()
 					{
 						float SinVal = FMath::Sin(NextStep) * 10.0f;
 						FVector PointLocation = Point.Location + OrthogonalForwardVector * (1.0f + SinVal);
-						ThrowableComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
+						ThrowablePredictComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
 						NextStep += StepForAngle;
 					}
-					ThrowableComp->SplinePredict->UpdateSpline();
+					ThrowablePredictComp->SplinePredict->UpdateSpline();
 
 					FVector Location, Tangent, LocationNext, TangentNext;
-					for (auto* MeshComp : ThrowableComp->SplinePredictMeshes)
+					for (auto* MeshComp : ThrowablePredictComp->SplinePredictMeshes)
 					{
 						MeshComp->DestroyComponent();
 					}
-					ThrowableComp->SplinePredictMeshes.Empty();
+					ThrowablePredictComp->SplinePredictMeshes.Empty();
 					for (int i = 0; i < NumOfPoints; ++i)
 					{
 						auto SplineMeshComp = NewObject<USplineMeshComponent>(OwnerCharacter);
-						ThrowableComp->SplinePredictMeshes.Add(SplineMeshComp);
+						ThrowablePredictComp->SplinePredictMeshes.Add(SplineMeshComp);
 						SplineMeshComp->SetMobility(EComponentMobility::Movable);
-						SplineMeshComp->SetStaticMesh(ThrowableComp->ProjectileClass.GetDefaultObject()->GetPredictThrowMeshComp()->GetStaticMesh());
+						SplineMeshComp->SetStaticMesh(ThrowablePredictComp->PathMesh);
 						SplineMeshComp->RegisterComponent();
 						SplineMeshComp->AttachToComponent(
 							OwnerCharacter->GetRootComponent(),
 							FAttachmentTransformRules::KeepWorldTransform
 						);
 
-						ThrowableComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i, Location, Tangent, ESplineCoordinateSpace::World);
-						ThrowableComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i+1, LocationNext, TangentNext, ESplineCoordinateSpace::World);
-						ThrowableComp->SplinePredictMeshes.Last()->SetStartAndEnd(Location, Tangent, LocationNext, TangentNext);
+						ThrowablePredictComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i, Location, Tangent, ESplineCoordinateSpace::World);
+						ThrowablePredictComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i+1, LocationNext, TangentNext, ESplineCoordinateSpace::World);
+						ThrowablePredictComp->SplinePredictMeshes.Last()->SetStartAndEnd(Location, Tangent, LocationNext, TangentNext);
 					}
 
 					ShouldPredictPath = true;

@@ -13,6 +13,7 @@ enum class EUpdateTransformFlags : int32;
 
 class UUserWidget;
 class UDamageType;
+class ADefaultPlayableCharacter;
 
 UCLASS()
 class UE5_3_EXAMPLE_API ABaseInteractableActor : public AActor
@@ -30,6 +31,9 @@ public:
 
 	UFUNCTION()
 	UStaticMesh* GetThrowableMesh() const { return StatMeshComp->GetStaticMesh(); }
+
+	UPROPERTY()
+	ADefaultPlayableCharacter* OwnerCharacter = nullptr;
 
 protected:
 	// Called when the game starts or when spawned
@@ -53,6 +57,7 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	UStaticMeshComponent* StatMeshComp;
 
+	
 	//void OnStatMeshTransformUpdate(USceneComponent* InRootComponent, EUpdateTransformFlags UpdateTransformFlags, ETeleportType Teleport);
 
 public:	

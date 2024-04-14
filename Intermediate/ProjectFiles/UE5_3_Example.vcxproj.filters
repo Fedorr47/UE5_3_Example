@@ -211,4 +211,14 @@
       <Filter>Source\UE5_3_Example\UI</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

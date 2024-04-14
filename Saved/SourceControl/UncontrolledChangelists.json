@@ -6,7 +6,8 @@
 			"description": "Default Uncontrolled Changelist",
 			"files": [
 				"D:/UE_projects/UE5_3_Example/Content/StarterContent/Maps/Advanced_Lighting_BuiltData.uasset",
-				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/Grenades/ExplotionGrenadeProjectile.uasset"
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/Grenades/ExplotionGrenadeProjectile.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/Grenades/ExplotionGrenade.uasset"
 			]
 		}
 	]
