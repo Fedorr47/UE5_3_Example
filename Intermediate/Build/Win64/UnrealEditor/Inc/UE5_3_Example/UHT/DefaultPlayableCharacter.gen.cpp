@@ -22,6 +22,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 	ENGINE_API UClass* Z_Construct_UClass_USplineComponent_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
+	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UEnhancedInputComponent_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultPlayableCharacter();
@@ -490,6 +491,10 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_mGameMode_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_mGameMode;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_mEnhancedInputComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_mEnhancedInputComponent;
 		static const UECodeGen_Private::FStructPropertyParams NewProp_AttachedComponents_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_AttachedComponents_MetaData[];
@@ -632,6 +637,13 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 	};
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mGameMode = { "mGameMode", nullptr, (EPropertyFlags)0x0040000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlayableCharacter, mGameMode), Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mGameMode_MetaData), Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mGameMode_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mEnhancedInputComponent_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Actors/Player/DefaultPlayableCharacter.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mEnhancedInputComponent = { "mEnhancedInputComponent", nullptr, (EPropertyFlags)0x0040000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ADefaultPlayableCharacter, mEnhancedInputComponent), Z_Construct_UClass_UEnhancedInputComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mEnhancedInputComponent_MetaData), Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mEnhancedInputComponent_MetaData) };
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_AttachedComponents_Inner = { "AttachedComponents", nullptr, (EPropertyFlags)0x0000008000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FEntityComponentWrapper, METADATA_PARAMS(0, nullptr) }; // 4286559399
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_AttachedComponents_MetaData[] = {
@@ -700,6 +712,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_CreatedComponents,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mWorld,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mGameMode,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mEnhancedInputComponent,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_AttachedComponents_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_AttachedComponents,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ADefaultPlayableCharacter_Statics::NewProp_mOwnerId,
@@ -746,9 +759,9 @@ void EmptyLinkFunctionForGeneratedCodeDefaultPlayableCharacter() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADefaultPlayableCharacter, ADefaultPlayableCharacter::StaticClass, TEXT("ADefaultPlayableCharacter"), &Z_Registration_Info_UClass_ADefaultPlayableCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultPlayableCharacter), 4186479342U) },
+		{ Z_Construct_UClass_ADefaultPlayableCharacter, ADefaultPlayableCharacter::StaticClass, TEXT("ADefaultPlayableCharacter"), &Z_Registration_Info_UClass_ADefaultPlayableCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultPlayableCharacter), 3783659985U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_3279931013(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_1693958091(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Player_DefaultPlayableCharacter_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

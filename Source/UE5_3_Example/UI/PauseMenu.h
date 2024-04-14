@@ -5,6 +5,8 @@
 #include "PauseMenu.generated.h"
 
 class UButton;
+class UInputAction;
+class APlayerController;
 
 UCLASS()
 class UPauseMenuWidget : public UUserWidget
@@ -21,4 +23,23 @@ protected:
 
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	UButton* mExitGame;
+
+public:
+	UFUNCTION()
+	void TogglePauseMenu();
+
+	UFUNCTION(BlueprintCallable)
+	void ClosePauseMenu();
+	
+	UFUNCTION()
+	void MappingContextWasAdded(UEnhancedInputComponent* EnhancedInputComponent, APlayerController* PlayerController);
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* PauseAction;
+
+	UPROPERTY()
+	bool WasGamePaused = false;
+
+	UPROPERTY()
+	APlayerController* mPlayerController;
 };

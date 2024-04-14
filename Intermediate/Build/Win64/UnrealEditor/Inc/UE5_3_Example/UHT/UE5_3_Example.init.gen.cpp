@@ -7,6 +7,7 @@
 #include "UObject/GeneratedCppIncludes.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeUE5_3_Example_init() {}
+	UE5_3_EXAMPLE_API UFunction* Z_Construct_UDelegateFunction_UE5_3_Example_OnMappingContextAdded__DelegateSignature();
 	UE5_3_EXAMPLE_API UFunction* Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature();
 	UE5_3_EXAMPLE_API UFunction* Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature();
 	static FPackageRegistrationInfo Z_Registration_Info_UPackage__Script_UE5_3_Example;
@@ -15,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_Example_init() {}
 		if (!Z_Registration_Info_UPackage__Script_UE5_3_Example.OuterSingleton)
 		{
 			static UObject* (*const SingletonFuncArray[])() = {
+				(UObject* (*)())Z_Construct_UDelegateFunction_UE5_3_Example_OnMappingContextAdded__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UE5_3_Example_OnMessageProcess__DelegateSignature,
 				(UObject* (*)())Z_Construct_UDelegateFunction_UE5_3_Example_OnPickUp__DelegateSignature,
 			};
@@ -23,13 +25,13 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_Example_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0xAC76EC56,
-				0x4FB7759B,
+				0x3AC706A4,
+				0xCAA7B5A4,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_UE5_3_Example.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_UE5_3_Example.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_UE5_3_Example(Z_Construct_UPackage__Script_UE5_3_Example, TEXT("/Script/UE5_3_Example"), Z_Registration_Info_UPackage__Script_UE5_3_Example, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xAC76EC56, 0x4FB7759B));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_UE5_3_Example(Z_Construct_UPackage__Script_UE5_3_Example, TEXT("/Script/UE5_3_Example"), Z_Registration_Info_UPackage__Script_UE5_3_Example, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x3AC706A4, 0xCAA7B5A4));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

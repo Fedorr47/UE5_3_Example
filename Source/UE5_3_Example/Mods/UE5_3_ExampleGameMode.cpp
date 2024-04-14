@@ -6,6 +6,7 @@
 #include "SystemQueue/EntityManager.h"
 #include "Systems/ThrowableSystem.h"
 #include "Systems/BaseExtSystem.h"
+#include "UI/PauseMenu.h"
 #include "UObject/ConstructorHelpers.h"
 
 AUE5_3_ExampleGameMode::AUE5_3_ExampleGameMode()
@@ -39,7 +40,12 @@ void AUE5_3_ExampleGameMode::StartPlay()
 	ThrowableSystem->InitSystem(EntityManager, this);
 	Systems.Add(TEXT("ThrowableSystem"), ThrowableSystem);
 
-	Super::StartPlay();	
+	UWorld* GameWorld = GetWorld();
+	if (IsValid(GameWorld))
+	{
+		mPauseMenu = CreateWidget<UUserWidget>(GameWorld, PauseMenu);
+	}
+	Super::StartPlay();
 }
 
 void AUE5_3_ExampleGameMode::SendMessage(UBaseMessage* InMsg)

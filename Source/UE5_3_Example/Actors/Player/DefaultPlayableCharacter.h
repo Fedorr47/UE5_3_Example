@@ -18,6 +18,7 @@ class UHealthComponent;
 struct FInputActionValue;
 class AUE5_3_ExampleGameMode;
 class UDamageType;
+class UEnhancedInputComponent;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
@@ -55,6 +56,11 @@ class ADefaultPlayableCharacter : public ACharacter
 
 	UPROPERTY()
 	AUE5_3_ExampleGameMode* mGameMode = nullptr;
+
+	UPROPERTY()
+	UEnhancedInputComponent* mEnhancedInputComponent = nullptr;
+
+	bool SetupGameMode();
 
 public:
 	ADefaultPlayableCharacter();

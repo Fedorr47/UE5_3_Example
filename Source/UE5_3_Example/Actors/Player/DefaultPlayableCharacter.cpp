@@ -28,6 +28,21 @@ DEFINE_LOG_CATEGORY(LogTemplateCharacter);
 //////////////////////////////////////////////////////////////////////////
 // AUE5_3_ExampleCharacter
 
+bool ADefaultPlayableCharacter::SetupGameMode()
+{
+	mWorld = GetWorld();
+	if (IsValid(mGameMode) && IsValid(mWorld))
+	{
+		return true;
+	}
+	else if (!IsValid(mGameMode) && IsValid(mWorld))
+	{
+		mGameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
+		return true;
+	}
+	return false;
+}
+
 ADefaultPlayableCharacter::ADefaultPlayableCharacter()
 {
 	// Character doesnt have a rifle at start
@@ -61,10 +76,8 @@ void ADefaultPlayableCharacter::BeginPlay()
 	Super::BeginPlay();
 	mOwnerId = this->GetUniqueID();
 
-	if (UWorld* lWorld = GetWorld())
+	if (SetupGameMode())
 	{
-		mWorld = lWorld;
-		mGameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
 		ActorEntity = mGameMode->EntityManager->CreateEntity();
 		for (FEntityComponentWrapper Component : AttachedComponents)
 		{
@@ -83,6 +96,7 @@ void ADefaultPlayableCharacter::BeginPlay()
 		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 		{
 			Subsystem->AddMappingContext(DefaultMappingContext, 0);
+			mGameMode->OnMappingContextAdded.Broadcast(mEnhancedInputComponent, PlayerController);
 		}
 	}
 
@@ -106,6 +120,7 @@ void ADefaultPlayableCharacter::SetupPlayerInputComponent(UInputComponent* Playe
 
 		// Looking
 		EnhancedInputComponent->BindAction(LookAction, ETriggerEvent::Triggered, this, &ADefaultPlayableCharacter::Look);
+		mEnhancedInputComponent = EnhancedInputComponent;
 	}
 	else
 	{
