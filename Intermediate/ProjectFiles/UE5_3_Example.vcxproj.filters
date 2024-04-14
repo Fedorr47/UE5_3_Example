@@ -144,15 +144,33 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\HealthComponent.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ShootComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ShootComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Components\ThrowableComponent.cpp">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\ThrowableComponent.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
     <Filter Include="Source\UE5_3_Example\Mods">
       <UniqueIdentifier>{49CF9926-115A-3BB4-ADBF-0B74AEF0BDC9}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Mods\MenuGameMode.cpp">
+      <Filter>Source\UE5_3_Example\Mods</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Mods\MenuGameMode.h">
+      <Filter>Source\UE5_3_Example\Mods</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Mods\UE5_3_ExampleGameMode.cpp">
       <Filter>Source\UE5_3_Example\Mods</Filter>
     </ClCompile>
@@ -210,31 +228,15 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\UI\HUD_Character.h">
       <Filter>Source\UE5_3_Example\UI</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.cpp">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\Source\UE5_3_Example\UI\MainMenu.cpp">
       <Filter>Source\UE5_3_Example\UI</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Mods\MenuGameMode.cpp">
-      <Filter>Source\UE5_3_Example\Mods</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\UI\PauseMenu.cpp">
-      <Filter>Source\UE5_3_Example\UI</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.h">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\Source\UE5_3_Example\UI\MainMenu.h">
       <Filter>Source\UE5_3_Example\UI</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Mods\MenuGameMode.h">
-      <Filter>Source\UE5_3_Example\Mods</Filter>
-    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\UI\PauseMenu.cpp">
+      <Filter>Source\UE5_3_Example\UI</Filter>
+    </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\UI\PauseMenu.h">
       <Filter>Source\UE5_3_Example\UI</Filter>
     </ClInclude>

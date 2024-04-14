@@ -9,8 +9,6 @@
 void UPauseMenuWidget::NativeConstruct()
 {
 	Super::NativeConstruct();
-	mPlayerController->bShowMouseCursor = true;
-	UWidgetBlueprintLibrary::SetInputMode_UIOnlyEx(mPlayerController);
 }
 
 void UPauseMenuWidget::NativeDestruct()
@@ -31,6 +29,8 @@ void UPauseMenuWidget::TogglePauseMenu()
 	{
 		AddToViewport();
 		UGameplayStatics::SetGamePaused(GetWorld(), true);
+		mPlayerController->bShowMouseCursor = true;
+		UWidgetBlueprintLibrary::SetInputMode_GameAndUIEx(mPlayerController);
 		WasGamePaused = true;
 	}
 	else
@@ -56,7 +56,7 @@ void UPauseMenuWidget::MappingContextWasAdded(UEnhancedInputComponent* EnhancedI
 {
 	if (IsValid(EnhancedInputComponent))
 	{
-		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Started, this, &UPauseMenuWidget::TogglePauseMenu);
+		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Completed, this, &UPauseMenuWidget::TogglePauseMenu);
 	}
 	if (IsValid(PlayerController))
 	{
