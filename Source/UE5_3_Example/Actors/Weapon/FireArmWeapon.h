@@ -18,4 +18,7 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = "Throw")
 	void AttachToCharacter(ACharacter* TargetCharacter);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = SkeletalMesh)
+	USkeletalMeshComponent* WeaponSkeletalMesh = nullptr;
 };

@@ -106,6 +106,12 @@
     <ClCompile_AdditionalOptions>$(AdditionalOptions) /Yu"$(SolutionDir)Intermediate\Build\Win64\x64\UE5_3_ExampleEditor\Development\Engine\SharedPCH.Engine.Cpp20.h"</ClCompile_AdditionalOptions>
   </PropertyGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Mods\MenuGameMode.cpp" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\UI\MainMenu.cpp" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\UI\PauseMenu.cpp" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\Mods\MenuGameMode.h" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\UI\MainMenu.h" />
+    <ClInclude Include="..\..\Source\UE5_3_Example\UI\PauseMenu.h" />
     <None Include="..\..\UE5_3_Example.uproject" />
     <None Include="..\..\Source\UE5_3_Example.Target.cs" />
     <None Include="..\..\Source\UE5_3_ExampleEditor.Target.cs" />

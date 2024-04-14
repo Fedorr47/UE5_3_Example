@@ -7,7 +7,25 @@
 			"files": [
 				"D:/UE_projects/UE5_3_Example/Content/StarterContent/Maps/Advanced_Lighting_BuiltData.uasset",
 				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/Grenades/ExplotionGrenadeProjectile.uasset",
-				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/Grenades/ExplotionGrenade.uasset"
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/Grenades/ExplotionGrenade.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FPWeapon/Weapons/Rifle/Mesh/SM_Rifle.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/Rifle/ProjectileRifle.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/7/8K/0OLPBOSZCPU1X7E3PCLCGF.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/UI/Widgets/WB_MainMenu.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/Localization/ST_Strings.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Maps/MainMenu.umap",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Mods/BP_FirstPersonGameMode.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/BP_FirstPersonGameMode.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Maps/FirstPersonMap.umap",
+				"D:/UE_projects/UE5_3_Example/Content/FPWeapon/Mesh/SK_FPGun_PhysicsAsset.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FPWeapon/Mesh/SK_FPGun_Skeleton.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FPWeapon/Mesh/SK_FPGun_Physics.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Mods/BP_MenuGameMode.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/UI/HUD/ForestBackground.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Input/Actions/IA_PauseGame.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Input/IMC_Default.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/UI/Widgets/WB_PauseMenu.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/UI/HUD/17638-3840x2160-desktop-4k-forest-background.uasset"
 			]
 		}
 	]

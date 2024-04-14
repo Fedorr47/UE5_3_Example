@@ -31,5 +31,6 @@ public:
 	UPROPERTY()
 	float VelocityOfProjectile = 0.0f;
 
+	UPROPERTY()
 	TArray<USplineMeshComponent*> SplinePredictMeshes;
 };

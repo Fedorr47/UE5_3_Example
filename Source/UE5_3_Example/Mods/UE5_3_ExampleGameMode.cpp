@@ -20,6 +20,7 @@ AUE5_3_ExampleGameMode::AUE5_3_ExampleGameMode()
 
 void AUE5_3_ExampleGameMode::Tick(float DeltaSeconds)
 {
+	Super::Tick(DeltaSeconds);
 	if (IsValid(EntityManager))
 	{
 		for (auto System : Systems)
