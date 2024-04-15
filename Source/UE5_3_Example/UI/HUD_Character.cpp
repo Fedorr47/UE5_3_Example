@@ -52,6 +52,10 @@ void UCharacterHUDWidget::NativeConstruct()
 	{
 		mHelthBar->SetPercent(1.0f);
 	}
+	using std::placeholders::_1;
+	MessageVoidCastedMethods.emplace(
+		UHealthPercentMessage::StaticClass()->GetDefaultObject()->GetClass()->GetName(),
+		std::bind(&UCharacterHUDWidget::ChangeHealthPercantage, this, _1));
 }
 
 void UCharacterHUDWidget::NativeDestruct()
@@ -66,13 +70,19 @@ void UCharacterHUDWidget::NativeOnInitialized()
 
 void UCharacterHUDWidget::TakeMsg(UBaseMessage* Msg)
 {
-	if (Msg->Type == UMessageType::HUDHealthPercent)
+	auto PairFunc = MessageVoidCastedMethods.find(Msg->TypeName);
+	if (PairFunc != MessageVoidCastedMethods.end())
 	{
-		UHealthPercentMessage* HealthPercentMessage = Cast<UHealthPercentMessage>(Msg);
-		if (IsValid(HealthPercentMessage))
-		{
-			mHelthBar->SetPercent(HealthPercentMessage->HealthPercent);
-		}
+		PairFunc->second(Msg);
+	}
+}
+
+void UCharacterHUDWidget::ChangeHealthPercantage(UBaseMessage* Msg)
+{
+	UHealthPercentMessage* HealthPercentMessage = Cast<UHealthPercentMessage>(Msg);
+	if (IsValid(HealthPercentMessage))
+	{
+		mHelthBar->SetPercent(HealthPercentMessage->HealthPercent);
 	}
 }
 

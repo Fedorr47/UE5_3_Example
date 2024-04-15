@@ -25,6 +25,8 @@ protected:
 public:
 	UFUNCTION()
 	void TakeMsg(UBaseMessage* Msg);
+
+	void ChangeHealthPercantage(UBaseMessage* Msg);
 };
 
 UCLASS()

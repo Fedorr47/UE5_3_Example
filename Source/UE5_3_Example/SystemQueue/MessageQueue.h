@@ -1,13 +1,13 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include <map>
+#include <functional>
 #include "MessageQueue.generated.h"
 
-UENUM(BlueprintType)
-enum class UMessageType : uint8
-{
-	HUDHealthPercent
-};
+class UBaseMessage;
+using VoidCast = std::function<void(UBaseMessage*)>;
+static std::map<FString, VoidCast> MessageVoidCastedMethods;
 
 UCLASS()
 class UBaseMessage : public UObject
@@ -16,7 +16,7 @@ class UBaseMessage : public UObject
 
 public:
 	UPROPERTY()
-	UMessageType Type;
+	FString TypeName;
 
 	UPROPERTY()
 	int32 OwnerId;

@@ -154,11 +154,4 @@ template<> UE5_3_EXAMPLE_API UClass* StaticClass<class UMessageQueue>();
 #define CURRENT_FILE_ID FID_UE5_3_Example_Source_UE5_3_Example_SystemQueue_MessageQueue_h
 
 
-#define FOREACH_ENUM_UMESSAGETYPE(op) \
-	op(UMessageType::HUDHealthPercent) 
-
-enum class UMessageType : uint8;
-template<> struct TIsUEnumClass<UMessageType> { enum { Value = true }; };
-template<> UE5_3_EXAMPLE_API UEnum* StaticEnum<UMessageType>();
-
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
