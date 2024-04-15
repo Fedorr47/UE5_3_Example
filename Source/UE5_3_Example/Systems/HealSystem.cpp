@@ -11,14 +11,6 @@
 #include "MessageQueue.h"
 #include "DefaultPlayableCharacter.h"
 
-AHealSystem::AHealSystem()
-{
-}
-
-AHealSystem::~AHealSystem()
-{
-}
-
 void AHealSystem::UpdateSystem(float DeltaSeconds)
 {
 }

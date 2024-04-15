@@ -2,6 +2,7 @@
 #include "Mods/UE5_3_ExampleGameMode.h"
 #include "Kismet/GameplayStatics.h"
 #include "Components/ProgressBar.h"
+#include "Components/TextBlock.h"
 #include "Actors/Player/DefaultPlayableCharacter.h"
 
 AHUD_Character::AHUD_Character()
@@ -56,6 +57,9 @@ void UCharacterHUDWidget::NativeConstruct()
 	MessageVoidCastedMethods.emplace(
 		UHealthPercentMessage::StaticClass()->GetDefaultObject()->GetClass()->GetName(),
 		std::bind(&UCharacterHUDWidget::ChangeHealthPercantage, this, _1));
+	MessageVoidCastedMethods.emplace(
+		UThrowableChangedMessage::StaticClass()->GetDefaultObject()->GetClass()->GetName(),
+		std::bind(&UCharacterHUDWidget::ChangeGrenadeCount, this, _1));
 }
 
 void UCharacterHUDWidget::NativeDestruct()
@@ -83,6 +87,17 @@ void UCharacterHUDWidget::ChangeHealthPercantage(UBaseMessage* Msg)
 	if (IsValid(HealthPercentMessage))
 	{
 		mHelthBar->SetPercent(HealthPercentMessage->HealthPercent);
+	}
+}
+
+void UCharacterHUDWidget::ChangeGrenadeCount(UBaseMessage* Msg)
+{
+	UThrowableChangedMessage* GrenadeChangedMessage = Cast<UThrowableChangedMessage>(Msg);
+	if (IsValid(GrenadeChangedMessage))
+	{
+		FNumberFormattingOptions Opts;
+		Opts.SetMaximumFractionalDigits(0);
+		mGrenadeCountText->SetText(FText::AsNumber(GrenadeChangedMessage->GrenadeCount, &Opts));
 	}
 }
 

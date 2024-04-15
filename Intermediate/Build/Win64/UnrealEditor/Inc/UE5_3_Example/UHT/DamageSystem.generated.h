@@ -36,7 +36,8 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ADamageSystem); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ADamageSystem); \
-	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ADamageSystem)
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ADamageSystem) \
+	NO_API virtual ~ADamageSystem();
 
 
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_10_PROLOG

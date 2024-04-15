@@ -38,6 +38,7 @@ public:
 
 	virtual void StartPlay();
 
+	UFUNCTION(BlueprintCallable)
 	void SendMessage(UBaseMessage* InMsg);
 
 	UPROPERTY()

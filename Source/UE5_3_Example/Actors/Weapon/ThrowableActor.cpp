@@ -44,23 +44,28 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 	if (IsValid(ThrowableComp))
 	{
 		FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
-
-		if (const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController()))
+		auto ThrowableSystemPtr = mGameMode->Systems.Find("ThrowableSystem");
+		AThrowableSystem* ThrowableSystem = nullptr;
+		if (ThrowableSystemPtr != nullptr)
 		{
-			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+			ThrowableSystem = Cast<AThrowableSystem>(*ThrowableSystemPtr);
+		}
+		if (IsValid(ThrowableSystem))
+		{
+			const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
+			if (IsValid(PlayerController) && ThrowableSystem->ActionsNotBind)
 			{
-				// Set the priority of the mapping to 1, so that it overrides the Jump action with the Fire action when using touch input
-				Subsystem->AddMappingContext(ThrowMappingContext, 1);
+				if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+				{
+					Subsystem->AddMappingContext(ThrowMappingContext, 1);
+				}
+				ThrowableSystem->BindActions(PlayerController, ThrowAction);
 			}
 			
-			auto ThrowableSystem = mGameMode->Systems.Find("ThrowableSystem");
-			if (ThrowableSystem != nullptr)
-			{
-				Cast<AThrowableSystem>(*ThrowableSystem)->BindActions(PlayerController, ThrowAction);
-			}
-
+			ThrowableComp->IsAttachedToCharacter = true;
 			ThrowableComp->InitComponent(mWorld, OwnerCharacter);
 			mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowableComp);
+
 			if (IsValid(ThrowablePredictComp))
 			{
 				ThrowablePredictComp->InitComponent(mWorld, OwnerCharacter);

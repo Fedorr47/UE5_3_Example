@@ -16,6 +16,7 @@ void EmptyLinkFunctionForGeneratedCodeUE5_3_ExampleGameMode() {}
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ABaseExtSystem_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleGameMode();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister();
+	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UBaseMessage_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityManager_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UMessageQueue_NoRegister();
 	UE5_3_EXAMPLE_API UFunction* Z_Construct_UDelegateFunction_UE5_3_Example_OnMappingContextAdded__DelegateSignature();
@@ -80,8 +81,55 @@ void FOnMappingContextAdded_DelegateWrapper(const FMulticastScriptDelegate& OnMa
 	Parms.PlayerController=PlayerController;
 	OnMappingContextAdded.ProcessMulticastDelegate<UObject>(&Parms);
 }
+	DEFINE_FUNCTION(AUE5_3_ExampleGameMode::execSendMessage)
+	{
+		P_GET_OBJECT(UBaseMessage,Z_Param_InMsg);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->SendMessage(Z_Param_InMsg);
+		P_NATIVE_END;
+	}
 	void AUE5_3_ExampleGameMode::StaticRegisterNativesAUE5_3_ExampleGameMode()
 	{
+		UClass* Class = AUE5_3_ExampleGameMode::StaticClass();
+		static const FNameNativePtrPair Funcs[] = {
+			{ "SendMessage", &AUE5_3_ExampleGameMode::execSendMessage },
+		};
+		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
+	}
+	struct Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics
+	{
+		struct UE5_3_ExampleGameMode_eventSendMessage_Parms
+		{
+			UBaseMessage* InMsg;
+		};
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_InMsg;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::NewProp_InMsg = { "InMsg", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UE5_3_ExampleGameMode_eventSendMessage_Parms, InMsg), Z_Construct_UClass_UBaseMessage_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::NewProp_InMsg,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Mods/UE5_3_ExampleGameMode.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AUE5_3_ExampleGameMode, nullptr, "SendMessage", nullptr, nullptr, Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::PropPointers), sizeof(Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::UE5_3_ExampleGameMode_eventSendMessage_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::Function_MetaDataParams), Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::UE5_3_ExampleGameMode_eventSendMessage_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage_Statics::FuncParams);
+		}
+		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AUE5_3_ExampleGameMode);
 	UClass* Z_Construct_UClass_AUE5_3_ExampleGameMode_NoRegister()
@@ -91,6 +139,7 @@ void FOnMappingContextAdded_DelegateWrapper(const FMulticastScriptDelegate& OnMa
 	struct Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
+		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -129,6 +178,10 @@ void FOnMappingContextAdded_DelegateWrapper(const FMulticastScriptDelegate& OnMa
 		(UObject* (*)())Z_Construct_UPackage__Script_UE5_3_Example,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::DependentSingletons) < 16);
+	const FClassFunctionLinkInfo Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::FuncInfo[] = {
+		{ &Z_Construct_UFunction_AUE5_3_ExampleGameMode_SendMessage, "SendMessage" }, // 4155291138
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::Class_MetaDataParams[] = {
 		{ "HideCategories", "Info Rendering MovementReplication Replication Actor Input Movement Collision Rendering HLOD WorldPartition DataLayers Transformation" },
@@ -195,11 +248,11 @@ void FOnMappingContextAdded_DelegateWrapper(const FMulticastScriptDelegate& OnMa
 		"Game",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		nullptr,
+		FuncInfo,
 		Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		0,
+		UE_ARRAY_COUNT(FuncInfo),
 		UE_ARRAY_COUNT(Z_Construct_UClass_AUE5_3_ExampleGameMode_Statics::PropPointers),
 		0,
 		0x008802ACu,
@@ -225,9 +278,9 @@ void FOnMappingContextAdded_DelegateWrapper(const FMulticastScriptDelegate& OnMa
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AUE5_3_ExampleGameMode, AUE5_3_ExampleGameMode::StaticClass, TEXT("AUE5_3_ExampleGameMode"), &Z_Registration_Info_UClass_AUE5_3_ExampleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleGameMode), 234828713U) },
+		{ Z_Construct_UClass_AUE5_3_ExampleGameMode, AUE5_3_ExampleGameMode::StaticClass, TEXT("AUE5_3_ExampleGameMode"), &Z_Registration_Info_UClass_AUE5_3_ExampleGameMode, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AUE5_3_ExampleGameMode), 3725735104U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_2784488280(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_813848341(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

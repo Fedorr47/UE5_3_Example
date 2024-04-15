@@ -8,15 +8,28 @@
 #include "ThrowableSystem.generated.h"
 
 class ACharacter;
+class UThrowableComponent;
+struct FEntity;
+enum class EThrowableType : uint8;
+
+UCLASS()
+class UThrowableTypeHolder : public UObject
+{
+	GENERATED_BODY()
+public:
+	TMap<EThrowableType, TArray<UThrowableComponent*>> Components;
+};
 
 UCLASS()
 class AThrowableSystem : public ABaseExtSystem
 {
 	GENERATED_BODY()
 public:
-	AThrowableSystem();
-	~AThrowableSystem();
 
+	AThrowableSystem (const FObjectInitializer& ObjectInitializer)
+	: Super(ObjectInitializer) {}
+
+	virtual void InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode) override;
 	virtual void UpdateSystem(float DeltaSeconds) override;
 
 	void BindActions(const APlayerController* PlayerController, UInputAction* ThrowAction);
@@ -24,10 +37,16 @@ public:
 	void ApplyThrow();
 	void PredictThrow();
 
-private:
+	UFUNCTION()
+	void ComponentWasAdded(const FEntity& Entity, UEntityComponent* EntityComponent);
+	void RemoveComponent(const FEntity& Entity, UThrowableComponent* Component);
+
+	void SendThrowableCountMsg(UThrowableComponent* Component, int InCount);
+
 	UPROPERTY()
 	bool ActionsNotBind = true;
 
+private:
 	UPROPERTY()
 	bool ShouldPredictPath = false;
 
@@ -39,4 +58,7 @@ private:
 
 	UPROPERTY()
 	float CurrentTimeAfterThrow = 0.0f;
+
+	UPROPERTY()
+	TMap<FEntity, UThrowableTypeHolder*> ThrowableComponents;
 };

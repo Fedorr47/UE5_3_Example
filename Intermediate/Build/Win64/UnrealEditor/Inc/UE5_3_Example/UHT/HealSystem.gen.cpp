@@ -40,6 +40,7 @@ void EmptyLinkFunctionForGeneratedCodeHealSystem() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AHealSystem_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "Systems/HealSystem.h" },
 		{ "ModuleRelativePath", "Systems/HealSystem.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_AHealSystem_Statics::StaticCppClassTypeInfo = {
@@ -73,14 +74,15 @@ void EmptyLinkFunctionForGeneratedCodeHealSystem() {}
 		return AHealSystem::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(AHealSystem);
+	AHealSystem::~AHealSystem() {}
 	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_HealSystem_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_HealSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AHealSystem, AHealSystem::StaticClass, TEXT("AHealSystem"), &Z_Registration_Info_UClass_AHealSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHealSystem), 2509170245U) },
+		{ Z_Construct_UClass_AHealSystem, AHealSystem::StaticClass, TEXT("AHealSystem"), &Z_Registration_Info_UClass_AHealSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AHealSystem), 2734188466U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_HealSystem_h_3985421769(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_HealSystem_h_964601573(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_HealSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_HealSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

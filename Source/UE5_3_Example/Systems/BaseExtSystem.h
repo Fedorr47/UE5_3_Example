@@ -14,10 +14,10 @@ class ABaseExtSystem : public AActor
 {
 	GENERATED_BODY()
 public:
-	ABaseExtSystem();
-	~ABaseExtSystem();
+	ABaseExtSystem(const FObjectInitializer& ObjectInitializer)
+		: Super(ObjectInitializer) {}
 
-	void InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode);
+	virtual void InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode);
 
 	virtual void UpdateSystem(float DeltaSeconds) {};
 

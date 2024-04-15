@@ -11,14 +11,6 @@
 #include "MessageQueue.h"
 #include "DefaultPlayableCharacter.h"
 
-ADamageSystem::ADamageSystem()
-{
-}
-
-ADamageSystem::~ADamageSystem()
-{
-}
-
 void ADamageSystem::UpdateSystem(float DeltaSeconds)
 {
 }
@@ -45,6 +37,7 @@ void ADamageSystem::ApplyDamage(UEntityManager* EntityManager)
 
                 if (const ADefaultPlayableCharacter* Character = Cast<ADefaultPlayableCharacter>(HealthComp->GetOwnerObject()))
                 {
+                    // TODO: rework as ThrowableSystem
                     auto GemeMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(Character->GetWorld()));
                     UHealthPercentMessage* MsgToSend = NewObject<UHealthPercentMessage>();
                     MsgToSend->TypeName = MsgToSend->GetClass()->GetName();

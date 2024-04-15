@@ -6,7 +6,6 @@
 #include "EntityComponent.h"
 #include "EntityManager.generated.h"
 
-
 USTRUCT(BlueprintType)
 struct FEntity
 {
@@ -22,6 +21,8 @@ public:
         return Id == Other.Id;
     }
 };
+
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnAddedComponent, const struct FEntity&, Entity, UEntityComponent*, EntityComponent);
 
 FORCEINLINE uint32 GetTypeHash(const FEntity& Entity)
 {
@@ -62,6 +63,9 @@ private:
     }
 
 public:
+    UPROPERTY(BlueprintAssignable)
+    FOnAddedComponent OnAddedComponent;
+
     FEntity CreateEntity();
 
     void AddEntity(FEntity* InEntity);
@@ -196,6 +200,7 @@ inline T* UEntityManager::AddComponent(const FEntity& Entity)
     T* NewComponent = NewObject<T>(this);
     FEntityInternal& EntityInternal = EntityComponents.FindOrAdd(Entity.Id);
     EntityInternal.Components.Add(NewComponent);
+    OnAddedComponent.Broadcast(Entity, NewComponent);
 
     return NewComponent;
 }
@@ -207,6 +212,7 @@ inline void UEntityManager::AddCreatedComponent(const FEntity& Entity, T* InComp
 
     FEntityInternal& EntityInternal = EntityComponents.FindOrAdd(Entity.Id);
     EntityInternal.Components.Add(InComponent);
+    OnAddedComponent.Broadcast(Entity, InComponent);
 }
 
 

@@ -5,14 +5,6 @@
 #include "SystemQueue/EntityManager.h"
 #include "Kismet/GameplayStatics.h"
 
-ABaseExtSystem::ABaseExtSystem()
-{
-}
-
-ABaseExtSystem::~ABaseExtSystem()
-{
-}
-
 void ABaseExtSystem::InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode)
 {
     if (IsValid(InGameMode) && IsValid(InEntityManager))

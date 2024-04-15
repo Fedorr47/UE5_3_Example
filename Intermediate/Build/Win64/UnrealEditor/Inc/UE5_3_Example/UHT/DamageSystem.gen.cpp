@@ -40,6 +40,7 @@ void EmptyLinkFunctionForGeneratedCodeDamageSystem() {}
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ADamageSystem_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "Systems/DamageSystem.h" },
 		{ "ModuleRelativePath", "Systems/DamageSystem.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 	};
 #endif
 	const FCppClassTypeInfoStatic Z_Construct_UClass_ADamageSystem_Statics::StaticCppClassTypeInfo = {
@@ -73,14 +74,15 @@ void EmptyLinkFunctionForGeneratedCodeDamageSystem() {}
 		return ADamageSystem::StaticClass();
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ADamageSystem);
+	ADamageSystem::~ADamageSystem() {}
 	struct Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_Statics
 	{
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADamageSystem, ADamageSystem::StaticClass, TEXT("ADamageSystem"), &Z_Registration_Info_UClass_ADamageSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADamageSystem), 3103959977U) },
+		{ Z_Construct_UClass_ADamageSystem, ADamageSystem::StaticClass, TEXT("ADamageSystem"), &Z_Registration_Info_UClass_ADamageSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADamageSystem), 1436816081U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_334849384(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_395109249(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

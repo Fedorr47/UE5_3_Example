@@ -7,6 +7,7 @@
 #include "HUD_Character.generated.h"
 
 class UProgressBar;
+class UTextBlock;
 class ADefaultPlayableCharacter;
 
 UCLASS()
@@ -22,11 +23,15 @@ protected:
 	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
 	UProgressBar* mHelthBar;
 
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidget))
+	UTextBlock* mGrenadeCountText;
+
 public:
 	UFUNCTION()
 	void TakeMsg(UBaseMessage* Msg);
 
 	void ChangeHealthPercantage(UBaseMessage* Msg);
+	void ChangeGrenadeCount(UBaseMessage* Msg);
 };
 
 UCLASS()

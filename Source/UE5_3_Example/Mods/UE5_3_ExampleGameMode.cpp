@@ -33,16 +33,16 @@ void AUE5_3_ExampleGameMode::Tick(float DeltaSeconds)
 
 void AUE5_3_ExampleGameMode::StartPlay()
 {
-	GeneralMessageQueue = NewObject<UMessageQueue>();
-	EntityManager = NewObject<UEntityManager>();
-	// Systems
-	auto ThrowableSystem = NewObject<AThrowableSystem>();
-	ThrowableSystem->InitSystem(EntityManager, this);
-	Systems.Add(TEXT("ThrowableSystem"), ThrowableSystem);
-
 	UWorld* GameWorld = GetWorld();
 	if (IsValid(GameWorld))
 	{
+		GeneralMessageQueue = NewObject<UMessageQueue>(GameWorld);
+		EntityManager = NewObject<UEntityManager>(GameWorld);
+		// Systems
+		auto ThrowableSystem = GameWorld->SpawnActor<AThrowableSystem>();
+		ThrowableSystem->InitSystem(EntityManager, this);
+		Systems.Add(TEXT("ThrowableSystem"), ThrowableSystem);
+
 		mPauseMenu = CreateWidget<UUserWidget>(GameWorld, PauseMenu);
 	}
 	Super::StartPlay();

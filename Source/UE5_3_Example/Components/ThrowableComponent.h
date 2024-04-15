@@ -10,6 +10,14 @@ class ADefaultProjectile;
 class USplineComponent;
 class USplineMeshComponent;
 
+UENUM(BlueprintType)
+enum class EThrowableType : uint8
+{
+	Grenade,
+	Other,
+	MAX
+};
+
 UCLASS()
 class UE5_3_EXAMPLE_API UThrowableComponent : public UEntityComponent
 {
@@ -26,5 +34,8 @@ public:
 	TSubclassOf<ADefaultProjectile> ProjectileClass;
 
 	UPROPERTY()
-	bool IsActiveThrowable = false;
+	bool IsAttachedToCharacter = false;
+
+	UPROPERTY(EditAnywhere, Category = ThrowableType)
+	EThrowableType Type = EThrowableType::Other;
 };

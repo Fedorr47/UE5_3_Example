@@ -36,7 +36,8 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, AHealSystem); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(AHealSystem); \
-	DEFINE_DEFAULT_CONSTRUCTOR_CALL(AHealSystem)
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(AHealSystem) \
+	NO_API virtual ~AHealSystem();
 
 
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_HealSystem_h_10_PROLOG

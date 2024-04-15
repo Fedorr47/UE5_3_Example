@@ -36,7 +36,8 @@ private: \
 public: \
 	DECLARE_VTABLE_PTR_HELPER_CTOR(NO_API, ABaseExtSystem); \
 	DEFINE_VTABLE_PTR_HELPER_CTOR_CALLER(ABaseExtSystem); \
-	DEFINE_DEFAULT_CONSTRUCTOR_CALL(ABaseExtSystem)
+	DEFINE_DEFAULT_OBJECT_INITIALIZER_CONSTRUCTOR_CALL(ABaseExtSystem) \
+	NO_API virtual ~ABaseExtSystem();
 
 
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_BaseExtSystem_h_12_PROLOG

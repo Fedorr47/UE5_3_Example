@@ -12,8 +12,8 @@ class ADamageSystem : public ABaseExtSystem
 {
 	GENERATED_BODY()
 public:
-	ADamageSystem();
-	~ADamageSystem();
+	ADamageSystem(const FObjectInitializer& ObjectInitializer)
+		: Super(ObjectInitializer) {}
 
 	virtual void UpdateSystem(float DeltaSeconds) override;
 	

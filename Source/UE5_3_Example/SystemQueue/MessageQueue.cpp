@@ -3,10 +3,6 @@
 
 #include "MessageQueue.h"
 
-UMessageQueue::UMessageQueue()
-{
-}
-
 bool UMessageQueue::IsTickable() const
 {
 	return true;
@@ -33,5 +29,3 @@ void UMessageQueue::Tick(float DeltaTime)
 		}
 	}
 }
-
-

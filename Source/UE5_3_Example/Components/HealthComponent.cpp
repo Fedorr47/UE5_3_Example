@@ -18,8 +18,3 @@ void UHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
     Super::InitComponent(InWorld, InOwnerObject);
     //GetComponentGameMode()->GeneralMessageQueue->OnMessageProcess.AddUniqueDynamic(this, &UHealthComponent::TakeMsg);
 }
-
-UHealthPercentMessage::UHealthPercentMessage(const FObjectInitializer& ObjectInitializer) :
-    Super(ObjectInitializer)
-{
-}

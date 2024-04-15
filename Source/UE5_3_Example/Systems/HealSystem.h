@@ -12,8 +12,8 @@ class AHealSystem : public ABaseExtSystem
 {
 	GENERATED_BODY()
 public:
-	AHealSystem();
-	~AHealSystem();
+	AHealSystem(const FObjectInitializer& ObjectInitializer)
+		: Super(ObjectInitializer) {}
 
 	virtual void UpdateSystem(float DeltaSeconds) override;
 	

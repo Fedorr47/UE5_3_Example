@@ -14,15 +14,14 @@
 #include "Components/SplineComponent.h"
 #include "Components/SplineMeshComponent.h"
 #include "Actors/Projectiles/DefaultProjectile.h"
+#include "MessageQueue.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
-AThrowableSystem::AThrowableSystem()
+void AThrowableSystem::InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode)
 {
-}
-
-AThrowableSystem::~AThrowableSystem()
-{
+	Super::InitSystem(InEntityManager, InGameMode);
+	InEntityManager->OnAddedComponent.AddUniqueDynamic(this, &AThrowableSystem::ComponentWasAdded);
 }
 
 void AThrowableSystem::UpdateSystem(float DeltaSeconds)
@@ -85,6 +84,7 @@ void AThrowableSystem::ApplyThrow()
 
 							World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 
+							RemoveComponent(Entity, ThrowableComp);
 							mEntityManager->RemoveComponent(Entity, ThrowableComp);
 
 							ShouldPredictPath = false;
@@ -113,6 +113,7 @@ void AThrowableSystem::ApplyThrow()
 						MeshComp->DestroyComponent();
 					}
 					ThrowablePredictComp->SplinePredictMeshes.Empty();
+					mEntityManager->RemoveComponent(Entity, ThrowablePredictComp);
 				}
 
 			}
@@ -207,5 +208,70 @@ void AThrowableSystem::PredictThrow()
 				}
 			}
 		}
+	}
+}
+
+void AThrowableSystem::ComponentWasAdded(const FEntity& Entity, UEntityComponent* EntityComponent)
+{
+	UThrowableComponent* Component = Cast<UThrowableComponent>(EntityComponent);
+	if (IsValid(Component))
+	{
+		UThrowableTypeHolder* ThrowableTypeHolder = nullptr;
+		UThrowableTypeHolder** ThrowableTypeHolders = ThrowableComponents.Find(Entity);
+		if (ThrowableTypeHolders == nullptr)
+		{
+			UThrowableTypeHolder* NewHolder = NewObject<UThrowableTypeHolder>();
+			NewHolder->Components.Add(Component->Type, TArray<UThrowableComponent*>());
+			ThrowableComponents.Add(Entity, NewHolder);
+			ThrowableTypeHolder = NewHolder;
+		}
+		else
+		{
+			ThrowableTypeHolder = *ThrowableTypeHolders;
+		}
+		auto TypeHolder = ThrowableTypeHolder->Components.Find(Component->Type);
+		if (TypeHolder == nullptr)
+		{
+			ThrowableTypeHolder->Components.Add(Component->Type, TArray<UThrowableComponent*>());
+		}
+		ThrowableTypeHolder->Components[Component->Type].AddUnique(Component);
+		if (Component->IsAttachedToCharacter)
+		{
+			SendThrowableCountMsg(Component, ThrowableTypeHolder->Components[Component->Type].Num());
+		}
+	}
+}
+
+void AThrowableSystem::RemoveComponent(const FEntity& Entity, UThrowableComponent* Component)
+{
+	if (IsValid(Component))
+	{
+		auto ThrowableTypeHolders = ThrowableComponents.Find(Entity);
+		if (ThrowableTypeHolders != nullptr)
+
+		{
+			auto TypeHolder = (*ThrowableTypeHolders)->Components.Find(Component->Type);
+			if (TypeHolder != nullptr)
+			{
+				(*TypeHolder).Remove(Component);
+				if (Component->IsAttachedToCharacter)
+				{
+					SendThrowableCountMsg(Component, (*ThrowableTypeHolders)->Components[Component->Type].Num());
+				}
+			}
+		}
+	}
+}
+
+void AThrowableSystem::SendThrowableCountMsg(UThrowableComponent* Component, int InCount)
+{
+	AUE5_3_ExampleGameMode* CastedGameMode = Cast<AUE5_3_ExampleGameMode>(mGameMode);
+
+	if (Component->Type == EThrowableType::Grenade && IsValid(CastedGameMode))
+	{
+		UThrowableChangedMessage* MsgToSend = NewObject<UThrowableChangedMessage>();
+		MsgToSend->TypeName = MsgToSend->GetClass()->GetName();
+		MsgToSend->GrenadeCount = InCount;
+		CastedGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
 	}
 }

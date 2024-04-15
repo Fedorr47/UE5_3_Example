@@ -10,6 +10,7 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class APlayerController;
+class UBaseMessage;
 class UEnhancedInputComponent;
 #ifdef UE5_3_EXAMPLE_UE5_3_ExampleGameMode_generated_h
 #error "UE5_3_ExampleGameMode.generated.h already included, missing '#pragma once' in UE5_3_ExampleGameMode.h"
@@ -23,7 +24,11 @@ UE5_3_EXAMPLE_API void FOnMappingContextAdded_DelegateWrapper(const FMulticastSc
 #define FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_23_SPARSE_DATA
 #define FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_23_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_23_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_23_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_23_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execSendMessage);
+
+
 #define FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_23_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Mods_UE5_3_ExampleGameMode_h_23_INCLASS_NO_PURE_DECLS \
 private: \

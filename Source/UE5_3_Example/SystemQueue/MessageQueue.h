@@ -29,10 +29,25 @@ class UHealthPercentMessage : public UBaseMessage
 
 public:
 
-	UHealthPercentMessage(const FObjectInitializer& ObjectInitializer);
+	UHealthPercentMessage(const FObjectInitializer& ObjectInitializer) :
+		Super(ObjectInitializer) {}
 
 	UPROPERTY()
 	float HealthPercent = 0.0f;
+};
+
+UCLASS()
+class UThrowableChangedMessage : public UBaseMessage
+{
+	GENERATED_BODY()
+
+public:
+
+	UThrowableChangedMessage(const FObjectInitializer& ObjectInitializer) :
+		Super(ObjectInitializer) {}
+
+	UPROPERTY()
+	int32 GrenadeCount = 0;
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnMessageProcess, UBaseMessage*, Msg);
@@ -44,7 +59,6 @@ class UMessageQueue : public UObject, public FTickableGameObject
 
 	TQueue<UBaseMessage*> mMessages;
 public:
-	UMessageQueue();
 	virtual void Tick(float DeltaTime) override;
 	virtual bool IsTickable() const override;
 	virtual TStatId GetStatId() const override;
