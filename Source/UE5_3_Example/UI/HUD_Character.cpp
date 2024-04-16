@@ -84,7 +84,7 @@ void UCharacterHUDWidget::TakeMsg(UBaseMessage* Msg)
 void UCharacterHUDWidget::ChangeHealthPercantage(UBaseMessage* Msg)
 {
 	UHealthPercentMessage* HealthPercentMessage = Cast<UHealthPercentMessage>(Msg);
-	if (IsValid(HealthPercentMessage))
+	if (IsValid(HealthPercentMessage) && IsValid(mHelthBar))
 	{
 		mHelthBar->SetPercent(HealthPercentMessage->HealthPercent);
 	}
@@ -93,7 +93,7 @@ void UCharacterHUDWidget::ChangeHealthPercantage(UBaseMessage* Msg)
 void UCharacterHUDWidget::ChangeGrenadeCount(UBaseMessage* Msg)
 {
 	UThrowableChangedMessage* GrenadeChangedMessage = Cast<UThrowableChangedMessage>(Msg);
-	if (IsValid(GrenadeChangedMessage))
+	if (IsValid(GrenadeChangedMessage) && IsValid(mGrenadeCountText))
 	{
 		FNumberFormattingOptions Opts;
 		Opts.SetMaximumFractionalDigits(0);

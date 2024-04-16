@@ -241,4 +241,20 @@
       <Filter>Source\UE5_3_Example\UI</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\MagazineComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\PickupbleComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\MagazineComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\PickupbleComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+  </ItemGroup>
 </Project>

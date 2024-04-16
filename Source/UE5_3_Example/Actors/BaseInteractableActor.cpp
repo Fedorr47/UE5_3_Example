@@ -75,7 +75,6 @@ void ABaseInteractableActor::TakeBaseDamage(AActor* DamagedActor, float Damage, 
 	if (IsValid(DamageComp))
 	{
 		DamageComp->DamageAmount = Damage;
-		ADamageSystem::ApplyDamage(mGameMode->EntityManager);
 	}	
 }
 

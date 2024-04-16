@@ -21,6 +21,14 @@ public:
 };
 
 UCLASS()
+class UActionsHolder : public UObject
+{
+	GENERATED_BODY()
+public:
+	TArray<UInputAction*> Actions;
+};
+
+UCLASS()
 class AThrowableSystem : public ABaseExtSystem
 {
 	GENERATED_BODY()
@@ -32,7 +40,7 @@ public:
 	virtual void InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode) override;
 	virtual void UpdateSystem(float DeltaSeconds) override;
 
-	void BindActions(const APlayerController* PlayerController, UInputAction* ThrowAction);
+	void BindActions(UThrowableComponent* Component);
 
 	void ApplyThrow();
 	void PredictThrow();
@@ -42,9 +50,6 @@ public:
 	void RemoveComponent(const FEntity& Entity, UThrowableComponent* Component);
 
 	void SendThrowableCountMsg(UThrowableComponent* Component, int InCount);
-
-	UPROPERTY()
-	bool ActionsNotBind = true;
 
 private:
 	UPROPERTY()
@@ -61,4 +66,7 @@ private:
 
 	UPROPERTY()
 	TMap<FEntity, UThrowableTypeHolder*> ThrowableComponents;
+
+	UPROPERTY()
+	TMap<UInputMappingContext*, UActionsHolder*> MappingContexts;
 };

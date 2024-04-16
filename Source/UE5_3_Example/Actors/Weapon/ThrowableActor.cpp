@@ -43,38 +43,19 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 	UThrowablePredictComponent* ThrowablePredictComp = mGameMode->EntityManager->GetComponent<UThrowablePredictComponent>(this->ActorEntity);
 	if (IsValid(ThrowableComp))
 	{
-		FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
-		auto ThrowableSystemPtr = mGameMode->Systems.Find("ThrowableSystem");
-		AThrowableSystem* ThrowableSystem = nullptr;
-		if (ThrowableSystemPtr != nullptr)
-		{
-			ThrowableSystem = Cast<AThrowableSystem>(*ThrowableSystemPtr);
-		}
-		if (IsValid(ThrowableSystem))
-		{
-			const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
-			if (IsValid(PlayerController) && ThrowableSystem->ActionsNotBind)
-			{
-				if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
-				{
-					Subsystem->AddMappingContext(ThrowMappingContext, 1);
-				}
-				ThrowableSystem->BindActions(PlayerController, ThrowAction);
-			}
-			
-			ThrowableComp->IsAttachedToCharacter = true;
-			ThrowableComp->InitComponent(mWorld, OwnerCharacter);
-			mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowableComp);
+		ThrowableComp->IsAttachedToCharacter = true;
+		ThrowableComp->OwnerCharacter = Cast<AActor>(OwnerCharacter);
+		ThrowableComp->InitComponent(mWorld, OwnerCharacter);
+		mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowableComp);
 
-			if (IsValid(ThrowablePredictComp))
-			{
-				ThrowablePredictComp->InitComponent(mWorld, OwnerCharacter);
-				ThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
-				ThrowablePredictComp->VelocityOfProjectile = ThrowableComp->ProjectileClass.GetDefaultObject()->GetProjectileMovement()->InitialSpeed;
-				mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowablePredictComp);
-			}
-			mGameMode->EntityManager->DestroyEntity(ActorEntity);
-			Destroy();
+		if (IsValid(ThrowablePredictComp))
+		{
+			ThrowablePredictComp->InitComponent(mWorld, OwnerCharacter);
+			ThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
+			ThrowablePredictComp->VelocityOfProjectile = ThrowableComp->ProjectileClass.GetDefaultObject()->GetProjectileMovement()->InitialSpeed;
+			mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowablePredictComp);
 		}
+		mGameMode->EntityManager->DestroyEntity(ActorEntity);
+		Destroy();
 	}
 }

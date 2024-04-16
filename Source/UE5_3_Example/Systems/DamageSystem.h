@@ -17,5 +17,5 @@ public:
 
 	virtual void UpdateSystem(float DeltaSeconds) override;
 	
-	static void ApplyDamage(UEntityManager* EntityManager);
+	void ApplyDamage();
 };

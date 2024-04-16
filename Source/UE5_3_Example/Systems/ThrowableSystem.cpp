@@ -39,16 +39,38 @@ void AThrowableSystem::UpdateSystem(float DeltaSeconds)
 	}
 }
 
-void AThrowableSystem::BindActions(const APlayerController* PlayerController, UInputAction* ThrowAction)
+void AThrowableSystem::BindActions(UThrowableComponent* Component)
 {
-	if (ActionsNotBind)
+	if (IsValid(Component))
 	{
-		if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
+		if (!MappingContexts.Contains(Component->ThrowMappingContext))
 		{
-			EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Started, this, &AThrowableSystem::PredictThrow);
-			EnhancedInputComponent->BindAction(ThrowAction, ETriggerEvent::Completed, this, &AThrowableSystem::ApplyThrow);
+			MappingContexts.Add(Component->ThrowMappingContext, NewObject<UActionsHolder>());
 		}
-		ActionsNotBind = false;
+
+		if (MappingContexts[Component->ThrowMappingContext]->Actions.Find(Component->ThrowAction) == INDEX_NONE)
+		{
+
+			ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(Component->OwnerCharacter);
+			if (IsValid(OwnerCharacter))
+			{
+				MappingContexts[Component->ThrowMappingContext]->Actions.Add(Component->ThrowAction);
+				const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
+				if (IsValid(PlayerController))
+				{
+					if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+					{
+						Subsystem->AddMappingContext(Component->ThrowMappingContext, 1);
+					}
+				}
+
+				if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
+				{
+					EnhancedInputComponent->BindAction(Component->ThrowAction, ETriggerEvent::Started, this, &AThrowableSystem::PredictThrow);
+					EnhancedInputComponent->BindAction(Component->ThrowAction, ETriggerEvent::Completed, this, &AThrowableSystem::ApplyThrow);
+				}
+			}
+		}
 	}
 }
 
@@ -103,7 +125,7 @@ void AThrowableSystem::ApplyThrow()
 			}
 			if (UThrowablePredictComponent* ThrowablePredictComp = mEntityManager->GetComponent<UThrowablePredictComponent>(Entity))
 			{
-				if (ThrowablePredictComp->SplinePredict->GetNumberOfSplinePoints() > 0)
+				if (IsValid(ThrowablePredictComp->SplinePredict) && ThrowablePredictComp->SplinePredict->GetNumberOfSplinePoints() > 0)
 				{
 					ThrowablePredictComp->SplinePredict->ClearSplinePoints();
 					ThrowablePredictComp->SplinePredict->UpdateSpline();
@@ -239,6 +261,7 @@ void AThrowableSystem::ComponentWasAdded(const FEntity& Entity, UEntityComponent
 		{
 			SendThrowableCountMsg(Component, ThrowableTypeHolder->Components[Component->Type].Num());
 		}
+		BindActions(Component);
 	}
 }
 

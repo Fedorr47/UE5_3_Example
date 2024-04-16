@@ -13,27 +13,28 @@
 
 void ADamageSystem::UpdateSystem(float DeltaSeconds)
 {
+    ApplyDamage();
 }
 
-void ADamageSystem::ApplyDamage(UEntityManager* EntityManager)
+void ADamageSystem::ApplyDamage()
 {
-    if (!EntityManager) return;
+    if (!mEntityManager) return;
 
-    TArray<FEntity> Entities = EntityManager->GetAllEntities();
+    TArray<FEntity> Entities = mEntityManager->GetAllEntities();
 
     for (const FEntity& Entity : Entities)
     {
-        const UDamageComponent* DamageComp = EntityManager->GetComponent<UDamageComponent>(Entity);
+        const UDamageComponent* DamageComp = mEntityManager->GetComponent<UDamageComponent>(Entity);
         if (IsValid(DamageComp))
         {
-            UHealthComponent* HealthComp = EntityManager->GetComponent<UHealthComponent>(Entity);
+            UHealthComponent* HealthComp = mEntityManager->GetComponent<UHealthComponent>(Entity);
             if (IsValid(HealthComp) && !HealthComp->IsImmortal)
             {
                 HealthComp->Health -= DamageComp->DamageAmount;
                 HealthComp->Health = FMath::Clamp(HealthComp->Health, 0.0f, HealthComp->MaxHealth);
 
 
-                EntityManager->RemoveComponents<UDamageComponent>(Entity);
+                mEntityManager->RemoveComponents<UDamageComponent>(Entity);
 
                 if (const ADefaultPlayableCharacter* Character = Cast<ADefaultPlayableCharacter>(HealthComp->GetOwnerObject()))
                 {
@@ -45,7 +46,7 @@ void ADamageSystem::ApplyDamage(UEntityManager* EntityManager)
                     GemeMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
                 }
             }
-            UFloatableHealthComponent* FloatableHealthComp = EntityManager->GetComponent<UFloatableHealthComponent>(Entity);
+            UFloatableHealthComponent* FloatableHealthComp = mEntityManager->GetComponent<UFloatableHealthComponent>(Entity);
             if (IsValid(FloatableHealthComp))
             {
                 FloatableHealthComp->HealthPercent = HealthComp->Health / HealthComp->MaxHealth;

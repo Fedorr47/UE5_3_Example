@@ -9,6 +9,9 @@
 class ADefaultProjectile;
 class USplineComponent;
 class USplineMeshComponent;
+class UInputAction;
+class UInputMappingContext;
+class AActor;
 
 UENUM(BlueprintType)
 enum class EThrowableType : uint8
@@ -36,6 +39,15 @@ public:
 	UPROPERTY()
 	bool IsAttachedToCharacter = false;
 
+	UPROPERTY()
+	AActor* OwnerCharacter = nullptr;
+
 	UPROPERTY(EditAnywhere, Category = ThrowableType)
 	EThrowableType Type = EThrowableType::Other;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputMappingContext* ThrowMappingContext;
+
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
+	UInputAction* ThrowAction;
 };
