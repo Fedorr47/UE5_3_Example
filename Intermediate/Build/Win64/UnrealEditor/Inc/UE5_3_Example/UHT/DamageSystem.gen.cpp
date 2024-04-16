@@ -80,9 +80,9 @@ void EmptyLinkFunctionForGeneratedCodeDamageSystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ADamageSystem, ADamageSystem::StaticClass, TEXT("ADamageSystem"), &Z_Registration_Info_UClass_ADamageSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADamageSystem), 1436816081U) },
+		{ Z_Construct_UClass_ADamageSystem, ADamageSystem::StaticClass, TEXT("ADamageSystem"), &Z_Registration_Info_UClass_ADamageSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADamageSystem), 1366360495U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_395109249(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_720713674(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_DamageSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

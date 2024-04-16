@@ -21,10 +21,25 @@ public:
 
 	virtual void UpdateSystem(float DeltaSeconds) {};
 
+	UFUNCTION()
+	void ComponentWasAdded(const FEntity& Entity, UEntityComponent* EntityComponent);
+	void RemoveComponent(const FEntity& Entity, UEntityComponent* Component);
+
+	virtual void ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent) {}
+	virtual void RemoveComponentImpl(const FEntity& Entity, UEntityComponent* EntityComponent) {}
+
 protected:
 	UPROPERTY()
 	UEntityManager* mEntityManager = nullptr;
 
 	UPROPERTY()
 	AGameModeBase* mGameMode = nullptr;
+};
+
+UCLASS()
+class UActionsHolder : public UObject
+{
+	GENERATED_BODY()
+public:
+	TArray<UInputAction*> Actions;
 };

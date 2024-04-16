@@ -21,21 +21,13 @@ public:
 };
 
 UCLASS()
-class UActionsHolder : public UObject
-{
-	GENERATED_BODY()
-public:
-	TArray<UInputAction*> Actions;
-};
-
-UCLASS()
 class AThrowableSystem : public ABaseExtSystem
 {
 	GENERATED_BODY()
 public:
 
-	AThrowableSystem (const FObjectInitializer& ObjectInitializer)
-	: Super(ObjectInitializer) {}
+	AThrowableSystem(const FObjectInitializer& ObjectInitializer)
+		: Super(ObjectInitializer) {}
 
 	virtual void InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode) override;
 	virtual void UpdateSystem(float DeltaSeconds) override;
@@ -46,8 +38,8 @@ public:
 	void PredictThrow();
 
 	UFUNCTION()
-	void ComponentWasAdded(const FEntity& Entity, UEntityComponent* EntityComponent);
-	void RemoveComponent(const FEntity& Entity, UThrowableComponent* Component);
+	virtual void ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent);
+	void RemoveComponentImpl(const FEntity& Entity, UEntityComponent* EntityComponent);
 
 	void SendThrowableCountMsg(UThrowableComponent* Component, int InCount);
 
@@ -57,12 +49,6 @@ private:
 
 	UPROPERTY()
 	bool OnceThrowPerTime = true;
-
-	UPROPERTY()
-	float WaitForNextTrow = 0.0f;
-
-	UPROPERTY()
-	float CurrentTimeAfterThrow = 0.0f;
 
 	UPROPERTY()
 	TMap<FEntity, UThrowableTypeHolder*> ThrowableComponents;

@@ -21,7 +21,6 @@
 void AThrowableSystem::InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode)
 {
 	Super::InitSystem(InEntityManager, InGameMode);
-	InEntityManager->OnAddedComponent.AddUniqueDynamic(this, &AThrowableSystem::ComponentWasAdded);
 }
 
 void AThrowableSystem::UpdateSystem(float DeltaSeconds)
@@ -31,10 +30,6 @@ void AThrowableSystem::UpdateSystem(float DeltaSeconds)
 		if (ShouldPredictPath)
 		{
 			PredictThrow();
-		}
-		if (CurrentTimeAfterThrow <= WaitForNextTrow)
-		{
-			CurrentTimeAfterThrow += DeltaSeconds;
 		}
 	}
 }
@@ -86,7 +81,7 @@ void AThrowableSystem::ApplyThrow()
 		{
 			bool WasThrown = false;
 			UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
-			if (IsValid(ThrowableComp) && CurrentTimeAfterThrow >= WaitForNextTrow && !WasThrown)
+			if (IsValid(ThrowableComp) && !WasThrown)
 			{
 				if (const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowableComp->GetOwnerObject()))
 				{
@@ -111,10 +106,6 @@ void AThrowableSystem::ApplyThrow()
 
 							ShouldPredictPath = false;
 
-							if (WaitForNextTrow > 0.0f)
-							{
-								CurrentTimeAfterThrow = 0.0f;
-							}
 							if (OnceThrowPerTime)
 							{
 								WasThrown = true;
@@ -233,7 +224,7 @@ void AThrowableSystem::PredictThrow()
 	}
 }
 
-void AThrowableSystem::ComponentWasAdded(const FEntity& Entity, UEntityComponent* EntityComponent)
+void AThrowableSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent)
 {
 	UThrowableComponent* Component = Cast<UThrowableComponent>(EntityComponent);
 	if (IsValid(Component))
@@ -265,8 +256,9 @@ void AThrowableSystem::ComponentWasAdded(const FEntity& Entity, UEntityComponent
 	}
 }
 
-void AThrowableSystem::RemoveComponent(const FEntity& Entity, UThrowableComponent* Component)
+void AThrowableSystem::RemoveComponentImpl(const FEntity& Entity, UEntityComponent* EntityComponent)
 {
+	UThrowableComponent* Component = Cast<UThrowableComponent>(EntityComponent);
 	if (IsValid(Component))
 	{
 		auto ThrowableTypeHolders = ThrowableComponents.Find(Entity);
@@ -293,7 +285,7 @@ void AThrowableSystem::SendThrowableCountMsg(UThrowableComponent* Component, int
 	if (Component->Type == EThrowableType::Grenade && IsValid(CastedGameMode))
 	{
 		UThrowableChangedMessage* MsgToSend = NewObject<UThrowableChangedMessage>();
-		MsgToSend->TypeName = MsgToSend->GetClass()->GetName();
+		MsgToSend->Type = EMessageType::ThrowableChanged;
 		MsgToSend->GrenadeCount = InCount;
 		CastedGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
 	}

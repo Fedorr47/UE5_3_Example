@@ -129,11 +129,13 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\PickupbleComponent.h" />
     <ClInclude Include="..\..\Source\UE5_3_Example\ExtendCheatManager.h" />
     <None Include="..\..\Source\UE5_3_Example\UE5_3_Example.Build.cs" />
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\PickupSystem.cpp" />
     <ClCompile Include="..\..\Source\UE5_3_Example\UE5_3_Example.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <ForcedIncludeFiles>$(ClCompile_ForcedIncludeFiles)</ForcedIncludeFiles>
       <AdditionalOptions>$(ClCompile_AdditionalOptions)</AdditionalOptions>
     </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\PickupSystem.h" />
     <ClInclude Include="..\..\Source\UE5_3_Example\UE5_3_Example.h" />
     <ClCompile Include="..\..\Source\UE5_3_Example\Actors\BaseInteractableActor.cpp">
       <AdditionalIncludeDirectories>$(ClCompile_AdditionalIncludeDirectories)</AdditionalIncludeDirectories>

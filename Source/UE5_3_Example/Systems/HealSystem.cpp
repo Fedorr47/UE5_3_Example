@@ -38,7 +38,7 @@ void AHealSystem::ApplyHeal(UEntityManager* EntityManager)
                 {
                     auto GemeMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(Character->GetWorld()));
                     UHealthPercentMessage* MsgToSend = NewObject<UHealthPercentMessage>();
-                    MsgToSend->TypeName = MsgToSend->GetClass()->GetName();
+                    MsgToSend->Type = EMessageType::HealthPercentage;
                     MsgToSend->HealthPercent = HealthComp->Health / HealthComp->MaxHealth;
                     GemeMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
                 }

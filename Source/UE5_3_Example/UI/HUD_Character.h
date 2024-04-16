@@ -30,8 +30,8 @@ public:
 	UFUNCTION()
 	void TakeMsg(UBaseMessage* Msg);
 
-	void ChangeHealthPercantage(UBaseMessage* Msg);
-	void ChangeGrenadeCount(UBaseMessage* Msg);
+	void ChangeHealthPercantage(UHealthPercentMessage* Msg);
+	void ChangeGrenadeCount(UThrowableChangedMessage* Msg);
 };
 
 UCLASS()

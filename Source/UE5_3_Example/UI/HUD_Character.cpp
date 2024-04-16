@@ -53,13 +53,6 @@ void UCharacterHUDWidget::NativeConstruct()
 	{
 		mHelthBar->SetPercent(1.0f);
 	}
-	using std::placeholders::_1;
-	MessageVoidCastedMethods.emplace(
-		UHealthPercentMessage::StaticClass()->GetDefaultObject()->GetClass()->GetName(),
-		std::bind(&UCharacterHUDWidget::ChangeHealthPercantage, this, _1));
-	MessageVoidCastedMethods.emplace(
-		UThrowableChangedMessage::StaticClass()->GetDefaultObject()->GetClass()->GetName(),
-		std::bind(&UCharacterHUDWidget::ChangeGrenadeCount, this, _1));
 }
 
 void UCharacterHUDWidget::NativeDestruct()
@@ -74,30 +67,35 @@ void UCharacterHUDWidget::NativeOnInitialized()
 
 void UCharacterHUDWidget::TakeMsg(UBaseMessage* Msg)
 {
-	auto PairFunc = MessageVoidCastedMethods.find(Msg->TypeName);
-	if (PairFunc != MessageVoidCastedMethods.end())
+	using std::placeholders::_1;
+	switch (Msg->Type)
 	{
-		PairFunc->second(Msg);
+	case EMessageType::HealthPercentage:
+		Msg->ProcessMsg<UHealthPercentMessage>(std::bind(&UCharacterHUDWidget::ChangeHealthPercantage, this, _1));
+		break;
+	case EMessageType::ThrowableChanged:
+		Msg->ProcessMsg<UThrowableChangedMessage>(std::bind(&UCharacterHUDWidget::ChangeGrenadeCount, this, _1));
+		break;
+	default:
+		break;
+	}	
+}
+
+void UCharacterHUDWidget::ChangeHealthPercantage(UHealthPercentMessage* Msg)
+{
+	if (IsValid(Msg) && IsValid(mHelthBar))
+	{
+		mHelthBar->SetPercent(Msg->HealthPercent);
 	}
 }
 
-void UCharacterHUDWidget::ChangeHealthPercantage(UBaseMessage* Msg)
+void UCharacterHUDWidget::ChangeGrenadeCount(UThrowableChangedMessage* Msg)
 {
-	UHealthPercentMessage* HealthPercentMessage = Cast<UHealthPercentMessage>(Msg);
-	if (IsValid(HealthPercentMessage) && IsValid(mHelthBar))
-	{
-		mHelthBar->SetPercent(HealthPercentMessage->HealthPercent);
-	}
-}
-
-void UCharacterHUDWidget::ChangeGrenadeCount(UBaseMessage* Msg)
-{
-	UThrowableChangedMessage* GrenadeChangedMessage = Cast<UThrowableChangedMessage>(Msg);
-	if (IsValid(GrenadeChangedMessage) && IsValid(mGrenadeCountText))
+	if (IsValid(Msg) && IsValid(mGrenadeCountText))
 	{
 		FNumberFormattingOptions Opts;
 		Opts.SetMaximumFractionalDigits(0);
-		mGrenadeCountText->SetText(FText::AsNumber(GrenadeChangedMessage->GrenadeCount, &Opts));
+		mGrenadeCountText->SetText(FText::AsNumber(Msg->GrenadeCount, &Opts));
 	}
 }
 

@@ -12,4 +12,15 @@ void ABaseExtSystem::InitSystem(UEntityManager* InEntityManager, AGameModeBase* 
         mEntityManager = InEntityManager;
         mGameMode = InGameMode;
     }
+    InEntityManager->OnAddedComponent.AddUniqueDynamic(this, &ABaseExtSystem::ComponentWasAdded);
+}
+
+void ABaseExtSystem::ComponentWasAdded(const FEntity& Entity, UEntityComponent* EntityComponent)
+{
+    ComponentWasAddedImpl(Entity, EntityComponent);
+}
+
+void ABaseExtSystem::RemoveComponent(const FEntity& Entity, UEntityComponent* EntityComponent)
+{
+    RemoveComponentImpl(Entity, EntityComponent);
 }

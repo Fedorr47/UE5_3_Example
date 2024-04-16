@@ -1,13 +1,19 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include <map>
 #include <functional>
 #include "MessageQueue.generated.h"
 
-class UBaseMessage;
-using VoidCast = std::function<void(UBaseMessage*)>;
-static std::map<FString, VoidCast> MessageVoidCastedMethods;
+UENUM()
+enum class EMessageType : uint8
+{
+	HealthPercentage,
+	ThrowableChanged,
+	MAX
+};
+
+class UHealthPercentMessage;
+class UThrowableChangedMessage;
 
 UCLASS()
 class UBaseMessage : public UObject
@@ -16,10 +22,16 @@ class UBaseMessage : public UObject
 
 public:
 	UPROPERTY()
-	FString TypeName;
+	EMessageType Type = EMessageType::MAX;
 
 	UPROPERTY()
 	int32 OwnerId;
+
+	template <typename D>
+	void ProcessMsg(std::function<void(D*)> Callback)
+	{
+		Callback(Cast<D>(this));
+	}
 };
 
 UCLASS()
