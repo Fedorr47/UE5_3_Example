@@ -96,9 +96,9 @@ void EmptyLinkFunctionForGeneratedCodeHealComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UHealComponent, UHealComponent::StaticClass, TEXT("UHealComponent"), &Z_Registration_Info_UClass_UHealComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealComponent), 2569194232U) },
+		{ Z_Construct_UClass_UHealComponent, UHealComponent::StaticClass, TEXT("UHealComponent"), &Z_Registration_Info_UClass_UHealComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealComponent), 2156373165U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_1034453168(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_3833231341(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

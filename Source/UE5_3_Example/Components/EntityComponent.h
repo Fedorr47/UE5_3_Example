@@ -37,6 +37,9 @@ public:
 
 	UObject* GetOwnerObject() { return mOwnerObject; }
 
+	UPROPERTY(EditDefaultsOnly, Category = OwnerShip)
+	bool CanBeReOwned = false;
+
 protected:
 	UPROPERTY()
 	UWorld* mWorld = nullptr;
@@ -46,7 +49,4 @@ protected:
 
 	UPROPERTY()
 	UObject* mOwnerObject = nullptr;
-
-	UPROPERTY()
-	uint32 mOwnerId = 0;
 };

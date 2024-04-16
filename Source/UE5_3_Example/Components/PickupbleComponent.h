@@ -6,6 +6,7 @@
 #include "Components/EntityComponent.h"
 #include "PickupbleComponent.generated.h"
 
+class UPrimitiveComponent;
 
 UCLASS()
 class UE5_3_EXAMPLE_API UPickupbleComponent : public UEntityComponent
@@ -18,4 +19,6 @@ public:
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
+
+	UPrimitiveComponent* PickedUpComp = nullptr;
 };

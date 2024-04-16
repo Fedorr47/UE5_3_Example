@@ -144,6 +144,18 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\HealthComponent.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\MagazineComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\MagazineComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\PickupbleComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\PickupbleComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Components\ShootComponent.cpp">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClCompile>
@@ -213,6 +225,12 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Systems\HealSystem.h">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\PickupSystem.cpp">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\PickupSystem.h">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Systems\ThrowableSystem.cpp">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClCompile>
@@ -239,28 +257,6 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\UI\PauseMenu.h">
       <Filter>Source\UE5_3_Example\UI</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\MagazineComponent.cpp">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\PickupbleComponent.cpp">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\PickupSystem.cpp">
-      <Filter>Source\UE5_3_Example\Systems</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\MagazineComponent.h">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\PickupbleComponent.h">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\PickupSystem.h">
-      <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

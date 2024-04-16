@@ -9,6 +9,9 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
+class AActor;
+class UPrimitiveComponent;
+struct FHitResult;
 #ifdef UE5_3_EXAMPLE_PickupSystem_generated_h
 #error "PickupSystem.generated.h already included, missing '#pragma once' in PickupSystem.h"
 #endif
@@ -17,7 +20,11 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_16_SPARSE_DATA
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_16_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_16_RPC_WRAPPERS_NO_PURE_DECLS
+#define FID_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
+ \
+	DECLARE_FUNCTION(execPickup);
+
+
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_16_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_16_INCLASS_NO_PURE_DECLS \
 private: \

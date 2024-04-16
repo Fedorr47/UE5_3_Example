@@ -9,8 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UEntityComponent;
-struct FEntity;
 #ifdef UE5_3_EXAMPLE_ThrowableSystem_generated_h
 #error "ThrowableSystem.generated.h already included, missing '#pragma once' in ThrowableSystem.h"
 #endif
@@ -64,11 +62,7 @@ template<> UE5_3_EXAMPLE_API UClass* StaticClass<class UThrowableTypeHolder>();
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_26_SPARSE_DATA
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_26_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_26_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_26_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execComponentWasAddedImpl);
-
-
+#define FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_26_RPC_WRAPPERS_NO_PURE_DECLS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_26_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_26_INCLASS_NO_PURE_DECLS \
 private: \

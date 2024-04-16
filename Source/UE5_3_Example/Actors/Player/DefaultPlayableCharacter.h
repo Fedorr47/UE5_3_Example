@@ -72,9 +72,6 @@ protected:
 	TArray<FEntityComponentWrapper> AttachedComponents;
 
 	UPROPERTY()
-	uint32 mOwnerId;
-
-	UPROPERTY()
 	FEntity ActorEntity;
 
 	UPROPERTY()

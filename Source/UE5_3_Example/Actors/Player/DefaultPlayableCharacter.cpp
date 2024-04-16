@@ -74,7 +74,6 @@ void ADefaultPlayableCharacter::BeginPlay()
 {
 	// Call the base class  
 	Super::BeginPlay();
-	mOwnerId = this->GetUniqueID();
 
 	if (SetupGameMode())
 	{

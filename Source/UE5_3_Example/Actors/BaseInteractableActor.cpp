@@ -30,7 +30,6 @@ void ABaseInteractableActor::BeginPlay()
 {
 	//RootComponent = StatMesh;
 	Super::BeginPlay();
-	mOwnerId = this->GetUniqueID();
 
 	if (UWorld* lWorld = GetWorld())
 	{

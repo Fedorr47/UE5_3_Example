@@ -37,9 +37,8 @@ public:
 	void ApplyThrow();
 	void PredictThrow();
 
-	UFUNCTION()
-	virtual void ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent);
-	void RemoveComponentImpl(const FEntity& Entity, UEntityComponent* EntityComponent);
+	virtual void ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent) override;
+	virtual void RemoveComponentImpl(const FEntity& Entity, UEntityComponent* EntityComponent) override;
 
 	void SendThrowableCountMsg(UThrowableComponent* Component, int InCount);
 

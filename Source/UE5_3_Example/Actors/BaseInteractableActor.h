@@ -39,9 +39,6 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	UPROPERTY(EditAnywhere)
-	uint32 mOwnerId;
-
 	UPROPERTY()
 	FEntity ActorEntity;
 

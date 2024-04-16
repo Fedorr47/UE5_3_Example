@@ -16,7 +16,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowableSystem();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_AThrowableSystem_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UActionsHolder_NoRegister();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityComponent_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UThrowableTypeHolder();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UThrowableTypeHolder_NoRegister();
 	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FEntity();
@@ -83,68 +82,8 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 	UThrowableTypeHolder::UThrowableTypeHolder(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(UThrowableTypeHolder);
 	UThrowableTypeHolder::~UThrowableTypeHolder() {}
-	DEFINE_FUNCTION(AThrowableSystem::execComponentWasAddedImpl)
-	{
-		P_GET_STRUCT_REF(FEntity,Z_Param_Out_Entity);
-		P_GET_OBJECT(UEntityComponent,Z_Param_EntityComponent);
-		P_FINISH;
-		P_NATIVE_BEGIN;
-		P_THIS->ComponentWasAddedImpl(Z_Param_Out_Entity,Z_Param_EntityComponent);
-		P_NATIVE_END;
-	}
 	void AThrowableSystem::StaticRegisterNativesAThrowableSystem()
 	{
-		UClass* Class = AThrowableSystem::StaticClass();
-		static const FNameNativePtrPair Funcs[] = {
-			{ "ComponentWasAddedImpl", &AThrowableSystem::execComponentWasAddedImpl },
-		};
-		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
-	}
-	struct Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics
-	{
-		struct ThrowableSystem_eventComponentWasAddedImpl_Parms
-		{
-			FEntity Entity;
-			UEntityComponent* EntityComponent;
-		};
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_Entity_MetaData[];
-#endif
-		static const UECodeGen_Private::FStructPropertyParams NewProp_Entity;
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_EntityComponent;
-		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
-#endif
-		static const UECodeGen_Private::FFunctionParams FuncParams;
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::NewProp_Entity_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-#endif
-	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::NewProp_Entity = { "Entity", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThrowableSystem_eventComponentWasAddedImpl_Parms, Entity), Z_Construct_UScriptStruct_FEntity, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::NewProp_Entity_MetaData), Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::NewProp_Entity_MetaData) }; // 904214179
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::NewProp_EntityComponent = { "EntityComponent", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ThrowableSystem_eventComponentWasAddedImpl_Parms, EntityComponent), Z_Construct_UClass_UEntityComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
-	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::NewProp_Entity,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::NewProp_EntityComponent,
-	};
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::Function_MetaDataParams[] = {
-		{ "ModuleRelativePath", "Systems/ThrowableSystem.h" },
-	};
-#endif
-	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_AThrowableSystem, nullptr, "ComponentWasAddedImpl", nullptr, nullptr, Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::PropPointers), sizeof(Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::ThrowableSystem_eventComponentWasAddedImpl_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::Function_MetaDataParams), Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::Function_MetaDataParams) };
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::PropPointers) < 2048);
-	static_assert(sizeof(Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::ThrowableSystem_eventComponentWasAddedImpl_Parms) < MAX_uint16);
-	UFunction* Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl()
-	{
-		static UFunction* ReturnFunction = nullptr;
-		if (!ReturnFunction)
-		{
-			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl_Statics::FuncParams);
-		}
-		return ReturnFunction;
 	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(AThrowableSystem);
 	UClass* Z_Construct_UClass_AThrowableSystem_NoRegister()
@@ -154,7 +93,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 	struct Z_Construct_UClass_AThrowableSystem_Statics
 	{
 		static UObject* (*const DependentSingletons[])();
-		static const FClassFunctionLinkInfo FuncInfo[];
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
@@ -189,10 +127,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 		(UObject* (*)())Z_Construct_UPackage__Script_UE5_3_Example,
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableSystem_Statics::DependentSingletons) < 16);
-	const FClassFunctionLinkInfo Z_Construct_UClass_AThrowableSystem_Statics::FuncInfo[] = {
-		{ &Z_Construct_UFunction_AThrowableSystem_ComponentWasAddedImpl, "ComponentWasAddedImpl" }, // 4194733467
-	};
-	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableSystem_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_AThrowableSystem_Statics::Class_MetaDataParams[] = {
 		{ "IncludePath", "Systems/ThrowableSystem.h" },
@@ -254,11 +188,11 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 		"Engine",
 		&StaticCppClassTypeInfo,
 		DependentSingletons,
-		FuncInfo,
+		nullptr,
 		Z_Construct_UClass_AThrowableSystem_Statics::PropPointers,
 		nullptr,
 		UE_ARRAY_COUNT(DependentSingletons),
-		UE_ARRAY_COUNT(FuncInfo),
+		0,
 		UE_ARRAY_COUNT(Z_Construct_UClass_AThrowableSystem_Statics::PropPointers),
 		0,
 		0x008000A4u,
@@ -285,9 +219,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowableSystem() {}
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UThrowableTypeHolder, UThrowableTypeHolder::StaticClass, TEXT("UThrowableTypeHolder"), &Z_Registration_Info_UClass_UThrowableTypeHolder, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowableTypeHolder), 1141289229U) },
-		{ Z_Construct_UClass_AThrowableSystem, AThrowableSystem::StaticClass, TEXT("AThrowableSystem"), &Z_Registration_Info_UClass_AThrowableSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableSystem), 248941789U) },
+		{ Z_Construct_UClass_AThrowableSystem, AThrowableSystem::StaticClass, TEXT("AThrowableSystem"), &Z_Registration_Info_UClass_AThrowableSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AThrowableSystem), 220102531U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_3117238008(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_1424933113(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Systems_ThrowableSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

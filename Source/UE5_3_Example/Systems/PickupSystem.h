@@ -22,5 +22,17 @@ public:
 	virtual void InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode) override;
 	virtual void UpdateSystem(float DeltaSeconds) override;
 
-	AActor* PickedUpCharacter = nullptr;
+	virtual void ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent) override;
+	virtual void RemoveComponentImpl(const FEntity& Entity, UEntityComponent* EntityComponent) override;
+
+	UFUNCTION()
+	void Pickup(
+		UPrimitiveComponent* OverlappedComponent, 
+		AActor* OtherActor, 
+		UPrimitiveComponent* OtherComp, 
+		int32 OtherBodyIndex, 
+		bool bFromSweep, 
+		const FHitResult& SweepResult);
+
+	void PickupAll();
 };

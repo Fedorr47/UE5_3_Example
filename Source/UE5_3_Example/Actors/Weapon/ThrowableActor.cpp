@@ -39,23 +39,5 @@ void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
 		return;
 	}
 
-	UThrowableComponent* ThrowableComp = mGameMode->EntityManager->GetComponent<UThrowableComponent>(this->ActorEntity);
-	UThrowablePredictComponent* ThrowablePredictComp = mGameMode->EntityManager->GetComponent<UThrowablePredictComponent>(this->ActorEntity);
-	if (IsValid(ThrowableComp))
-	{
-		ThrowableComp->IsAttachedToCharacter = true;
-		ThrowableComp->OwnerCharacter = Cast<AActor>(OwnerCharacter);
-		ThrowableComp->InitComponent(mWorld, OwnerCharacter);
-		mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowableComp);
-
-		if (IsValid(ThrowablePredictComp))
-		{
-			ThrowablePredictComp->InitComponent(mWorld, OwnerCharacter);
-			ThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
-			ThrowablePredictComp->VelocityOfProjectile = ThrowableComp->ProjectileClass.GetDefaultObject()->GetProjectileMovement()->InitialSpeed;
-			mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowablePredictComp);
-		}
-		mGameMode->EntityManager->DestroyEntity(ActorEntity);
-		Destroy();
-	}
+	Destroy();
 }

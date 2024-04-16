@@ -145,6 +145,12 @@ public:
         return nullptr;
     }
 
+    const TArray<UEntityComponent*>& GetComponents(const FEntity& Entity) const
+    {
+        const FEntityInternal* EntityInternal = EntityComponents.Find(Entity.Id);
+        return EntityInternal->Components;
+    }
+
     template<typename T>
     void RemoveComponents(const FEntity& Entity)
     {
