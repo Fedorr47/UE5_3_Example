@@ -87,18 +87,6 @@
     <Filter Include="Source\UE5_3_Example\Actors\Weapon">
       <UniqueIdentifier>{23B38AD2-B3CD-3157-A01A-8DA0E389AFB0}</UniqueIdentifier>
     </Filter>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\FireArmWeapon.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\FireArmWeapon.h">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClInclude>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\ThrowableActor.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\ThrowableActor.h">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_PickUpComponent.cpp">
       <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
     </ClCompile>
