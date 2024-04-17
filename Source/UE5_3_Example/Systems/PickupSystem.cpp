@@ -51,7 +51,7 @@ void APickupSystem::Pickup(
 		ADefaultPlayableCharacter* PlayableCharacter = Cast<ADefaultPlayableCharacter>(OtherActor);
 		if (IsValid(PlayableCharacter) && PickupComponents.Contains(OverlappedComponent))
 		{
-			auto EntityObj = PickupComponents[OverlappedComponent];
+			FEntity EntityObj = PickupComponents[OverlappedComponent];
 			auto Components = mEntityManager->GetComponents(EntityObj);
 			for (auto Component : Components)
 			{
@@ -62,7 +62,6 @@ void APickupSystem::Pickup(
 					mEntityManager->AddCreatedComponent(PlayableCharacter->GetActorEntity(), Component);
 				}
 			}
-			auto Root = OverlappedComponent->GetAttachmentRoot();
 			mEntityManager->DestroyEntity(EntityObj);
 		}
 	}

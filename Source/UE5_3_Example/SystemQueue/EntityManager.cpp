@@ -3,9 +3,9 @@
 
 #include "SystemQueue/EntityManager.h"
 
-FEntity UEntityManager::CreateEntity()
+FEntity UEntityManager::CreateEntity(AActor* InPtrToObject)
 {
-    FEntity NewEntity;
+    FEntity NewEntity(InPtrToObject);
     Entities.Add(NewEntity);
     return NewEntity; 
 }
@@ -19,4 +19,8 @@ void UEntityManager::DestroyEntity(const FEntity& Entity)
 {
     EntityComponents.Remove(Entity.Id);
     Entities.Remove(Entity);
+    if (IsValid(Entity.mPtrToObject))
+    {
+        Entity.mPtrToObject->Destroy();
+    }
 }

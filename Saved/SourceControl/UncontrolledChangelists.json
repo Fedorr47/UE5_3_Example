@@ -26,6 +26,11 @@
 				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Input/IMC_Default.uasset",
 				"D:/UE_projects/UE5_3_Example/Content/UI/Widgets/WB_PauseMenu.uasset",
 				"D:/UE_projects/UE5_3_Example/Content/UI/HUD/WB_Charcter_HUD_Widget.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/ThrowableRife/ThrowableRifleProjectile.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/ThrowableRife/ThrowableRifle.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/9/91/XPPZ9O2MGNT1JZ1F3SYC41.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/__ExternalActors__/FirstPerson/Maps/FirstPersonMap/8/SR/R8MI5QQULN3PI6T6WVNMNY.uasset",
+				"D:/UE_projects/UE5_3_Example/Content/FirstPerson/Blueprints/Weapon/ThrowableRife/ExplotionGrenadeProjectile.uasset",
 				"D:/UE_projects/UE5_3_Example/Content/UI/HUD/17638-3840x2160-desktop-4k-forest-background.uasset"
 			]
 		}

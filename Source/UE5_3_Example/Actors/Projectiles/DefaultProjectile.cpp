@@ -7,6 +7,7 @@
 ADefaultProjectile::ADefaultProjectile(const FObjectInitializer& ObjectInitializer) :
 	Super(ObjectInitializer)
 {
+	/*/
 	// Use a sphere as a simple collision representation
 	CollisionComp = CreateDefaultSubobject<USphereComponent>(TEXT("SphereComp"));
 	CollisionComp->InitSphereRadius(5.0f);
@@ -16,13 +17,16 @@ ADefaultProjectile::ADefaultProjectile(const FObjectInitializer& ObjectInitializ
 	// Players can't walk on it
 	CollisionComp->SetWalkableSlopeOverride(FWalkableSlopeOverride(WalkableSlope_Unwalkable, 0.f));
 	CollisionComp->CanCharacterStepUpOn = ECB_No;
+	*/
 
+	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMeshComp"));
+	//ProjectileMesh->AttachToComponent(CollisionComp, FAttachmentTransformRules::KeepRelativeTransform);
 	// Set as root component
-	RootComponent = CollisionComp;
+	RootComponent = ProjectileMesh;
 
 	// Use a ProjectileMovementComponent to govern this projectile's movement
 	ProjectileMovement = CreateDefaultSubobject<UProjectileMovementComponent>(TEXT("ProjectileComp"));
-	ProjectileMovement->UpdatedComponent = CollisionComp;
+	ProjectileMovement->UpdatedComponent = ProjectileMesh;
 	ProjectileMovement->InitialSpeed = 3000.f;
 	ProjectileMovement->MaxSpeed = 3000.f;
 	ProjectileMovement->bRotationFollowsVelocity = true;
@@ -30,9 +34,6 @@ ADefaultProjectile::ADefaultProjectile(const FObjectInitializer& ObjectInitializ
 
 	// Die after 3 seconds by default
 	InitialLifeSpan = 3.0f;
-
-	ProjectileMesh = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("ProjectileMeshComp"));
-	ProjectileMesh->AttachToComponent(CollisionComp, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 void ADefaultProjectile::OnHit(UPrimitiveComponent* HitComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)

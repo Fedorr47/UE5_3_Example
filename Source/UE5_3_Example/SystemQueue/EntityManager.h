@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "EntityComponent.h"
+#include "GameFramework/Actor.h"
 #include "EntityManager.generated.h"
 
 USTRUCT(BlueprintType)
@@ -15,10 +16,13 @@ public:
     UPROPERTY()
     FGuid Id;
     FEntity() : Id(FGuid::NewGuid()) {}
+    FEntity(AActor* InPtrToObject) : Id(FGuid::NewGuid()) , mPtrToObject(InPtrToObject) {}
+
+    AActor* mPtrToObject;
 
     bool operator==(const FEntity& Other) const
     {
-        return Id == Other.Id;
+        return (Id == Other.Id) && (mPtrToObject == Other.mPtrToObject);
     }
 };
 
@@ -59,14 +63,14 @@ private:
             }
         }
 
-        return FEntity(); 
+        return FEntity(nullptr); 
     }
 
 public:
     UPROPERTY(BlueprintAssignable)
     FOnAddedComponent OnAddedComponent;
 
-    FEntity CreateEntity();
+    FEntity CreateEntity(AActor* InPtrToObject = nullptr);
 
     void AddEntity(FEntity* InEntity);
 

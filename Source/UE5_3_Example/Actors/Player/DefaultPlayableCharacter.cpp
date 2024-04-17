@@ -77,7 +77,7 @@ void ADefaultPlayableCharacter::BeginPlay()
 
 	if (SetupGameMode())
 	{
-		ActorEntity = mGameMode->EntityManager->CreateEntity();
+		ActorEntity = mGameMode->EntityManager->CreateEntity(this);
 		for (FEntityComponentWrapper Component : AttachedComponents)
 		{
 			if (IsValid(Component.Template))

@@ -35,7 +35,7 @@ void ABaseInteractableActor::BeginPlay()
 	{
 		mWorld = lWorld;
 		mGameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
-		ActorEntity = mGameMode->EntityManager->CreateEntity();
+		ActorEntity = mGameMode->EntityManager->CreateEntity(this);
 		for (FEntityComponentWrapper Component : AttachedComponents)
 		{
 			if (IsValid(Component.Template))
