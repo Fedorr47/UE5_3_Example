@@ -22,7 +22,4 @@ public:
 	AThrowableActor(const FObjectInitializer& ObjectInitializer);
 
 	virtual void Tick(float DeltaTime) override;
-
-	UFUNCTION(BlueprintCallable, Category = "Throw")
-	void AttachToCharacter(ACharacter* TargetCharacter);
 };

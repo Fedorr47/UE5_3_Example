@@ -35,4 +35,6 @@ public:
 		const FHitResult& SweepResult);
 
 	void PickupAll();
+
+	TMap<UPrimitiveComponent*, FEntity> PickupComponents;
 };

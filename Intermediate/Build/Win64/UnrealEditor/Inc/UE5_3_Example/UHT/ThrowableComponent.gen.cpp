@@ -10,7 +10,6 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 // Cross Module References
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-	ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister();
@@ -93,15 +92,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_ProjectileClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsAttachedToCharacter_MetaData[];
-#endif
-		static void NewProp_IsAttachedToCharacter_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsAttachedToCharacter;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_OwnerCharacter_MetaData[];
-#endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_OwnerCharacter;
 		static const UECodeGen_Private::FBytePropertyParams NewProp_Type_Underlying;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Type_MetaData[];
@@ -138,22 +128,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass = { "ProjectileClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, ProjectileClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ADefaultProjectile_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_IsAttachedToCharacter_MetaData[] = {
-		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
-	};
-#endif
-	void Z_Construct_UClass_UThrowableComponent_Statics::NewProp_IsAttachedToCharacter_SetBit(void* Obj)
-	{
-		((UThrowableComponent*)Obj)->IsAttachedToCharacter = 1;
-	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_IsAttachedToCharacter = { "IsAttachedToCharacter", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UThrowableComponent), &Z_Construct_UClass_UThrowableComponent_Statics::NewProp_IsAttachedToCharacter_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_IsAttachedToCharacter_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_IsAttachedToCharacter_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OwnerCharacter_MetaData[] = {
-		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
-	};
-#endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OwnerCharacter = { "OwnerCharacter", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, OwnerCharacter), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OwnerCharacter_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OwnerCharacter_MetaData) };
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_Type_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_Type_MetaData[] = {
@@ -180,8 +154,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowAction = { "ThrowAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, ThrowAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowAction_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowAction_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UThrowableComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_IsAttachedToCharacter,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OwnerCharacter,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_Type_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_Type,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowMappingContext,
@@ -229,9 +201,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 		{ EThrowableType_StaticEnum, TEXT("EThrowableType"), &Z_Registration_Info_UEnum_EThrowableType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4124928172U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UThrowableComponent, UThrowableComponent::StaticClass, TEXT("UThrowableComponent"), &Z_Registration_Info_UClass_UThrowableComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowableComponent), 2515074817U) },
+		{ Z_Construct_UClass_UThrowableComponent, UThrowableComponent::StaticClass, TEXT("UThrowableComponent"), &Z_Registration_Info_UClass_UThrowableComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowableComponent), 968306249U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_3483065982(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_1848409252(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::EnumInfo));

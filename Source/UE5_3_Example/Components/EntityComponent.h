@@ -40,6 +40,9 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = OwnerShip)
 	bool CanBeReOwned = false;
 
+	UPROPERTY()
+	bool IsAttachedToCharacter = false;
+
 protected:
 	UPROPERTY()
 	UWorld* mWorld = nullptr;

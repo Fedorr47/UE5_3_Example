@@ -20,5 +20,6 @@ public:
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
+	UPROPERTY(EditAnywhere, Category = Primitive)
 	UPrimitiveComponent* PickedUpComp = nullptr;
 };

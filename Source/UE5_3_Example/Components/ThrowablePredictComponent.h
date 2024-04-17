@@ -33,4 +33,7 @@ public:
 
 	UPROPERTY()
 	TArray<USplineMeshComponent*> SplinePredictMeshes;
+
+	UPROPERTY(EditDefaultsOnly, Category = Projectile)
+	TSubclassOf<ADefaultProjectile> ProjectileClass;
 };

@@ -17,6 +17,7 @@ AFireArmWeapon::AFireArmWeapon(const FObjectInitializer& ObjectInitializer)
 
 void AFireArmWeapon::AttachToCharacter(ACharacter* TargetCharacter)
 {
+	/*
 	OwnerCharacter = Cast<ADefaultPlayableCharacter>(TargetCharacter);
 
 	if (OwnerCharacter == nullptr)

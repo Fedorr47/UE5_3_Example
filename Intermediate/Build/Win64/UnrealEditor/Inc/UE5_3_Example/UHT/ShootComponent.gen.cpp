@@ -80,9 +80,9 @@ void EmptyLinkFunctionForGeneratedCodeShootComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ShootComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UShootComponent, UShootComponent::StaticClass, TEXT("UShootComponent"), &Z_Registration_Info_UClass_UShootComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UShootComponent), 3678634303U) },
+		{ Z_Construct_UClass_UShootComponent, UShootComponent::StaticClass, TEXT("UShootComponent"), &Z_Registration_Info_UClass_UShootComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UShootComponent), 2954411577U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ShootComponent_h_2812803928(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ShootComponent_h_1108544225(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ShootComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_ShootComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

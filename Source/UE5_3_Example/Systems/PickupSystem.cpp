@@ -22,9 +22,14 @@ void APickupSystem::UpdateSystem(float DeltaSeconds)
 void APickupSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent)
 {
 	UPickupbleComponent* Component = Cast<UPickupbleComponent>(EntityComponent);
-	if (IsValid(Component) && IsValid(Component->PickedUpComp))
+	if (IsValid(Component))
 	{
-		Component->PickedUpComp->OnComponentBeginOverlap.AddUniqueDynamic(this, &APickupSystem::Pickup);
+		if (UPrimitiveComponent* PrimitiveComponent = Cast<UPrimitiveComponent>(EntityComponent->GetOwnerObject()))
+		{
+			Component->PickedUpComp = PrimitiveComponent;
+			PickupComponents.Add(Component->PickedUpComp, Entity);
+			Component->PickedUpComp->OnComponentBeginOverlap.AddUniqueDynamic(this, &APickupSystem::Pickup);
+		}
 	}
 }
 
@@ -44,27 +49,21 @@ void APickupSystem::Pickup(
 	if (IsValid(OtherActor))
 	{
 		ADefaultPlayableCharacter* PlayableCharacter = Cast<ADefaultPlayableCharacter>(OtherActor);
-		if (IsValid(PlayableCharacter))
+		if (IsValid(PlayableCharacter) && PickupComponents.Contains(OverlappedComponent))
 		{
-			auto Components = mEntityManager->GetComponents(PlayableCharacter->GetActorEntity());
-			/*
-			if (IsValid(ThrowableComp))
+			auto EntityObj = PickupComponents[OverlappedComponent];
+			auto Components = mEntityManager->GetComponents(EntityObj);
+			for (auto Component : Components)
 			{
-				ThrowableComp->IsAttachedToCharacter = true;
-				ThrowableComp->OwnerCharacter = Cast<AActor>(OwnerCharacter);
-				ThrowableComp->InitComponent(mWorld, OwnerCharacter);
-				mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowableComp);
-
-				if (IsValid(ThrowablePredictComp))
+				if (IsValid(Component) && Component->CanBeReOwned)
 				{
-					ThrowablePredictComp->InitComponent(mWorld, OwnerCharacter);
-					ThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
-					ThrowablePredictComp->VelocityOfProjectile = ThrowableComp->ProjectileClass.GetDefaultObject()->GetProjectileMovement()->InitialSpeed;
-					mGameMode->EntityManager->AddCreatedComponent(OwnerCharacter->GetActorEntity(), ThrowablePredictComp);
+					Component->IsAttachedToCharacter = true;
+					Component->InitComponent(mGameMode->GetWorld(), PlayableCharacter);
+					mEntityManager->AddCreatedComponent(PlayableCharacter->GetActorEntity(), Component);
 				}
-				mGameMode->EntityManager->DestroyEntity(ActorEntity);
-
-			}*/
+			}
+			auto Root = OverlappedComponent->GetAttachmentRoot();
+			mEntityManager->DestroyEntity(EntityObj);
 		}
 	}
 }

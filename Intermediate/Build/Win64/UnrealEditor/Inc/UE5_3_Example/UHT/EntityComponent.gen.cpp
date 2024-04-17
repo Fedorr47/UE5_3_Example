@@ -109,6 +109,11 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityComponentWrapper
 		static void NewProp_CanBeReOwned_SetBit(void* Obj);
 		static const UECodeGen_Private::FBoolPropertyParams NewProp_CanBeReOwned;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_IsAttachedToCharacter_MetaData[];
+#endif
+		static void NewProp_IsAttachedToCharacter_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_IsAttachedToCharacter;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_mWorld_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_mWorld;
@@ -149,6 +154,16 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityComponentWrapper
 	}
 	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UEntityComponent_Statics::NewProp_CanBeReOwned = { "CanBeReOwned", nullptr, (EPropertyFlags)0x0010000000010001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UEntityComponent), &Z_Construct_UClass_UEntityComponent_Statics::NewProp_CanBeReOwned_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEntityComponent_Statics::NewProp_CanBeReOwned_MetaData), Z_Construct_UClass_UEntityComponent_Statics::NewProp_CanBeReOwned_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEntityComponent_Statics::NewProp_IsAttachedToCharacter_MetaData[] = {
+		{ "ModuleRelativePath", "Components/EntityComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UEntityComponent_Statics::NewProp_IsAttachedToCharacter_SetBit(void* Obj)
+	{
+		((UEntityComponent*)Obj)->IsAttachedToCharacter = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UEntityComponent_Statics::NewProp_IsAttachedToCharacter = { "IsAttachedToCharacter", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UEntityComponent), &Z_Construct_UClass_UEntityComponent_Statics::NewProp_IsAttachedToCharacter_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEntityComponent_Statics::NewProp_IsAttachedToCharacter_MetaData), Z_Construct_UClass_UEntityComponent_Statics::NewProp_IsAttachedToCharacter_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEntityComponent_Statics::NewProp_mWorld_MetaData[] = {
 		{ "ModuleRelativePath", "Components/EntityComponent.h" },
 	};
@@ -168,6 +183,7 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityComponentWrapper
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEntityComponent_Statics::NewProp_mOwnerObject = { "mOwnerObject", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEntityComponent, mOwnerObject), Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEntityComponent_Statics::NewProp_mOwnerObject_MetaData), Z_Construct_UClass_UEntityComponent_Statics::NewProp_mOwnerObject_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEntityComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityComponent_Statics::NewProp_CanBeReOwned,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityComponent_Statics::NewProp_IsAttachedToCharacter,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityComponent_Statics::NewProp_mWorld,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityComponent_Statics::NewProp_mGameMode,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityComponent_Statics::NewProp_mOwnerObject,
@@ -214,9 +230,9 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityComponentWrapper
 		{ FEntityComponentWrapper::StaticStruct, Z_Construct_UScriptStruct_FEntityComponentWrapper_Statics::NewStructOps, TEXT("EntityComponentWrapper"), &Z_Registration_Info_UScriptStruct_EntityComponentWrapper, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEntityComponentWrapper), 4286559399U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_EntityComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEntityComponent, UEntityComponent::StaticClass, TEXT("UEntityComponent"), &Z_Registration_Info_UClass_UEntityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEntityComponent), 2414395013U) },
+		{ Z_Construct_UClass_UEntityComponent, UEntityComponent::StaticClass, TEXT("UEntityComponent"), &Z_Registration_Info_UClass_UEntityComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEntityComponent), 3179996102U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_EntityComponent_h_1186494831(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_EntityComponent_h_2967021313(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_EntityComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_EntityComponent_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_EntityComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Components_EntityComponent_h_Statics::ScriptStructInfo),
 		nullptr, 0);

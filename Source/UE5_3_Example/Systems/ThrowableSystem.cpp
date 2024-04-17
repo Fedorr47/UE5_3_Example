@@ -46,7 +46,7 @@ void AThrowableSystem::BindActions(UThrowableComponent* Component)
 		if (MappingContexts[Component->ThrowMappingContext]->Actions.Find(Component->ThrowAction) == INDEX_NONE)
 		{
 
-			ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(Component->OwnerCharacter);
+			ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(Component->GetOwnerObject());
 			if (IsValid(OwnerCharacter))
 			{
 				MappingContexts[Component->ThrowMappingContext]->Actions.Add(Component->ThrowAction);
@@ -226,15 +226,14 @@ void AThrowableSystem::PredictThrow()
 
 void AThrowableSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent)
 {
-	UThrowableComponent* Component = Cast<UThrowableComponent>(EntityComponent);
-	if (IsValid(Component))
+	if (UThrowableComponent* ThrowComponent = Cast<UThrowableComponent>(EntityComponent))
 	{
 		UThrowableTypeHolder* ThrowableTypeHolder = nullptr;
 		UThrowableTypeHolder** ThrowableTypeHolders = ThrowableComponents.Find(Entity);
 		if (ThrowableTypeHolders == nullptr)
 		{
 			UThrowableTypeHolder* NewHolder = NewObject<UThrowableTypeHolder>();
-			NewHolder->Components.Add(Component->Type, TArray<UThrowableComponent*>());
+			NewHolder->Components.Add(ThrowComponent->Type, TArray<UThrowableComponent*>());
 			ThrowableComponents.Add(Entity, NewHolder);
 			ThrowableTypeHolder = NewHolder;
 		}
@@ -242,17 +241,25 @@ void AThrowableSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityCompo
 		{
 			ThrowableTypeHolder = *ThrowableTypeHolders;
 		}
-		auto TypeHolder = ThrowableTypeHolder->Components.Find(Component->Type);
+		auto TypeHolder = ThrowableTypeHolder->Components.Find(ThrowComponent->Type);
 		if (TypeHolder == nullptr)
 		{
-			ThrowableTypeHolder->Components.Add(Component->Type, TArray<UThrowableComponent*>());
+			ThrowableTypeHolder->Components.Add(ThrowComponent->Type, TArray<UThrowableComponent*>());
 		}
-		ThrowableTypeHolder->Components[Component->Type].AddUnique(Component);
-		if (Component->IsAttachedToCharacter)
+		ThrowableTypeHolder->Components[ThrowComponent->Type].AddUnique(ThrowComponent);
+		if (ThrowComponent->IsAttachedToCharacter)
 		{
-			SendThrowableCountMsg(Component, ThrowableTypeHolder->Components[Component->Type].Num());
+			SendThrowableCountMsg(ThrowComponent, ThrowableTypeHolder->Components[ThrowComponent->Type].Num());
 		}
-		BindActions(Component);
+		BindActions(ThrowComponent);
+	}
+	else if (UThrowablePredictComponent* ThrowablePredictComp = Cast<UThrowablePredictComponent>(EntityComponent))
+	{
+		if (ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowablePredictComp->GetOwnerObject()))
+		{
+			ThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
+			ThrowablePredictComp->VelocityOfProjectile = ThrowablePredictComp->ProjectileClass.GetDefaultObject()->GetProjectileMovement()->InitialSpeed;
+		}
 	}
 }
 

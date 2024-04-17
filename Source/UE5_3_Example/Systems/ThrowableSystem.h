@@ -49,6 +49,7 @@ private:
 	UPROPERTY()
 	bool OnceThrowPerTime = true;
 
+	// TODO: Maybe it can be an issue
 	UPROPERTY()
 	TMap<FEntity, UThrowableTypeHolder*> ThrowableComponents;
 

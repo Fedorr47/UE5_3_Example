@@ -6,6 +6,7 @@
 #include "SystemQueue/EntityManager.h"
 #include "Systems/ThrowableSystem.h"
 #include "Systems/DamageSystem.h"
+#include "Systems/PickupSystem.h"
 #include "Systems/BaseExtSystem.h"
 #include "UI/PauseMenu.h"
 #include "UObject/ConstructorHelpers.h"
@@ -39,6 +40,7 @@ void AUE5_3_ExampleGameMode::StartPlay()
 	{
 		GeneralMessageQueue = NewObject<UMessageQueue>(GameWorld);
 		EntityManager = NewObject<UEntityManager>(GameWorld);
+
 		// Systems
 		auto ThrowableSystem = GameWorld->SpawnActor<AThrowableSystem>();
 		ThrowableSystem->InitSystem(EntityManager, this);
@@ -47,6 +49,10 @@ void AUE5_3_ExampleGameMode::StartPlay()
 		auto DamageSystem = GameWorld->SpawnActor<ADamageSystem>();
 		DamageSystem->InitSystem(EntityManager, this);
 		Systems.Add(TEXT("DamageSystem"), DamageSystem);
+
+		auto PickupSystem = GameWorld->SpawnActor<APickupSystem>();
+		PickupSystem->InitSystem(EntityManager, this);
+		Systems.Add(TEXT("PickupSystem"), PickupSystem);
 
 		mPauseMenu = CreateWidget<UUserWidget>(GameWorld, PauseMenu);
 	}

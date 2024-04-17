@@ -30,10 +30,7 @@ public:
 	void Heal(float InHealAmount);
 
 	UFUNCTION()
-	UStaticMesh* GetThrowableMesh() const { return StatMeshComp->GetStaticMesh(); }
-
-	UPROPERTY()
-	ADefaultPlayableCharacter* OwnerCharacter = nullptr;
+	UStaticMesh* GetInteractableMesh() const { return StatMeshComp->GetStaticMesh(); }
 
 protected:
 	// Called when the game starts or when spawned
@@ -54,14 +51,9 @@ protected:
 	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
 	UStaticMeshComponent* StatMeshComp;
 
-	
-	//void OnStatMeshTransformUpdate(USceneComponent* InRootComponent, EUpdateTransformFlags UpdateTransformFlags, ETeleportType Teleport);
-
 public:	
-	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	//UPROPERTY(EditDefaultsOnly, Category = Components)
 	UPROPERTY(EditAnywhere, Category = Components)
 	TArray<FEntityComponentWrapper> AttachedComponents;
 };

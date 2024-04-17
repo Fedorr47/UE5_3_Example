@@ -9,7 +9,6 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class ACharacter;
 #ifdef UE5_3_EXAMPLE_ThrowableActor_generated_h
 #error "ThrowableActor.generated.h already included, missing '#pragma once' in ThrowableActor.h"
 #endif
@@ -18,11 +17,7 @@ class ACharacter;
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_16_SPARSE_DATA
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_16_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_16_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
-#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_16_RPC_WRAPPERS_NO_PURE_DECLS \
- \
-	DECLARE_FUNCTION(execAttachToCharacter);
-
-
+#define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_16_RPC_WRAPPERS_NO_PURE_DECLS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_16_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_ThrowableActor_h_16_INCLASS_NO_PURE_DECLS \
 private: \

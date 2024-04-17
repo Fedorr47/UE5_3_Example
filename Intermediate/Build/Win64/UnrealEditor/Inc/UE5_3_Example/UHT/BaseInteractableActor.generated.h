@@ -23,7 +23,7 @@ class UStaticMesh;
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
-	DECLARE_FUNCTION(execGetThrowableMesh); \
+	DECLARE_FUNCTION(execGetInteractableMesh); \
 	DECLARE_FUNCTION(execHeal); \
 	DECLARE_FUNCTION(execTakeBaseDamage);
 

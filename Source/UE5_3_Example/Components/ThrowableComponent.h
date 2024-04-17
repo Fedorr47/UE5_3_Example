@@ -36,12 +36,6 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)
 	TSubclassOf<ADefaultProjectile> ProjectileClass;
 
-	UPROPERTY()
-	bool IsAttachedToCharacter = false;
-
-	UPROPERTY()
-	AActor* OwnerCharacter = nullptr;
-
 	UPROPERTY(EditAnywhere, Category = ThrowableType)
 	EThrowableType Type = EThrowableType::Other;
 

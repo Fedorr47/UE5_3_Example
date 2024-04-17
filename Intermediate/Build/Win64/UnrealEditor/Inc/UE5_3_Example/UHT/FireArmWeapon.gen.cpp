@@ -152,9 +152,9 @@ void EmptyLinkFunctionForGeneratedCodeFireArmWeapon() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_AFireArmWeapon, AFireArmWeapon::StaticClass, TEXT("AFireArmWeapon"), &Z_Registration_Info_UClass_AFireArmWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFireArmWeapon), 1067342070U) },
+		{ Z_Construct_UClass_AFireArmWeapon, AFireArmWeapon::StaticClass, TEXT("AFireArmWeapon"), &Z_Registration_Info_UClass_AFireArmWeapon, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(AFireArmWeapon), 1804713706U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_1942991667(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_2484546689(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_3_Example_Source_UE5_3_Example_Actors_Weapon_FireArmWeapon_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

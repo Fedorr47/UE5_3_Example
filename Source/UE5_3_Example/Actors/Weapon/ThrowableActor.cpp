@@ -29,15 +29,3 @@ void AThrowableActor::BeginPlay()
 {
 	Super::BeginPlay();
 }
-
-void AThrowableActor::AttachToCharacter(ACharacter* TargetCharacter)
-{
-	OwnerCharacter = Cast<ADefaultPlayableCharacter>(TargetCharacter);
-
-	if (OwnerCharacter == nullptr)
-	{
-		return;
-	}
-
-	Destroy();
-}
