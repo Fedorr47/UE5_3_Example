@@ -3,6 +3,7 @@
 #include <Kismet/GameplayStatics.h>
 #include "Math/UnrealMathUtility.h"
 #include "DefaultPlayableCharacter.h"
+#include "BaseInteractableActor.h"
 #include "PickupbleComponent.h"
 #include "PickupSystem.h"
 
@@ -24,11 +25,15 @@ void APickupSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityComponen
 	UPickupbleComponent* Component = Cast<UPickupbleComponent>(EntityComponent);
 	if (IsValid(Component))
 	{
-		if (UPrimitiveComponent* PrimitiveComponent = Cast<UPrimitiveComponent>(EntityComponent->GetOwnerObject()))
+		ABaseInteractableActor* BaseInteractableActor = Cast<ABaseInteractableActor>(EntityComponent->GetOwnerObject());
+		if (IsValid(BaseInteractableActor))
 		{
-			Component->PickedUpComp = PrimitiveComponent;
-			PickupComponents.Add(Component->PickedUpComp, Entity);
-			Component->PickedUpComp->OnComponentBeginOverlap.AddUniqueDynamic(this, &APickupSystem::Pickup);
+			Component->PickedUpComp = BaseInteractableActor->GetInteractableMeshComp();
+			if (IsValid(Component->PickedUpComp))
+			{
+				PickupComponents.Add(Component->PickedUpComp, Entity);
+				Component->PickedUpComp->OnComponentBeginOverlap.AddUniqueDynamic(this, &APickupSystem::Pickup);
+			}
 		}
 	}
 }
@@ -62,6 +67,7 @@ void APickupSystem::Pickup(
 					mEntityManager->AddCreatedComponent(PlayableCharacter->GetActorEntity(), Component);
 				}
 			}
+			// TODO: Add possobility to not destroing actor after pickup 
 			mEntityManager->DestroyEntity(EntityObj);
 		}
 	}

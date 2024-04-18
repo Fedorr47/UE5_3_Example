@@ -40,7 +40,7 @@ void ABaseInteractableActor::BeginPlay()
 		{
 			if (IsValid(Component.Template))
 			{
-				Component.Template->InitComponent(mWorld, StatMeshComp);
+				Component.Template->InitComponent(mWorld, this);
 				mGameMode->EntityManager->AddCreatedComponent(ActorEntity, Component.Template);
 				CreatedComponents.Emplace(Component.Template);
 			}
@@ -60,11 +60,6 @@ void ABaseInteractableActor::OnStatMeshTransformUpdate(USceneComponent* InRootCo
 void ABaseInteractableActor::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
-	for (auto Component : CreatedComponents)
-	{
-		Component->Update(DeltaTime);
-	}
 
 }
 

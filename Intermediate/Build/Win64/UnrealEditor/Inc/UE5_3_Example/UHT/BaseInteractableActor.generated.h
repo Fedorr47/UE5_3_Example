@@ -13,6 +13,7 @@ class AActor;
 class AController;
 class UDamageType;
 class UStaticMesh;
+class UStaticMeshComponent;
 #ifdef UE5_3_EXAMPLE_BaseInteractableActor_generated_h
 #error "BaseInteractableActor.generated.h already included, missing '#pragma once' in BaseInteractableActor.h"
 #endif
@@ -23,6 +24,7 @@ class UStaticMesh;
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_21_EDITOR_ONLY_SPARSE_DATA_PROPERTY_ACCESSORS
 #define FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_21_RPC_WRAPPERS_NO_PURE_DECLS \
  \
+	DECLARE_FUNCTION(execGetInteractableMeshComp); \
 	DECLARE_FUNCTION(execGetInteractableMesh); \
 	DECLARE_FUNCTION(execHeal); \
 	DECLARE_FUNCTION(execTakeBaseDamage);

@@ -37,7 +37,6 @@ public:
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
-	virtual void Update(float DeltaTime) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = FlaotableHealthWidget)
 	TSubclassOf<UFloatableHealth> FloatableHealthW;
@@ -45,7 +44,12 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = FlaotableHealth)
 	float HealthPercent = 1.0f;
 
+	UPROPERTY()
+	UStaticMeshComponent* RootMesh;
+
 private:
+	
+
 	UPROPERTY()
 	UWidgetComponent* mFloatableHealthWC = nullptr;
 

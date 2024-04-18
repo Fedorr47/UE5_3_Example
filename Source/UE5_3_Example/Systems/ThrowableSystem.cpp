@@ -6,6 +6,7 @@
 #include "Math/UnrealMathUtility.h"
 
 #include "DefaultPlayableCharacter.h"
+#include "BaseInteractableActor.h"
 #include "Kismet/KismetMathLibrary.h"
 #include "GameFramework/ProjectileMovementComponent.h"
 #include "GameFramework/Actor.h"
@@ -94,12 +95,21 @@ void AThrowableSystem::ApplyThrow()
 							const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 							FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
 							FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, -InFrontOwner.Z);
-							const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrthogonalForwardVector * -100.0f);
+							const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrthogonalForwardVector * -150.0f);
+							const FVector SpawnVelocity = InFrontOwner * 1500.0f;
 
 							FActorSpawnParameters ActorSpawnParams;
 							ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-							World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+							if (ThrowableComp->ThrowOwnerItself && ThrowableComp->OriginalOwnerClass.Get() != nullptr)
+							{
+								auto SpawnedActor = World->SpawnActor<ABaseInteractableActor>(ThrowableComp->OriginalOwnerClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+								SpawnedActor->GetInteractableMeshComp()->AddImpulseAtLocation(SpawnVelocity, SpawnLocation);
+							}
+							else
+							{
+								World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+							}
 
 							RemoveComponent(Entity, ThrowableComp);
 							mEntityManager->RemoveComponent(Entity, ThrowableComp);
@@ -251,11 +261,29 @@ void AThrowableSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityCompo
 		{
 			SendThrowableCountMsg(ThrowComponent, ThrowableTypeHolder->Components[ThrowComponent->Type].Num());
 		}
+		else if (ThrowComponent->ThrowOwnerItself)
+		{
+			ThrowComponent->OriginalOwnerClass = ThrowComponent->GetOwnerObject()->GetClass();
+		}
 		BindActions(ThrowComponent);
+		ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowComponent->GetOwnerObject());
+		if (IsValid(OwnerCharacter) && ThrowComponent->ShowThrowPredict)
+		{
+			UThrowablePredictComponent* AttachedThrowablePredictComp = mEntityManager->AddComponent<UThrowablePredictComponent>(Entity);
+			AttachedThrowablePredictComp->InitComponent(mEntityManager->GetWorld(), OwnerCharacter);
+			AttachedThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
+			AttachedThrowablePredictComp->PathMesh = ThrowComponent->PredictMesh;
+			if (ThrowComponent->ThrowOwnerItself)
+			{
+				AttachedThrowablePredictComp->VelocityOfProjectile = 1500.0f;
+			}
+			AttachedThrowablePredictComp->ManuallyCreated = false;
+		}
 	}
 	else if (UThrowablePredictComponent* ThrowablePredictComp = Cast<UThrowablePredictComponent>(EntityComponent))
 	{
-		if (ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowablePredictComp->GetOwnerObject()))
+		ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowablePredictComp->GetOwnerObject());
+		if (IsValid(OwnerCharacter) && ThrowablePredictComp->ManuallyCreated)
 		{
 			ThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
 			ThrowablePredictComp->VelocityOfProjectile = ThrowablePredictComp->ProjectileClass.GetDefaultObject()->GetProjectileMovement()->InitialSpeed;

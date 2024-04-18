@@ -32,6 +32,9 @@ public:
 	float VelocityOfProjectile = 0.0f;
 
 	UPROPERTY()
+	bool ManuallyCreated = true;
+
+	UPROPERTY()
 	TArray<USplineMeshComponent*> SplinePredictMeshes;
 
 	UPROPERTY(EditDefaultsOnly, Category = Projectile)

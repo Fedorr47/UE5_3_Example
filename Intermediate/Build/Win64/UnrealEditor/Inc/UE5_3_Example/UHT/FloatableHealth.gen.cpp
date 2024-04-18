@@ -12,6 +12,7 @@ void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 	COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
 	ENGINE_API UClass* Z_Construct_UClass_APlayerCameraManager_NoRegister();
 	ENGINE_API UClass* Z_Construct_UClass_UMeshComponent_NoRegister();
+	ENGINE_API UClass* Z_Construct_UClass_UStaticMeshComponent_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityComponent();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UFloatableHealth();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UFloatableHealth_NoRegister();
@@ -125,6 +126,10 @@ void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_HealthPercent;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_RootMesh_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_RootMesh;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_mFloatableHealthWC_MetaData[];
 #endif
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_mFloatableHealthWC;
@@ -173,6 +178,13 @@ void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_HealthPercent = { "HealthPercent", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UFloatableHealthComponent, HealthPercent), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_HealthPercent_MetaData), Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_HealthPercent_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_RootMesh_MetaData[] = {
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Components/FloatableHealth.h" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_RootMesh = { "RootMesh", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UFloatableHealthComponent, RootMesh), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_RootMesh_MetaData), Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_RootMesh_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_mFloatableHealthWC_MetaData[] = {
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Components/FloatableHealth.h" },
@@ -202,6 +214,7 @@ void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UFloatableHealthComponent_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_FloatableHealthW,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_HealthPercent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_RootMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_mFloatableHealthWC,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_mFloatableHealthW,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UFloatableHealthComponent_Statics::NewProp_CameraManager,
@@ -246,9 +259,9 @@ void EmptyLinkFunctionForGeneratedCodeFloatableHealth() {}
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_FloatableHealth_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_UFloatableHealth, UFloatableHealth::StaticClass, TEXT("UFloatableHealth"), &Z_Registration_Info_UClass_UFloatableHealth, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloatableHealth), 2856575800U) },
-		{ Z_Construct_UClass_UFloatableHealthComponent, UFloatableHealthComponent::StaticClass, TEXT("UFloatableHealthComponent"), &Z_Registration_Info_UClass_UFloatableHealthComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloatableHealthComponent), 992625507U) },
+		{ Z_Construct_UClass_UFloatableHealthComponent, UFloatableHealthComponent::StaticClass, TEXT("UFloatableHealthComponent"), &Z_Registration_Info_UClass_UFloatableHealthComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UFloatableHealthComponent), 1886404431U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_FloatableHealth_h_67572047(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_FloatableHealth_h_464720326(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_FloatableHealth_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_FloatableHealth_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

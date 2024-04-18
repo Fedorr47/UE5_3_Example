@@ -20,6 +20,7 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	ENGINE_API UScriptStruct* Z_Construct_UScriptStruct_FHitResult();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister();
+	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FADefaultProjectileWrapper();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
 	DEFINE_FUNCTION(ADefaultProjectile::execOnHit)
@@ -340,15 +341,90 @@ void EmptyLinkFunctionForGeneratedCodeDefaultProjectile() {}
 	}
 	DEFINE_VTABLE_PTR_HELPER_CTOR(ADefaultProjectile);
 	ADefaultProjectile::~ADefaultProjectile() {}
+	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_ADefaultProjectileWrapper;
+class UScriptStruct* FADefaultProjectileWrapper::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_ADefaultProjectileWrapper.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_ADefaultProjectileWrapper.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FADefaultProjectileWrapper, (UObject*)Z_Construct_UPackage__Script_UE5_3_Example(), TEXT("ADefaultProjectileWrapper"));
+	}
+	return Z_Registration_Info_UScriptStruct_ADefaultProjectileWrapper.OuterSingleton;
+}
+template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FADefaultProjectileWrapper>()
+{
+	return FADefaultProjectileWrapper::StaticStruct();
+}
+	struct Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics
+	{
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[];
+#endif
+		static void* NewStructOps();
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Template_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Template;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+		static const UECodeGen_Private::FStructParams ReturnStructParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::Struct_MetaDataParams[] = {
+		{ "BlueprintType", "true" },
+		{ "ModuleRelativePath", "Actors/Projectiles/DefaultProjectile.h" },
+	};
+#endif
+	void* Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FADefaultProjectileWrapper>();
+	}
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::NewProp_Template_MetaData[] = {
+		{ "BlueprintSearchable", "true" },
+		{ "Category", "ADefaultProjectileWrapper" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Actors/Projectiles/DefaultProjectile.h" },
+		{ "ShowOnlyInnerProperties", "" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::NewProp_Template = { "Template", nullptr, (EPropertyFlags)0x001200000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FADefaultProjectileWrapper, Template), Z_Construct_UClass_ADefaultProjectile_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::NewProp_Template_MetaData), Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::NewProp_Template_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::NewProp_Template,
+	};
+	const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::ReturnStructParams = {
+		(UObject* (*)())Z_Construct_UPackage__Script_UE5_3_Example,
+		nullptr,
+		&NewStructOps,
+		"ADefaultProjectileWrapper",
+		Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::PropPointers,
+		UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::PropPointers),
+		sizeof(FADefaultProjectileWrapper),
+		alignof(FADefaultProjectileWrapper),
+		RF_Public|RF_Transient|RF_MarkAsNative,
+		EStructFlags(0x00000205),
+		METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::Struct_MetaDataParams)
+	};
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::PropPointers) < 2048);
+	UScriptStruct* Z_Construct_UScriptStruct_FADefaultProjectileWrapper()
+	{
+		if (!Z_Registration_Info_UScriptStruct_ADefaultProjectileWrapper.InnerSingleton)
+		{
+			UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_ADefaultProjectileWrapper.InnerSingleton, Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::ReturnStructParams);
+		}
+		return Z_Registration_Info_UScriptStruct_ADefaultProjectileWrapper.InnerSingleton;
+	}
 	struct Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_Statics
 	{
+		static const FStructRegisterCompiledInInfo ScriptStructInfo[];
 		static const FClassRegisterCompiledInInfo ClassInfo[];
+	};
+	const FStructRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_Statics::ScriptStructInfo[] = {
+		{ FADefaultProjectileWrapper::StaticStruct, Z_Construct_UScriptStruct_FADefaultProjectileWrapper_Statics::NewStructOps, TEXT("ADefaultProjectileWrapper"), &Z_Registration_Info_UScriptStruct_ADefaultProjectileWrapper, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FADefaultProjectileWrapper), 3500975944U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_Statics::ClassInfo[] = {
 		{ Z_Construct_UClass_ADefaultProjectile, ADefaultProjectile::StaticClass, TEXT("ADefaultProjectile"), &Z_Registration_Info_UClass_ADefaultProjectile, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ADefaultProjectile), 2645327771U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_1560661967(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_4012190761(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_Statics::ClassInfo),
-		nullptr, 0,
+		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_Projectiles_DefaultProjectile_h_Statics::ScriptStructInfo),
 		nullptr, 0);
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

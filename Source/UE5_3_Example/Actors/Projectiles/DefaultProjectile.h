@@ -11,6 +11,7 @@ class UProjectileMovementComponent;
 class UStaticMesh;
 class UStaticMeshComponent;
 
+
 UCLASS(config=Game)
 class ADefaultProjectile : public AActor
 {
@@ -45,5 +46,13 @@ public:
 protected:
 	UPROPERTY(BlueprintReadWrite, Category = Damage)
 	float AmountDamageOnHit = 0.0f;
+};
+
+USTRUCT(BlueprintType)
+struct UE5_3_EXAMPLE_API FADefaultProjectileWrapper
+{
+	GENERATED_BODY()
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Instanced, meta = (ShowOnlyInnerProperties, BlueprintSearchable = "true"))
+	ADefaultProjectile* Template = nullptr;
 };
 

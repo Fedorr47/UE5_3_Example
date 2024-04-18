@@ -32,6 +32,9 @@ public:
 	UFUNCTION()
 	UStaticMesh* GetInteractableMesh() const { return StatMeshComp->GetStaticMesh(); }
 
+	UFUNCTION()
+	UStaticMeshComponent* GetInteractableMeshComp() const { return StatMeshComp; }
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -48,7 +51,7 @@ protected:
 	UPROPERTY()
 	TArray<UEntityComponent*> CreatedComponents;
 
-	UPROPERTY(VisibleDefaultsOnly, Category = Mesh)
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Mesh)
 	UStaticMeshComponent* StatMeshComp;
 
 public:	

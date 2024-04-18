@@ -33,12 +33,10 @@ public:
 
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject = nullptr) { return nullptr; }
 
-	virtual void Update(float DeltaTime) {}
-
 	UObject* GetOwnerObject() { return mOwnerObject; }
 
 	UPROPERTY(EditDefaultsOnly, Category = OwnerShip)
-	bool CanBeReOwned = false;
+	bool CanBeReOwned = true;
 
 	UPROPERTY()
 	bool IsAttachedToCharacter = false;

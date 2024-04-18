@@ -45,6 +45,11 @@ void EmptyLinkFunctionForGeneratedCodeThrowablePredictComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_VelocityOfProjectile_MetaData[];
 #endif
 		static const UECodeGen_Private::FFloatPropertyParams NewProp_VelocityOfProjectile;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ManuallyCreated_MetaData[];
+#endif
+		static void NewProp_ManuallyCreated_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_ManuallyCreated;
 		static const UECodeGen_Private::FObjectPropertyParams NewProp_SplinePredictMeshes_Inner;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_SplinePredictMeshes_MetaData[];
@@ -90,6 +95,16 @@ void EmptyLinkFunctionForGeneratedCodeThrowablePredictComponent() {}
 	};
 #endif
 	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_VelocityOfProjectile = { "VelocityOfProjectile", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowablePredictComponent, VelocityOfProjectile), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_VelocityOfProjectile_MetaData), Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_VelocityOfProjectile_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated_MetaData[] = {
+		{ "ModuleRelativePath", "Components/ThrowablePredictComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated_SetBit(void* Obj)
+	{
+		((UThrowablePredictComponent*)Obj)->ManuallyCreated = 1;
+	}
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated = { "ManuallyCreated", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UThrowablePredictComponent), &Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated_MetaData), Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated_MetaData) };
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SplinePredictMeshes_Inner = { "SplinePredictMeshes", nullptr, (EPropertyFlags)0x0000000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_USplineMeshComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SplinePredictMeshes_MetaData[] = {
@@ -109,6 +124,7 @@ void EmptyLinkFunctionForGeneratedCodeThrowablePredictComponent() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_PathMesh,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SplinePredict,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_VelocityOfProjectile,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SplinePredictMeshes_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SplinePredictMeshes,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ProjectileClass,
@@ -151,9 +167,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowablePredictComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UThrowablePredictComponent, UThrowablePredictComponent::StaticClass, TEXT("UThrowablePredictComponent"), &Z_Registration_Info_UClass_UThrowablePredictComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowablePredictComponent), 4269861564U) },
+		{ Z_Construct_UClass_UThrowablePredictComponent, UThrowablePredictComponent::StaticClass, TEXT("UThrowablePredictComponent"), &Z_Registration_Info_UClass_UThrowablePredictComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowablePredictComponent), 4179730786U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_1514156705(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_3949495915(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

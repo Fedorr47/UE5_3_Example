@@ -26,6 +26,13 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FEntityComponentWrapper();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
+	DEFINE_FUNCTION(ABaseInteractableActor::execGetInteractableMeshComp)
+	{
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		*(UStaticMeshComponent**)Z_Param__Result=P_THIS->GetInteractableMeshComp();
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ABaseInteractableActor::execGetInteractableMesh)
 	{
 		P_FINISH;
@@ -58,6 +65,7 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 		UClass* Class = ABaseInteractableActor::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "GetInteractableMesh", &ABaseInteractableActor::execGetInteractableMesh },
+			{ "GetInteractableMeshComp", &ABaseInteractableActor::execGetInteractableMeshComp },
 			{ "Heal", &ABaseInteractableActor::execHeal },
 			{ "TakeBaseDamage", &ABaseInteractableActor::execTakeBaseDamage },
 		};
@@ -94,6 +102,48 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 		if (!ReturnFunction)
 		{
 			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMesh_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+	struct Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics
+	{
+		struct BaseInteractableActor_eventGetInteractableMeshComp_Parms
+		{
+			UStaticMeshComponent* ReturnValue;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[];
+#endif
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseInteractableActor_eventGetInteractableMeshComp_Parms, ReturnValue), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::NewProp_ReturnValue_MetaData), Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::NewProp_ReturnValue_MetaData) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::NewProp_ReturnValue,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Actors/BaseInteractableActor.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABaseInteractableActor, nullptr, "GetInteractableMeshComp", nullptr, nullptr, Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::BaseInteractableActor_eventGetInteractableMeshComp_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x40020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::BaseInteractableActor_eventGetInteractableMeshComp_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp_Statics::FuncParams);
 		}
 		return ReturnFunction;
 	}
@@ -238,6 +288,7 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ABaseInteractableActor_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMesh, "GetInteractableMesh" }, // 4243239149
+		{ &Z_Construct_UFunction_ABaseInteractableActor_GetInteractableMeshComp, "GetInteractableMeshComp" }, // 3119583029
 		{ &Z_Construct_UFunction_ABaseInteractableActor_Heal, "Heal" }, // 1421189946
 		{ &Z_Construct_UFunction_ABaseInteractableActor_TakeBaseDamage, "TakeBaseDamage" }, // 935431463
 	};
@@ -281,7 +332,7 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 		{ "ModuleRelativePath", "Actors/BaseInteractableActor.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_StatMeshComp = { "StatMeshComp", nullptr, (EPropertyFlags)0x00200800000b0009, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseInteractableActor, StatMeshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_StatMeshComp_MetaData), Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_StatMeshComp_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_StatMeshComp = { "StatMeshComp", nullptr, (EPropertyFlags)0x002008000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ABaseInteractableActor, StatMeshComp), Z_Construct_UClass_UStaticMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_StatMeshComp_MetaData), Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_StatMeshComp_MetaData) };
 	const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents_Inner = { "AttachedComponents", nullptr, (EPropertyFlags)0x0000008000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FEntityComponentWrapper, METADATA_PARAMS(0, nullptr) }; // 4286559399
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_ABaseInteractableActor_Statics::NewProp_AttachedComponents_MetaData[] = {
@@ -338,9 +389,9 @@ void EmptyLinkFunctionForGeneratedCodeBaseInteractableActor() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABaseInteractableActor, ABaseInteractableActor::StaticClass, TEXT("ABaseInteractableActor"), &Z_Registration_Info_UClass_ABaseInteractableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseInteractableActor), 3185989131U) },
+		{ Z_Construct_UClass_ABaseInteractableActor, ABaseInteractableActor::StaticClass, TEXT("ABaseInteractableActor"), &Z_Registration_Info_UClass_ABaseInteractableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseInteractableActor), 2541623921U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_3024188875(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_2302551479(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Actors_BaseInteractableActor_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

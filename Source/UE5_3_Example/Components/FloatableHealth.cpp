@@ -64,6 +64,7 @@ void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerO
 	}
 }
 
+/*
 void UFloatableHealthComponent::Update(float DeltaTime)
 {
 	if (IsValid(CameraManager) && IsValid(MeshToAttach))
@@ -76,4 +77,4 @@ void UFloatableHealthComponent::Update(float DeltaTime)
 
 		Cast<UFloatableHealth>(mFloatableHealthW)->mHealthBar->SetPercent(HealthPercent);
 	}
-}
+}*/
