@@ -16,6 +16,6 @@ public:
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = SkeletalMesh)
-	USkeletalMeshComponent* SkeletalMeshComponent = nullptr;
+	UPROPERTY()
+	USkeletalMeshComponent* SkeletalMeshComp = nullptr;
 };

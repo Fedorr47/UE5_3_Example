@@ -4,15 +4,11 @@
 #include "Math/UnrealMathUtility.h"
 #include "DefaultPlayableCharacter.h"
 #include "BaseInteractableActor.h"
-
-#include "TP_WeaponComponent.h"
-
 #include "AttachedSkeletalMeshComponent.h"
 
 void AAttachedSkeletalMeshSystem::InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode)
 {
 	Super::InitSystem(InEntityManager, InGameMode);
-
 }
 
 void AAttachedSkeletalMeshSystem::UpdateSystem(float DeltaSeconds)
@@ -27,7 +23,14 @@ void AAttachedSkeletalMeshSystem::ComponentWasAddedImpl(const FEntity& Entity, U
 {
 	if (UAttachedSkeletalMeshComponent* AttachedSkeletalMeshComponent = Cast<UAttachedSkeletalMeshComponent>(EntityComponent))
 	{
-		AttachSkeletalMesh(AttachedSkeletalMeshComponent);
+		if (ABaseInteractableActor * BaseInteractableActor = Cast<ABaseInteractableActor>(EntityComponent->GetOwnerObject()))
+		{
+			AttachedSkeletalMeshComponent->SkeletalMeshComp = BaseInteractableActor->SkeletalMeshComp;
+		}
+		else
+		{
+			AttachSkeletalMesh(AttachedSkeletalMeshComponent);
+		}
 	}
 }
 
@@ -40,16 +43,13 @@ void AAttachedSkeletalMeshSystem::AttachSkeletalMesh(UAttachedSkeletalMeshCompon
 {
 	if (ADefaultPlayableCharacter* PlayableCharacter = Cast<ADefaultPlayableCharacter>(AttachedSkeletalMeshComponent->GetOwnerObject()))
 	{
-		// Attach the weapon to the First Person Character
-		FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
-		if (UTP_WeaponComponent* TP_WeaponComponent = Cast<UTP_WeaponComponent>(AttachedSkeletalMeshComponent->SkeletalMeshComponent))
+	
+		if (IsValid(AttachedSkeletalMeshComponent->SkeletalMeshComp))
 		{
-			TP_WeaponComponent->AttachWeapon(PlayableCharacter);
-		}
-		else
-		{
-			AttachedSkeletalMeshComponent->SkeletalMeshComponent->AttachToComponent(PlayableCharacter->GetMesh1P(), AttachmentRules, FName(TEXT("GripPoint")));
-			AttachedSkeletalMeshComponent->SkeletalMeshComponent->SetVisibility(true);
+
+			FAttachmentTransformRules AttachmentRules(EAttachmentRule::SnapToTarget, true);
+			AttachedSkeletalMeshComponent->SkeletalMeshComp->SetVisibility(true);
+			AttachedSkeletalMeshComponent->SkeletalMeshComp->AttachToComponent(PlayableCharacter->GetMesh1P(), AttachmentRules, FName(TEXT("GripPoint")));
 		}
 		// switch bHasRifle so the animation blueprint can switch to another animation set
 

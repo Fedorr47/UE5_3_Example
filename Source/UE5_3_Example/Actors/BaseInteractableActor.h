@@ -35,6 +35,9 @@ public:
 	UFUNCTION()
 	UStaticMeshComponent* GetInteractableMeshComp() const { return StatMeshComp; }
 
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Mesh)
+	USkeletalMeshComponent* SkeletalMeshComp;
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -53,6 +56,8 @@ protected:
 
 	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Mesh)
 	UStaticMeshComponent* StatMeshComp;
+
+	
 
 public:	
 	virtual void Tick(float DeltaTime) override;

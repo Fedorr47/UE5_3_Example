@@ -23,6 +23,9 @@ ABaseInteractableActor::ABaseInteractableActor(const FObjectInitializer& ObjectI
 	StatMeshComp = ObjectInitializer.CreateDefaultSubobject<UStaticMeshComponent>(this, "Mesh");
 	StatMeshComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 	StatMeshComp->SetSimulatePhysics(true);
+
+	SkeletalMeshComp = ObjectInitializer.CreateDefaultSubobject<USkeletalMeshComponent>(this, "SkeletalMesh");
+	SkeletalMeshComp->AttachToComponent(RootComponent, FAttachmentTransformRules::KeepRelativeTransform);
 }
 
 // Called when the game starts or when spawned

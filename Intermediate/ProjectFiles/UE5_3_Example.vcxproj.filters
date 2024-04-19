@@ -93,12 +93,6 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_PickUpComponent.h">
       <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_WeaponComponent.cpp">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_WeaponComponent.h">
-      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
-    </ClInclude>
     <Filter Include="Source\UE5_3_Example\Components">
       <UniqueIdentifier>{E069C9CE-72CD-332A-895C-DCC5CB4C67C8}</UniqueIdentifier>
     </Filter>
@@ -257,6 +251,16 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\UI\PauseMenu.h">
       <Filter>Source\UE5_3_Example\UI</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_WeaponComponent.cpp">
+      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Actors\Weapon\TP_WeaponComponent.h">
+      <Filter>Source\UE5_3_Example\Actors\Weapon</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

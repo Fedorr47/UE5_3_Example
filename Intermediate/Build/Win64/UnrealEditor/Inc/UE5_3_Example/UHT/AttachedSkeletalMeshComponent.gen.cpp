@@ -30,9 +30,9 @@ void EmptyLinkFunctionForGeneratedCodeAttachedSkeletalMeshComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_SkeletalMeshComponent_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SkeletalMeshComp_MetaData[];
 #endif
-		static const UECodeGen_Private::FObjectPropertyParams NewProp_SkeletalMeshComponent;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_SkeletalMeshComp;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -50,15 +50,14 @@ void EmptyLinkFunctionForGeneratedCodeAttachedSkeletalMeshComponent() {}
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComponent_MetaData[] = {
-		{ "Category", "SkeletalMesh" },
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComp_MetaData[] = {
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Components/AttachedSkeletalMeshComponent.h" },
 	};
 #endif
-	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComponent = { "SkeletalMeshComponent", nullptr, (EPropertyFlags)0x001000000008000d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttachedSkeletalMeshComponent, SkeletalMeshComponent), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComponent_MetaData), Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComponent_MetaData) };
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComp = { "SkeletalMeshComp", nullptr, (EPropertyFlags)0x0010000000080008, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UAttachedSkeletalMeshComponent, SkeletalMeshComp), Z_Construct_UClass_USkeletalMeshComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComp_MetaData), Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComp_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::NewProp_SkeletalMeshComp,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UAttachedSkeletalMeshComponent_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UAttachedSkeletalMeshComponent>::IsAbstract,
@@ -98,9 +97,9 @@ void EmptyLinkFunctionForGeneratedCodeAttachedSkeletalMeshComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_AttachedSkeletalMeshComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UAttachedSkeletalMeshComponent, UAttachedSkeletalMeshComponent::StaticClass, TEXT("UAttachedSkeletalMeshComponent"), &Z_Registration_Info_UClass_UAttachedSkeletalMeshComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAttachedSkeletalMeshComponent), 808729605U) },
+		{ Z_Construct_UClass_UAttachedSkeletalMeshComponent, UAttachedSkeletalMeshComponent::StaticClass, TEXT("UAttachedSkeletalMeshComponent"), &Z_Registration_Info_UClass_UAttachedSkeletalMeshComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAttachedSkeletalMeshComponent), 2468527487U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_AttachedSkeletalMeshComponent_h_2997822180(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_AttachedSkeletalMeshComponent_h_1057806626(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_AttachedSkeletalMeshComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_AttachedSkeletalMeshComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);
