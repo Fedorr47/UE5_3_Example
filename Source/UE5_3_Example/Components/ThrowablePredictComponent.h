@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Components/EntityComponent.h"
+#include "ThrowableComponent.h"
 #include "ThrowablePredictComponent.generated.h"
 
 class ADefaultProjectile;
@@ -18,6 +19,16 @@ class UE5_3_EXAMPLE_API UThrowablePredictComponent : public UEntityComponent
 public:
 	UThrowablePredictComponent(const FObjectInitializer& ObjectInitializer);
 
+	void CopyThrowableComponentParams(const UThrowableComponent& ThrowableComponent)
+	{
+		PathMesh = ThrowableComponent.PredictMesh;
+		VelocityOfProjectile = ThrowableComponent.ThrowVelocity;
+		OrtogonalScalar = ThrowableComponent.OrtogonalScalar;
+		ForwardScalar = ThrowableComponent.ForwardScalar;
+		UseBoneLocationFromAnimation = ThrowableComponent.UseBoneLocationFromAnimation;
+		BoneName = ThrowableComponent.BoneName;
+	}
+
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
@@ -31,12 +42,21 @@ public:
 	UPROPERTY()
 	float VelocityOfProjectile = 0.0f;
 
+	UPROPERTY(EditAnywhere, Category = Projectile)
+	bool UseBoneLocationFromAnimation = false;
+
+	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "UseBoneLocationFromAnimation == false"))
+	float ForwardScalar = 1.0f;
+
+	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "UseBoneLocationFromAnimation == false"))
+	float OrtogonalScalar = 1.0f;
+
+	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "UseBoneLocationFromAnimation == true"))
+	FName BoneName{};
+
 	UPROPERTY()
 	bool ManuallyCreated = true;
 
 	UPROPERTY()
 	TArray<USplineMeshComponent*> SplinePredictMeshes;
-
-	UPROPERTY(EditDefaultsOnly, Category = Projectile)
-	TSubclassOf<ADefaultProjectile> ProjectileClass;
 };

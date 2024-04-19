@@ -84,46 +84,37 @@ void AThrowableSystem::ApplyThrow()
 			UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
 			if (IsValid(ThrowableComp) && !WasThrown)
 			{
-				if (const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowableComp->GetOwnerObject()))
+				const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowableComp->GetOwnerObject());
+				UWorld* World = mEntityManager->GetWorld();
+				if (IsValid(World) &&
+					IsValid(OwnerCharacter) &&
+					ThrowableComp->OriginalOwnerClass.Get() != nullptr)
 				{
-					if (IsValid(OwnerCharacter) && IsValid(ThrowableComp->ProjectileClass.Get()))
+					const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
+					const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
+					FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
+					FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, -InFrontOwner.Z);
+					const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner * ThrowableComp->ForwardScalar + OrthogonalForwardVector * ThrowableComp->OrtogonalScalar);
+					const FVector SpawnVelocity = InFrontOwner * ThrowableComp->ThrowVelocity;
+
+					FActorSpawnParameters ActorSpawnParams;
+					ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
+
+					auto SpawnedActor = World->SpawnActor<ABaseInteractableActor>(ThrowableComp->OriginalOwnerClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+					SpawnedActor->GetInteractableMeshComp()->AddImpulseAtLocation(SpawnVelocity, SpawnLocation);
+
+					RemoveComponent(Entity, ThrowableComp);
+					mEntityManager->RemoveComponent(Entity, ThrowableComp);
+
+					ShouldPredictPath = false;
+
+					if (OnceThrowPerTime)
 					{
-						UWorld* World = ThrowableComp->GetComponentWorld();
-						if (IsValid(World))
-						{
-							const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
-							const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-							FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-							FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, -InFrontOwner.Z);
-							const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrthogonalForwardVector * -150.0f);
-							const FVector SpawnVelocity = InFrontOwner * 1500.0f;
-
-							FActorSpawnParameters ActorSpawnParams;
-							ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
-
-							if (ThrowableComp->ThrowOwnerItself && ThrowableComp->OriginalOwnerClass.Get() != nullptr)
-							{
-								auto SpawnedActor = World->SpawnActor<ABaseInteractableActor>(ThrowableComp->OriginalOwnerClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-								SpawnedActor->GetInteractableMeshComp()->AddImpulseAtLocation(SpawnVelocity, SpawnLocation);
-							}
-							else
-							{
-								World->SpawnActor<ADefaultProjectile>(ThrowableComp->ProjectileClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-							}
-
-							RemoveComponent(Entity, ThrowableComp);
-							mEntityManager->RemoveComponent(Entity, ThrowableComp);
-
-							ShouldPredictPath = false;
-
-							if (OnceThrowPerTime)
-							{
-								WasThrown = true;
-							}
-						}
-					}
+						WasThrown = true;
+					}		
 				}
 			}
+
 			if (UThrowablePredictComponent* ThrowablePredictComp = mEntityManager->GetComponent<UThrowablePredictComponent>(Entity))
 			{
 				if (IsValid(ThrowablePredictComp->SplinePredict) && ThrowablePredictComp->SplinePredict->GetNumberOfSplinePoints() > 0)
@@ -138,7 +129,6 @@ void AThrowableSystem::ApplyThrow()
 					ThrowablePredictComp->SplinePredictMeshes.Empty();
 					mEntityManager->RemoveComponent(Entity, ThrowablePredictComp);
 				}
-
 			}
 		}
 	}
@@ -156,78 +146,78 @@ void AThrowableSystem::PredictThrow()
 		{
 			bool NotPredictForATick = true;
 			UThrowablePredictComponent* ThrowablePredictComp = mEntityManager->GetComponent<UThrowablePredictComponent>(Entity);
+			UWorld* World = mEntityManager->GetWorld();
+
 			if (IsValid(ThrowablePredictComp) &&
+				IsValid(World) &&
 				NotPredictForATick)
 			{
 				if (ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowablePredictComp->GetOwnerObject()))
 				{
-					UWorld* World = ThrowablePredictComp->GetComponentWorld();
-					if (IsValid(World))
+					
+					APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
+					const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
+					FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
+					FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, 0.0f);
+					const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner * ThrowablePredictComp->ForwardScalar + OrthogonalForwardVector * ThrowablePredictComp->OrtogonalScalar);
+
+					FPredictProjectilePathParams PredictParams;
+					FPredictProjectilePathResult PredictResult;
+
+					// TODO: Rewrite Projectile's logic to better version
+					const FVector SpawnVelocity = InFrontOwner * ThrowablePredictComp->VelocityOfProjectile;
+
+					TArray<AActor*> ActorToIgnore{ OwnerCharacter };
+
+					PredictParams.StartLocation = SpawnLocation;
+					PredictParams.LaunchVelocity = SpawnVelocity;
+					PredictParams.ActorsToIgnore = ActorToIgnore;
+
+					PredictParams.MaxSimTime = 4.0f;
+					PredictParams.bTraceWithCollision = true;
+					PredictParams.DrawDebugType = EDrawDebugTrace::None;
+
+					UGameplayStatics::PredictProjectilePath(World, PredictParams, PredictResult);
+
+					ThrowablePredictComp->SplinePredict->ClearSplinePoints();
+					int NumOfPoints = PredictResult.PathData.Num();
+					float StepForAngle = 3.14159f / NumOfPoints;
+
+					float NextStep = 0.0f;
+					for (FPredictProjectilePathPointData& Point : PredictResult.PathData)
 					{
-						APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
-						const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-						FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
-						FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, 0.0f);
-						const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner + OrthogonalForwardVector * -100.0f);
-
-						FPredictProjectilePathParams PredictParams;
-						FPredictProjectilePathResult PredictResult;
-
-						// TODO: Rewrite Projectile's logic to better version
-						const FVector SpawnVelocity = InFrontOwner * ThrowablePredictComp->VelocityOfProjectile;
-
-						TArray<AActor*> ActorToIgnore{ OwnerCharacter };
-
-						PredictParams.StartLocation = SpawnLocation;
-						PredictParams.LaunchVelocity = SpawnVelocity;
-						PredictParams.ActorsToIgnore = ActorToIgnore;
-
-						PredictParams.MaxSimTime = 4.0f;
-						PredictParams.bTraceWithCollision = true;
-						PredictParams.DrawDebugType = EDrawDebugTrace::None;
-
-						UGameplayStatics::PredictProjectilePath(World, PredictParams, PredictResult);
-
-						ThrowablePredictComp->SplinePredict->ClearSplinePoints();
-						int NumOfPoints = PredictResult.PathData.Num();
-						float StepForAngle = 3.14159f / NumOfPoints;
-
-						float NextStep = 0.0f;
-						for (FPredictProjectilePathPointData& Point : PredictResult.PathData)
-						{
-							float SinVal = FMath::Sin(NextStep) * 10.0f;
-							FVector PointLocation = Point.Location + OrthogonalForwardVector * (1.0f + SinVal);
-							ThrowablePredictComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
-							NextStep += StepForAngle;
-						}
-						ThrowablePredictComp->SplinePredict->UpdateSpline();
-
-						FVector Location, Tangent, LocationNext, TangentNext;
-						for (auto* MeshComp : ThrowablePredictComp->SplinePredictMeshes)
-						{
-							MeshComp->DestroyComponent();
-						}
-						ThrowablePredictComp->SplinePredictMeshes.Empty();
-						for (int i = 0; i < NumOfPoints; ++i)
-						{
-							auto SplineMeshComp = NewObject<USplineMeshComponent>(OwnerCharacter);
-							ThrowablePredictComp->SplinePredictMeshes.Add(SplineMeshComp);
-							SplineMeshComp->SetMobility(EComponentMobility::Movable);
-							SplineMeshComp->SetStaticMesh(ThrowablePredictComp->PathMesh);
-							SplineMeshComp->RegisterComponent();
-							SplineMeshComp->AttachToComponent(
-								OwnerCharacter->GetRootComponent(),
-								FAttachmentTransformRules::KeepWorldTransform
-							);
-
-							ThrowablePredictComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i, Location, Tangent, ESplineCoordinateSpace::World);
-							ThrowablePredictComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i + 1, LocationNext, TangentNext, ESplineCoordinateSpace::World);
-							ThrowablePredictComp->SplinePredictMeshes.Last()->SetStartAndEnd(Location, Tangent, LocationNext, TangentNext);
-						}
-
-						ShouldPredictPath = true;
-						NotPredictForATick = true;
+						float SinVal = FMath::Sin(NextStep) * 10.0f;
+						FVector PointLocation = Point.Location + OrthogonalForwardVector * (1.0f + SinVal);
+						ThrowablePredictComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
+						NextStep += StepForAngle;
 					}
+					ThrowablePredictComp->SplinePredict->UpdateSpline();
+
+					FVector Location, Tangent, LocationNext, TangentNext;
+					for (auto* MeshComp : ThrowablePredictComp->SplinePredictMeshes)
+					{
+						MeshComp->DestroyComponent();
+					}
+					ThrowablePredictComp->SplinePredictMeshes.Empty();
+					for (int i = 0; i < NumOfPoints; ++i)
+					{
+						auto SplineMeshComp = NewObject<USplineMeshComponent>(OwnerCharacter);
+						ThrowablePredictComp->SplinePredictMeshes.Add(SplineMeshComp);
+						SplineMeshComp->SetMobility(EComponentMobility::Movable);
+						SplineMeshComp->SetStaticMesh(ThrowablePredictComp->PathMesh);
+						SplineMeshComp->RegisterComponent();
+						SplineMeshComp->AttachToComponent(
+							OwnerCharacter->GetRootComponent(),
+							FAttachmentTransformRules::KeepWorldTransform
+						);
+
+						ThrowablePredictComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i, Location, Tangent, ESplineCoordinateSpace::World);
+						ThrowablePredictComp->SplinePredict->GetLocationAndTangentAtSplinePoint(i + 1, LocationNext, TangentNext, ESplineCoordinateSpace::World);
+						ThrowablePredictComp->SplinePredictMeshes.Last()->SetStartAndEnd(Location, Tangent, LocationNext, TangentNext);
+					}
+
+					ShouldPredictPath = true;
+					NotPredictForATick = true;
 				}
 			}
 		}
@@ -261,32 +251,20 @@ void AThrowableSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityCompo
 		{
 			SendThrowableCountMsg(ThrowComponent, ThrowableTypeHolder->Components[ThrowComponent->Type].Num());
 		}
-		else if (ThrowComponent->ThrowOwnerItself)
+		else
 		{
 			ThrowComponent->OriginalOwnerClass = ThrowComponent->GetOwnerObject()->GetClass();
 		}
+
 		BindActions(ThrowComponent);
 		ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowComponent->GetOwnerObject());
-		if (IsValid(OwnerCharacter) && ThrowComponent->ShowThrowPredict)
+		if (IsValid(OwnerCharacter))
 		{
 			UThrowablePredictComponent* AttachedThrowablePredictComp = mEntityManager->AddComponent<UThrowablePredictComponent>(Entity);
 			AttachedThrowablePredictComp->InitComponent(mEntityManager->GetWorld(), OwnerCharacter);
 			AttachedThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
-			AttachedThrowablePredictComp->PathMesh = ThrowComponent->PredictMesh;
-			if (ThrowComponent->ThrowOwnerItself)
-			{
-				AttachedThrowablePredictComp->VelocityOfProjectile = 1500.0f;
-			}
+			AttachedThrowablePredictComp->CopyThrowableComponentParams(*ThrowComponent);
 			AttachedThrowablePredictComp->ManuallyCreated = false;
-		}
-	}
-	else if (UThrowablePredictComponent* ThrowablePredictComp = Cast<UThrowablePredictComponent>(EntityComponent))
-	{
-		ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowablePredictComp->GetOwnerObject());
-		if (IsValid(OwnerCharacter) && ThrowablePredictComp->ManuallyCreated)
-		{
-			ThrowablePredictComp->SplinePredict = OwnerCharacter->GetSplinePredict();
-			ThrowablePredictComp->VelocityOfProjectile = ThrowablePredictComp->ProjectileClass.GetDefaultObject()->GetProjectileMovement()->InitialSpeed;
 		}
 	}
 }

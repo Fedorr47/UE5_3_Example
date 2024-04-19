@@ -14,7 +14,6 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputAction_NoRegister();
 	ENHANCEDINPUT_API UClass* Z_Construct_UClass_UInputMappingContext_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ABaseInteractableActor_NoRegister();
-	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_ADefaultProjectile_NoRegister();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityComponent();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UThrowableComponent();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UThrowableComponent_NoRegister();
@@ -91,18 +90,30 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 		static const UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[];
 #endif
 #if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrowOwnerItself_MetaData[];
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ThrowVelocity_MetaData[];
 #endif
-		static void NewProp_ThrowOwnerItself_SetBit(void* Obj);
-		static const UECodeGen_Private::FBoolPropertyParams NewProp_ThrowOwnerItself;
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_ThrowVelocity;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_UseBoneLocationFromAnimation_MetaData[];
+#endif
+		static void NewProp_UseBoneLocationFromAnimation_SetBit(void* Obj);
+		static const UECodeGen_Private::FBoolPropertyParams NewProp_UseBoneLocationFromAnimation;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_ForwardScalar_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_ForwardScalar;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OrtogonalScalar_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_OrtogonalScalar;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_BoneName_MetaData[];
+#endif
+		static const UECodeGen_Private::FNamePropertyParams NewProp_BoneName;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OriginalOwnerClass_MetaData[];
 #endif
 		static const UECodeGen_Private::FClassPropertyParams NewProp_OriginalOwnerClass;
-#if WITH_METADATA
-		static const UECodeGen_Private::FMetaDataPairParam NewProp_ProjectileClass_MetaData[];
-#endif
-		static const UECodeGen_Private::FClassPropertyParams NewProp_ProjectileClass;
 		static const UECodeGen_Private::FBytePropertyParams NewProp_Type_Underlying;
 #if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_Type_MetaData[];
@@ -142,30 +153,53 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 	};
 #endif
 #if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowOwnerItself_MetaData[] = {
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowVelocity_MetaData[] = {
 		{ "Category", "Projectile" },
 		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
 	};
 #endif
-	void Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowOwnerItself_SetBit(void* Obj)
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowVelocity = { "ThrowVelocity", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, ThrowVelocity), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowVelocity_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowVelocity_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_UseBoneLocationFromAnimation_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
+	};
+#endif
+	void Z_Construct_UClass_UThrowableComponent_Statics::NewProp_UseBoneLocationFromAnimation_SetBit(void* Obj)
 	{
-		((UThrowableComponent*)Obj)->ThrowOwnerItself = 1;
+		((UThrowableComponent*)Obj)->UseBoneLocationFromAnimation = 1;
 	}
-	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowOwnerItself = { "ThrowOwnerItself", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UThrowableComponent), &Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowOwnerItself_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowOwnerItself_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowOwnerItself_MetaData) };
+	const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_UseBoneLocationFromAnimation = { "UseBoneLocationFromAnimation", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UThrowableComponent), &Z_Construct_UClass_UThrowableComponent_Statics::NewProp_UseBoneLocationFromAnimation_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_UseBoneLocationFromAnimation_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_UseBoneLocationFromAnimation_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ForwardScalar_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "EditCondition", "UseBoneLocationFromAnimation == false" },
+		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ForwardScalar = { "ForwardScalar", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, ForwardScalar), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ForwardScalar_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ForwardScalar_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OrtogonalScalar_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "EditCondition", "UseBoneLocationFromAnimation == false" },
+		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OrtogonalScalar = { "OrtogonalScalar", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, OrtogonalScalar), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OrtogonalScalar_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OrtogonalScalar_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_BoneName_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "EditCondition", "UseBoneLocationFromAnimation == true" },
+		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_BoneName = { "BoneName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, BoneName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_BoneName_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_BoneName_MetaData) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OriginalOwnerClass_MetaData[] = {
 		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
 	};
 #endif
 	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OriginalOwnerClass = { "OriginalOwnerClass", nullptr, (EPropertyFlags)0x0014000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, OriginalOwnerClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ABaseInteractableActor_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OriginalOwnerClass_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OriginalOwnerClass_MetaData) };
-#if WITH_METADATA
-	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass_MetaData[] = {
-		{ "Category", "Projectile" },
-		{ "EditCondition", "ThrowOwnerItself == false" },
-		{ "ModuleRelativePath", "Components/ThrowableComponent.h" },
-	};
-#endif
-	const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass = { "ProjectileClass", nullptr, (EPropertyFlags)0x0014000000010001, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, ProjectileClass), Z_Construct_UClass_UClass, Z_Construct_UClass_ADefaultProjectile_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass_MetaData) };
 	const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_Type_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 #if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowableComponent_Statics::NewProp_Type_MetaData[] = {
@@ -210,9 +244,12 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 #endif
 	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowAction = { "ThrowAction", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowableComponent, ThrowAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowAction_MetaData), Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowAction_MetaData) };
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UThrowableComponent_Statics::PropPointers[] = {
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowOwnerItself,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ThrowVelocity,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_UseBoneLocationFromAnimation,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ForwardScalar,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OrtogonalScalar,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_BoneName,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_OriginalOwnerClass,
-		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ProjectileClass,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_Type_Underlying,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_Type,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowableComponent_Statics::NewProp_ShowThrowPredict,
@@ -262,9 +299,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowableComponent() {}
 		{ EThrowableType_StaticEnum, TEXT("EThrowableType"), &Z_Registration_Info_UEnum_EThrowableType, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4124928172U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UThrowableComponent, UThrowableComponent::StaticClass, TEXT("UThrowableComponent"), &Z_Registration_Info_UClass_UThrowableComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowableComponent), 3017970866U) },
+		{ Z_Construct_UClass_UThrowableComponent, UThrowableComponent::StaticClass, TEXT("UThrowableComponent"), &Z_Registration_Info_UClass_UThrowableComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowableComponent), 4244263869U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_811230372(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_2440741734(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowableComponent_h_Statics::EnumInfo));

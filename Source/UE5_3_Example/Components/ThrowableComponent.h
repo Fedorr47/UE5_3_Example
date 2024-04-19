@@ -36,13 +36,22 @@ public:
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
 	UPROPERTY(EditAnywhere, Category = Projectile)
-	bool ThrowOwnerItself = false;
+	float ThrowVelocity = 1500.0f;
+
+	UPROPERTY(EditAnywhere, Category = Projectile)
+	bool UseBoneLocationFromAnimation = false;
+
+	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "UseBoneLocationFromAnimation == false"))
+	float ForwardScalar = 1.0f;
+
+	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "UseBoneLocationFromAnimation == false"))
+	float OrtogonalScalar = 1.0f;
+
+	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "UseBoneLocationFromAnimation == true"))
+	FName BoneName{};
 
 	UPROPERTY()
 	TSubclassOf<ABaseInteractableActor> OriginalOwnerClass;
-
-	UPROPERTY(EditDefaultsOnly, Category = Projectile, meta = (EditCondition = "ThrowOwnerItself == false"))
-	TSubclassOf<ADefaultProjectile> ProjectileClass;
 
 	UPROPERTY(EditAnywhere, Category = ThrowableType)
 	EThrowableType Type = EThrowableType::Other;
