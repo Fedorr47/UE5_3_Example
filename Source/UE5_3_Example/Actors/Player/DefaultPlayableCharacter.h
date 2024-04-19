@@ -22,7 +22,6 @@ class UEnhancedInputComponent;
 
 DECLARE_LOG_CATEGORY_EXTERN(LogTemplateCharacter, Log, All);
 
-
 UCLASS(config=Game)
 class ADefaultPlayableCharacter : public ACharacter
 {

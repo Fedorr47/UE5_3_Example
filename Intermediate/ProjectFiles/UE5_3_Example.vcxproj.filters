@@ -102,6 +102,12 @@
     <Filter Include="Source\UE5_3_Example\Components">
       <UniqueIdentifier>{E069C9CE-72CD-332A-895C-DCC5CB4C67C8}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\AttachedSkeletalMeshComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\AttachedSkeletalMeshComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Components\DamageComponent.cpp">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClCompile>
@@ -195,6 +201,12 @@
     <Filter Include="Source\UE5_3_Example\Systems">
       <UniqueIdentifier>{90F500A5-17BB-3B76-A4C5-619872875520}</UniqueIdentifier>
     </Filter>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\AttachedSkeletalMeshSystem.cpp">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\AttachedSkeletalMeshSystem.h">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Systems\BaseExtSystem.cpp">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClCompile>
@@ -245,16 +257,6 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\UI\PauseMenu.h">
       <Filter>Source\UE5_3_Example\UI</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\AttachedSkeletalMeshComponent.cpp">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\AttachedSkeletalMeshComponent.h">
-      <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

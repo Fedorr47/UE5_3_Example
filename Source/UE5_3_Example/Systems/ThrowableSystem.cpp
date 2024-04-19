@@ -157,7 +157,7 @@ void AThrowableSystem::PredictThrow()
 					PredictParams.LaunchVelocity = SpawnVelocity;
 					PredictParams.ActorsToIgnore = ActorToIgnore;
 
-					PredictParams.MaxSimTime = 4.0f;
+					PredictParams.MaxSimTime = ThrowablePredictComp->SimPredcitTime;
 					PredictParams.bTraceWithCollision = true;
 					PredictParams.DrawDebugType = EDrawDebugTrace::None;
 
@@ -169,7 +169,7 @@ void AThrowableSystem::PredictThrow()
 					float NextStep = 0.0f;
 					for (FPredictProjectilePathPointData& Point : PredictResult.PathData)
 					{
-						float SinVal = FMath::Sin(NextStep) * 10.0f;
+						float SinVal = FMath::Sin(NextStep) * ThrowablePredictComp->AngleMultiplierForPredictLine;
 						FVector PointLocation = Point.Location + OrthogonalForwardVector * (1.0f + SinVal);
 						ThrowablePredictComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
 						NextStep += StepForAngle;

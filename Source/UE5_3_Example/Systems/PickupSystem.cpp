@@ -5,7 +5,6 @@
 #include "DefaultPlayableCharacter.h"
 #include "BaseInteractableActor.h"
 #include "PickupbleComponent.h"
-#include "PickupSystem.h"
 
 void APickupSystem::InitSystem(UEntityManager* InEntityManager, AGameModeBase* InGameMode)
 {

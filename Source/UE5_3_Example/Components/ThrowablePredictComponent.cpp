@@ -6,6 +6,20 @@ UThrowablePredictComponent::UThrowablePredictComponent(const FObjectInitializer&
 {
 }
 
+void UThrowablePredictComponent::CopyThrowableComponentParams(const UThrowableComponent& ThrowableComponent)
+{
+	OriginalOwnerId = ThrowableComponent.OriginalOwnerId;
+	PathMesh = ThrowableComponent.PredictMesh;
+	AngleMultiplierForPredictLine = ThrowableComponent.AngleMultiplierForPredictLine;
+	SimPredcitTime = ThrowableComponent.SimPredcitTime;
+	VelocityOfProjectile = ThrowableComponent.ThrowVelocity;
+	OrtogonalScalar = ThrowableComponent.OrtogonalScalar;
+	ForwardScalar = ThrowableComponent.ForwardScalar;
+	UseBoneLocationFromAnimation = ThrowableComponent.UseBoneLocationFromAnimation;
+	BoneName = ThrowableComponent.BoneName;
+	
+}
+
 UEntityComponent* UThrowablePredictComponent::RetNewComponent(UObject* OwnerObject)
 {
     return NewObject<UThrowablePredictComponent>();

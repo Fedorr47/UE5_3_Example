@@ -19,16 +19,7 @@ class UE5_3_EXAMPLE_API UThrowablePredictComponent : public UEntityComponent
 public:
 	UThrowablePredictComponent(const FObjectInitializer& ObjectInitializer);
 
-	void CopyThrowableComponentParams(const UThrowableComponent& ThrowableComponent)
-	{
-		OriginalOwnerId = ThrowableComponent.OriginalOwnerId;
-		PathMesh = ThrowableComponent.PredictMesh;
-		VelocityOfProjectile = ThrowableComponent.ThrowVelocity;
-		OrtogonalScalar = ThrowableComponent.OrtogonalScalar;
-		ForwardScalar = ThrowableComponent.ForwardScalar;
-		UseBoneLocationFromAnimation = ThrowableComponent.UseBoneLocationFromAnimation;
-		BoneName = ThrowableComponent.BoneName;
-	}
+	void CopyThrowableComponentParams(const UThrowableComponent& ThrowableComponent);
 
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
 
@@ -54,6 +45,12 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "UseBoneLocationFromAnimation == true"))
 	FName BoneName{};
+
+	UPROPERTY(EditAnywhere, Category = Projectile)
+	float AngleMultiplierForPredictLine = 10.0f;
+
+	UPROPERTY(EditAnywhere, Category = Projectile)
+	float SimPredcitTime = 4.0f;
 
 	UPROPERTY()
 	bool ManuallyCreated = true;

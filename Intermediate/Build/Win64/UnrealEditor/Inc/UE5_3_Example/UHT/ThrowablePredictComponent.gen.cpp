@@ -61,6 +61,14 @@ void EmptyLinkFunctionForGeneratedCodeThrowablePredictComponent() {}
 #endif
 		static const UECodeGen_Private::FNamePropertyParams NewProp_BoneName;
 #if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_AngleMultiplierForPredictLine_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_AngleMultiplierForPredictLine;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_SimPredcitTime_MetaData[];
+#endif
+		static const UECodeGen_Private::FFloatPropertyParams NewProp_SimPredcitTime;
+#if WITH_METADATA
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_ManuallyCreated_MetaData[];
 #endif
 		static void NewProp_ManuallyCreated_SetBit(void* Obj);
@@ -142,6 +150,20 @@ void EmptyLinkFunctionForGeneratedCodeThrowablePredictComponent() {}
 #endif
 	const UECodeGen_Private::FNamePropertyParams Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_BoneName = { "BoneName", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Name, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowablePredictComponent, BoneName), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_BoneName_MetaData), Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_BoneName_MetaData) };
 #if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_AngleMultiplierForPredictLine_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "ModuleRelativePath", "Components/ThrowablePredictComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_AngleMultiplierForPredictLine = { "AngleMultiplierForPredictLine", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowablePredictComponent, AngleMultiplierForPredictLine), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_AngleMultiplierForPredictLine_MetaData), Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_AngleMultiplierForPredictLine_MetaData) };
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SimPredcitTime_MetaData[] = {
+		{ "Category", "Projectile" },
+		{ "ModuleRelativePath", "Components/ThrowablePredictComponent.h" },
+	};
+#endif
+	const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SimPredcitTime = { "SimPredcitTime", nullptr, (EPropertyFlags)0x0010000000000001, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UThrowablePredictComponent, SimPredcitTime), METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SimPredcitTime_MetaData), Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SimPredcitTime_MetaData) };
+#if WITH_METADATA
 	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated_MetaData[] = {
 		{ "ModuleRelativePath", "Components/ThrowablePredictComponent.h" },
 	};
@@ -167,6 +189,8 @@ void EmptyLinkFunctionForGeneratedCodeThrowablePredictComponent() {}
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ForwardScalar,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_OrtogonalScalar,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_BoneName,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_AngleMultiplierForPredictLine,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SimPredcitTime,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_ManuallyCreated,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SplinePredictMeshes_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UThrowablePredictComponent_Statics::NewProp_SplinePredictMeshes,
@@ -209,9 +233,9 @@ void EmptyLinkFunctionForGeneratedCodeThrowablePredictComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UThrowablePredictComponent, UThrowablePredictComponent::StaticClass, TEXT("UThrowablePredictComponent"), &Z_Registration_Info_UClass_UThrowablePredictComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowablePredictComponent), 198476818U) },
+		{ Z_Construct_UClass_UThrowablePredictComponent, UThrowablePredictComponent::StaticClass, TEXT("UThrowablePredictComponent"), &Z_Registration_Info_UClass_UThrowablePredictComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UThrowablePredictComponent), 539303291U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_3763078223(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_3403625856(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_ThrowablePredictComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

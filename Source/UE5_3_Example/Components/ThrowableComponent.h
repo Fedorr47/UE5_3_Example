@@ -62,6 +62,12 @@ public:
 	UPROPERTY(EditAnywhere, Category = ThrowPredict, meta = (EditCondition = "ShowThrowPredict == true"))
 	UStaticMesh* PredictMesh;
 
+	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "ShowThrowPredict == true"))
+	float AngleMultiplierForPredictLine = 10.0f;
+
+	UPROPERTY(EditAnywhere, Category = Projectile, meta = (EditCondition = "ShowThrowPredict == true"))
+	float SimPredcitTime = 4.0f;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
 	UInputMappingContext* ThrowMappingContext;
 

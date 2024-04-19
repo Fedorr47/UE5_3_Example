@@ -1,4 +1,5 @@
 #include "ThrowableComponent.h"
+#include <iostream>
 #include "Math/UnrealMathUtility.h"
 
 UThrowableComponent::UThrowableComponent(const FObjectInitializer& ObjectInitializer) :
