@@ -21,6 +21,7 @@ public:
 
 	void CopyThrowableComponentParams(const UThrowableComponent& ThrowableComponent)
 	{
+		OriginalOwnerId = ThrowableComponent.OriginalOwnerId;
 		PathMesh = ThrowableComponent.PredictMesh;
 		VelocityOfProjectile = ThrowableComponent.ThrowVelocity;
 		OrtogonalScalar = ThrowableComponent.OrtogonalScalar;

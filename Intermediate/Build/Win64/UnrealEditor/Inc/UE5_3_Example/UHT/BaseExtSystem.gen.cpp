@@ -22,6 +22,15 @@ void EmptyLinkFunctionForGeneratedCodeBaseExtSystem() {}
 	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FEntity();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
 // End Cross Module References
+	DEFINE_FUNCTION(ABaseExtSystem::execRemoveComponent)
+	{
+		P_GET_STRUCT_REF(FEntity,Z_Param_Out_Entity);
+		P_GET_OBJECT(UEntityComponent,Z_Param_Component);
+		P_FINISH;
+		P_NATIVE_BEGIN;
+		P_THIS->RemoveComponent(Z_Param_Out_Entity,Z_Param_Component);
+		P_NATIVE_END;
+	}
 	DEFINE_FUNCTION(ABaseExtSystem::execComponentWasAdded)
 	{
 		P_GET_STRUCT_REF(FEntity,Z_Param_Out_Entity);
@@ -36,6 +45,7 @@ void EmptyLinkFunctionForGeneratedCodeBaseExtSystem() {}
 		UClass* Class = ABaseExtSystem::StaticClass();
 		static const FNameNativePtrPair Funcs[] = {
 			{ "ComponentWasAdded", &ABaseExtSystem::execComponentWasAdded },
+			{ "RemoveComponent", &ABaseExtSystem::execRemoveComponent },
 		};
 		FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 	}
@@ -85,6 +95,52 @@ void EmptyLinkFunctionForGeneratedCodeBaseExtSystem() {}
 		}
 		return ReturnFunction;
 	}
+	struct Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics
+	{
+		struct BaseExtSystem_eventRemoveComponent_Parms
+		{
+			FEntity Entity;
+			UEntityComponent* Component;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Entity_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Entity;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_Component;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::NewProp_Entity_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::NewProp_Entity = { "Entity", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseExtSystem_eventRemoveComponent_Parms, Entity), Z_Construct_UScriptStruct_FEntity, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::NewProp_Entity_MetaData), Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::NewProp_Entity_MetaData) }; // 904214179
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::NewProp_Component = { "Component", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(BaseExtSystem_eventRemoveComponent_Parms, Component), Z_Construct_UClass_UEntityComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::NewProp_Entity,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::NewProp_Component,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Systems/BaseExtSystem.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ABaseExtSystem, nullptr, "RemoveComponent", nullptr, nullptr, Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::PropPointers), sizeof(Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::BaseExtSystem_eventRemoveComponent_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::Function_MetaDataParams), Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::BaseExtSystem_eventRemoveComponent_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UFunction_ABaseExtSystem_RemoveComponent()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ABaseExtSystem_RemoveComponent_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
 	IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ABaseExtSystem);
 	UClass* Z_Construct_UClass_ABaseExtSystem_NoRegister()
 	{
@@ -116,6 +172,7 @@ void EmptyLinkFunctionForGeneratedCodeBaseExtSystem() {}
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseExtSystem_Statics::DependentSingletons) < 16);
 	const FClassFunctionLinkInfo Z_Construct_UClass_ABaseExtSystem_Statics::FuncInfo[] = {
 		{ &Z_Construct_UFunction_ABaseExtSystem_ComponentWasAdded, "ComponentWasAdded" }, // 2812100958
+		{ &Z_Construct_UFunction_ABaseExtSystem_RemoveComponent, "RemoveComponent" }, // 989031888
 	};
 	static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ABaseExtSystem_Statics::FuncInfo) < 2048);
 #if WITH_METADATA
@@ -240,10 +297,10 @@ void EmptyLinkFunctionForGeneratedCodeBaseExtSystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_BaseExtSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_ABaseExtSystem, ABaseExtSystem::StaticClass, TEXT("ABaseExtSystem"), &Z_Registration_Info_UClass_ABaseExtSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseExtSystem), 1571603319U) },
+		{ Z_Construct_UClass_ABaseExtSystem, ABaseExtSystem::StaticClass, TEXT("ABaseExtSystem"), &Z_Registration_Info_UClass_ABaseExtSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ABaseExtSystem), 3234483397U) },
 		{ Z_Construct_UClass_UActionsHolder, UActionsHolder::StaticClass, TEXT("UActionsHolder"), &Z_Registration_Info_UClass_UActionsHolder, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UActionsHolder), 2838237972U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_BaseExtSystem_h_884699963(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_BaseExtSystem_h_809729456(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_BaseExtSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_BaseExtSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

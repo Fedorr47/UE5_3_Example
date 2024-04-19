@@ -24,7 +24,8 @@ class UE5_3_EXAMPLE_API UEntityComponent : public UObject
 public:
 	UEntityComponent(const FObjectInitializer& ObjectInitializer) :
 		Super(ObjectInitializer)
-	{}
+	{
+	}
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject);
 
@@ -37,6 +38,9 @@ public:
 
 	UPROPERTY(EditDefaultsOnly, Category = OwnerShip)
 	bool CanBeReOwned = true;
+
+	UPROPERTY()
+	FGuid OriginalOwnerId;
 
 	UPROPERTY()
 	bool IsAttachedToCharacter = false;

@@ -190,9 +190,9 @@ void EmptyLinkFunctionForGeneratedCodePickupSystem() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_APickupSystem, APickupSystem::StaticClass, TEXT("APickupSystem"), &Z_Registration_Info_UClass_APickupSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APickupSystem), 152016490U) },
+		{ Z_Construct_UClass_APickupSystem, APickupSystem::StaticClass, TEXT("APickupSystem"), &Z_Registration_Info_UClass_APickupSystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(APickupSystem), 4112849501U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_2965060740(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_1791863321(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Systems_PickupSystem_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

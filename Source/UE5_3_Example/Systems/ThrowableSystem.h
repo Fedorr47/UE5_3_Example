@@ -9,6 +9,7 @@
 
 class ACharacter;
 class UThrowableComponent;
+class UThrowablePredictComponent;
 struct FEntity;
 enum class EThrowableType : uint8;
 
@@ -55,4 +56,6 @@ private:
 
 	UPROPERTY()
 	TMap<UInputMappingContext*, UActionsHolder*> MappingContexts;
+
+	void ClearPredictPath(UThrowablePredictComponent* ThrowablePredictComp, const FEntity& Entity);
 };

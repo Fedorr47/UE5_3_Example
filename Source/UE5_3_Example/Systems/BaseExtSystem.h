@@ -23,6 +23,7 @@ public:
 
 	UFUNCTION()
 	void ComponentWasAdded(const FEntity& Entity, UEntityComponent* EntityComponent);
+	UFUNCTION()
 	void RemoveComponent(const FEntity& Entity, UEntityComponent* Component);
 
 	virtual void ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent) {}

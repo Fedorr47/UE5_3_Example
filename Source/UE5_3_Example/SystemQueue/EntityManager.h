@@ -7,6 +7,7 @@
 #include "GameFramework/Actor.h"
 #include "EntityManager.generated.h"
 
+
 USTRUCT(BlueprintType)
 struct FEntity
 {
@@ -27,6 +28,7 @@ public:
 };
 
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnAddedComponent, const struct FEntity&, Entity, UEntityComponent*, EntityComponent);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnPreRemovedComponent, const struct FEntity&, Entity, UEntityComponent*, EntityComponent);
 
 FORCEINLINE uint32 GetTypeHash(const FEntity& Entity)
 {
@@ -40,6 +42,12 @@ struct FEntityInternal
 
     UPROPERTY()
     TArray<UEntityComponent*> Components;
+
+    void AddComponent(UEntityComponent* InComponent, FGuid OriginalId)
+    {
+        InComponent->OriginalOwnerId = OriginalId;
+        Components.Add(InComponent);
+    }
 };
 
 UCLASS()
@@ -69,6 +77,9 @@ private:
 public:
     UPROPERTY(BlueprintAssignable)
     FOnAddedComponent OnAddedComponent;
+
+    UPROPERTY(BlueprintAssignable)
+    FOnPreRemovedComponent OnPreRemovedComponent;
 
     FEntity CreateEntity(AActor* InPtrToObject = nullptr);
 
@@ -181,6 +192,30 @@ public:
         }
     }
 
+    void RemoveComponentsWithId(const FEntity& Entity, FGuid InGuidId)
+    {
+
+        FEntityInternal* EntityInternal = EntityComponents.Find(Entity.Id);
+        if (EntityInternal != nullptr)
+        {
+            TArray<UEntityComponent*>& Components = EntityInternal->Components;
+            Components.RemoveAll([&](UEntityComponent* EntityComponent) 
+                {
+                 bool ShouldRemove = EntityComponent->OriginalOwnerId == InGuidId; 
+                 if (ShouldRemove)
+                 {
+                     OnPreRemovedComponent.Broadcast(Entity, EntityComponent);
+                 }
+                 return ShouldRemove;
+                });
+
+            if (Components.IsEmpty())
+            {
+                EntityComponents.Remove(Entity.Id);
+            }
+        }
+    }
+
     void RemoveComponent(const FEntity& Entity, UEntityComponent* EntityComp)
     {
 
@@ -191,6 +226,7 @@ public:
             auto CompIndex = Components.Find(EntityComp);
             if (CompIndex != INDEX_NONE)
             {
+                OnPreRemovedComponent.Broadcast(Entity, EntityComp);
                 Components.RemoveAt(CompIndex);
             }
 
@@ -209,7 +245,7 @@ inline T* UEntityManager::AddComponent(const FEntity& Entity)
 
     T* NewComponent = NewObject<T>(this);
     FEntityInternal& EntityInternal = EntityComponents.FindOrAdd(Entity.Id);
-    EntityInternal.Components.Add(NewComponent);
+    EntityInternal.AddComponent(NewComponent, Entity.Id);
     OnAddedComponent.Broadcast(Entity, NewComponent);
 
     return NewComponent;

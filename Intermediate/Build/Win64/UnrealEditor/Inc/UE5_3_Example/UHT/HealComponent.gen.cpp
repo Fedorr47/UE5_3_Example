@@ -96,9 +96,9 @@ void EmptyLinkFunctionForGeneratedCodeHealComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UHealComponent, UHealComponent::StaticClass, TEXT("UHealComponent"), &Z_Registration_Info_UClass_UHealComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealComponent), 3277462154U) },
+		{ Z_Construct_UClass_UHealComponent, UHealComponent::StaticClass, TEXT("UHealComponent"), &Z_Registration_Info_UClass_UHealComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UHealComponent), 1483546714U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_3568607340(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_214026851(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_HealComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

@@ -98,9 +98,9 @@ void EmptyLinkFunctionForGeneratedCodePickupbleComponent() {}
 		static const FClassRegisterCompiledInInfo ClassInfo[];
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_PickupbleComponent_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UPickupbleComponent, UPickupbleComponent::StaticClass, TEXT("UPickupbleComponent"), &Z_Registration_Info_UClass_UPickupbleComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPickupbleComponent), 757856340U) },
+		{ Z_Construct_UClass_UPickupbleComponent, UPickupbleComponent::StaticClass, TEXT("UPickupbleComponent"), &Z_Registration_Info_UClass_UPickupbleComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UPickupbleComponent), 2531277327U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_PickupbleComponent_h_2318155013(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_PickupbleComponent_h_874116130(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_PickupbleComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_Components_PickupbleComponent_h_Statics::ClassInfo),
 		nullptr, 0,
 		nullptr, 0);

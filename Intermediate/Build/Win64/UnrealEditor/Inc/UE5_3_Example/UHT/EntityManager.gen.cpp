@@ -15,6 +15,7 @@ void EmptyLinkFunctionForGeneratedCodeEntityManager() {}
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityManager();
 	UE5_3_EXAMPLE_API UClass* Z_Construct_UClass_UEntityManager_NoRegister();
 	UE5_3_EXAMPLE_API UFunction* Z_Construct_UDelegateFunction_UE5_3_Example_OnAddedComponent__DelegateSignature();
+	UE5_3_EXAMPLE_API UFunction* Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature();
 	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FEntity();
 	UE5_3_EXAMPLE_API UScriptStruct* Z_Construct_UScriptStruct_FEntityInternal();
 	UPackage* Z_Construct_UPackage__Script_UE5_3_Example();
@@ -144,6 +145,64 @@ void FOnAddedComponent_DelegateWrapper(const FMulticastScriptDelegate& OnAddedCo
 	Parms.EntityComponent=EntityComponent;
 	OnAddedComponent.ProcessMulticastDelegate<UObject>(&Parms);
 }
+	struct Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics
+	{
+		struct _Script_UE5_3_Example_eventOnPreRemovedComponent_Parms
+		{
+			FEntity Entity;
+			UEntityComponent* EntityComponent;
+		};
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_Entity_MetaData[];
+#endif
+		static const UECodeGen_Private::FStructPropertyParams NewProp_Entity;
+		static const UECodeGen_Private::FObjectPropertyParams NewProp_EntityComponent;
+		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[];
+#endif
+		static const UECodeGen_Private::FFunctionParams FuncParams;
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::NewProp_Entity_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif
+	const UECodeGen_Private::FStructPropertyParams Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::NewProp_Entity = { "Entity", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_UE5_3_Example_eventOnPreRemovedComponent_Parms, Entity), Z_Construct_UScriptStruct_FEntity, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::NewProp_Entity_MetaData), Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::NewProp_Entity_MetaData) }; // 904214179
+	const UECodeGen_Private::FObjectPropertyParams Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::NewProp_EntityComponent = { "EntityComponent", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(_Script_UE5_3_Example_eventOnPreRemovedComponent_Parms, EntityComponent), Z_Construct_UClass_UEntityComponent_NoRegister, METADATA_PARAMS(0, nullptr) };
+	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::PropPointers[] = {
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::NewProp_Entity,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::NewProp_EntityComponent,
+	};
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "SystemQueue/EntityManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FFunctionParams Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::FuncParams = { (UObject*(*)())Z_Construct_UPackage__Script_UE5_3_Example, nullptr, "OnPreRemovedComponent__DelegateSignature", nullptr, nullptr, Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::PropPointers), sizeof(Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::_Script_UE5_3_Example_eventOnPreRemovedComponent_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00130000, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::Function_MetaDataParams), Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::Function_MetaDataParams) };
+	static_assert(UE_ARRAY_COUNT(Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::PropPointers) < 2048);
+	static_assert(sizeof(Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::_Script_UE5_3_Example_eventOnPreRemovedComponent_Parms) < MAX_uint16);
+	UFunction* Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature()
+	{
+		static UFunction* ReturnFunction = nullptr;
+		if (!ReturnFunction)
+		{
+			UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature_Statics::FuncParams);
+		}
+		return ReturnFunction;
+	}
+void FOnPreRemovedComponent_DelegateWrapper(const FMulticastScriptDelegate& OnPreRemovedComponent, FEntity const& Entity, UEntityComponent* EntityComponent)
+{
+	struct _Script_UE5_3_Example_eventOnPreRemovedComponent_Parms
+	{
+		FEntity Entity;
+		UEntityComponent* EntityComponent;
+	};
+	_Script_UE5_3_Example_eventOnPreRemovedComponent_Parms Parms;
+	Parms.Entity=Entity;
+	Parms.EntityComponent=EntityComponent;
+	OnPreRemovedComponent.ProcessMulticastDelegate<UObject>(&Parms);
+}
 	static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_EntityInternal;
 class UScriptStruct* FEntityInternal::StaticStruct()
 {
@@ -242,6 +301,10 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityInternal>()
 		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnAddedComponent_MetaData[];
 #endif
 		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnAddedComponent;
+#if WITH_METADATA
+		static const UECodeGen_Private::FMetaDataPairParam NewProp_OnPreRemovedComponent_MetaData[];
+#endif
+		static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnPreRemovedComponent;
 		static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 		static const FCppClassTypeInfoStatic StaticCppClassTypeInfo;
 		static const UECodeGen_Private::FClassParams ClassParams;
@@ -278,6 +341,12 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityInternal>()
 	};
 #endif
 	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UEntityManager_Statics::NewProp_OnAddedComponent = { "OnAddedComponent", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEntityManager, OnAddedComponent), Z_Construct_UDelegateFunction_UE5_3_Example_OnAddedComponent__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEntityManager_Statics::NewProp_OnAddedComponent_MetaData), Z_Construct_UClass_UEntityManager_Statics::NewProp_OnAddedComponent_MetaData) }; // 3441034464
+#if WITH_METADATA
+	const UECodeGen_Private::FMetaDataPairParam Z_Construct_UClass_UEntityManager_Statics::NewProp_OnPreRemovedComponent_MetaData[] = {
+		{ "ModuleRelativePath", "SystemQueue/EntityManager.h" },
+	};
+#endif
+	const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UEntityManager_Statics::NewProp_OnPreRemovedComponent = { "OnPreRemovedComponent", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEntityManager, OnPreRemovedComponent), Z_Construct_UDelegateFunction_UE5_3_Example_OnPreRemovedComponent__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UEntityManager_Statics::NewProp_OnPreRemovedComponent_MetaData), Z_Construct_UClass_UEntityManager_Statics::NewProp_OnPreRemovedComponent_MetaData) }; // 1422589008
 	const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEntityManager_Statics::PropPointers[] = {
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities_Inner,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_Entities,
@@ -285,6 +354,7 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityInternal>()
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents_Key_KeyProp,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_EntityComponents,
 		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_OnAddedComponent,
+		(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEntityManager_Statics::NewProp_OnPreRemovedComponent,
 	};
 	const FCppClassTypeInfoStatic Z_Construct_UClass_UEntityManager_Statics::StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<UEntityManager>::IsAbstract,
@@ -330,9 +400,9 @@ template<> UE5_3_EXAMPLE_API UScriptStruct* StaticStruct<FEntityInternal>()
 		{ FEntityInternal::StaticStruct, Z_Construct_UScriptStruct_FEntityInternal_Statics::NewStructOps, TEXT("EntityInternal"), &Z_Registration_Info_UScriptStruct_EntityInternal, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FEntityInternal), 1433095732U) },
 	};
 	const FClassRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ClassInfo[] = {
-		{ Z_Construct_UClass_UEntityManager, UEntityManager::StaticClass, TEXT("UEntityManager"), &Z_Registration_Info_UClass_UEntityManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEntityManager), 3385542948U) },
+		{ Z_Construct_UClass_UEntityManager, UEntityManager::StaticClass, TEXT("UEntityManager"), &Z_Registration_Info_UClass_UEntityManager, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEntityManager), 1155772057U) },
 	};
-	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_3829039723(TEXT("/Script/UE5_3_Example"),
+	static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_2495252320(TEXT("/Script/UE5_3_Example"),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ClassInfo),
 		Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_UE5_proj_UE5_3_Example_Source_UE5_3_Example_SystemQueue_EntityManager_h_Statics::ScriptStructInfo),
 		nullptr, 0);

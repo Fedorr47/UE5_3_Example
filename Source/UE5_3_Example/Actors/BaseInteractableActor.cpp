@@ -41,6 +41,7 @@ void ABaseInteractableActor::BeginPlay()
 			if (IsValid(Component.Template))
 			{
 				Component.Template->InitComponent(mWorld, this);
+				Component.Template->OriginalOwnerId = ActorEntity.Id;
 				mGameMode->EntityManager->AddCreatedComponent(ActorEntity, Component.Template);
 				CreatedComponents.Emplace(Component.Template);
 			}

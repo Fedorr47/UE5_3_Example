@@ -103,31 +103,14 @@ void AThrowableSystem::ApplyThrow()
 					auto SpawnedActor = World->SpawnActor<ABaseInteractableActor>(ThrowableComp->OriginalOwnerClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
 					SpawnedActor->GetInteractableMeshComp()->AddImpulseAtLocation(SpawnVelocity, SpawnLocation);
 
-					RemoveComponent(Entity, ThrowableComp);
-					mEntityManager->RemoveComponent(Entity, ThrowableComp);
-
+					mEntityManager->RemoveComponentsWithId(Entity, ThrowableComp->OriginalOwnerId);
+					
 					ShouldPredictPath = false;
 
 					if (OnceThrowPerTime)
 					{
 						WasThrown = true;
 					}		
-				}
-			}
-
-			if (UThrowablePredictComponent* ThrowablePredictComp = mEntityManager->GetComponent<UThrowablePredictComponent>(Entity))
-			{
-				if (IsValid(ThrowablePredictComp->SplinePredict) && ThrowablePredictComp->SplinePredict->GetNumberOfSplinePoints() > 0)
-				{
-					ThrowablePredictComp->SplinePredict->ClearSplinePoints();
-					ThrowablePredictComp->SplinePredict->UpdateSpline();
-
-					for (auto* MeshComp : ThrowablePredictComp->SplinePredictMeshes)
-					{
-						MeshComp->DestroyComponent();
-					}
-					ThrowablePredictComp->SplinePredictMeshes.Empty();
-					mEntityManager->RemoveComponent(Entity, ThrowablePredictComp);
 				}
 			}
 		}
@@ -154,19 +137,20 @@ void AThrowableSystem::PredictThrow()
 			{
 				if (ACharacter* OwnerCharacter = Cast<ACharacter>(ThrowablePredictComp->GetOwnerObject()))
 				{
-					
+					ClearPredictPath(ThrowablePredictComp, Entity);
+
 					APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 					const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
 					FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
 					FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, 0.0f);
 					const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner * ThrowablePredictComp->ForwardScalar + OrthogonalForwardVector * ThrowablePredictComp->OrtogonalScalar);
 
+					// Predict Path
 					FPredictProjectilePathParams PredictParams;
 					FPredictProjectilePathResult PredictResult;
 
 					// TODO: Rewrite Projectile's logic to better version
 					const FVector SpawnVelocity = InFrontOwner * ThrowablePredictComp->VelocityOfProjectile;
-
 					TArray<AActor*> ActorToIgnore{ OwnerCharacter };
 
 					PredictParams.StartLocation = SpawnLocation;
@@ -179,7 +163,6 @@ void AThrowableSystem::PredictThrow()
 
 					UGameplayStatics::PredictProjectilePath(World, PredictParams, PredictResult);
 
-					ThrowablePredictComp->SplinePredict->ClearSplinePoints();
 					int NumOfPoints = PredictResult.PathData.Num();
 					float StepForAngle = 3.14159f / NumOfPoints;
 
@@ -191,13 +174,8 @@ void AThrowableSystem::PredictThrow()
 						ThrowablePredictComp->SplinePredict->AddSplinePoint(PointLocation, ESplineCoordinateSpace::World, false);
 						NextStep += StepForAngle;
 					}
-					ThrowablePredictComp->SplinePredict->UpdateSpline();
 
 					FVector Location, Tangent, LocationNext, TangentNext;
-					for (auto* MeshComp : ThrowablePredictComp->SplinePredictMeshes)
-					{
-						MeshComp->DestroyComponent();
-					}
 					ThrowablePredictComp->SplinePredictMeshes.Empty();
 					for (int i = 0; i < NumOfPoints; ++i)
 					{
@@ -271,23 +249,26 @@ void AThrowableSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityCompo
 
 void AThrowableSystem::RemoveComponentImpl(const FEntity& Entity, UEntityComponent* EntityComponent)
 {
-	UThrowableComponent* Component = Cast<UThrowableComponent>(EntityComponent);
-	if (IsValid(Component))
+	if (UThrowableComponent* ThrowComponent = Cast<UThrowableComponent>(EntityComponent))
 	{
 		auto ThrowableTypeHolders = ThrowableComponents.Find(Entity);
 		if (ThrowableTypeHolders != nullptr)
 
 		{
-			auto TypeHolder = (*ThrowableTypeHolders)->Components.Find(Component->Type);
+			auto TypeHolder = (*ThrowableTypeHolders)->Components.Find(ThrowComponent->Type);
 			if (TypeHolder != nullptr)
 			{
-				(*TypeHolder).Remove(Component);
-				if (Component->IsAttachedToCharacter)
+				(*TypeHolder).Remove(ThrowComponent);
+				if (ThrowComponent->IsAttachedToCharacter)
 				{
-					SendThrowableCountMsg(Component, (*ThrowableTypeHolders)->Components[Component->Type].Num());
+					SendThrowableCountMsg(ThrowComponent, (*ThrowableTypeHolders)->Components[ThrowComponent->Type].Num());
 				}
 			}
 		}
+	}
+	else if (UThrowablePredictComponent* ThrowPredictComponent = Cast<UThrowablePredictComponent>(EntityComponent))
+	{
+		ClearPredictPath(ThrowPredictComponent, Entity);
 	}
 }
 
@@ -301,5 +282,20 @@ void AThrowableSystem::SendThrowableCountMsg(UThrowableComponent* Component, int
 		MsgToSend->Type = EMessageType::ThrowableChanged;
 		MsgToSend->GrenadeCount = InCount;
 		CastedGameMode->SendMessage(Cast<UBaseMessage>(MsgToSend));
+	}
+}
+
+void AThrowableSystem::ClearPredictPath(UThrowablePredictComponent* ThrowablePredictComp, const FEntity& Entity)
+{
+	if (IsValid(ThrowablePredictComp->SplinePredict) && ThrowablePredictComp->SplinePredict->GetNumberOfSplinePoints() > 0)
+	{
+		ThrowablePredictComp->SplinePredict->ClearSplinePoints();
+		ThrowablePredictComp->SplinePredict->UpdateSpline();
+
+		for (auto* MeshComp : ThrowablePredictComp->SplinePredictMeshes)
+		{
+			MeshComp->DestroyComponent();
+		}
+		ThrowablePredictComp->SplinePredictMeshes.Empty();
 	}
 }
