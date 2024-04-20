@@ -14,8 +14,9 @@ class UE5_3_EXAMPLE_API UAttachedSkeletalMeshComponent : public UEntityComponent
 public:
 	UAttachedSkeletalMeshComponent(const FObjectInitializer& ObjectInitializer);
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
+	virtual UEntityComponent* RetCopiedComponent(UObject* OwnerObject) override;
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
-	UPROPERTY()
+	UPROPERTY(BlueprintReadWrite, EditAnywhere, Category = Mesh)
 	USkeletalMeshComponent* SkeletalMeshComp = nullptr;
 };

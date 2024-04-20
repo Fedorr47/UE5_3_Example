@@ -32,6 +32,7 @@ public:
 	UThrowableComponent(const FObjectInitializer& ObjectInitializer);
 
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
+	virtual UEntityComponent* RetCopiedComponent(UObject* OwnerObject) override;
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
@@ -51,7 +52,7 @@ public:
 	FName BoneName{};
 
 	UPROPERTY()
-	TSubclassOf<ABaseInteractableActor> OriginalOwnerClass;
+	ABaseInteractableActor* OriginalOwnerActor = nullptr;
 
 	UPROPERTY(EditAnywhere, Category = ThrowableType)
 	EThrowableType Type = EThrowableType::Other;

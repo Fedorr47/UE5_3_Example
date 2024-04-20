@@ -13,6 +13,11 @@ UEntityComponent* UHealthComponent::RetNewComponent(UObject* OwnerObject)
     return NewObject<UHealthComponent>();
 }
 
+UEntityComponent* UHealthComponent::RetCopiedComponent(UObject* OwnerObject)
+{
+    return nullptr;
+}
+
 void UHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
 {
     Super::InitComponent(InWorld, InOwnerObject);

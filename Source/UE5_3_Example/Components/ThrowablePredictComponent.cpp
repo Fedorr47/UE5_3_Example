@@ -25,6 +25,11 @@ UEntityComponent* UThrowablePredictComponent::RetNewComponent(UObject* OwnerObje
     return NewObject<UThrowablePredictComponent>();
 }
 
+UEntityComponent* UThrowablePredictComponent::RetCopiedComponent(UObject* OwnerObject)
+{
+	return nullptr;
+}
+
 void UThrowablePredictComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
 {
     Super::InitComponent(InWorld, InOwnerObject);

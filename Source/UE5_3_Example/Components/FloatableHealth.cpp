@@ -37,6 +37,11 @@ UEntityComponent* UFloatableHealthComponent::RetNewComponent(UObject* OwnerObjec
 	return FloatableHealthComponent;
 }
 
+UEntityComponent* UFloatableHealthComponent::RetCopiedComponent(UObject* OwnerObject)
+{
+	return nullptr;
+}
+
 void UFloatableHealthComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
 {
 	Super::InitComponent(InWorld, InOwnerObject);

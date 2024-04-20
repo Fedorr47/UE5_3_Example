@@ -13,6 +13,11 @@ UEntityComponent* UDamageComponent::RetNewComponent(UObject* OwnerObject)
 	return NewObject<UDamageComponent>();
 }
 
+UEntityComponent* UDamageComponent::RetCopiedComponent(UObject* OwnerObject)
+{
+	return nullptr;
+}
+
 void UDamageComponent::InitComponent(UWorld* InWorld, UObject* InOwnerObject)
 {
 	Super::InitComponent(InWorld, InOwnerObject);

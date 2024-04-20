@@ -57,17 +57,23 @@ void APickupSystem::Pickup(
 		{
 			FEntity EntityObj = PickupComponents[OverlappedComponent];
 			auto Components = mEntityManager->GetComponents(EntityObj);
-			for (auto Component : Components)
+			if (Components != nullptr)
 			{
-				if (IsValid(Component) && Component->CanBeReOwned)
+				for (auto Component : *Components)
 				{
-					Component->IsAttachedToCharacter = true;
-					Component->InitComponent(mGameMode->GetWorld(), PlayableCharacter);
-					mEntityManager->AddCreatedComponent(PlayableCharacter->GetActorEntity(), Component);
+					if (IsValid(Component) && Component->CanBeReOwned)
+					{
+						Component->IsAttachedToCharacter = true;
+						Component->InitComponent(mGameMode->GetWorld(), PlayableCharacter);
+						mEntityManager->AddCreatedComponent(PlayableCharacter->GetActorEntity(), Component);
+					}
 				}
 			}
+			if (ABaseInteractableActor* BaseInteractableActor = Cast<ABaseInteractableActor>(EntityObj.mPtrToObject))
+			{
+				BaseInteractableActor->GetInteractableMeshComp()->SetVisibility(false);
+			}
 			// TODO: Add possobility to not destroing actor after pickup 
-			mEntityManager->DestroyEntity(EntityObj);
 		}
 	}
 }

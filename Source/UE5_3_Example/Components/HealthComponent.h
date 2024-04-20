@@ -17,6 +17,7 @@ public:
 	UHealthComponent(const FObjectInitializer& ObjectInitializer);
 
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject) override;
+	virtual UEntityComponent* RetCopiedComponent(UObject* OwnerObject) override;
 
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 

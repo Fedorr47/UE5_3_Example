@@ -84,24 +84,28 @@ void AThrowableSystem::ApplyThrow()
 			UThrowableComponent* ThrowableComp = mEntityManager->GetComponent<UThrowableComponent>(Entity);
 			if (IsValid(ThrowableComp) && !WasThrown)
 			{
-				const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(ThrowableComp->GetOwnerObject());
+				const ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(Entity.mPtrToObject);
 				UWorld* World = mEntityManager->GetWorld();
 				if (IsValid(World) &&
 					IsValid(OwnerCharacter) &&
-					ThrowableComp->OriginalOwnerClass.Get() != nullptr)
+					IsValid(ThrowableComp->OriginalOwnerActor))
 				{
 					const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
-					const FRotator SpawnRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
-					FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(SpawnRotation);
+					const FRotator NewRotation = PlayerController->PlayerCameraManager->GetCameraRotation();
+					FVector InFrontOwner = UKismetMathLibrary::GetForwardVector(NewRotation);
 					FVector OrthogonalForwardVector = FVector(InFrontOwner.Y, -InFrontOwner.X, -InFrontOwner.Z);
-					const FVector SpawnLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner * ThrowableComp->ForwardScalar + OrthogonalForwardVector * ThrowableComp->OrtogonalScalar);
-					const FVector SpawnVelocity = InFrontOwner * ThrowableComp->ThrowVelocity;
+					const FVector NewLocation = OwnerCharacter->GetActorLocation() + (InFrontOwner * ThrowableComp->ForwardScalar + OrthogonalForwardVector * ThrowableComp->OrtogonalScalar);
+					const FVector NewVelocity = InFrontOwner * ThrowableComp->ThrowVelocity;
 
 					FActorSpawnParameters ActorSpawnParams;
 					ActorSpawnParams.SpawnCollisionHandlingOverride = ESpawnActorCollisionHandlingMethod::AlwaysSpawn;
 
-					auto SpawnedActor = World->SpawnActor<ABaseInteractableActor>(ThrowableComp->OriginalOwnerClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
-					SpawnedActor->GetInteractableMeshComp()->AddImpulseAtLocation(SpawnVelocity, SpawnLocation);
+					//auto SpawnedActor = World->SpawnActor<ABaseInteractableActor>(ThrowableComp->OriginalOwnerClass, SpawnLocation, SpawnRotation, ActorSpawnParams);
+					//SpawnedActor->GetInteractableMeshComp()->AddImpulseAtLocation(SpawnVelocity, SpawnLocation);
+
+					ThrowableComp->OriginalOwnerActor->GetInteractableMeshComp()->SetWorldLocation(NewLocation);
+					ThrowableComp->OriginalOwnerActor->GetInteractableMeshComp()->SetVisibility(true);
+					ThrowableComp->OriginalOwnerActor->GetInteractableMeshComp()->AddImpulseAtLocation(NewVelocity, NewLocation);
 
 					mEntityManager->RemoveComponentsWithId(Entity, ThrowableComp->OriginalOwnerId);
 					
@@ -229,9 +233,9 @@ void AThrowableSystem::ComponentWasAddedImpl(const FEntity& Entity, UEntityCompo
 		{
 			SendThrowableCountMsg(ThrowComponent, ThrowableTypeHolder->Components[ThrowComponent->Type].Num());
 		}
-		else
+		else if (ABaseInteractableActor* OwnerActor = Cast<ABaseInteractableActor>(ThrowComponent->GetOwnerObject()))
 		{
-			ThrowComponent->OriginalOwnerClass = ThrowComponent->GetOwnerObject()->GetClass();
+			ThrowComponent->OriginalOwnerActor = OwnerActor;
 		}
 
 		BindActions(ThrowComponent);

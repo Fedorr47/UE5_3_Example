@@ -19,8 +19,4 @@ void UEntityManager::DestroyEntity(const FEntity& Entity)
 {
     EntityComponents.Remove(Entity.Id);
     Entities.Remove(Entity);
-    if (IsValid(Entity.mPtrToObject))
-    {
-        Entity.mPtrToObject->Destroy();
-    }
 }

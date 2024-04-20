@@ -48,6 +48,13 @@ struct FEntityInternal
         InComponent->OriginalOwnerId = OriginalId;
         Components.Add(InComponent);
     }
+
+    
+    void CopyComponent(UEntityComponent* InComponent)
+    {
+        UEntityComponent* CopiedComponent = InComponent->RetCopiedComponent();
+        Components.Add(CopiedComponent);
+    }
 };
 
 UCLASS()
@@ -93,6 +100,9 @@ public:
     template<class T>
     void AddCreatedComponent(const FEntity& Entity, T* InComponent);
 
+    template<class T>
+    void CopyComponent(const FEntity& Entity, T* InComponent);
+    
     template<class T>
     TArray<T*> GetComponents(const FEntity& Entity);
 
@@ -160,10 +170,14 @@ public:
         return nullptr;
     }
 
-    const TArray<UEntityComponent*>& GetComponents(const FEntity& Entity) const
+    const TArray<UEntityComponent*>* GetComponents(const FEntity& Entity) const
     {
         const FEntityInternal* EntityInternal = EntityComponents.Find(Entity.Id);
-        return EntityInternal->Components;
+        if (EntityInternal != nullptr)
+        {
+            return &EntityInternal->Components;
+        }
+        return nullptr;
     }
 
     template<typename T>
@@ -249,6 +263,15 @@ inline T* UEntityManager::AddComponent(const FEntity& Entity)
     OnAddedComponent.Broadcast(Entity, NewComponent);
 
     return NewComponent;
+}
+
+template<class T>
+inline void UEntityManager::CopyComponent(const FEntity& Entity, T* InComponent)
+{
+    static_assert(TIsDerivedFrom<T, UEntityComponent>::IsDerived, "T must inherit from UEntityComponent");
+
+    FEntityInternal& EntityInternal = EntityComponents.FindOrAdd(Entity.Id);
+    EntityInternal.CopyComponent(InComponent);
 }
 
 template<class T>

@@ -33,6 +33,7 @@ public:
 	AUE5_3_ExampleGameMode* GetComponentGameMode() { return mGameMode; }
 
 	virtual UEntityComponent* RetNewComponent(UObject* OwnerObject = nullptr) { return nullptr; }
+	virtual UEntityComponent* RetCopiedComponent(UObject* OwnerObject = nullptr) { return nullptr; }
 
 	UObject* GetOwnerObject() { return mOwnerObject; }
 
