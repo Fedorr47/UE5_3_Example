@@ -7,6 +7,7 @@
 #include "Systems/ThrowableSystem.h"
 #include "Systems/DamageSystem.h"
 #include "Systems/PickupSystem.h"
+#include "Systems/ShootSystem.h"
 #include "Systems/AttachedSkeletalMeshSystem.h"
 #include "Systems/BaseExtSystem.h"
 #include "UI/PauseMenu.h"
@@ -58,6 +59,10 @@ void AUE5_3_ExampleGameMode::StartPlay()
 		auto AttachedSkeletalMeshSystem = GameWorld->SpawnActor<AAttachedSkeletalMeshSystem>();
 		AttachedSkeletalMeshSystem->InitSystem(EntityManager, this);
 		Systems.Add(TEXT("AttachedSkeletalMeshComponent"), AttachedSkeletalMeshSystem);
+
+		auto ShootSystem = GameWorld->SpawnActor<AShootSystem>();
+		ShootSystem->InitSystem(EntityManager, this);
+		Systems.Add(TEXT("ShootSystem"), ShootSystem);
 
 		mPauseMenu = CreateWidget<UUserWidget>(GameWorld, PauseMenu);
 	}
