@@ -150,12 +150,6 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\PickupbleComponent.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Components\ShootComponent.cpp">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClCompile>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Components\ShootComponent.h">
-      <Filter>Source\UE5_3_Example\Components</Filter>
-    </ClInclude>
     <ClCompile Include="..\..\Source\UE5_3_Example\Components\ThrowableComponent.cpp">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClCompile>
@@ -166,6 +160,12 @@
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\Components\ThrowablePredictComponent.h">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Components\WeaponComponent.cpp">
+      <Filter>Source\UE5_3_Example\Components</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Components\WeaponComponent.h">
       <Filter>Source\UE5_3_Example\Components</Filter>
     </ClInclude>
     <Filter Include="Source\UE5_3_Example\Mods">
@@ -237,6 +237,12 @@
     <ClInclude Include="..\..\Source\UE5_3_Example\Systems\ThrowableSystem.h">
       <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
+    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\WeaponSystem.cpp">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClCompile>
+    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\WeaponSystem.h">
+      <Filter>Source\UE5_3_Example\Systems</Filter>
+    </ClInclude>
     <Filter Include="Source\UE5_3_Example\UI">
       <UniqueIdentifier>{37E4A432-D25B-390F-940E-AEFE62F2AFA5}</UniqueIdentifier>
     </Filter>
@@ -257,16 +263,6 @@
     </ClCompile>
     <ClInclude Include="..\..\Source\UE5_3_Example\UI\PauseMenu.h">
       <Filter>Source\UE5_3_Example\UI</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="..\..\Source\UE5_3_Example\Systems\ShootSystem.cpp">
-      <Filter>Source\UE5_3_Example\Systems</Filter>
-    </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="..\..\Source\UE5_3_Example\Systems\ShootSystem.h">
-      <Filter>Source\UE5_3_Example\Systems</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
