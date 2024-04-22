@@ -7,6 +7,7 @@
 
 class AActor;
 struct FEntity;
+class UWeaponComponent;
 
 UCLASS()
 class AWeaponSystem : public ABaseExtSystem
@@ -22,4 +23,11 @@ public:
 
 	virtual void ComponentWasAddedImpl(const FEntity& Entity, UEntityComponent* EntityComponent) override;
 	virtual void RemoveComponentImpl(const FEntity& Entity, UEntityComponent* EntityComponent) override;
+
+	void BindActions(UWeaponComponent* Component);
+	void StartShoot();
+	void EndShoot();
+
+	UPROPERTY()
+	TMap<UInputMappingContext*, UActionsHolder*> MappingContexts;
 };
