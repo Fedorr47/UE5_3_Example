@@ -52,31 +52,31 @@ void AWeaponSystem::BindActions(UWeaponComponent* Component)
 {
 	if (IsValid(Component))
 	{
-		if (!MappingContexts.Contains(Component->ThrowMappingContext))
+		if (!MappingContexts.Contains(Component->FireMappingContext))
 		{
-			MappingContexts.Add(Component->ThrowMappingContext, NewObject<UActionsHolder>());
+			MappingContexts.Add(Component->FireMappingContext, NewObject<UActionsHolder>());
 		}
 
-		if (MappingContexts[Component->ThrowMappingContext]->Actions.Find(Component->ThrowAction) == INDEX_NONE)
+		if (MappingContexts[Component->FireMappingContext]->Actions.Find(Component->FireAction) == INDEX_NONE)
 		{
 
 			ADefaultPlayableCharacter* OwnerCharacter = Cast<ADefaultPlayableCharacter>(Component->GetOwnerObject());
 			if (IsValid(OwnerCharacter))
 			{
-				MappingContexts[Component->ThrowMappingContext]->Actions.Add(Component->ThrowAction);
+				MappingContexts[Component->FireMappingContext]->Actions.Add(Component->FireAction);
 				const APlayerController* PlayerController = Cast<APlayerController>(OwnerCharacter->GetController());
 				if (IsValid(PlayerController))
 				{
 					if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
 					{
-						Subsystem->AddMappingContext(Component->ThrowMappingContext, 1);
+						Subsystem->AddMappingContext(Component->FireMappingContext, 1);
 					}
 				}
 
 				if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerController->InputComponent))
 				{
-					EnhancedInputComponent->BindAction(Component->ThrowAction, ETriggerEvent::Started, this, &AWeaponSystem::StartShoot);
-					EnhancedInputComponent->BindAction(Component->ThrowAction, ETriggerEvent::Completed, this, &AWeaponSystem::EndShoot);
+					EnhancedInputComponent->BindAction(Component->FireAction, ETriggerEvent::Started, this, &AWeaponSystem::StartShoot);
+					EnhancedInputComponent->BindAction(Component->FireAction, ETriggerEvent::Completed, this, &AWeaponSystem::EndShoot);
 				}
 			}
 		}
@@ -85,6 +85,14 @@ void AWeaponSystem::BindActions(UWeaponComponent* Component)
 
 void AWeaponSystem::StartShoot()
 {
+	FVector Start = FVector(10, 10, 10);
+	FVector End = FVector(20, 20, 20);
+	FHitResult HitResult;
+	FCollisionQueryParams  COQP;
+	COQP.AddIgnoredActor(this);
+	FCollisionResponseParams CollRes;
+
+	mEntityManager->GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECollisionChannel::ECC_Visibility, COQP, CollRes);
 }
 
 void AWeaponSystem::EndShoot()

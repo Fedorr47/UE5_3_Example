@@ -37,16 +37,19 @@ void ABaseInteractableActor::BeginPlay()
 	if (UWorld* lWorld = GetWorld())
 	{
 		mWorld = lWorld;
-		mGameMode = static_cast<AUE5_3_ExampleGameMode*>(UGameplayStatics::GetGameMode(mWorld));
-		ActorEntity = mGameMode->EntityManager->CreateEntity(this);
-		for (FEntityComponentWrapper Component : AttachedComponents)
+		mGameMode = Cast<AUE5_3_ExampleGameMode>(UGameplayStatics::GetGameMode(mWorld));
+		if (IsValid(mGameMode))
 		{
-			if (IsValid(Component.Template))
+			ActorEntity = mGameMode->EntityManager->CreateEntity(this);
+			for (FEntityComponentWrapper Component : AttachedComponents)
 			{
-				Component.Template->InitComponent(mWorld, this);
-				Component.Template->OriginalOwnerId = ActorEntity.Id;
-				mGameMode->EntityManager->AddCreatedComponent(ActorEntity, Component.Template);
-				CreatedComponents.Emplace(Component.Template);
+				if (IsValid(Component.Template))
+				{
+					Component.Template->InitComponent(mWorld, this);
+					Component.Template->OriginalOwnerId = ActorEntity.Id;
+					mGameMode->EntityManager->AddCreatedComponent(ActorEntity, Component.Template);
+					CreatedComponents.Emplace(Component.Template);
+				}
 			}
 		}
 	}

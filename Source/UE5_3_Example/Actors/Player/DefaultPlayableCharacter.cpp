@@ -75,9 +75,23 @@ void ADefaultPlayableCharacter::BeginPlay()
 	// Call the base class  
 	Super::BeginPlay();
 
-	if (SetupGameMode())
+	if (SetupGameMode() && IsValid(mGameMode))
 	{
 		ActorEntity = mGameMode->EntityManager->CreateEntity(this);
+
+		// Add Input Mapping Context
+		if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+		{
+			if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+			{
+				Subsystem->AddMappingContext(DefaultMappingContext, 0);
+				mGameMode->OnMappingContextAdded.Broadcast(mEnhancedInputComponent, PlayerController);
+			}
+		}
+
+		OnTakeAnyDamage.AddUniqueDynamic(this, &ADefaultPlayableCharacter::TakeCharacterDamage);
+		OnTakeRadialDamage.AddUniqueDynamic(this, &ADefaultPlayableCharacter::TakeCharacterRadialDamage);
+
 		for (FEntityComponentWrapper Component : AttachedComponents)
 		{
 			if (IsValid(Component.Template))
@@ -87,20 +101,7 @@ void ADefaultPlayableCharacter::BeginPlay()
 				CreatedComponents.Emplace(Component.Template);
 			}
 		}
-	}
-
-	// Add Input Mapping Context
-	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
-	{
-		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
-		{
-			Subsystem->AddMappingContext(DefaultMappingContext, 0);
-			mGameMode->OnMappingContextAdded.Broadcast(mEnhancedInputComponent, PlayerController);
-		}
-	}
-
-	OnTakeAnyDamage.AddUniqueDynamic(this, &ADefaultPlayableCharacter::TakeCharacterDamage);
-	OnTakeRadialDamage.AddUniqueDynamic(this, &ADefaultPlayableCharacter::TakeCharacterRadialDamage);
+	}	
 }
 
 //////////////////////////////////////////////////////////////////////////// Input

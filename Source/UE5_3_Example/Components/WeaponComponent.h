@@ -26,8 +26,8 @@ public:
 	virtual void InitComponent(UWorld* InWorld, UObject* InOwnerObject) override;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputMappingContext* ThrowMappingContext;
+	UInputMappingContext* FireMappingContext;
 
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = Input, meta = (AllowPrivateAccess = "true"))
-	UInputAction* ThrowAction;
+	UInputAction* FireAction;
 };
